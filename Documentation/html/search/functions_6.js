@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['threedtoorthographic',['ThreeDToOrthographic',['../classThreeDGraph.html#a7f484956c7d616b6724e758ed43e5bed',1,'ThreeDGraph']]],
-  ['twodtothreed',['TwoDtoThreeD',['../classTwoDGraph.html#a54093bf95a87106de242cc8b8050243e',1,'TwoDGraph']]]
+  ['readfile',['ReadFile',['../classInput.html#a9d9395f68b01faa00f962791878723a2',1,'Input']]],
+  ['renderoutput2d',['RenderOutput2D',['../classOutput.html#a9766c258cad838c5779e0abc778a530d',1,'Output']]],
+  ['renderoutput3d',['RenderOutput3D',['../classOutput.html#a50c6da843dbf27d6238ed07082b31839',1,'Output']]]
 ];

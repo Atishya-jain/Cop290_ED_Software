@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['void',['void',['../classTwoD__Graph.html#aa60fc840df740cac21e03de3a6e5ff68',1,'TwoD_Graph::void()'],['../classThreeDGraph.html#a6c8abd6694c09a1a627ce4c284746974',1,'ThreeDGraph::void()']]]
+  ['readfile',['ReadFile',['../classInput.html#a9d9395f68b01faa00f962791878723a2',1,'Input']]],
+  ['renderoutput2d',['RenderOutput2D',['../classOutput.html#a9766c258cad838c5779e0abc778a530d',1,'Output']]],
+  ['renderoutput3d',['RenderOutput3D',['../classOutput.html#a50c6da843dbf27d6238ed07082b31839',1,'Output']]]
 ];

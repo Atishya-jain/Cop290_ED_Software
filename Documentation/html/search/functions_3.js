@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['planarprojection',['PlanarProjection',['../classThreeDGraph.html#a89922d3d78cdc0152dfd2974e66e7d5d',1,'ThreeDGraph']]]
+  ['hiddenedgecheck',['HiddenEdgeCheck',['../classThreeDGraph.html#a33b4bb0d5a42dba80e987b3d709347a0',1,'ThreeDGraph']]],
+  ['hiddenedgetest',['HiddenEdgeTest',['../classTwoDGraph.html#af25742b8b2903fe231a7ccbbfbb48e08',1,'TwoDGraph']]]
 ];

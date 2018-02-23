@@ -1,16 +1,103 @@
-#include <iostream>
-#include <string>
-#include <output>
+/*! \file */
+#include<bits/stdc++.h>
 
+/*! \class Input
+    \brief Input class.
+
+    This class contains the methods to input content from a file or drawing etc..
+*/
+class Input
+{
+  // Access specifier
+  public:
+
+  // Data Members
+  string filename; /*!< This is the filename*/
+  bool file = false; /*!< This is flag for checking interactive input or file input from the user*/ 
+  bool flag3Dfile = false; /*!< This is the recognition of 2D or 3D input file*/
+  ThreeDGraph obj3d; /*!< 3D object*/
+  TwoDGraph obj2d[3]; /*!< Array of 2D objects*/
+  int TwoDFileCount = 0; /*!< Count of 2D objects as there has to be 3 projections for our software to work on*/
+  /*!
+     Will prompt the user for filename or through GUI
+  */
+  void getFileName(){
+    cout << "Enter File Name: ";
+    cin >> filename;
+    ReadFile();
+  }
+
+  /*!
+    \sa getOptions()
+     Will display the main page of GUI with options
+  */
+  void displayOptions(){
+    /*
+        Display the options
+    */
+    getOptions();
+  }
+
+  /*!
+     Will set the options/settings user desires
+    \param flag3Dfile To check if 3D model file is input or a 2D model file.
+    \param flag3Dfile To check if file is input or an intercative input.
+  */
+  void getOptions(){
+    /*
+        Display the options
+    */
+    if(/*Some Condition*/){
+      file = true;
+    }else{
+      file = false;
+    }
+
+    if(/*Some Condition*/){
+      flag3Dfile = true;
+    }else{
+      flag3Dfile = false;
+    }
+  }
+
+  /*!
+    \param filename a string argument.
+    \param flag3Dfile boolean character to tell the type of file (3D/2D).
+  */
+  void ReadFile(){
+    std::vector<char> v;
+    if (FILE *fp = fopen("filename", "r"))
+    {
+      char buf[1024];
+      while (size_t len = fread(buf, 1, sizeof(buf), fp))
+        v.insert(v.end(), buf, buf + len);
+      fclose(fp);
+    }
+    if(/*File type == 3D*/){
+      obj3d.ThreeDgraph = v;
+    }else{
+      obj2d[TwoDFileCount].TwoDGraph = v;
+      TwoDFileCount++;
+      if(TwoDFileCount < 3){
+        getFileName();
+      }
+    }
+  }
+
+};
+
+
+
+/*! \class Output
+    \brief Render and save class.
+
+    This class contains the methods to render the object on screen as well as save it in a file.
+*/
 class Output
 {
     // Access specifier
     public:
- 	/** Class for 2D graph and its functions. 
-     *  This class has all the functionalities that a 2D object can possess
-     *  in the software. It can be rotated and converted into isometric from 2 orthographic projections
-     *  along some plane.  
-     */
+
     // Data Members
     string 2DGraph1; /*!< This is the 1st orthographic projection */
     string 2DGraph2; /*!< This is the 2nd orthographic projection */
@@ -61,19 +148,23 @@ class Output
 };
 
 
+
+
+
+/*! \class TwoDGraph
+    \brief 2D behaviour class.
+
+    This class has all the functionalities that a 2D object can possess
+    in the software. It can be rotated and converted into isometric from 2 orthographic projections
+    along some plane.  
+*/
 class TwoDGraph
 {
     // Access specifier
     public:
- 	/** Class for 2D graph and its functions. 
-     *  This class has all the functionalities that a 2D object can possess
-     *  in the software. It can be rotated and converted into isometric from 2 orthographic projections
-     *  along some plane.  
-     */
+
     // Data Members
-    string TwoDGraph1; /*!< This is the 1st orthographic projection */
-    string 2DGraph2; /*!< This is the 2nd orthographic projection */
-    string 2DGraph3; /*!< This is the 3rd orthographic projection */
+    string TwoDGraph; /*!< This is an orthographic projection */
  
 	//! A Member function.
     /*!
@@ -127,17 +218,19 @@ class TwoDGraph
 };
 
 
+/*! \class ThreeDGraph
+    \brief 3D behaviour class.
+
+    This class has all the functionalities that a 3D object can possess
+    in the software. It can be rotated, projected along some plane or 
+    can give its orthographic projections
+*/
 class ThreeDGraph
 {
     // Access specifier
     public:
- 	/** Class for 3D graph and its functions. 
-     *  This class has all the functionalities that a 3D object can possess
-     *  in the software. It can be rotated, projected along some plane or 
-     *  can give its orthographic projections  
-     */
     // Data Members
-    string 3DGraph;
+    string ThreeDGraph; /*!< This is the 3D graph representation */
  
 	//! A Member function.
     /*!
@@ -180,51 +273,11 @@ class ThreeDGraph
     }
 };
 
-void displayOptions(){
-
-}
-
-void ReadFile(/*File type*/){
-	std::vector<char> v;
-	if (FILE *fp = fopen("filename", "r"))
-	{
-		char buf[1024];
-		while (size_t len = fread(buf, 1, sizeof(buf), fp))
-			v.insert(v.end(), buf, buf + len);
-		fclose(fp);
-	}
-	3DGraph obj3d;
-	2DGraph obj2d;
-	if(/*File type == 3D*/){
-		obj3d.3Dgraph = v;
-	}else{
-		obj3d.2Dgraph = v;
-	}
-}
-
 int main(){
-	string fileName;
-	std::cout << "Please enter the file name: ";
-	std::cin >> fileName;
-	
-	//! A function.
-    /*!
-      \sa displayOptions()
-       Will display the main page of GUI with options
-    */
-	displayOptions();
-
-	//! A function.
-    !
-      \sa ReadFile()
-      \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
-    
-	if(/*3D file input*/){
-		ReadFile(filename, flag3Dfile);
-	}else{
-		ReadFile(filename, flag3Dfile);
-	}
-
+  Input input;
+  input.displayOptions();
+  if(input.file){
+    input.getFileName();
+  }
 	return 0;
 }

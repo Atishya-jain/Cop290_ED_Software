@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['modelrotation',['ModelRotation',['../classTwoDGraph.html#a1eb77cb9e303bdcd28f985a1f3ca02b4',1,'TwoDGraph::ModelRotation()'],['../classThreeDGraph.html#abc739a0c4de5c007b113558992d96968',1,'ThreeDGraph::ModelRotation()']]]
+  ['getfilename',['getFileName',['../classInput.html#abb4311267ded94768e6df9cb88b179bb',1,'Input']]],
+  ['getoptions',['getOptions',['../classInput.html#af0a5bad322752da31bcd7b1e2d99d611',1,'Input']]]
 ];

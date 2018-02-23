@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['void',['void',['../class__D__Graph.html#a0028473086438fcf74e68185f1a6a34d',1,'_D_Graph::void()'],['../classDGraph.html#aac82f625da6ff0ac133237eaad059e64',1,'DGraph::void()']]]
+  ['savetofile2d',['saveToFile2D',['../classOutput.html#aa9ea0df4774ce32a319bdb1b3a6712a8',1,'Output']]],
+  ['savetofile3d',['saveToFile3D',['../classOutput.html#aa16a2893d743f7c218c026efa3e65718',1,'Output']]],
+  ['string',['string',['../classOutput.html#a487d3092cc5c01de91fa7a130867150b',1,'Output']]]
 ];

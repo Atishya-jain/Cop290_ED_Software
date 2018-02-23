@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['twodgraph1',['TwoDGraph1',['../classTwoDGraph.html#ae842ed89c9e1e66c81aaecae003510f3',1,'TwoDGraph']]]
+  ['obj2d',['obj2d',['../classInput.html#a9564e8dcf0ba881f46a89e51840836d9',1,'Input']]],
+  ['obj3d',['obj3d',['../classInput.html#ab12646f36b9b1eeeb3aa09adf8cec077',1,'Input']]]
 ];

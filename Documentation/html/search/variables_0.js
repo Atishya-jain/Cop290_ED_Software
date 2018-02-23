@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['string',['string',['../classOutput.html#a487d3092cc5c01de91fa7a130867150b',1,'Output::string()'],['../classTwoDGraph.html#ab537370d1b1d448f9bba38f6b9f7b7ee',1,'TwoDGraph::string()'],['../classThreeDGraph.html#aa428236bdac3937b96f2d361161eaae5',1,'ThreeDGraph::string()']]]
+  ['file',['file',['../classInput.html#ad073fa115ead2e8b7492214215ebd22d',1,'Input']]],
+  ['filename',['filename',['../classInput.html#af296359065236ac9139aab7736d6844d',1,'Input']]],
+  ['flag3dfile',['flag3Dfile',['../classInput.html#a64eaf835cd488ddd44e9e77fc9c917cf',1,'Input']]]
 ];
