@@ -41,7 +41,7 @@ class Input
   /*!
      Will set the options/settings user desires
     \param flag3Dfile To check if 3D model file is input or a 2D model file.
-    \param flag3Dfile To check if file is input or an intercative input.
+    \param file To check if file is input or an intercative input.
   */
   void getOptions(){
     /*
@@ -273,11 +273,135 @@ class ThreeDGraph
     }
 };
 
+
+
+/*! \class Interactive_editor
+    \brief Editor class.
+
+    This class contains the methods to edit a drawing or to play with a model drawing
+*/
+class Interactive_editor
+{
+  // Access specifier
+  public:
+
+  // Data Members
+  ThreeDGraph obj3d; /*!< 3D object*/
+  TwoDGraph obj2d[3]; /*!< Array of 2D objects*/
+  bool type = false; /*!< Type is to tell whether it is a 3D or 2D graph here*/
+  int TwoDFileNumber = 0; /*!< This identifies the projection we are working with of 2D objects. By Default it is set to 1st projection*/
+  bool drawing = false; /*!< This flag is set to identify whether user wants to draw or input a file. By Default it is set to file*/
+  bool lineDraw = false; /*!< This flag is set to identify whether user wants to draw a line or not*/
+  bool circleDraw = false; /*!< This flag is set to identify whether user wants to draw a circle or not*/
+  bool erase = false; /*!< This flag is set to identify whether user wants to erase something or not*/
+  bool extrude = false; /*!< This flag is set to identify whether user wants to extrude something or not*/
+  int point1 = 0; /*!< This is the initial point of the line*/
+  int point2 = 0; /*!< This is the final point of the line*/
+  int thickness = 0; /*!< This is the thickness of the line*/
+  int color = 0; /*!< This is the color of the line*/
+  int height = 0; /*!< This is the height of extrusion*/
+  int centre = 0; /*!< This is the height of extrusion*/
+  /*!
+     Will set the options/settings user desires
+    \param drawing To check if user wants to draw something or want to edit the current drawing.
+    \param linedraw To check if user wants to draw a line.
+    \param circledraw To check if user wants to draw a cicle.
+    \param erase To check if user wants to erase something.
+    \param extrude To check if user wants to extrude a plane.
+    \param flag3Dfile To check if file is input or an intercative input.
+  */
+  void userInput(){
+    /*
+        Display the options
+    */
+    if(/*Some condition to change to drawing mode*/){
+      drawing = true;
+    }else{
+      drawing = false;
+    }
+
+    if(drawing){
+      /*Set of options related to drawing*/
+      if(lineDraw){
+        drawLine();
+      }
+      if(circleDraw){
+        drawCircle();
+      }
+      if(erase){
+        eraseIt();
+      }
+      if(extrude){
+        extrusion();
+      }
+    }else{
+      // set of options not related to drawing
+    }
+  }
+  
+  /*!
+     Will display the options/settings user desires
+  */
+  void displayOptions(){
+    /*Display various options*/
+  }
+
+  /*!
+     Will set the options/settings user desires
+    \param poin1 To get 1st point of line.
+    \param poin2 To get 2nd point of line.
+    \param thickness To get thickness of line.
+    \param color To get color of the line.
+  */
+  void drawLine(){
+    /*Display various options*/
+    userInput();
+  }
+
+  /*!
+     Will set the options/settings user desires
+    \param centre To get center of circle.
+    \param point2 To get a point on circumference.
+    \param thickness To get thickness of circle.
+    \param color To get color of the circle.
+  */
+  void drawCircle(){
+    /*Display various options*/
+    userInput();
+  }
+
+  /*!
+     Will set the options/settings user desires
+  */
+  void eraseIt(){
+    /*Display various options*/
+    userInput();
+  }
+
+  /*!
+     Will extrude the object
+     \param plane
+     \param height
+  */
+  void extrude(){
+    /*Display various options*/
+    userInput();
+  }
+};
+
+/*! \fn main()*/
 int main(){
   Input input;
   input.displayOptions();
   if(input.file){
     input.getFileName();
   }
+  Interactive_editor edit;
+  edit.obj3d = input.obj3d; // To point to same graph and not be equal
+  edit.obj2d = input.obj2d; // To point to same graph and not be equal
+  edit.drawing = (!input.file) // To set the type of editing to edit object
+  edit.UserInput();
 	return 0;
 }
+
+// Our aim is not to create duplicatesof graph everywhere but only to use pointers to point to one graph

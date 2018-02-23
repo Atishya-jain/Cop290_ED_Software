@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['planarprojection',['PlanarProjection',['../classThreeDGraph.html#a89922d3d78cdc0152dfd2974e66e7d5d',1,'ThreeDGraph']]]
+  ['modelrotation',['ModelRotation',['../classTwoDGraph.html#a1eb77cb9e303bdcd28f985a1f3ca02b4',1,'TwoDGraph::ModelRotation()'],['../classThreeDGraph.html#abc739a0c4de5c007b113558992d96968',1,'ThreeDGraph::ModelRotation()']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['threedgraph',['ThreeDGraph',['../classThreeDGraph.html#ab2553252d92e1a3e81e58b81ef95220a',1,'ThreeDGraph']]],
-  ['twodfilecount',['TwoDFileCount',['../classInput.html#a82141fe9142aec447f9ef52fd2f78c73',1,'Input']]],
-  ['twodgraph',['TwoDGraph',['../classTwoDGraph.html#a786f5077be86666958f4037e131704be',1,'TwoDGraph']]]
+  ['file',['file',['../classInput.html#ad073fa115ead2e8b7492214215ebd22d',1,'Input']]],
+  ['filename',['filename',['../classInput.html#af296359065236ac9139aab7736d6844d',1,'Input']]],
+  ['flag3dfile',['flag3Dfile',['../classInput.html#a64eaf835cd488ddd44e9e77fc9c917cf',1,'Input']]]
 ];
