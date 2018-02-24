@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['erase',['erase',['../classInteractive__editor.html#ac2f2f1dfb6c21585d4ed5ed043e41b25',1,'Interactive_editor']]],
-  ['eraseit',['eraseIt',['../classInteractive__editor.html#a29bd8d4ac9bff675360a661ab9f04db4',1,'Interactive_editor']]],
-  ['extrude',['extrude',['../classInteractive__editor.html#a3e4db48e715e92969ba3ec52ab14ce8d',1,'Interactive_editor::extrude()'],['../classInteractive__editor.html#a6543fe863fa4a902fb4dd71cf6318533',1,'Interactive_editor::extrude()']]]
+  ['centre',['centre',['../classInteractive__editor.html#acb67c8393df8fe6f6f938f0609f24050',1,'Interactive_editor']]],
+  ['circledraw',['circleDraw',['../classInteractive__editor.html#a1d7855fd44f17fb78dbb86e8b7962758',1,'Interactive_editor']]],
+  ['color',['color',['../classInteractive__editor.html#a8bb78acdc55bebbe34bc545eb720217c',1,'Interactive_editor']]]
 ];

@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['savetofile2d',['saveToFile2D',['../classOutput.html#aa9ea0df4774ce32a319bdb1b3a6712a8',1,'Output']]],
-  ['savetofile3d',['saveToFile3D',['../classOutput.html#aa16a2893d743f7c218c026efa3e65718',1,'Output']]],
-  ['string',['string',['../classOutput.html#a487d3092cc5c01de91fa7a130867150b',1,'Output']]]
+  ['planarprojection',['PlanarProjection',['../classThreeDGraph.html#a89922d3d78cdc0152dfd2974e66e7d5d',1,'ThreeDGraph']]],
+  ['planeobj',['planeObj',['../classInteractive__editor.html#aed0bc7a1d2cafae39f3fbf2eb119649c',1,'Interactive_editor']]],
+  ['point1',['point1',['../classInteractive__editor.html#a07fe2897bcad8eabf5b98e01a162b2a1',1,'Interactive_editor']]],
+  ['point2',['point2',['../classInteractive__editor.html#af60245cb328db4c6b1ca00f1512dfc75',1,'Interactive_editor']]],
+  ['point3',['point3',['../classInteractive__editor.html#a9b368072fc0a220476d21079b4bcb739',1,'Interactive_editor']]]
 ];

@@ -5,6 +5,6 @@ digraph "Interactive_editor"
   Node1 [label="Interactive_editor",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" obj3d" ,fontname="Helvetica"];
   Node2 [label="ThreeDGraph",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classThreeDGraph.html",tooltip="3D behaviour class. "];
-  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" obj2d" ,fontname="Helvetica"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" planeObj\nobj2d" ,fontname="Helvetica"];
   Node3 [label="TwoDGraph",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTwoDGraph.html",tooltip="2D behaviour class. "];
 }
