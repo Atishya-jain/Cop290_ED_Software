@@ -1,25 +1,26 @@
 /*! \file */
 #include<bits/stdc++.h>
+#include <Index.cpp>
+#include <Graphs.cpp>
 #include <InputSrc.cpp>
 #include <OutputSrc.cpp>
 #include <2DProcessingSrc.cpp>
-#include <3DProcessingSrc.cpp>
 #include <InteractiveSrc.cpp>
 
 
-/*! \class ThreeDGraph
+/*! \class ThreeDGraph_class
     \brief 3D behaviour class.
 
     This class has all the functionalities that a 3D object can possess
     in the software. It can be rotated, projected along some plane or 
     can give its orthographic projections
 */
-class ThreeDGraph
+class ThreeDGraph_class
 {
     // Access specifier
     public:
     // Data Members
-    string ThreeDGraph; /*!< This is the 3D graph representation */
+    static string ThreeDGraph; /*!< This is the 3D graph representation */
  
 	//! A Member function.
     /*!

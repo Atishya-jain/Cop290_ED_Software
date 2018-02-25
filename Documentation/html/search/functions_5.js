@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['modelrotation',['ModelRotation',['../classTwoDGraph.html#a1eb77cb9e303bdcd28f985a1f3ca02b4',1,'TwoDGraph::ModelRotation()'],['../classThreeDGraph.html#abc739a0c4de5c007b113558992d96968',1,'ThreeDGraph::ModelRotation()']]]
+  ['modelrotation',['ModelRotation',['../classTwoDGraph__class.html#ac9bc0b813d3d557af8c22f49b5b24444',1,'TwoDGraph_class::ModelRotation()'],['../classThreeDGraph__class.html#a4fdbe3499c65fbe0a3e73fa5f69b4ef4',1,'ThreeDGraph_class::ModelRotation()']]]
 ];

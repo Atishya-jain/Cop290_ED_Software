@@ -1,7 +1,8 @@
 /*! \file */
 #include<bits/stdc++.h>
+#include <Index.cpp>
+#include <Graphs.cpp>
 #include <InputSrc.cpp>
-#include <OutputSrc.cpp>
 #include <2DProcessingSrc.cpp>
 #include <3DProcessingSrc.cpp>
 #include <InteractiveSrc.cpp>

@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -92,12 +94,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><a class="el" href="classInput.html" title="Input class. ">Input</a> class.  
  <a href="classInput.html#details">More...</a></p>
-<div class="dynheader">
-Collaboration diagram for Input:</div>
-<div class="dyncontent">
-<div class="center"><img src="classInput__coll__graph.png" border="0" usemap="#Input_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 0 -->
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -116,12 +112,6 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af296359065236ac9139aab7736d6844d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad073fa115ead2e8b7492214215ebd22d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#ad073fa115ead2e8b7492214215ebd22d">file</a> = false</td></tr>
 <tr class="separator:ad073fa115ead2e8b7492214215ebd22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64eaf835cd488ddd44e9e77fc9c917cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a64eaf835cd488ddd44e9e77fc9c917cf">flag3Dfile</a> = false</td></tr>
-<tr class="separator:a64eaf835cd488ddd44e9e77fc9c917cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12646f36b9b1eeeb3aa09adf8cec077"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThreeDGraph.html">ThreeDGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#ab12646f36b9b1eeeb3aa09adf8cec077">obj3d</a></td></tr>
-<tr class="separator:ab12646f36b9b1eeeb3aa09adf8cec077"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9564e8dcf0ba881f46a89e51840836d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTwoDGraph.html">TwoDGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a9564e8dcf0ba881f46a89e51840836d9">obj2d</a> [3]</td></tr>
-<tr class="separator:a9564e8dcf0ba881f46a89e51840836d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82141fe9142aec447f9ef52fd2f78c73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a82141fe9142aec447f9ef52fd2f78c73">TwoDFileCount</a> = 0</td></tr>
 <tr class="separator:a82141fe9142aec447f9ef52fd2f78c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -199,7 +189,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Will set the options/settings user desires </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">flag3Dfile</td><td>To check if 3D model file is input or a 2D model file. </td></tr>
+    <tr><td class="paramname">ThreeDorTwoD</td><td>To check if 3D model file is input or a 2D model file. </td></tr>
     <tr><td class="paramname">file</td><td>To check if file is input or an intercative input. </td></tr>
   </table>
   </dd>
@@ -230,7 +220,7 @@ Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>a string argument. </td></tr>
-    <tr><td class="paramname">flag3Dfile</td><td>boolean character to tell the type of file (3D/2D). </td></tr>
+    <tr><td class="paramname">ThreeDorTwoD</td><td>boolean character to tell the type of file (3D/2D). </td></tr>
   </table>
   </dd>
 </dl>
@@ -261,45 +251,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This is the filename </p>
-
-</div>
-</div>
-<a class="anchor" id="a64eaf835cd488ddd44e9e77fc9c917cf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Input::flag3Dfile = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This is the recognition of 2D or 3D input file </p>
-
-</div>
-</div>
-<a class="anchor" id="a9564e8dcf0ba881f46a89e51840836d9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classTwoDGraph.html">TwoDGraph</a> Input::obj2d[3]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Array of 2D objects </p>
-
-</div>
-</div>
-<a class="anchor" id="ab12646f36b9b1eeeb3aa09adf8cec077"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classThreeDGraph.html">ThreeDGraph</a> Input::obj3d</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>3D object </p>
 
 </div>
 </div>

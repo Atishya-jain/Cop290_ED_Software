@@ -3,8 +3,10 @@ digraph "Interactive_editor"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="Interactive_editor",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" obj3d" ];
-  Node2 [label="ThreeDGraph",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classThreeDGraph.html",tooltip="3D behaviour class. "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Output",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOutput.html",tooltip="Render and save class. "];
   Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" planeObj\nobj2d" ];
-  Node3 [label="TwoDGraph",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTwoDGraph.html",tooltip="2D behaviour class. "];
+  Node3 [label="TwoDGraph_class",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTwoDGraph__class.html",tooltip="2D behaviour class. "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" obj3d" ];
+  Node4 [label="ThreeDGraph_class",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classThreeDGraph__class.html",tooltip="3D behaviour class. "];
 }

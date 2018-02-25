@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['facerecognition',['faceRecognition',['../classTwoDGraph.html#a7606c71011057d955db34a43e672ffd9',1,'TwoDGraph']]],
-  ['falsenodedetect',['FalseNodeDetect',['../classTwoDGraph.html#a48b9e1804733df394bd2bc2c78fec6aa',1,'TwoDGraph']]]
+  ['facerecognition',['faceRecognition',['../classTwoDGraph__class.html#af0b7cb652fec315e79e0f4826c64ae6d',1,'TwoDGraph_class']]],
+  ['falsenodedetect',['FalseNodeDetect',['../classTwoDGraph__class.html#aac6062b9859be331a44d1fe61036d5a1',1,'TwoDGraph_class']]]
 ];

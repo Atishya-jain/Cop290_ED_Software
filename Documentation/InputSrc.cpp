@@ -1,10 +1,11 @@
 /*! \file */
 #include<bits/stdc++.h>
-#include <InputSrc.cpp>
+#include <Index.cpp>
 #include <OutputSrc.cpp>
 #include <2DProcessingSrc.cpp>
 #include <3DProcessingSrc.cpp>
 #include <InteractiveSrc.cpp>
+#include <Graphs.cpp>
 
 /*! \class Input
     \brief Input class.
@@ -13,15 +14,13 @@
 */
 class Input
 {
+
   // Access specifier
   public:
 
   // Data Members
   string filename; /*!< This is the filename*/
   bool file = false; /*!< This is flag for checking interactive input or file input from the user*/ 
-  bool flag3Dfile = false; /*!< This is the recognition of 2D or 3D input file*/
-  ThreeDGraph obj3d; /*!< 3D object*/
-  TwoDGraph obj2d[3]; /*!< Array of 2D objects*/
   int TwoDFileCount = 0; /*!< Count of 2D objects as there has to be 3 projections for our software to work on*/
   /*!
      Will prompt the user for filename or through GUI
@@ -38,14 +37,14 @@ class Input
   */
   void displayOptions(){
     /*
-        Display the options
+        Display the options like to input in a file or draw
     */
     getOptions();
   }
 
   /*!
      Will set the options/settings user desires
-    \param flag3Dfile To check if 3D model file is input or a 2D model file.
+    \param ThreeDorTwoD To check if 3D model file is input or a 2D model file.
     \param file To check if file is input or an intercative input.
   */
   void getOptions(){
@@ -60,15 +59,15 @@ class Input
     }
 
     if(/*Some Condition*/){
-      flag3Dfile = true;
+      graph::ThreeDorTwoD = true;
     }else{
-      flag3Dfile = false;
+      graph::ThreeDorTwoD = false;
     }
   }
 
   /*!
     \param filename a string argument.
-    \param flag3Dfile boolean character to tell the type of file (3D/2D).
+    \param ThreeDorTwoD boolean character to tell the type of file (3D/2D).
   */
   void ReadFile(){
     std::vector<char> v;
@@ -79,10 +78,10 @@ class Input
         v.insert(v.end(), buf, buf + len);
       fclose(fp);
     }
-    if(/*File type == 3D*/){
-      obj3d.ThreeDgraph = v;
+    if(graph::ThreeDorTwoD){
+      graph::ThreeDgraph = v;
     }else{
-      obj2d[TwoDFileCount].TwoDGraph = v;
+      graph::TwoDGraphs.[TwoDFileCount] = v;
       TwoDFileCount++;
       if(TwoDFileCount < 3){
         getFileName();

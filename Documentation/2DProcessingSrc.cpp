@@ -1,26 +1,29 @@
 /*! \file */
 #include<bits/stdc++.h>
+#include <Index.cpp>
+#include <Graphs.cpp>
 #include <InputSrc.cpp>
 #include <OutputSrc.cpp>
-#include <2DProcessingSrc.cpp>
 #include <3DProcessingSrc.cpp>
 #include <InteractiveSrc.cpp>
 
 
-/*! \class TwoDGraph
+/*! \class TwoDGraph_class
     \brief 2D behaviour class.
 
     This class has all the functionalities that a 2D object can possess
     in the software. It can be rotated and converted into isometric from 2 orthographic projections
     along some plane.  
 */
-class TwoDGraph
+class TwoDGraph_class
 {
     // Access specifier
     public:
 
     // Data Members
-    string TwoDGraph; /*!< This is an orthographic projection */
+    static string TwoDGraphMain; /*!< This is an orthographic projection */
+    static string TwoDGraph1; /*!< This is an orthographic projection */
+    static string TwoDGraph2; /*!< This is an orthographic projection */
  
 	//! A Member function.
     /*!

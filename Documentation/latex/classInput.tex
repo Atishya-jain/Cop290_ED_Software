@@ -5,10 +5,6 @@
 \hyperlink{classInput}{Input} class.  
 
 
-
-
-Collaboration diagram for Input\+:
-% FIG 0
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,12 +22,6 @@ void \hyperlink{classInput_a9d9395f68b01faa00f962791878723a2}{Read\+File} ()
 string \hyperlink{classInput_af296359065236ac9139aab7736d6844d}{filename}
 \item 
 bool \hyperlink{classInput_ad073fa115ead2e8b7492214215ebd22d}{file} = false
-\item 
-bool \hyperlink{classInput_a64eaf835cd488ddd44e9e77fc9c917cf}{flag3\+Dfile} = false
-\item 
-\hyperlink{classThreeDGraph}{Three\+D\+Graph} \hyperlink{classInput_ab12646f36b9b1eeeb3aa09adf8cec077}{obj3d}
-\item 
-\hyperlink{classTwoDGraph}{Two\+D\+Graph} \hyperlink{classInput_a9564e8dcf0ba881f46a89e51840836d9}{obj2d} \mbox{[}3\mbox{]}
 \item 
 int \hyperlink{classInput_a82141fe9142aec447f9ef52fd2f78c73}{Two\+D\+File\+Count} = 0
 \end{DoxyCompactItemize}
@@ -69,7 +59,7 @@ Will prompt the user for filename or through G\+UI \index{Input@{Input}!get\+Opt
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInput_af0a5bad322752da31bcd7b1e2d99d611}{}\label{classInput_af0a5bad322752da31bcd7b1e2d99d611}
 Will set the options/settings user desires 
 \begin{DoxyParams}{Parameters}
-{\em flag3\+Dfile} & To check if 3D model file is input or a 2D model file. \\
+{\em Three\+Dor\+TwoD} & To check if 3D model file is input or a 2D model file. \\
 \hline
 {\em file} & To check if file is input or an intercative input. \\
 \hline
@@ -85,7 +75,7 @@ Will set the options/settings user desires
 \begin{DoxyParams}{Parameters}
 {\em filename} & a string argument. \\
 \hline
-{\em flag3\+Dfile} & boolean character to tell the type of file (3\+D/2D). \\
+{\em Three\+Dor\+TwoD} & boolean character to tell the type of file (3\+D/2D). \\
 \hline
 \end{DoxyParams}
 
@@ -97,16 +87,7 @@ Will set the options/settings user desires
 This is flag for checking interactive input or file input from the user \index{Input@{Input}!filename@{filename}}
 \index{filename@{filename}!Input@{Input}}
 \subsubsection[{\texorpdfstring{filename}{filename}}]{\setlength{\rightskip}{0pt plus 5cm}string Input\+::filename}\hypertarget{classInput_af296359065236ac9139aab7736d6844d}{}\label{classInput_af296359065236ac9139aab7736d6844d}
-This is the filename \index{Input@{Input}!flag3\+Dfile@{flag3\+Dfile}}
-\index{flag3\+Dfile@{flag3\+Dfile}!Input@{Input}}
-\subsubsection[{\texorpdfstring{flag3\+Dfile}{flag3Dfile}}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+::flag3\+Dfile = false}\hypertarget{classInput_a64eaf835cd488ddd44e9e77fc9c917cf}{}\label{classInput_a64eaf835cd488ddd44e9e77fc9c917cf}
-This is the recognition of 2D or 3D input file \index{Input@{Input}!obj2d@{obj2d}}
-\index{obj2d@{obj2d}!Input@{Input}}
-\subsubsection[{\texorpdfstring{obj2d}{obj2d}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Two\+D\+Graph} Input\+::obj2d\mbox{[}3\mbox{]}}\hypertarget{classInput_a9564e8dcf0ba881f46a89e51840836d9}{}\label{classInput_a9564e8dcf0ba881f46a89e51840836d9}
-Array of 2D objects \index{Input@{Input}!obj3d@{obj3d}}
-\index{obj3d@{obj3d}!Input@{Input}}
-\subsubsection[{\texorpdfstring{obj3d}{obj3d}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Three\+D\+Graph} Input\+::obj3d}\hypertarget{classInput_ab12646f36b9b1eeeb3aa09adf8cec077}{}\label{classInput_ab12646f36b9b1eeeb3aa09adf8cec077}
-3D object \index{Input@{Input}!Two\+D\+File\+Count@{Two\+D\+File\+Count}}
+This is the filename \index{Input@{Input}!Two\+D\+File\+Count@{Two\+D\+File\+Count}}
 \index{Two\+D\+File\+Count@{Two\+D\+File\+Count}!Input@{Input}}
 \subsubsection[{\texorpdfstring{Two\+D\+File\+Count}{TwoDFileCount}}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+::\+Two\+D\+File\+Count = 0}\hypertarget{classInput_a82141fe9142aec447f9ef52fd2f78c73}{}\label{classInput_a82141fe9142aec447f9ef52fd2f78c73}
 Count of 2D objects as there has to be 3 projections for our software to work on 

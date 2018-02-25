@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['threedtoorthographic',['ThreeDToOrthographic',['../classThreeDGraph.html#a7f484956c7d616b6724e758ed43e5bed',1,'ThreeDGraph']]],
-  ['twodtothreed',['TwoDtoThreeD',['../classTwoDGraph.html#a54093bf95a87106de242cc8b8050243e',1,'TwoDGraph']]]
+  ['threedtoorthographic',['ThreeDToOrthographic',['../classThreeDGraph__class.html#ae69c2ee22498d903d1afa6b988edd1b6',1,'ThreeDGraph_class']]],
+  ['twodtothreed',['TwoDtoThreeD',['../classTwoDGraph__class.html#a48222790dda1c34caf1366ce1cc0ce1d',1,'TwoDGraph_class']]]
 ];
