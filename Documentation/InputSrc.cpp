@@ -1,10 +1,5 @@
 /*! \file */
-#include<bits/stdc++.h>
-#include <Index.cpp>
-#include <OutputSrc.cpp>
-#include <2DProcessingSrc.cpp>
-#include <3DProcessingSrc.cpp>
-#include <InteractiveSrc.cpp>
+#include <bits/stdc++.h>
 #include <Graphs.cpp>
 
 /*! \class Input
@@ -44,7 +39,7 @@ class Input
 
   /*!
      Will set the options/settings user desires
-    \param ThreeDorTwoD To check if 3D model file is input or a 2D model file.
+    \param graph::ThreeDorTwoD To check if 3D model file is input or a 2D model file.
     \param file To check if file is input or an intercative input.
   */
   void getOptions(){

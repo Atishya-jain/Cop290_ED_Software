@@ -1,15 +1,13 @@
 /*! \file */
-#include<bits/stdc++.h>
-#include <Index.cpp>
+#include <bits/stdc++.h>
 #include <Graphs.cpp>
-#include <InputSrc.cpp>
 #include <OutputSrc.cpp>
 #include <2DProcessingSrc.cpp>
 #include <3DProcessingSrc.cpp>
 
 /*! \class Interactive_editor
     \brief Editor class.
-
+  
     This class contains the methods to edit a drawing or to play with a model drawing
 */
 class Interactive_editor: public Output
@@ -49,9 +47,9 @@ class Interactive_editor: public Output
 
   Interactive_editor(){
   	obj3d.ThreeDGraph = ThreeDGraph; // To create a copy of main graph in graph class in here
-  	obj2d[0].TwoDGraph = TwoDGraphs[0]; // To create a copy of main 2D graph in graph class in here
-  	obj2d[1].TwoDGraph = TwoDGraphs[1]; // To create a copy of main 2D graph in graph class in here
-  	obj2d[2].TwoDGraph = TwoDGraphs[2]; // To create a copy of main 2D graph in graph class in here
+  	obj2d[0].TwoDGraphMain = TwoDGraphs[0]; // To create a copy of main 2D graph in graph class in here
+  	obj2d[1].TwoDGraphMain = TwoDGraphs[1]; // To create a copy of main 2D graph in graph class in here
+  	obj2d[2].TwoDGraphMain = TwoDGraphs[2]; // To create a copy of main 2D graph in graph class in here
   	saved = false;
   	type = graph::ThreeDOrTwoD;
   	TwoDFileNumber = 0;

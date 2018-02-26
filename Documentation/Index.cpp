@@ -1,5 +1,5 @@
 /*! \file */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #include <Graphs.cpp>
 #include <InputSrc.cpp>
 #include <OutputSrc.cpp>

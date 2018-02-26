@@ -1,11 +1,6 @@
 /*! \file */
-#include<bits/stdc++.h>
-#include <Index.cpp>
+#include <bits/stdc++.h>
 #include <Graphs.cpp>
-#include <InputSrc.cpp>
-#include <2DProcessingSrc.cpp>
-#include <3DProcessingSrc.cpp>
-#include <InteractiveSrc.cpp>
 
 
 /*! \class Output

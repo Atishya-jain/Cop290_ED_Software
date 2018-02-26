@@ -1,11 +1,6 @@
 /*! \file */
-#include<bits/stdc++.h>
-#include <Index.cpp>
+#include <bits/stdc++.h>
 #include <Graphs.cpp>
-#include <InputSrc.cpp>
-#include <OutputSrc.cpp>
-#include <3DProcessingSrc.cpp>
-#include <InteractiveSrc.cpp>
 
 
 /*! \class TwoDGraph_class
@@ -24,16 +19,6 @@ class TwoDGraph_class
     static string TwoDGraphMain; /*!< This is an orthographic projection */
     static string TwoDGraph1; /*!< This is an orthographic projection */
     static string TwoDGraph2; /*!< This is an orthographic projection */
- 
-	//! A Member function.
-    /*!
-      \sa ModelRotation()
-      \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
-    */
-    void ModelRotation()
-    {
-    }
 
 	//! A Member function.
     /*!
