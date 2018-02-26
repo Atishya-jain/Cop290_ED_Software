@@ -42,12 +42,12 @@ class Interactive_editor: public Output
   int thickness; /*!< This is the thickness of the line*/
   int color0; /*!< This is the color of the line*/
   int height; /*!< This is the height of extrusion*/
-  int centre; /*!< This is the height of extrusion*/
+  int centre; /*!< This is the height of extrusion WHAT IS THIS? REPETITION3*/
 
 
   Interactive_editor(){
   	obj3d.ThreeDGraph = ThreeDGraph; // To create a copy of main graph in graph class in here
-  	obj2d[0].TwoDGraphMain = TwoDGraphs[0]; // To create a copy of main 2D graph in graph class in here
+/*Why you added "main"*/  	obj2d[0].TwoDGraphMain = TwoDGraphs[0]; // To create a copy of main 2D graph in graph class in here
   	obj2d[1].TwoDGraphMain = TwoDGraphs[1]; // To create a copy of main 2D graph in graph class in here
   	obj2d[2].TwoDGraphMain = TwoDGraphs[2]; // To create a copy of main 2D graph in graph class in here
   	saved = false;

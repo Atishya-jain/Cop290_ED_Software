@@ -16,6 +16,7 @@ class TwoDGraph_class
     public:
 
     // Data Members
+      //ITNE GANDE NAAM KYU
     static string TwoDGraphMain; /*!< This is an orthographic projection */
     static string TwoDGraph1; /*!< This is an orthographic projection */
     static string TwoDGraph2; /*!< This is an orthographic projection */

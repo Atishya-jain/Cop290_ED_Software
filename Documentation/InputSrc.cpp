@@ -47,7 +47,7 @@ class Input
         Display the options
         cin >> something
     */
-    if(/*Some Condition*/){
+    if(/*Some Condition*/){  //one idea is that, this would be set to false, when the file hadn't already existed. Like you have file dialog boxes where they say, "this file doesn't already exist. Do you want to create one?""
       file = true;
     }else{
       file = false;
