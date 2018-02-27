@@ -16,15 +16,26 @@ class ThreeDGraph_class
     public:
     // Data Members
     static string ThreeDGraph; /*!< This is the 3D graph representation */
- 
+    static string TwoDGraphMain; /*!< This is an orthographic projection */
+    static string TwoDGraph1; /*!< This is an orthographic projection */
+    static string TwoDGraph2; /*!< This is an orthographic projection */
+
+    //Constructor
+    ThreeDGraph_class(string graph){
+      ThreeDGraph = graph;
+      TwoDGraphMain = "";
+      TwoDGraph1 = "";
+      TwoDGraph2 = "";
+    }
+
 	//! A Member function.
     /*!
       \sa ModelRotation()
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void ModelRotation()
-    {
+    void ModelRotation(float angle, string axis){
+      //do the computation to change the graph
     }
 
 	//! A Member function.
@@ -33,8 +44,10 @@ class ThreeDGraph_class
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void PlanarProjection()
-    {
+    string PlanarProjection(bool view, string equationOfPlane){
+      string newProjection;
+      //do the computation
+      return newProjection;
     }
 
 	//! A Member function.
@@ -43,8 +56,8 @@ class ThreeDGraph_class
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void ThreeDToOrthographic()
-    {
+    void ThreeDToOrthographic(){
+      //do the computation to return the orthographic
     }    
 
 	//! A Member function.
@@ -53,7 +66,6 @@ class ThreeDGraph_class
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void HiddenEdgeCheck()
-    {
+    void HiddenEdgeCheck(){
     }
 };

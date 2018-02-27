@@ -23,8 +23,7 @@ class Output
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void RenderOutput3D()
-    {
+    void RenderOutput3D(){
     }
 
  
@@ -34,8 +33,7 @@ class Output
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void RenderOutput2D()
-    {
+    void RenderOutput2D(){
     }
 
 	//! A Member function.
@@ -44,8 +42,7 @@ class Output
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void saveToFile3D()
-    {
+    void saveToFile3D(){
     }
 
 
@@ -55,7 +52,6 @@ class Output
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void saveToFile2D()
-    {
+    void saveToFile2D(){
     }
 };
