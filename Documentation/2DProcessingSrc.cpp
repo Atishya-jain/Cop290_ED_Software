@@ -1,6 +1,6 @@
 /*! \file */
 #include <bits/stdc++.h>
-
+#include <structs.cpp>
 
 /*! \class TwoDGraph_class
     \brief 2D behaviour class.
@@ -9,8 +9,7 @@
     in the software. It can be rotated and converted into isometric from 2 orthographic projections
     along some plane.  
 */
-class TwoDGraph_class
-{
+class TwoDGraph_class{
     // Access specifier
     public:
 
@@ -22,7 +21,7 @@ class TwoDGraph_class
     static string ThreeDGraph; /*!< This is the 3D graph representation */
     static string faceSet; /*!<This consists of the faces. It would be a dictionary with face equation as keys as values as those edges which lie in that plane*/
     // Constructor
-    TwoDGraph_class(string graph1, string graph2, string graph3){
+    TwoDGraph_class(vector<point> graph1[], vector<point> graph2[], vector<point> graph3[]){
       TwoDGraphMain = graph1;
       TwoDGraph2 = graph2;
       TwoDGraph3 = graph3;
