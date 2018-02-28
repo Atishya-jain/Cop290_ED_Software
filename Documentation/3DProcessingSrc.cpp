@@ -62,10 +62,12 @@ class ThreeDGraph_class
 
 	//! A Member function.
     /*!
+      returns true if edge = solid line else false
       \sa HiddenEdgeCheck()
-      \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
+      \param edge a string argument.
     */
-    void HiddenEdgeCheck(){
+    bool HiddenEdgeCheck(string edge){
+      /* returns true if edge = solid line else false*/
+      return true;
     }
 };
