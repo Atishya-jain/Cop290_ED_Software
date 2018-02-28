@@ -11,12 +11,17 @@ int main(){
 
 plane tmp;
 
-vector<vector<plane> > graph;
-vector<plane> a;
+// vector<vector<plane> > graph;
+// vector<plane> a;
+// a.push_back(tmp);
+// graph.push_back(a);
+
+
+vector<list<plane> > graph;
+list<plane> a;
 a.push_back(tmp);
 graph.push_back(a);
 
-
-// cout<<tmp.C<<endl;;
+// cout<<graph<<endl;;
 return 0;
 }
