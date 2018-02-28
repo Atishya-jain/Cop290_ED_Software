@@ -1,12 +1,7 @@
 \hypertarget{2DProcessingSrc_8cpp}{}\section{2\+D\+Processing\+Src.cpp File Reference}
 \label{2DProcessingSrc_8cpp}\index{2\+D\+Processing\+Src.\+cpp@{2\+D\+Processing\+Src.\+cpp}}
 {\ttfamily \#include $<$bits/stdc++.\+h$>$}\\*
-{\ttfamily \#include $<$Index.\+cpp$>$}\\*
-{\ttfamily \#include $<$Graphs.\+cpp$>$}\\*
-{\ttfamily \#include $<$Input\+Src.\+cpp$>$}\\*
-{\ttfamily \#include $<$Output\+Src.\+cpp$>$}\\*
-{\ttfamily \#include $<$3\+D\+Processing\+Src.\+cpp$>$}\\*
-{\ttfamily \#include $<$Interactive\+Src.\+cpp$>$}\\*
+{\ttfamily \#include $<$structs.\+cpp$>$}\\*
 Include dependency graph for 2\+D\+Processing\+Src.cpp\+:
 % FIG 0
 This graph shows which files directly or indirectly include this file\+:

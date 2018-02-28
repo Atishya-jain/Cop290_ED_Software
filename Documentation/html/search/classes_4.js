@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['threedgraph',['ThreeDGraph',['../classThreeDGraph.html',1,'']]],
-  ['twodgraph',['TwoDGraph',['../classTwoDGraph.html',1,'']]]
+  ['threedgraph_5fclass',['ThreeDGraph_class',['../classThreeDGraph__class.html',1,'']]],
+  ['twodgraph_5fclass',['TwoDGraph_class',['../classTwoDGraph__class.html',1,'']]]
 ];

@@ -9,5 +9,5 @@ var searchData=
   ['setline',['setline',['../classInteractive__editor.html#acf3e55ad6b947af72b83d996f409c176',1,'Interactive_editor']]],
   ['setplane',['setPlane',['../classInteractive__editor.html#a1332966f87d6df07b217ed663105379b',1,'Interactive_editor']]],
   ['setpoint',['setPoint',['../classInteractive__editor.html#a21c3f807f2e892c9b40cae987593e2cb',1,'Interactive_editor']]],
-  ['string',['string',['../classOutput.html#afb80842d973398a94444913d2c9167d3',1,'Output']]]
+  ['structs_2ecpp',['structs.cpp',['../structs_8cpp.html',1,'']]]
 ];

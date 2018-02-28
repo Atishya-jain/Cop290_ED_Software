@@ -10,8 +10,8 @@
 namespace graph
 {
   // Data Members
-  String ThreeDgraph; /*!< This is the filename*/
-  String TwoDgraphs[3]; /*!< This is flag for checking interactive input or file input from the user*/ 
+  vector<vector<point> > ThreeDgraph; /*!< This is the filename*/
+  vector<vector<point> > TwoDgraphs[3]; /*!< This is flag for checking interactive input or file input from the user*/ 
   bool ThreeDOrTwoD = false; /*!< This is flag for checking whether 3d graph is worked upon or 2D graph. True implies 3D graph*/
   
   // objects of 3d and 2d class for unsaved processing	

@@ -14,8 +14,8 @@ class Output
     public:
 
     // Data Members
-    string 2DGraph[3]; /*!< This is the array of orthographic projections */
-    string 3DGraph;  /*!< This is the 3D graph */
+    vector<vector<point> > 2DGraph[3]; /*!< This is the array of orthographic projections */
+    vector<vector<point> > 3DGraph;  /*!< This is the 3D graph */
  
 	//! A Member function.
     /*!

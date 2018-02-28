@@ -10,7 +10,8 @@
 struct point {
 	float x;
 	float y;
-	string x;	
+    float z;
+	string label;	
 };
 
 /*! \struct plane
@@ -21,7 +22,40 @@ struct point {
     This plane is of the form x + Ay + Bz = C which is a unique representation of any plane
 */
 struct plane {
-	float A;
-	float B;
-	float C;	
+    string toString(){
+        ostringstream s1;
+        s1 << A;
+        ostringstream s2;
+        s2 << B;
+        ostringstream s3;
+        s3 << C;
+        return s1.str()+"["+s2.str()+"]"+s3.str();
+    }
+    plane getPlane(string s){
+        int x = s.find("[");
+        int y = s.find("]");
+
+        string a = s.substr(0,x);
+        string b = s.substr(x+1,y-x-1);
+        string c = s.substr(y+1,s.length()-y-1);
+
+        plane ret;
+        ret.A = stof(a);
+        ret.B = stof(b);
+        ret.C = stof(c);
+        return ret;
+    }
+    float A;
+    float B;
+    float C;    
+};
+
+/*! \struct edge
+    \brief Struct edge.
+
+    This struct represents an edge, as we know two points uniquely determine a line.
+*/
+struct edge{
+    point p1;
+    point p2;
 };

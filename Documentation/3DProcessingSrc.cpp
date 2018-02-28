@@ -1,5 +1,6 @@
 /*! \file */
 #include <bits/stdc++.h>
+#include <structs.cpp>
 
 
 /*! \class ThreeDGraph_class
@@ -14,17 +15,17 @@ class ThreeDGraph_class
     // Access specifier
     public:
     // Data Members
-    static string ThreeDGraph; /*!< This is the 3D graph representation */
-    static string TwoDGraphMain; /*!< This is an orthographic projection */
-    static string TwoDGraph1; /*!< This is an orthographic projection */
-    static string TwoDGraph2; /*!< This is an orthographic projection */
+    static vector<vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
+    static vector<vector<point> > TwoDGraphMain; /*!< This is an orthographic projection */
+    static vector<vector<point> > TwoDGraph1; /*!< This is an orthographic projection */
+    static vector<vector<point> > TwoDGraph2; /*!< This is an orthographic projection */
 
     //Constructor
-    ThreeDGraph_class(string graph){
+    ThreeDGraph_class(vector<vector<point> > graph){
       ThreeDGraph = graph;
-      TwoDGraphMain = "";
-      TwoDGraph1 = "";
-      TwoDGraph2 = "";
+      // TwoDGraphMain = "";
+      // TwoDGraph1 = "";
+      // TwoDGraph2 = "";
     }
 
 	//! A Member function.
@@ -33,7 +34,7 @@ class ThreeDGraph_class
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    void ModelRotation(float angle, string axis){
+    void ModelRotation(float angle, edge axis){
       //do the computation to change the graph
     }
 
@@ -43,7 +44,7 @@ class ThreeDGraph_class
       \param filename a string argument.
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
-    string PlanarProjection(bool view, string equationOfPlane){
+    string PlanarProjection(bool view, plane equationOfPlane){
       string newProjection;
       //do the computation
       return newProjection;
@@ -65,7 +66,7 @@ class ThreeDGraph_class
       \sa HiddenEdgeCheck()
       \param edge a string argument.
     */
-    bool HiddenEdgeCheck(string edge){
+    bool HiddenEdgeCheck(edge line){
       /* returns true if edge = solid line else false*/
       return true;
     }
