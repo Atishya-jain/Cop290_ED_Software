@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['readfile',['ReadFile',['../classInput.html#a9d9395f68b01faa00f962791878723a2',1,'Input']]],
-  ['renderoutput2d',['RenderOutput2D',['../classOutput.html#a9766c258cad838c5779e0abc778a530d',1,'Output']]],
-  ['renderoutput3d',['RenderOutput3D',['../classOutput.html#a50c6da843dbf27d6238ed07082b31839',1,'Output']]]
+  ['planarprojection',['PlanarProjection',['../classThreeDGraph__class.html#a38e1e26698241cdc5feb2337b061c997',1,'ThreeDGraph_class']]]
 ];

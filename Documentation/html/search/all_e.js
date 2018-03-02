@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['saved',['saved',['../classInteractive__editor.html#a2e6cd28cc09c6250bb5aa720acfc16a4',1,'Interactive_editor']]],
-  ['savetofile2d',['saveToFile2D',['../classOutput.html#aa9ea0df4774ce32a319bdb1b3a6712a8',1,'Output']]],
-  ['savetofile3d',['saveToFile3D',['../classOutput.html#aa16a2893d743f7c218c026efa3e65718',1,'Output']]],
-  ['selectline',['selectline',['../classInteractive__editor.html#ad2e77097ff1ba602c3cdca2905febea7',1,'Interactive_editor']]],
-  ['selectplane',['selectPlane',['../classInteractive__editor.html#a9da61abe038ee33f9d15ef4a028dc8ab',1,'Interactive_editor']]],
-  ['selectpoint',['selectPoint',['../classInteractive__editor.html#ab0f07759c3ff1bcfe45d0c285abe29b5',1,'Interactive_editor']]],
-  ['setline',['setline',['../classInteractive__editor.html#acf3e55ad6b947af72b83d996f409c176',1,'Interactive_editor']]],
-  ['setplane',['setPlane',['../classInteractive__editor.html#a1332966f87d6df07b217ed663105379b',1,'Interactive_editor']]],
-  ['setpoint',['setPoint',['../classInteractive__editor.html#a21c3f807f2e892c9b40cae987593e2cb',1,'Interactive_editor']]],
-  ['structs_2ecpp',['structs.cpp',['../structs_8cpp.html',1,'']]]
+  ['p1',['p1',['../structedge.html#a7b074374ee3059d29a93e9e76480274e',1,'edge']]],
+  ['p2',['p2',['../structedge.html#a105ba74e7b01aba7e0e113ab286dc883',1,'edge']]],
+  ['planarprojection',['PlanarProjection',['../classThreeDGraph__class.html#a38e1e26698241cdc5feb2337b061c997',1,'ThreeDGraph_class']]],
+  ['plane',['plane',['../structplane.html',1,'']]],
+  ['planeobj',['planeObj',['../classInteractive__editor.html#ace6d6a503a0b62b7a8b6f87177dca677',1,'Interactive_editor::planeObj()'],['../classInteractive__editor.html#aed0bc7a1d2cafae39f3fbf2eb119649c',1,'Interactive_editor::planeObj()']]],
+  ['point',['point',['../structpoint.html',1,'point'],['../classInteractive__editor.html#a5b1e9a4bfa2a98c594828367eeaf2acf',1,'Interactive_editor::point()']]],
+  ['point1',['point1',['../classInteractive__editor.html#a07fe2897bcad8eabf5b98e01a162b2a1',1,'Interactive_editor']]],
+  ['point2',['point2',['../classInteractive__editor.html#af60245cb328db4c6b1ca00f1512dfc75',1,'Interactive_editor']]],
+  ['point3',['point3',['../classInteractive__editor.html#a9b368072fc0a220476d21079b4bcb739',1,'Interactive_editor']]]
 ];

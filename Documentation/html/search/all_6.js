@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['getfilename',['getFileName',['../classInput.html#abb4311267ded94768e6df9cb88b179bb',1,'Input']]],
-  ['getoptions',['getOptions',['../classInput.html#af0a5bad322752da31bcd7b1e2d99d611',1,'Input']]],
-  ['graph',['graph',['../namespacegraph.html',1,'']]],
-  ['graphs_2ecpp',['Graphs.cpp',['../Graphs_8cpp.html',1,'']]]
+  ['edge',['edge',['../structedge.html',1,'']]],
+  ['erase',['erase',['../classInteractive__editor.html#ac2f2f1dfb6c21585d4ed5ed043e41b25',1,'Interactive_editor']]],
+  ['eraseit',['eraseIt',['../classInteractive__editor.html#a29bd8d4ac9bff675360a661ab9f04db4',1,'Interactive_editor']]],
+  ['extrude',['extrude',['../classInteractive__editor.html#a3e4db48e715e92969ba3ec52ab14ce8d',1,'Interactive_editor::extrude()'],['../classInteractive__editor.html#a6543fe863fa4a902fb4dd71cf6318533',1,'Interactive_editor::extrude()']]]
 ];
