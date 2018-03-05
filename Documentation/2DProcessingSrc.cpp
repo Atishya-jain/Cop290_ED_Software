@@ -14,7 +14,6 @@ class TwoDGraph_class{
     public:
 
     // Data Members
-      //ITNE GANDE NAAM KYU
     static vector<vector<point> > TwoDGraphMain; /*!< This is an orthographic projection */
     static vector<vector<point> > TwoDGraph1; /*!< This is an orthographic projection */
     static vector<vector<point> > TwoDGraph2; /*!< This is an orthographic projection */
