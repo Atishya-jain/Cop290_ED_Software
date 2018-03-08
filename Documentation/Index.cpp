@@ -7,6 +7,7 @@
 #include <2DProcessingSrc.cpp>
 #include <3DProcessingSrc.cpp>
 #include <InteractiveSrc.cpp>
+using namespace std;
 /*! \fn main()*/
 int main(){
   Input input;

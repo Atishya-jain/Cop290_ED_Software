@@ -1,6 +1,7 @@
 /*! \file */
 #include <bits/stdc++.h>
-#include <structs.cpp>
+#include "structs.cpp"
+using namespace std;
 
 
 /*! \class ThreeDGraph_class

@@ -4,6 +4,7 @@
 #include <OutputSrc.cpp>
 #include <2DProcessingSrc.cpp>
 #include <3DProcessingSrc.cpp>
+using namespace std;
 
 /*! \class Interactive_editor
     \brief Editor class.

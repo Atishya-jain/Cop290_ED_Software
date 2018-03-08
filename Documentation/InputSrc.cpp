@@ -1,6 +1,7 @@
 /*! \file */
 #include <bits/stdc++.h>
 #include <Graphs.cpp>
+using namespace std;
 
 /*! \class Input
     \brief Input class.

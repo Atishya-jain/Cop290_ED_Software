@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['facerecognition',['faceRecognition',['../classTwoDGraph__class.html#af0b7cb652fec315e79e0f4826c64ae6d',1,'TwoDGraph_class']]],
-  ['faceset',['faceSet',['../classTwoDGraph__class.html#a80d22cc10e3cfa2d3f090bc0b506e2ea',1,'TwoDGraph_class']]],
-  ['falsenodedetect',['FalseNodeDetect',['../classTwoDGraph__class.html#aac6062b9859be331a44d1fe61036d5a1',1,'TwoDGraph_class']]],
-  ['file',['file',['../classInput.html#ad073fa115ead2e8b7492214215ebd22d',1,'Input']]],
-  ['filename',['filename',['../classInput.html#af296359065236ac9139aab7736d6844d',1,'Input']]]
+  ['height',['height',['../classInteractive__editor.html#aced5ec777fe62fb280f3668a1c59f9b7',1,'Interactive_editor']]],
+  ['hiddenedgecheck',['HiddenEdgeCheck',['../classThreeDGraph__class.html#a2cfae37ac914b040194e3dae011454d6',1,'ThreeDGraph_class']]],
+  ['hiddenedgetest',['HiddenEdgeTest',['../classTwoDGraph__class.html#a551441ccdbceddd7c5d7df8c3a0a3e04',1,'TwoDGraph_class']]]
 ];

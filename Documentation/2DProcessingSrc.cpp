@@ -1,6 +1,7 @@
 /*! \file */
 #include <bits/stdc++.h>
-#include <structs.cpp>
+#include "structs.cpp"
+using namespace std;
 
 /*! \class TwoDGraph_class
     \brief 2D behaviour class.
@@ -23,8 +24,8 @@ class TwoDGraph_class{
     // Constructor
     TwoDGraph_class(vector<vector<point> > graph1, vector<vector<point> > graph2, vector<vector<point> > graph3){
       TwoDGraphMain = graph1;
-      TwoDGraph2 = graph2;
-      TwoDGraph3 = graph3;
+      TwoDGraph1 = graph2;
+      TwoDGraph2 = graph3;
       // ThreeDGraph = null;
       // faceSet = null;
     }
