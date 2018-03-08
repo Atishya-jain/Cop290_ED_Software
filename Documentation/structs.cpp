@@ -60,5 +60,6 @@ using namespace std;
     struct edge{
         point p1;
         point p2;
+        bool Dotted = false;
     };
 #endif

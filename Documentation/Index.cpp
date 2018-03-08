@@ -1,12 +1,12 @@
 /*! \file */
-#include <gtk/gtk.h>
-#include <bits/stdc++.h>
-#include <Graphs.cpp>
-#include <InputSrc.cpp>
-#include <OutputSrc.cpp>
-#include <2DProcessingSrc.cpp>
-#include <3DProcessingSrc.cpp>
-#include <InteractiveSrc.cpp>
+// #include <gtk/gtk.h>
+#include "bits/stdc++.h"
+#include "Graphs.cpp"
+#include "InputSrc.cpp"
+#include "OutputSrc.cpp"
+#include "2DProcessingSrc.cpp"
+#include "3DProcessingSrc.cpp"
+#include "InteractiveSrc.cpp"
 using namespace std;
 /*! \fn main()*/
 int main(){
@@ -16,7 +16,7 @@ int main(){
     input.getFileName();
   }
   Interactive_editor edit;
-  edit.drawing = (!input.file) // To set the type of editing to edit object
+  edit.drawing = (!input.file); // To set the type of editing to edit object
   edit.displayOptions();
 	return 0;
 }

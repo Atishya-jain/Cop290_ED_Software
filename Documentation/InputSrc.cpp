@@ -1,6 +1,6 @@
 /*! \file */
 #include <bits/stdc++.h>
-#include <Graphs.cpp>
+#include "Graphs.cpp"
 using namespace std;
 
 /*! \class Input
@@ -48,16 +48,16 @@ class Input
         Display the options
         cin >> something
     */
-    if(/*Some Condition*/){  //one idea is that, this would be set to false, when the file hadn't already existed. Like you have file dialog boxes where they say, "this file doesn't already exist. Do you want to create one?""
+    if(/*Some Condition*/true){  //one idea is that, this would be set to false, when the file hadn't already existed. Like you have file dialog boxes where they say, "this file doesn't already exist. Do you want to create one?""
       file = true;
     }else{
       file = false;
     }
 
-    if(/*Some Condition*/){
-      graph::ThreeDorTwoD = true;
+    if(/*Some Condition*/ true){
+      graph::ThreeDOrTwoD = true;
     }else{
-      graph::ThreeDorTwoD = false;
+      graph::ThreeDOrTwoD = false;
     }
   }
 
@@ -74,15 +74,16 @@ class Input
         v.insert(v.end(), buf, buf + len);
       fclose(fp);
     }
-    if(graph::ThreeDorTwoD){
-      graph::ThreeDgraph = v;
-    }else{
-      graph::TwoDGraphs.[TwoDFileCount] = v;
-      TwoDFileCount++;
-      if(TwoDFileCount < 3){
-        getFileName();
-      }
-    }
+    // To be included after deciding input pattern
+    // if(graph::ThreeDorTwoD){
+    //   graph::ThreeDgraph = v;
+    // }else{
+    //   graph::TwoDGraphs.[TwoDFileCount] = v;
+    //   TwoDFileCount++;
+    //   if(TwoDFileCount < 3){
+    //     getFileName();
+    //   }
+    // }
   }
 
 };
