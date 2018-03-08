@@ -16,9 +16,7 @@ using namespace std;
   class TwoDGraph_class{
       // Access specifier
       public:
-
       // Data Members
-        //ITNE GANDE NAAM KYU
       static vector<vector<point> > TwoDGraphMain[3]; /*!< This is an orthographic projection */
       // static vector<vector<point> > TwoDGraph1; /*!< This is an orthographic projection*/ 
       // static vector<vector<point> > TwoDGraph2; /*!< This is an orthographic projection */
