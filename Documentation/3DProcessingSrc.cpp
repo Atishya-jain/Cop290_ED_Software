@@ -20,7 +20,7 @@ using namespace std;
       // Data Members
       static vector<vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
       static vector<vector<point> > TwoDGraph[3]; /*!< This is orthographic projections */
-      
+      vector<long> listOfPoints;
   	//! A Member function.
       /*!
         \sa ModelRotation()
@@ -50,6 +50,10 @@ using namespace std;
         \param flag3Dfile boolean character to tell the type of file (3D/2D).
       */
       void ThreeDToOrthographic(){
+        
+        for(int i = 0;i<){
+
+        }
         //do the computation to return the orthographic
       }    
 
