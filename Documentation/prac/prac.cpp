@@ -77,7 +77,7 @@ int main(){
 	tmp.x=2;
 	a.push_back(tmp);
 	A1[0]["asd"]=a;
-	cout<< A1[0]["asd"][0].x;
+	cout<< A1[0].count("assd");
 
 }
 // int main() {

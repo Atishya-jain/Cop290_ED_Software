@@ -22,7 +22,7 @@ class Interactive_editor: public Output
 	// TwoDGraph_class TwoDObjMain;
 	// ThreeDGraph_class ThreeDObjMain;
 
-  vector<vector<point> > MyPlane; /*!< This is a plane */
+  map<string, vector<point> > MyPlane; /*!< This is a plane */
   // pair<float,float> point; /*!< This object is to store a point's datastructure*/
   // pair<pair<float,float>,pair<float,float>> line; /*!< This object is to store a line's datastructure*/
   bool exitYesNo; /*!< This flag is set to identify whether user has to exit*/
@@ -239,29 +239,23 @@ class Interactive_editor: public Output
   */
   void drawLine(point p1, point p2){
     /*draws a line*/
-  	bool flag1=false;//denotes whether inserted or not
-	bool flag2=false;  	
-    for(int i=0;i<MyPlane.size();i++){
-    	if (MyPlane[i][0]==p1){
-    		MyPlane[i].push_back(p2);//assumed that first element is that elemenmt itself
-    		flag1=true;
-    	}
-    	if (MyPlane[i][0]==p2){
-    		MyPlane[i].push_back(p1);
-    		flag2=true;
-    	}
+
+    if (MyPlane.count(p1.label)!=0){
+      MyPlane[p1.label].push_back(p2);
+    }else{
+      vector<point> tmp;
+      tmp.push_back(p1);
+      tmp.push_back(p2);
+      MyPlane[p1.label]=tmp;
     }
-    if(flag1==false){
-    	vector<point> a;
-    	a.push_back(p1);
-    	a.push_back(p2);
-      MyPlane.push_back(a);
-    }
-    if(flag2==false){
-    	vector<point> b;
-    	b.push_back(p2);
-    	b.push_back(p1);
-    	MyPlane.push_back(b);
+
+    if (MyPlane.count(p2.label)!=0){
+      MyPlane[p2.label].push_back(p1);
+    }else{
+      vector<point> tmp;
+      tmp.push_back(p2);
+      tmp.push_back(p1);
+      MyPlane[p2.label]=tmp;
     }
   }
 
@@ -270,34 +264,28 @@ class Interactive_editor: public Output
   */
   void eraseIt(point p1, point p2){
     /*erases a line*/
-    for(int i=0;i<MyPlane.size();i++){
-    	if (MyPlane[i][0]==p1){
-    		for(int j=1;j<MyPlane[i].size();j++){
-    			if(MyPlane[i][j]==p2){
-    				MyPlane[i].erase(MyPlane[i].begin()+j);
-    				break;
-    			}
-    		}
-    	}
-    	if (MyPlane[i][0]==p2){
-    		for(int j=1;j<MyPlane[i].size();j++){
-    			if(MyPlane[i][j]==p1){
-    				MyPlane[i].erase(MyPlane[i].begin()+j);
-    				break;
-    			}
-    		}
-    	}
-    }
-    for(int i=0;i<MyPlane.size();i++){
-      if(MyPlane[i].size()==1){
-         MyPlane.erase(MyPlane.begin()+i);
-         break;
+
+    if(MyPlane.count(p1.label)!=0){
+      for(int j=0;j<MyPlane[p1.label].size();j++){
+          if(MyPlane[p1.label][j]==p2){
+            MyPlane[p1.label].erase(MyPlane[p1.label].begin()+j);
+            break;
+          }
+        }
+      if(MyPlane[p1.label].size()==1){
+        MyPlane.erase(p1.label);
       }
     }
-     for(int i=0;i<MyPlane.size();i++){
-      if(MyPlane[i].size()==1){
-         MyPlane.erase(MyPlane.begin()+i);
-         break;
+
+    if(MyPlane.count(p2.label)!=0){
+      for(int j=0;j<MyPlane[p2.label].size();j++){
+          if(MyPlane[p2.label][j]==p1){
+            MyPlane[p2.label].erase(MyPlane[p2.label].begin()+j);
+            break;
+          }
+        }
+      if(MyPlane[p2.label].size()==1){
+        MyPlane.erase(p2.label);
       }
     }
   }
@@ -305,9 +293,10 @@ class Interactive_editor: public Output
   To print the graph
   */
    void print(){
-    for(int i=0;i<MyPlane.size();i++){
-      for(int j=0;j<MyPlane[i].size();j++){
-        cout<<MyPlane[i][j].label+" ";
+    for (std::map<string, vector<point> >::iterator it=MyPlane.begin(); it!=MyPlane.end(); ++it){
+      cout<<it->first+"->";
+      for(int j=0;j<it->second.size();j++){
+        cout<<it->second[j].label+" ";
       }
       cout<<endl;
     }
