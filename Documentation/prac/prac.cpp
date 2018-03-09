@@ -71,18 +71,13 @@ int foo(int tmp[]){
 }
 
 int main(){
-	plane tmp ;
-	tmp.A = 2.3;
-	tmp.B = 2.1;
-	tmp.C = 2;
-	cout<<tmp.toString()<<endl;
-	plane x;
-	x = tmp.getPlane(tmp.toString());
-	cout<<x.A<<endl;
-	cout<<x.B<<endl;
-	cout<<x.C<<endl;
-
-
+	map<string, vector<point> > A1[3];
+	vector<point> a;
+	point tmp;
+	tmp.x=2;
+	a.push_back(tmp);
+	A1[0]["asd"]=a;
+	cout<< A1[0]["asd"][0].x;
 
 }
 // int main() {

@@ -18,8 +18,8 @@ using namespace std;
       // Access specifier
       public:
       // Data Members
-      static vector<vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
-      static vector<vector<point> > TwoDGraph[3]; /*!< This is orthographic projections */
+      static map<string, vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
+      static map<string, vector<point> > TwoDGraph[3]; /*!< This is orthographic projections */
       vector<long> listOfPoints;
   	//! A Member function.
       /*!

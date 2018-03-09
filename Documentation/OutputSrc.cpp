@@ -17,8 +17,8 @@ using namespace std;
       public:
 
       // Data Members
-      vector<vector<point> > TwoDGraph[3]; /*!< This is the array of orthographic projections */
-      vector<vector<point> > ThreeDGraph;  /*!< This is the 3D graph */
+      map<string, vector<point> > TwoDGraph[3]; /*!< This is the array of orthographic projections */
+      map<string, vector<point> > ThreeDGraph;  /*!< This is the 3D graph */
    
   	//! A Member function.
       /*!

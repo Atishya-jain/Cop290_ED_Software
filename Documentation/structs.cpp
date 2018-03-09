@@ -16,10 +16,6 @@ using namespace std;
     	string label;
         bool operator==(const point& rhs){
             return (x==rhs.x)&&(y==rhs.y)&&(z==rhs.z)&&(label.compare(rhs.label)==0);
-        }	
-        long pointHash(){
-            long product = x + (256*y) + 256*(256*z);
-            return product;    
         }
     };
 
