@@ -2,34 +2,42 @@
 using namespace std;
 
 
-namespace Base{
-	int a = 0;
-};
+// namespace Base{
+// 	int a = 0;
+// };
 
 class A{	
-public:
+private:
+	int count = 0;
 	void setval(int x){
-		Base::a = x;
+		count = x;
 	}
-	int getval(){
-		return Base::a;
+public:
+	int getval(bool cond){
+		if(cond){
+			return count;
+		}else{
+			setval(5);
+			return count;
+		}
 	}
 };
 
-class B: public A{
-};
+// class B: public A{
+// };
 
 int main(){
 
 	cout << "hi" << endl;
 	A obj;
-	B obj1;
+	// B obj1;
 
-	cout << obj.getval() << endl;
-	obj.setval(10);
-	cout << obj.getval() << endl;
-	obj1.setval(20);
-	cout << obj.getval() << endl;
-	cout << obj1.getval() << endl;
+	cout << obj.getval(true) << endl;
+	cout << obj.getval(false) << endl;
+	// obj.setval(10);
+	// cout << obj.getval() << endl;
+	// obj1.setval(20);
+	// cout << obj.getval() << endl;
+	// cout << obj1.getval() << endl;
 	return 0;
 }

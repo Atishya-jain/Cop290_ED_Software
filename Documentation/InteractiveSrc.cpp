@@ -96,16 +96,16 @@ class Interactive_editor: public Output
 
 	    cout << "Enter x y z label (all inputs with a space between them) for point1: ";
 	    cin >> x >> y >> z >> ptLabel;
-	    tempPointA.x = x;
-	    tempPointA.y = y;
-        tempPointA.z = z;
+	    tempPointA.coordinate[0] = x;
+	    tempPointA.coordinate[1] = y;
+        tempPointA.coordinate[2] = z;
 	    tempPointA.label = ptLabel;
 
 	    cout << "Enter x y z label (all inputs with a space between them) for point2: ";
 	    cin >> x >> y >> z >> ptLabel;
-	    tempPointB.x = x;
-	    tempPointB.y = y;
-	    tempPointB.z = z;
+	    tempPointB.coordinate[0] = x;
+	    tempPointB.coordinate[1] = y;
+	    tempPointB.coordinate[2] = z;
 	    tempPointB.label = ptLabel;
 
   		drawLine(tempPointA, tempPointB);
@@ -119,16 +119,16 @@ class Interactive_editor: public Output
 
 	    cout << "Enter x y z label (all inputs with a space between them) for point1: ";
 	    cin >> x >> y >> z >> ptLabel;
-	    tempPointA.x = x;
-	    tempPointA.y = y;
-	    tempPointA.z = z;
+	    tempPointA.coordinate[0] = x;
+	    tempPointA.coordinate[1] = y;
+	    tempPointA.coordinate[2] = z;
 	    tempPointA.label = ptLabel;
 
 	    cout << "Enter x y z label (all inputs with a space between them) for point2: ";
 	    cin >> x >> y >> z >> ptLabel;
-	    tempPointB.x = x;
-	    tempPointB.y = y;
-	    tempPointB.z = z;
+	    tempPointB.coordinate[0] = x;
+	    tempPointB.coordinate[1] = y;
+	    tempPointB.coordinate[2] = z;
 	    tempPointB.label = ptLabel;
   		eraseIt(tempPointA, tempPointB);
   		saved = false;	

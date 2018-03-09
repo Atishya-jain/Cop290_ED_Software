@@ -10,12 +10,10 @@ using namespace std;
         which can be accessed by all the other classes to edit.
     */
     struct point {
-    	float x;
-    	float y;
-        float z;
+    	float coordinate[3];
     	string label;
         bool operator==(const point& rhs){
-            return (x==rhs.x)&&(y==rhs.y)&&(z==rhs.z)&&(label.compare(rhs.label)==0);
+            return (coordinate[0]==rhs.coordinate[0])&&(coordinate[1]==rhs.coordinate[1])&&(coordinate[2]==rhs.coordinate[2])&&(label.compare(rhs.label)==0);
         }
     };
 
