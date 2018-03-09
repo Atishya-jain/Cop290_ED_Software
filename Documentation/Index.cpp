@@ -48,9 +48,8 @@ int main(){
 
 
   a1.drawLine(p3,p4);
-  // a1.eraseIt(p4,p3);
-  // a1.eraseIt(p1,p3);
-
+  a1.eraseIt(p4,p3);
+  a1.eraseIt(p2,p1);  
   a1.print();
 
 

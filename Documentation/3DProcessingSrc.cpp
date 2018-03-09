@@ -51,11 +51,10 @@ using namespace std;
       */
       void ThreeDToOrthographic(){
         
-        for(int i = 0;i<){
 
         }
         //do the computation to return the orthographic
-      }    
+         
 
   	//! A Member function.
       /*!
