@@ -13,10 +13,7 @@ using namespace std;
     	float x;
     	float y;
         float z;
-    	string label;
-        bool operator==(const point& rhs){
-            return (x==rhs.x)&&(y==rhs.y)&&(z==rhs.z)&&(label.compare(rhs.label)==0);
-        }	
+    	string label;	
     };
 
     /*! \struct plane
@@ -65,8 +62,4 @@ using namespace std;
         point p2;
         bool Dotted = false;
     };
-    
-    int main(){
-        return 0;
-    }
 #endif

@@ -22,4 +22,7 @@ using namespace std;
 	  ThreeDGraph_class ThreeDObjMain(ThreeDgraph);
 	  TwoDGraph_class TwoDObjMain(TwoDgraphs[0],TwoDgraphs[1],TwoDgraphs[2]);
 	};
+	int main(){
+        return 0;
+    }
 #endif

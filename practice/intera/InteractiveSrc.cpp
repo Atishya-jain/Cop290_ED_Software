@@ -1,10 +1,6 @@
 /*! \file */
 #include <bits/stdc++.h>
 #include "structs.cpp"
-#include "Graphs.cpp"
-#include "OutputSrc.cpp"
-#include "2DProcessingSrc.cpp"
-#include "3DProcessingSrc.cpp"
 using namespace std;
 
 /*! \class Interactive_editor
@@ -12,7 +8,7 @@ using namespace std;
   
     This class contains the methods to edit a drawing or to play with a model drawing
 */
-class Interactive_editor: public Output
+class Interactive_editor
 {
   // Access specifier
   public:
@@ -54,16 +50,15 @@ class Interactive_editor: public Output
 // /*Why you added "main"*/  	obj2d[0].TwoDGraphMain = TwoDGraphs[0]; // To create a copy of main 2D graph in graph class in here
   	// obj2d[1].TwoDGraphMain = TwoDGraphs[1]; // To create a copy of main 2D graph in graph class in here
   	// obj2d[2].TwoDGraphMain = TwoDGraphs[2]; // To create a copy of main 2D graph in graph class in here
-  TwoDGraph_class planeObj(MyPlane,MyPlane,MyPlane); /*!< This object is to store a plane's datastructure*/
+  // TwoDGraph_class planeObj(MyPlane,MyPlane,MyPlane); /*!< This object is to store a plane's datastructure*/
   	
     saved = false;
     saveToFile = false;
     save = false;
-  	type = graph::ThreeDOrTwoD;
+  	// type = graph::ThreeDOrTwoD;
   	TwoDFileNumber = 0;
   	drawing = false;
   	lineDraw = false;
-  	circleDraw = false;
   	erase = false;
   	extrudeYesNo = false;
   	selectPlane = false;
@@ -89,115 +84,115 @@ class Interactive_editor: public Output
     \param extrude To check if user wants to extrude a plane.
     \param flag3Dfile To check if file is input or an intercative input.
   */
-  void userInput(){
-    /*
-        Display the options
-        cin >> something
-    */
+  // void userInput(){
+  //   /*
+  //       Display the options
+  //       cin >> something
+  //   */
     
-  	if(lineDraw){
-  		drawLine();
-  		saved = false;	
-  		lineDraw = false;
-  	}
-  	if(erase){
-  		eraseIt();
-  		saved = false;	
-  		erase = false;
-  	}
-  	if(extrudeYesNo){
-  		extrude();
-  		saved = false;	
-  		extrudeYesNo = false;
-  	}
-  	if(selectPlane){
-  		setPlane();
-  		saved = false;	
-  		selectPlane = false;
-  	}
-  	if(selectPoint){
-  		setPoint();
-  		saved = false;	
-  		selectPoint = false;
-  	}
-  	if(selectLine){
-  		setLine();
-  		saved = false;	
-  		selectLine = false;
-  	}
-  	if(Convert2Dto3D){
-  		graph::TwoDObjMain.TwoDtoThreeD();
-  		saved = false;	
-  		Convert2Dto3D = false;
-  	}
-  	if(Convert3Dto2D){
-  		graph::ThreeDObjMain.ThreeDToOrthographic();
-  		saved = false;	
-  		Convert3Dto2D = false;
-  	}
-  	if(rotate){
-      float angle;
-      edge axis;
-      struct point tempPointA, tempPointB;
-      float x,y,z;
-      string ptLabel;
+  // 	if(lineDraw){
+  // 		drawLine();
+  // 		saved = false;	
+  // 		lineDraw = false;
+  // 	}
+  // 	if(erase){
+  // 		eraseIt();
+  // 		saved = false;	
+  // 		erase = false;
+  // 	}
+  // 	if(extrudeYesNo){
+  // 		extrude();
+  // 		saved = false;	
+  // 		extrudeYesNo = false;
+  // 	}
+  // 	if(selectPlane){
+  // 		setPlane();
+  // 		saved = false;	
+  // 		selectPlane = false;
+  // 	}
+  // 	if(selectPoint){
+  // 		setPoint();
+  // 		saved = false;	
+  // 		selectPoint = false;
+  // 	}
+  // 	if(selectLine){
+  // 		setLine();
+  // 		saved = false;	
+  // 		selectLine = false;
+  // 	}
+  // 	if(Convert2Dto3D){
+  // 		graph::TwoDObjMain.TwoDtoThreeD();
+  // 		saved = false;	
+  // 		Convert2Dto3D = false;
+  // 	}
+  // 	if(Convert3Dto2D){
+  // 		graph::ThreeDObjMain.ThreeDToOrthographic();
+  // 		saved = false;	
+  // 		Convert3Dto2D = false;
+  // 	}
+  // 	if(rotate){
+  //     float angle;
+  //     edge axis;
+  //     struct point tempPointA, tempPointB;
+  //     float x,y,z;
+  //     string ptLabel;
 
-      cout << "Enter angle of rotation in degrees: ";
-      cin >> angle;
+  //     cout << "Enter angle of rotation in degrees: ";
+  //     cin >> angle;
 
-      cout << "Enter x y z label (all inputs with a space between them) for point1: ";
-      cin >> x >> y >> z >> ptLabel;
-      tempPointA.x = x;
-      tempPointA.y = y;
-      tempPointA.z = z;
-      tempPointA.label = ptLabel;
+  //     cout << "Enter x y z label (all inputs with a space between them) for point1: ";
+  //     cin >> x >> y >> z >> ptLabel;
+  //     tempPointA.x = x;
+  //     tempPointA.y = y;
+  //     tempPointA.z = z;
+  //     tempPointA.label = ptLabel;
 
-      cout << "Enter x y z label (all inputs with a space between them) for point2: ";
-      cin >> x >> y >> z >> ptLabel;
-      tempPointB.x = x;
-      tempPointB.y = y;
-      tempPointB.z = z;
-      tempPointB.label = ptLabel;
+  //     cout << "Enter x y z label (all inputs with a space between them) for point2: ";
+  //     cin >> x >> y >> z >> ptLabel;
+  //     tempPointB.x = x;
+  //     tempPointB.y = y;
+  //     tempPointB.z = z;
+  //     tempPointB.label = ptLabel;
 
-      axis.p1 = tempPointA;
-      axis.p2 = tempPointB;
+  //     axis.p1 = tempPointA;
+  //     axis.p2 = tempPointB;
   		
-      graph::ThreeDObjMain.ModelRotation(angle,axis);
-  		saved = false;	
-  		rotate = false;
-  	}
-  	if(saveToFile){
-  		if(type){
-  			saveToFile3D();
-  		}else{
-  			saveToFile2D();
-  		}
-  	}
-  	if(exitYesNo){
-  		/*We need to check the condition of whether anything is left to be saved or not*/
-  		if(saved){
-  	  		displayOptions();
-  		}else{
-  			cout << "Some files are left to be saved. You might loose your work";
-  			userInput();
-  		}
-  		exitYesNo = false;
-  	}
-  	if(save){
-  		graph::ThreeDgraph = graph::ThreeDObjMain.ThreeDGraph;
-  		graph::TwoDgraphs[TwoDFileNumber] = graph::TwoDObjMain.TwoDGraphMain[TwoDFileNumber];
-      save = false;
-  		saved = true;
-  	}
-  }
+  //     graph::ThreeDObjMain.ModelRotation(angle,axis);
+  // 		saved = false;	
+  // 		rotate = false;
+  // 	}
+  // 	if(saveToFile){
+  // 		if(type){
+  // 			saveToFile3D();
+  // 		}else{
+  // 			saveToFile2D();
+  // 		}
+  // 	}
+  // 	if(exitYesNo){
+  // 		/*We need to check the condition of whether anything is left to be saved or not*/
+  // 		if(saved){
+  // 	  		displayOptions();
+  // 		}else{
+  // 			cout << "Some files are left to be saved. You might loose your work";
+  // 			
+  // 		}
+  // 		exitYesNo = false;
+  // 	}
+  	// if(save){
+  	// 	graph::ThreeDgraph = graph::ThreeDObjMain.ThreeDGraph;
+  	// 	graph::TwoDgraphs[TwoDFileNumber] = graph::TwoDObjMain.TwoDGraphMain[TwoDFileNumber];
+   //    save = false;
+  	// 	saved = true;
+  	// }
+  // }
   
-  /*!
-     Will display the options/settings user desires
-  */
-  void displayOptions(){
-    /*Display various options*/
-    userInput();
-  }
+  // /*!
+  //    Will display the options/settings user desires
+  // */
+  // void displayOptions(){
+  //   /*Display various options*/
+  //   
+  // }
 
   /*!
      Will set the options/settings user desires
@@ -210,7 +205,7 @@ class Interactive_editor: public Output
     /*draws a line/
   // vector<vector<point> > MyPlane; /*!< This is a plane */
   	bool flag1=false;//denotes whether inserted or not
-	bool flag2=false;  	
+   	bool flag2=false;  	
     for(int i=0;i<MyPlane.size();i++){
     	if (MyPlane[i][0]==p1){
     		MyPlane[i].push_back(p2);//assumed that first element is that elemenmt itself
@@ -222,18 +217,18 @@ class Interactive_editor: public Output
     	}
     }
     if(flag1==false){
-    	vector<point> a;
-    	a.push_back(p1);
-    	a.push_back(p2);
+      vector<point> a;
+      a.push_back(p1);
+      a.push_back(p2);
       MyPlane.push_back(a);
     }
     if(flag2==false){
-    	vector<point> b;
-    	b.push_back(p2);
-    	b.push_back(p1);
-    	MyPlane.push_back(b);
+      vector<point> b;
+      b.push_back(p2);
+      b.push_back(p1);
+      MyPlane.push_back(b);
     }
-    userInput();
+    
   }
 
   /*!
@@ -241,23 +236,25 @@ class Interactive_editor: public Output
   */
   void eraseIt(point p1, point p2){
     /*erases a line*/
-    for(int i=0;i<MyPlane.size();i++){
-    	if (MyPlane[i][0]==p1){
-    		for(int j=1;j<MyPlane[i].size();j++){
-    			if(MyPlane[i][j]==p2){
-    				MyPlane[i].erase(MyPlane[i].begin()+j);
-    				break;
-    			}
-    		}
-    	}
-    	if (MyPlane[i][0]==p2){
-    		for(int j=1;j<MyPlane[i].size();j++){
-    			if(MyPlane[i][j]==p1){
-    				MyPlane[i].erase(MyPlane[i].begin()+j);
-    				break;
-    			}
-    		}
-    	}
+   for(int i=0;i<MyPlane.size();i++){
+      if (MyPlane[i][0]==p1){
+        for(int j=1;j<MyPlane[i].size();j++){
+          if(MyPlane[i][j]==p2){
+            MyPlane[i].erase(MyPlane[i].begin()+j);
+            
+            break;
+          }
+        }
+      }
+      if (MyPlane[i][0]==p2){
+        for(int j=1;j<MyPlane[i].size();j++){
+          if(MyPlane[i][j]==p1){
+            MyPlane[i].erase(MyPlane[i].begin()+j);
+
+            break;
+          }
+        }
+      }
     }
     for(int i=0;i<MyPlane.size();i++){
       if(MyPlane[i].size()==1){
@@ -271,12 +268,10 @@ class Interactive_editor: public Output
          break;
       }
     }
-    userInput();
+    
   }
- /*!
-  To print the graph
-  */
-   void print(){
+
+  void print(){
     for(int i=0;i<MyPlane.size();i++){
       for(int j=0;j<MyPlane[i].size();j++){
         cout<<MyPlane[i][j].label+" ";
@@ -292,7 +287,7 @@ class Interactive_editor: public Output
   */
   void extrude(){
     /*Display various options*/
-    userInput();
+    
   }
 
   /*!
@@ -303,7 +298,7 @@ class Interactive_editor: public Output
   */
   void setPlane(){
   	/*Set the plane here to some data structure*/
-  	userInput();
+  	
   }
 
   /*!
@@ -312,7 +307,7 @@ class Interactive_editor: public Output
   */
   void setPoint(){
   	/*Set the point here to some data structure*/
-  	userInput();
+  	
   }
 
   /*!
@@ -322,6 +317,47 @@ class Interactive_editor: public Output
   */
   void setLine(){
   	/*Set the line here to some data structure*/
-  	userInput();
+  	
   }
 };
+
+int main(){
+  point p1;
+  p1.x=2;
+  p1.y=4;
+  p1.z=0;
+  p1.label="1";
+
+  point p2;
+  p2.x=8;
+  p2.y=6;
+  p2.z=0;
+  p2.label="2";
+
+  point p3;
+  p3.x=8;
+  p3.y=6;
+  p3.z=0;
+  p3.label="3";
+
+  point p4;
+  p4.x=8;
+  p4.y=6;
+  p4.z=0;
+  p4.label="4";
+
+  Interactive_editor a1;
+  a1.drawLine(p1,p2);
+  a1.drawLine(p1,p4);
+  a1.drawLine(p1,p3);
+
+
+  a1.drawLine(p3,p4);
+  // a1.eraseIt(p4,p3);
+  // a1.eraseIt(p1,p3);
+
+  a1.print();
+ 
+  // cout<<a1.saved<<endl;
+  return 0;
+}
