@@ -55,9 +55,9 @@ class Input
     }
 
     if(/*Some Condition*/ true){
-      graph::ThreeDOrTwoD = true;
+      // graph::ThreeDOrTwoD = true;
     }else{
-      graph::ThreeDOrTwoD = false;
+      // graph::ThreeDOrTwoD = false;
     }
   }
 

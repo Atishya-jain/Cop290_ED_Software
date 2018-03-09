@@ -19,18 +19,8 @@ using namespace std;
       public:
       // Data Members
       static vector<vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
-      static vector<vector<point> > TwoDGraphMain; /*!< This is an orthographic projection */
-      static vector<vector<point> > TwoDGraph1; /*!< This is an orthographic projection */
-      static vector<vector<point> > TwoDGraph2; /*!< This is an orthographic projection */
-
-      //Constructor
-      ThreeDGraph_class(vector<vector<point> > graph){
-        ThreeDGraph = graph;
-        // TwoDGraphMain = "";
-        // TwoDGraph1 = "";
-        // TwoDGraph2 = "";
-      }
-
+      static vector<vector<point> > TwoDGraph[3]; /*!< This is orthographic projections */
+      
   	//! A Member function.
       /*!
         \sa ModelRotation()

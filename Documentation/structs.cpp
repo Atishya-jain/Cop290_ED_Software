@@ -63,10 +63,7 @@ using namespace std;
     struct edge{
         point p1;
         point p2;
-        bool Dotted = false;
+        bool Dotted=false;
     };
     
-    int main(){
-        return 0;
-    }
 #endif

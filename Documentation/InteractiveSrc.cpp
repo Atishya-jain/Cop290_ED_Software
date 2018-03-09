@@ -18,9 +18,10 @@ class Interactive_editor: public Output
   public:
 
   // Data Members
-  // ThreeDGraph_class obj3d(graph::ThreeDgraph); /*!< 3D object local copy to work on*/
-  // TwoDGraph_class obj2d[3](_NULL,_NULL,_NULL); /*!< Array of 2D objects local copy to work on*/
-  // TwoDGraph_class planeObj(graph::TwoDgraphs[0],graph::TwoDgraphs[1],graph::TwoDgraphs[2]); /*!< This object is to store a plane's datastructure*/
+	// TwoDGraph_class planeObj; !< This object is to store a plane's datastructure
+	// TwoDGraph_class TwoDObjMain;
+	// ThreeDGraph_class ThreeDObjMain;
+
   vector<vector<point> > MyPlane; /*!< This is a plane */
   // pair<float,float> point; /*!< This object is to store a point's datastructure*/
   // pair<pair<float,float>,pair<float,float>> line; /*!< This object is to store a line's datastructure*/
@@ -50,12 +51,6 @@ class Interactive_editor: public Output
 
 
   Interactive_editor(){
-  	// obj3d.ThreeDGraph = ThreeDGraph; // To create a copy of main graph in graph class in here
-// /*Why you added "main"*/  	obj2d[0].TwoDGraphMain = TwoDGraphs[0]; // To create a copy of main 2D graph in graph class in here
-  	// obj2d[1].TwoDGraphMain = TwoDGraphs[1]; // To create a copy of main 2D graph in graph class in here
-  	// obj2d[2].TwoDGraphMain = TwoDGraphs[2]; // To create a copy of main 2D graph in graph class in here
-  TwoDGraph_class planeObj(MyPlane,MyPlane,MyPlane); /*!< This object is to store a plane's datastructure*/
-  	
     saved = false;
     saveToFile = false;
     save = false;
@@ -63,7 +58,6 @@ class Interactive_editor: public Output
   	TwoDFileNumber = 0;
   	drawing = false;
   	lineDraw = false;
-  	circleDraw = false;
   	erase = false;
   	extrudeYesNo = false;
   	selectPlane = false;
@@ -96,12 +90,47 @@ class Interactive_editor: public Output
     */
     
   	if(lineDraw){
-  		drawLine();
+	    struct point tempPointA, tempPointB;
+	    float x,y,z;
+	    string ptLabel;
+
+	    cout << "Enter x y z label (all inputs with a space between them) for point1: ";
+	    cin >> x >> y >> z >> ptLabel;
+	    tempPointA.x = x;
+	    tempPointA.y = y;
+        tempPointA.z = z;
+	    tempPointA.label = ptLabel;
+
+	    cout << "Enter x y z label (all inputs with a space between them) for point2: ";
+	    cin >> x >> y >> z >> ptLabel;
+	    tempPointB.x = x;
+	    tempPointB.y = y;
+	    tempPointB.z = z;
+	    tempPointB.label = ptLabel;
+
+  		drawLine(tempPointA, tempPointB);
   		saved = false;	
   		lineDraw = false;
   	}
   	if(erase){
-  		eraseIt();
+	    struct point tempPointA, tempPointB;
+	    float x,y,z;
+	    string ptLabel;
+
+	    cout << "Enter x y z label (all inputs with a space between them) for point1: ";
+	    cin >> x >> y >> z >> ptLabel;
+	    tempPointA.x = x;
+	    tempPointA.y = y;
+	    tempPointA.z = z;
+	    tempPointA.label = ptLabel;
+
+	    cout << "Enter x y z label (all inputs with a space between them) for point2: ";
+	    cin >> x >> y >> z >> ptLabel;
+	    tempPointB.x = x;
+	    tempPointB.y = y;
+	    tempPointB.z = z;
+	    tempPointB.label = ptLabel;
+  		eraseIt(tempPointA, tempPointB);
   		saved = false;	
   		erase = false;
   	}
@@ -125,70 +154,72 @@ class Interactive_editor: public Output
   		saved = false;	
   		selectLine = false;
   	}
-  	if(Convert2Dto3D){
-  		graph::TwoDObjMain.TwoDtoThreeD();
-  		saved = false;	
-  		Convert2Dto3D = false;
-  	}
-  	if(Convert3Dto2D){
-  		graph::ThreeDObjMain.ThreeDToOrthographic();
-  		saved = false;	
-  		Convert3Dto2D = false;
-  	}
-  	if(rotate){
-      float angle;
-      edge axis;
-      struct point tempPointA, tempPointB;
-      float x,y,z;
-      string ptLabel;
+  	// if(Convert2Dto3D){
+  	// 	TwoDObjMain.TwoDtoThreeD();
+  	// 	saved = false;	
+  	// 	Convert2Dto3D = false;
+  	// }
+  	// if(Convert3Dto2D){
+  	// 	ThreeDObjMain.ThreeDToOrthographic();
+  	// 	saved = false;	
+  	// 	Convert3Dto2D = false;
+  	// }
 
-      cout << "Enter angle of rotation in degrees: ";
-      cin >> angle;
+  	// if(rotate){
+   //    float angle;
+   //    edge axis;
+   //    struct point tempPointA, tempPointB;
+   //    float x,y,z;
+   //    string ptLabel;
 
-      cout << "Enter x y z label (all inputs with a space between them) for point1: ";
-      cin >> x >> y >> z >> ptLabel;
-      tempPointA.x = x;
-      tempPointA.y = y;
-      tempPointA.z = z;
-      tempPointA.label = ptLabel;
+   //    cout << "Enter angle of rotation in degrees: ";
+   //    cin >> angle;
 
-      cout << "Enter x y z label (all inputs with a space between them) for point2: ";
-      cin >> x >> y >> z >> ptLabel;
-      tempPointB.x = x;
-      tempPointB.y = y;
-      tempPointB.z = z;
-      tempPointB.label = ptLabel;
+   //    cout << "Enter x y z label (all inputs with a space between them) for point1: ";
+   //    cin >> x >> y >> z >> ptLabel;
+   //    tempPointA.x = x;
+   //    tempPointA.y = y;
+   //    tempPointA.z = z;
+   //    tempPointA.label = ptLabel;
 
-      axis.p1 = tempPointA;
-      axis.p2 = tempPointB;
+   //    cout << "Enter x y z label (all inputs with a space between them) for point2: ";
+   //    cin >> x >> y >> z >> ptLabel;
+   //    tempPointB.x = x;
+   //    tempPointB.y = y;
+   //    tempPointB.z = z;
+   //    tempPointB.label = ptLabel;
+
+   //    axis.p1 = tempPointA;
+   //    axis.p2 = tempPointB;
   		
-      graph::ThreeDObjMain.ModelRotation(angle,axis);
-  		saved = false;	
-  		rotate = false;
-  	}
-  	if(saveToFile){
-  		if(type){
-  			saveToFile3D();
-  		}else{
-  			saveToFile2D();
-  		}
-  	}
-  	if(exitYesNo){
-  		/*We need to check the condition of whether anything is left to be saved or not*/
-  		if(saved){
-  	  		displayOptions();
-  		}else{
-  			cout << "Some files are left to be saved. You might loose your work";
-  			userInput();
-  		}
-  		exitYesNo = false;
-  	}
-  	if(save){
-  		graph::ThreeDgraph = graph::ThreeDObjMain.ThreeDGraph;
-  		graph::TwoDgraphs[TwoDFileNumber] = graph::TwoDObjMain.TwoDGraphMain[TwoDFileNumber];
-      save = false;
-  		saved = true;
-  	}
+   //    ThreeDObjMain.ModelRotation(angle,axis);
+  	// 	saved = false;	
+  	// 	rotate = false;
+  	// }
+
+  	// if(saveToFile){
+  	// 	if(type){
+  	// 		saveToFile3D();
+  	// 	}else{
+  	// 		saveToFile2D();
+  	// 	}
+  	// }
+  	// if(exitYesNo){
+  	// 	/*We need to check the condition of whether anything is left to be saved or not*/
+  	// 	if(saved){
+  	//   		displayOptions();
+  	// 	}else{
+  	// 		cout << "Some files are left to be saved. You might loose your work";
+  	// 		userInput();
+  	// 	}
+  	// 	exitYesNo = false;
+  	// }
+  	// if(save){
+  	// 	// graph::ThreeDgraph = ThreeDObjMain.ThreeDGraph;
+  	// 	// graph::TwoDgraphs[TwoDFileNumber] = TwoDObjMain.TwoDGraphMain[TwoDFileNumber];
+   //    save = false;
+  	// 	saved = true;
+  	// }
   }
   
   /*!
@@ -207,8 +238,7 @@ class Interactive_editor: public Output
     \param color To get color of the line.
   */
   void drawLine(point p1, point p2){
-    /*draws a line/
-  // vector<vector<point> > MyPlane; /*!< This is a plane */
+    /*draws a line*/
   	bool flag1=false;//denotes whether inserted or not
 	bool flag2=false;  	
     for(int i=0;i<MyPlane.size();i++){
@@ -233,7 +263,6 @@ class Interactive_editor: public Output
     	b.push_back(p1);
     	MyPlane.push_back(b);
     }
-    userInput();
   }
 
   /*!
@@ -271,7 +300,6 @@ class Interactive_editor: public Output
          break;
       }
     }
-    userInput();
   }
  /*!
   To print the graph

@@ -17,19 +17,19 @@ using namespace std;
       // Access specifier
       public:
       // Data Members
-      static vector<vector<point> > TwoDGraphMain[3]; /*!< This is an orthographic projection */
+      static vector<vector<point> > TwoDGraph[3]; /*!< This is an orthographic projection */
       // static vector<vector<point> > TwoDGraph1; /*!< This is an orthographic projection*/ 
       // static vector<vector<point> > TwoDGraph2; /*!< This is an orthographic projection */
       static vector<vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
       static map<string,vector<vector<edge> > > faceSet; /*!<This consists of the faces. It would be a dictionary with face equation as keys as values as those edges which lie in that plane*/
       // Constructor
-      TwoDGraph_class(vector<vector<point> > graph1, vector<vector<point> > graph2, vector<vector<point> > graph3){
-        TwoDGraphMain[0] = graph1;
-        TwoDGraphMain[1] = graph2;
-        TwoDGraphMain[2] = graph3;
-        // ThreeDGraph = null;
-        // faceSet = null;
-      }
+      // TwoDGraph_class(vector<vector<point> > graph1, vector<vector<point> > graph2, vector<vector<point> > graph3){
+      //   TwoDGraphMain[0] = graph1;
+      //   TwoDGraphMain[1] = graph2;
+      //   TwoDGraphMain[2] = graph3;
+      //   // ThreeDGraph = null;
+      //   // faceSet = null;
+      // }
 
   	//! A Member function.
       /*!
