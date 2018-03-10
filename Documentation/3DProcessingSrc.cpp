@@ -112,6 +112,7 @@ using namespace std;
             tempVec.push_back(tempList[j].coordinate[0]);  
             tempVec.push_back(tempList[j].coordinate[1]);  
             tempVec.push_back(tempList[j].coordinate[2]);
+            tempVec.push_back(1);
             tempVec = matrix[choiceAxis]*tempVec;
             ThreeDGraph[listOfPoints[i]][j].coordinate[0] = tempVec[0];  
             ThreeDGraph[listOfPoints[i]][j].coordinate[1] = tempVec[1];  
@@ -183,6 +184,7 @@ using namespace std;
       tempLineVect.push_back(tempLineAns.p2.coordinate[0]);
       tempLineVect.push_back(tempLineAns.p2.coordinate[1]);
       tempLineVect.push_back(tempLineAns.p2.coordinate[2]);
+      tempLineVect.push_back(1);
 
       // calculate angleX
       float angleX = (atan(tempLineVect[1]/tempLineVect[2])); // angleX = y/z
@@ -193,6 +195,7 @@ using namespace std;
       float angleY = (atan(tempLineVect[0]/tempLineVect[2])); // angleY = x/z
       specificRotation(angleY,1,tempLineVect,false);
       specificRotation(angleY,1,tempLineVect,true);
+
       specificRotation(angle,2,tempLineVect,true);
       // Inverse Transformations
       tempLineVect.clear();
