@@ -15,6 +15,9 @@ using namespace std;
         bool operator==(const point& rhs){
             return (coordinate[0]==rhs.coordinate[0])&&(coordinate[1]==rhs.coordinate[1])&&(coordinate[2]==rhs.coordinate[2])&&(label.compare(rhs.label)==0);
         }
+        void print(){
+            cout<<label<<":["<<coordinate[0]<<","<<coordinate[1]<<","<<coordinate[2]<<","<<coordinate[3]<<"] ";
+        }
     };
 
     /*! \struct plane
