@@ -38,7 +38,8 @@ using namespace std;
       }
       return tempLabel;  
     }
-
+    
+    
     // Access specifier
     public:
     // Data Members
@@ -53,7 +54,45 @@ using namespace std;
       \param flag3Dfile boolean character to tell the type of file (3D/2D).
     */
     void ModelRotation(float angle, edge axis){
-      //do the computation to change the graph
+      // float anglex, angley, anglez;
+      // for(int i = 0;i<length;i++){
+      //   // Iterate over all points
+      //   vector<point> tempPoints = ThreeDGraph[listOfPoints[i]];
+      //   long tempSize = tempPoints.size();
+      //   struct point myPoint = tempPoints[0];
+      //   // if there is any other point in the list
+      //   if(tempSize > 1){ 
+        
+      //     // Get combined Label
+      //     string tempLabel = GetLabel(myPoint, GraphNo);
+          
+      //     // If that label is not present already
+      //     if(TwoDGraph[GraphNo].count(tempLabel) == 0){
+      //       // change my label
+      //       myPoint.label = tempLabel;
+      //       // Insert me in graph first
+      //       TwoDGraph[GraphNo][myPoint.label].push_back(myPoint);                    
+      //       // Iterate over my neighbours
+      //       for(int j = 1;j<tempSize;j++){
+      //         // Reduce coordinate to 0
+      //         tempPoints[j].coordinate[GraphNo] = 0;
+              
+      //         // for All my non overlapping neighbours
+      //         if((tempPoints[j].coordinate[(GraphNo+1)%3] != myPoint.coordinate[(GraphNo+1)%3])||(tempPoints[j].coordinate[(GraphNo+2)%3] != myPoint.coordinate[(GraphNo+2)%3])){
+                
+      //           // Check with what all points do they overlapp and get label
+      //           tempPoints[j].label = GetLabel(tempPoints[j], GraphNo);
+      //           // If that combined label is not present already then add else join edge with pre existing label
+      //           if(TwoDGraph[GraphNo].count(tempPoints[j].label) == 0){
+      //             TwoDGraph[GraphNo][myPoint.label].push_back(tempPoints[j]);
+      //           }else{
+      //             TwoDGraph[GraphNo][myPoint.label].push_back(TwoDGraph[GraphNo][tempPoints[j].label][0]);
+      //           }
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
     }
 
 	//! A Member function.
