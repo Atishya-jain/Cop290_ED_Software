@@ -62,12 +62,8 @@ struct edge{
     point p1;
     point p2;
 };
-int foo(int tmp[]){
-	int sum = 0;
-	for(int i=0;i<3;i++){
-		sum+=tmp[i];
-	}
-	return sum;
+string foo(){
+	return "asd"+to_string(2.32);
 }
 
 int main(){
@@ -75,7 +71,7 @@ int main(){
 	// int a2[3];
 	// std::copy(std::begin(a1), std::end(a1), std::begin(a2));
 	// a1[2]=22;
-	cout<<abs(-2.5)<<endl;
+	cout<<foo();
 
 }
 // int main() {

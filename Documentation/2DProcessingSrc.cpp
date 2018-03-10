@@ -162,7 +162,7 @@ using namespace std;
         cout<<it->first+"->";
         for(int j=0;j<it->second.size();j++){
           // cout<<it->second[j].label <<" ";
-          it->second[j].print();
+          cout<<it->second[j].print();
         }
         cout<<endl;
       }

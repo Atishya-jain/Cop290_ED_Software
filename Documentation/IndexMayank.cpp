@@ -155,13 +155,23 @@ int main(){
   testObj.ThreeDGraph[p8.label].push_back(p5);
   testObj.ThreeDGraph[p8.label].push_back(p7);
   
-  testObj.ThreeDToOrthographic();
-  TwoDGraph_class A1;
-  copy(begin(testObj.TwoDGraph), end(testObj.TwoDGraph), begin(A1.TwoDGraph));
-  A1.TwoDtoThreeD();
-  A1.print3D();
-  cout<<"---"<<endl;
-  testObj.print3D();
+  // testObj.print3D();
+  // testObj.ThreeDToOrthographic();
+  // TwoDGraph_class A1;
+  // copy(begin(testObj.TwoDGraph), end(testObj.TwoDGraph), begin(A1.TwoDGraph));
+  // A1.TwoDtoThreeD();
+  // A1.print3D();
+  // cout<<"---"<<endl;
+  // testObj.print3D();
+  //   Output out;
+  //   // out.ThreeDGraph = testObj.ThreeDGraph;
+  //   // out.saveToFile3D();
+  // copy(begin(testObj.TwoDGraph), end(testObj.TwoDGraph), begin(out.TwoDGraph));
+  // out.saveToFile2D();
+  Input I1;
+  I1.getFileName();
+  I1.ReadFile();
+
   return 0;
 }
 

@@ -19,12 +19,23 @@ class Input
   bool file = false; /*!< This is flag for checking interactive input or file input from the user*/ 
   bool ThreeDfile = false; /*!< This is flag for checking whether file has 3D or 2D input*/ 
   int TwoDFileCount = 0; /*!< Count of 2D objects as there has to be 3 projections for our software to work on*/
+  map<string, vector<point> > TwoDGraph[3]; /*!< This is the array of orthographic projections */
+  map<string, vector<point> > ThreeDGraph;  /*!< This is the 3D graph */
+   
   /*!
      Will prompt the user for filename or through GUI
   */
   void getFileName(){
     cout << "Enter File Name: ";
     cin >> filename;
+    cout<<endl;
+    cout << "Enter 1 if input is 3D or else enter 2: ";
+    int x;
+    cin >> x;
+    if(x==1) 
+      ThreeDfile = true;
+    else 
+      ThreeDfile = false;
   }
 
   /*!
@@ -66,14 +77,88 @@ class Input
     \param ThreeDorTwoD boolean character to tell the type of file (3D/2D).
   */
   void ReadFile(){
-    std::vector<char> v;
-    if (FILE *fp = fopen("filename", "r"))
-    {
-      char buf[1024];
-      while (size_t len = fread(buf, 1, sizeof(buf), fp))
-        v.insert(v.end(), buf, buf + len);
-      fclose(fp);
-    }
+    string line;
+      ifstream myfile (filename);
+      if(myfile.is_open()){
+        if(ThreeDfile){
+          string nn;
+          getline(myfile,nn);
+          int n = stoi(nn);
+          for(int i=0;i<n;i++){
+            getline(myfile,nn);
+            string pre = nn.substr(0,nn.find(" ->")-1);
+            string post = nn.substr(nn.find(" ->")+3,nn.length()-nn.find(" ->")+3);
+
+            vector<string> parts;
+            //code to split the key into keys
+            string s = pre;
+            string delimiter = ",";
+            size_t pos = 0;
+            string token;
+            while ((pos = s.find(delimiter)) != std::string::npos) {
+                token = s.substr(0, pos);
+                parts.push_back(token);
+                s.erase(0, pos + delimiter.length());
+            }
+            parts.push_back(s);
+
+            point tmp;
+            tmp.label = parts[0];
+            tmp.coordinates[0]=stof(parts[1]);
+            tmp.coordinates[1]=stof(parts[2]);            
+            tmp.coordinates[2]=stof(parts[3]);
+            vector<point> tmp2;
+            tmp2.push_back(tmp1);
+            ThreeDgraph[parts[0]]=tmp2;
+
+            //code to split the key into keys
+            vector<string> elems;
+            s = post;
+            delimiter = " ";
+            pos = 0;
+            token;
+            while ((pos = s.find(delimiter)) != std::string::npos) {
+              token = s.substr(0, pos);
+              elems.push_back(token);
+              s.erase(0, pos + delimiter.length());
+            }
+            elems.push_back(s);   
+            for(int j=0;j<elems.length();j++){
+              vector<string> newParts;
+              //code to split the key into keys
+              string s2 = elems[j];
+              string delimiter2 = ",";
+              size_t pos2 = 0;
+              string token2;
+              while ((pos2 = s2.find(delimiter2)) != std::string::npos) {
+                  token2 = s2.substr(0, pos2);
+                  newParts.push_back(token2);
+                  s2.erase(0, pos2 + delimiter2.length());
+              }
+              newParts.push_back(s2);
+
+              tmp.label = newParts[0];
+              tmp.coordinates[0]=stof(newParts[1]);
+              tmp.coordinates[1]=stof(newParts[2]);            
+              tmp.coordinates[2]=stof(newParts[3]);
+              ThreeDgraph[parts[0]].push_back(tmp);
+            }       
+
+
+          }
+        }
+      }else{
+        cout<<"Unable to open file"<<endl;
+      }
+    
+    // std::vector<char> v;
+    // if (FILE *fp = fopen("filename", "r"))
+    // {
+    //   char buf[1024];
+    //   while (size_t len = fread(buf, 1, sizeof(buf), fp))
+    //     v.insert(v.end(), buf, buf + len);
+    //   fclose(fp);
+    // }
     // To be included after deciding input pattern
     // if(graph::ThreeDorTwoD){
     //   graph::ThreeDgraph = v;

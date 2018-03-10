@@ -348,7 +348,8 @@ using namespace std;
       for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
         cout<<it->first+"->";
         for(int j=0;j<it->second.size();j++){
-          cout<<it->second[j].label <<" ";
+          // cout<<it->second[j].label <<" ";
+          cout<<it->second[j].print();
         }
         cout<<endl;
       }

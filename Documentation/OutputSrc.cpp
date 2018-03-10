@@ -46,6 +46,21 @@ using namespace std;
         \param flag3Dfile boolean character to tell the type of file (3D/2D).
       */
       void saveToFile3D(){
+        ofstream myfile;
+        myfile.open("output.txt");
+        int ct=0;
+        for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it)
+          ct++;
+        myfile<<ct<<endl;
+        for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
+          myfile<<it->second[0].print();
+          myfile<<"->";
+          for(int i=1;i<it->second.size();i++){
+            myfile<<it->second[i].print();
+          }
+          myfile<<endl;
+        }
+        myfile.close();
       }
 
 
@@ -56,6 +71,25 @@ using namespace std;
         \param flag3Dfile boolean character to tell the type of file (3D/2D).
       */
       void saveToFile2D(){
+        ofstream myfile;
+        myfile.open("output.txt");
+        for(int j=0;j<3;j++){
+          int ct=0;
+          for (std::map<string, vector<point> >::iterator it=TwoDGraph[j].begin(); it!=TwoDGraph[j].end(); ++it){
+            ct++;
+          }
+          myfile<<ct<<endl;
+          for (std::map<string, vector<point> >::iterator it=TwoDGraph[j].begin(); it!=TwoDGraph[j].end(); ++it){
+            myfile<<it->second[0].print();
+            myfile<<"->";
+            for(int i=1;i<it->second.size();i++){
+              myfile<<it->second[i].print();
+            }
+            myfile<<endl;
+          }
+        }
+        myfile.close();
+
       }
   };
 #endif
