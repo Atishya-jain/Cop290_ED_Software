@@ -17,11 +17,11 @@ using namespace std;
       // Access specifier
       public:
       // Data Members
-      static map<string, vector<point> > TwoDGraph[3];/*!< This is the orthographic projections */
+      map<string, vector<point> > TwoDGraph[3];/*!< This is the orthographic projections */
       // static vector<vector<point> > TwoDGraph1; /*!< This is an orthographic projection*/ 
       // static vector<vector<point> > TwoDGraph2; /*!< This is an orthographic projection */
-      static map<string, vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
-      static map<string,vector<vector<edge> > > faceSet; /*!<This consists of the faces. It would be a dictionary with face equation as keys as values as those edges which lie in that plane*/
+      map<string, vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
+      map<string,vector<vector<edge> > > faceSet; /*!<This consists of the faces. It would be a dictionary with face equation as keys as values as those edges which lie in that plane*/
       // Constructor
       // TwoDGraph_class(vector<vector<point> > graph1, vector<vector<point> > graph2, vector<vector<point> > graph3){
       //   TwoDGraphMain[0] = graph1;
@@ -78,7 +78,12 @@ using namespace std;
             }
         }
       }
-      for(int i=0;i<2;i++){
+      //PRINTING THE LIST OF POINTS WORKING
+      // for(std::map<string, point>::iterator it=pointsList.begin(); it!=pointsList.end(); ++it){
+          // cout<<it->second.label<<endl;
+      // }
+      //
+      for(int i=0;i<3;i++){
         for(std::map<string, vector<point> >::iterator it=TwoDGraph[i].begin(); it!=TwoDGraph[i].end(); ++it){
           string key=it->first;
           vector<string> keys;
@@ -106,7 +111,7 @@ using namespace std;
               if(k==j) continue;
               ThreeDGraph[keys[j]].push_back(pointsList[keys[k]]);
             }
-            for(int k=0;k<it->second.size();k++){
+            for(int k=1;k<it->second.size();k++){
                 vector<string> sepKeys;
 
                 //code to split the key into keys
@@ -116,32 +121,51 @@ using namespace std;
                 string token2;
                 while ((pos2 = s2.find(delimiter2)) != std::string::npos) {
                     token2 = s2.substr(0, pos2);
-                    // cout << token << endl;
+                    // cout << token2 << endl;
                     sepKeys.push_back(token2);
                     s2.erase(0, pos2 + delimiter2.length());
                 }
                 sepKeys.push_back(s2);
+                // cout<<s2<<endl;
                 for(int l=0;l<sepKeys.size();l++){
-                  ThreeDGraph[keys[j]].push_back(pointsList[keys[l]]);
+                  // cout<<keys[j]<<"#"<<pointsList[sepKeys[l]].label<<endl;
+                  ThreeDGraph[keys[j]].push_back(pointsList[sepKeys[l]]);
                 }
             }
+                // cout<<"---"<<endl;
+
           }
 
        } 
       }
       for(std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
         vector<point> tmp;
+        // for(int j=0;j<it->second.size();j++){
+          // cout<<it->second[j].label<<"*";
+        // }
+        cout<<endl;
         for(int i=0;i<it->second.size();i++){
           int ct=0;
           for(int j=i+1;j<it->second.size();j++)
             if (it->second[j]==it->second[i]) ct++;
-          if(ct==2)
+          if(ct==2){
+            // cout<<it->first<<"*"<<endl;
             tmp.push_back(it->second[i]);
+          }
         }
         ThreeDGraph[it->first]=tmp;
       }
 
 
+    }
+    void print3D(){
+      for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
+        cout<<it->first+"->";
+        for(int j=0;j<it->second.size();j++){
+          cout<<it->second[j].label <<" ";
+        }
+        cout<<endl;
+      }
     }
 
 

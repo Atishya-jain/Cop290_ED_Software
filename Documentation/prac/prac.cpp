@@ -71,13 +71,11 @@ int foo(int tmp[]){
 }
 
 int main(){
-	map<string, vector<point> > A1[3];
-	vector<point> a;
-	point tmp;
-	tmp.x=2;
-	a.push_back(tmp);
-	A1[0]["asd"]=a;
-	cout<< A1[0].count("assd");
+	int a1[] = {1,2,3};
+	int a2[3];
+	std::copy(std::begin(a1), std::end(a1), std::begin(a2));
+	a1[2]=22;
+	cout<<a2[2]<<endl;
 
 }
 // int main() {
