@@ -135,15 +135,19 @@ using namespace std;
     // Data Members
     map<string, vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
     map<string, vector<point> > TwoDGraph[3]; /*!< This is orthographic projections */
+    map<string, vector<point> > PlaneProj; /*!< This is planar projection of 3D graph when requested */
     vector<string> listOfPoints;/*!< This is list of points available in 3D graph */
     Mat matrixAns;/*!< This is answer calculated after matrix computations */
     Mat matrix[3]; /*!< This is matrix for rotating about specific axis */
     edge tempLineAns;
     Vec tempLineVect;
+
     //! A Member function.
     /*!
       \sa Translation()
-      \param line boolean character to tell the type of file (3D/2D).
+      \param x to tell the amount of shift in x coordinate.
+      \param y to tell the amount of shift in y coordinate.
+      \param z to tell the amount of shift in z coordinate.
       \param GraphOrLine boolean character to tell whether rotation required is of line or graph.
     */
     void Translation(float x, float y, float z,edge line, bool GraphOrLine){  
@@ -207,14 +211,60 @@ using namespace std;
 	//! A Member function.
     /*!
       \sa PlanerProjection()
-      \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
+      \param view to specify the viewing direction wrt origin.
+      \param equationOfPlane this defines the plane on which projection has to be taken.
     */
-    string PlanarProjection(bool view, plane equationOfPlane){
-      string newProjection;
-      //do the computation
-      return newProjection;
-    }
+    // map<string, vector<point> > PlanarProjection(bool view, plane equationOfPlane){
+    //   map<string, vector<point> > tempProj;
+      
+    //   long siz = listOfPoints.size();
+    //   for(int i = 0; i<siz; i++){
+    //     vector<point> temp = ThreeDGraph[listOfPoints[i]];
+    //     long tempsiz = temp.size();
+        
+    //     struct point myPoint = temp[0];
+    //     // if there is any other point in the list
+    //     if(tempsiz > 1){ 
+        
+    //       // Get combined Label
+    //       string tempLabel = GetLabel(myPoint, GraphNo);
+          
+    //       // If that label is not present already
+    //       if(tempProj.count(tempLabel) == 0){
+    //         // change my label
+    //         myPoint.label = tempLabel;
+    //         // Insert me in graph first
+    //         tempProj[myPoint.label].push_back(myPoint);                    
+    //         // Iterate over my neighbours
+    //         for(int j = 1;j<tempsiz;j++){
+    //           // Project coordinate on plane            
+    //           float tempA = equationOfPlane.A;
+    //           float tempB = equationOfPlane.B;
+    //           float tempC = equationOfPlane.C;
+    //           float tempD = equationOfPlane.D;
+    //           float t = (tempD - ((tempA)*(temp[j].coordinate[0])) - ((tempB)*(temp[j].coordinate[1])) - ((tempC)*(temp[j].coordinate[2])))/((tempA*tempA)+(tempB*tempB)+(tempC*tempC));
+    //           float newX = temp[j].coordinate[0] + (tempA*t);  
+    //           float newY = temp[j].coordinate[1] + (tempB*t);  
+    //           float newZ = temp[j].coordinate[2] + (tempC*t);              
+
+    //           // for All my non overlapping neighbours
+    //           if((temp[j].coordinate[0] != myPoint.coordinate[0])||(tempPoints[j].coordinate[1] != myPoint.coordinate[1])||(tempPoints[j].coordinate[2] != myPoint.coordinate[2])){
+                
+    //             // Check with what all points do they overlapp and get label
+    //             temp[j].label = GetLabel(temp[j], GraphNo);
+    //             // If that combined label is not present already then add else join edge with pre existing label
+    //             if(tempProj.count(temp[j].label) == 0){
+    //               tempProj[myPoint.label].push_back(temp[j]);
+    //             }else{
+    //               tempProj[myPoint.label].push_back(tempProj[temp[j].label][0]);
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    //   return tempProj;        
+    // }
 
 	//! A Member function.
     /*!
@@ -246,6 +296,7 @@ using namespace std;
             if(TwoDGraph[GraphNo].count(tempLabel) == 0){
               // change my label
               myPoint.label = tempLabel;
+              myPoint.coordinate[GraphNo] = 0;
               // Insert me in graph first
               TwoDGraph[GraphNo][myPoint.label].push_back(myPoint);                    
               // Iterate over my neighbours
@@ -284,10 +335,10 @@ using namespace std;
     }
 
     void print(){
-      for (std::map<string, vector<point> >::iterator it=TwoDGraph[1].begin(); it!=TwoDGraph[1].end(); ++it){
+      for (std::map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
         cout<<it->first+"->";
         for(int j=0;j<it->second.size();j++){
-          cout<<it->second[j].label+" ";
+          cout<<it->second[j].label << " ";
         }
         cout<<endl;
       }

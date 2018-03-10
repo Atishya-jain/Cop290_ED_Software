@@ -22,35 +22,39 @@ using namespace std;
 
         This struct contains the representation of a plane on coordinate axis 
         which can be accessed by all the other classes to edit.
-        This plane is of the form x + Ay + Bz = C which is a unique representation of any plane
+        This plane is of the form Ax + By + Cz = D which is a unique representation of any plane
     */
     struct plane {
-        string toString(){
-            ostringstream s1;
-            s1 << A;
-            ostringstream s2;
-            s2 << B;
-            ostringstream s3;
-            s3 << C;
-            return s1.str()+"["+s2.str()+"]"+s3.str();
-        }
-        plane getPlane(string s){
-            int x = s.find("[");
-            int y = s.find("]");
+        // string toString(){
+        //     ostringstream s1;
+        //     s1 << A;
+        //     ostringstream s2;
+        //     s2 << B;
+        //     ostringstream s3;
+        //     s3 << C;
+        //     return s1.str()+"["+s2.str()+"]"+s3.str();
+        // }
+        // plane getPlane(string s){
+        //     int x = s.find("[");
+        //     int y = s.find("]");
 
-            string a = s.substr(0,x);
-            string b = s.substr(x+1,y-x-1);
-            string c = s.substr(y+1,s.length()-y-1);
+        //     string a = s.substr(0,x);
+        //     string b = s.substr(x+1,y-x-1);
+        //     string c = s.substr(y+1,s.length()-y-1);
 
-            plane ret;
-            ret.A = stof(a);
-            ret.B = stof(b);
-            ret.C = stof(c);
-            return ret;
-        }
+        //     plane ret;
+        //     ret.A = stof(a);
+        //     ret.B = stof(b);
+        //     ret.C = stof(c);
+        //     return ret;
+        // }
         float A;
         float B;
-        float C;    
+        float C;
+        float D;
+        // point p1;    
+        // point p2;    
+        // point p3;    
     };
 
     /*! \struct edge

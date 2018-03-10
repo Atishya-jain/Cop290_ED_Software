@@ -155,9 +155,9 @@ int main(){
   testObj.ThreeDGraph[p8.label].push_back(p5);
   testObj.ThreeDGraph[p8.label].push_back(p7);
   
-  // testObj.ThreeDToOrthographic();
-  // testObj.print();
-  testObj.print3D();
+  testObj.ThreeDToOrthographic();
+  testObj.print();
+  // testObj.print3D();
 
   cout << "HI" << endl;
   edge testedge;
@@ -170,7 +170,7 @@ int main(){
   testedge.p2.coordinate[2] = 5;
 
   testObj.ModelRotation(45,testedge);
-  testObj.print3D();
+  // testObj.print3D();
 
   // testObj.Translation(1,1,1,testedge,true);
   // testObj.print3D();
