@@ -143,7 +143,6 @@ using namespace std;
         // for(int j=0;j<it->second.size();j++){
           // cout<<it->second[j].label<<"*";
         // }
-        cout<<endl;
         for(int i=0;i<it->second.size();i++){
           int ct=0;
           for(int j=i+1;j<it->second.size();j++)

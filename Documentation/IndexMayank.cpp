@@ -156,7 +156,6 @@ int main(){
   testObj.ThreeDGraph[p8.label].push_back(p7);
   
   testObj.ThreeDToOrthographic();
-  testObj.print();
   TwoDGraph_class A1;
   copy(begin(testObj.TwoDGraph), end(testObj.TwoDGraph), begin(A1.TwoDGraph));
   A1.TwoDtoThreeD();
