@@ -66,13 +66,13 @@ using namespace std;
                 pointsList[keys[j]].label=keys[j];
               }
               else if(i==1){
-                if(pointsList[keys[j]].coordinate[2]!=it->second[0].coordinate[2])
+                if(abs(pointsList[keys[j]].coordinate[2]-it->second[0].coordinate[2])>0.0000001)
                   throw invalid_argument( "error in file" );
                 else
                   pointsList[keys[j]].coordinate[0]=it->second[0].coordinate[0];
               }
               else{
-                if((pointsList[keys[j]].coordinate[0]!=it->second[0].coordinate[0])||(pointsList[keys[j]].coordinate[1]!=it->second[0].coordinate[1]))
+                if(abs(pointsList[keys[j]].coordinate[0]-it->second[0].coordinate[0])>0.0000001||abs(pointsList[keys[j]].coordinate[1]-it->second[0].coordinate[1])>0.0000001)
                   throw invalid_argument( "error in file" );
               }
             }

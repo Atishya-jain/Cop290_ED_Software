@@ -71,11 +71,11 @@ int foo(int tmp[]){
 }
 
 int main(){
-	int a1[] = {1,2,3};
-	int a2[3];
-	std::copy(std::begin(a1), std::end(a1), std::begin(a2));
-	a1[2]=22;
-	cout<<a2[2]<<endl;
+	// int a1[] = {1,2,3};
+	// int a2[3];
+	// std::copy(std::begin(a1), std::end(a1), std::begin(a2));
+	// a1[2]=22;
+	cout<<abs(-2.5)<<endl;
 
 }
 // int main() {
