@@ -292,7 +292,7 @@ class Interactive_editor: public Output
  /*!
   To print the graph
   */
-   void print(){
+  void print(){
     for (std::map<string, vector<point> >::iterator it=MyPlane.begin(); it!=MyPlane.end(); ++it){
       cout<<it->first+"->";
       for(int j=0;j<it->second.size();j++){
