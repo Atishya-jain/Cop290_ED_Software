@@ -226,7 +226,7 @@ class Input
           }
         }
       }else{
-        cout<<"Unable to open file"<<endl;
+        throw invalid_argument( "error in file" );
       }
     myfile.close();
   }

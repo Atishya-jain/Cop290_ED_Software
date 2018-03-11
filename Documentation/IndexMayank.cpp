@@ -8,171 +8,58 @@
 using namespace std;
 /*! \fn main()*/
 int main(){
-  // Input input;
-  // input.displayOptions();
-  // if(input.file){
-  //   input.getFileName();
-  // }
-  // Interactive_editor edit;
-  // edit.drawing = (!input.file); // To set the type of editing to edit object
-  // edit.displayOptions();
-// cout << "compil/ed";
-  vector <string> listOfPoints;
+  TwoDGraph_class input_2d;
+  ThreeDGraph_class input_3d;
+  bool isFile3d = true;
+  int ch;
+  bool isInputFile=true;
+  cout<<"------INPUT------"<<endl;
+  cout<<"Enter 1 to input via file or 2 to draw(2d only): ";
+  cin>>ch;
+  cout<<endl;
+  if(ch!=1) isInputFile=false;
+  if(isInputFile){
+    //take input from file
+    Input I1;
+    I1.getFileName();
+    isFile3d = I1.ThreeDfile;
+    I1.ReadFile();
+    if(isFile3d){
+      input_3d.ThreeDGraph = I1.ThreeDGraph;
+    }else{
+      std::copy(std::begin(I1.TwoDGraph), std::end(I1.TwoDGraph), std::begin(input_2d.TwoDGraph));
+    }
+  }else{
+    //interactive input
+    Interactive_editor I1;
+    isFile3d = false;
 
-  point p1;
-  p1.coordinate[0]=0;
-  p1.coordinate[1]=0;
-  p1.coordinate[2]=0;
-  p1.label="1";
-  listOfPoints.push_back(p1.label);
+    // std::copy(std::begin(I1.MyPlane), std::end(I1.MyPlane), std::begin(input_2d.TwoDGraph));
+    //add the code for interactive editor
+  }
+  //input taken
 
-  point p2;
-  p2.coordinate[0]=5;
-  p2.coordinate[1]=0;
-  p2.coordinate[2]=0;
-  p2.label="2";
-  listOfPoints.push_back(p2.label);
+  //PROCESSING
+  if(isFile3d){
+    //Atishya ki 3d processing
+    input_3d.ThreeDToOrthographic();
+    input_3d.print();
+  }else{
+    input_2d.TwoDtoThreeD();
+  }
 
-  point p3;
-  p3.coordinate[0]=5;
-  p3.coordinate[1]=5;
-  p3.coordinate[2]=0;
-  p3.label="3";
-  listOfPoints.push_back(p3.label);
+  //OUTPUTTING
+  Output O1;
+  O1.ThreeDGraph = input_2d.ThreeDGraph;
+  std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+  cout<<"saving in file output.txt"<<endl;
+  if(isFile3d)
+    O1.saveToFile2D();
+  else
+    O1.saveToFile3D();
+  cout<<"Thanks for using our software"<<endl;
 
-  point p4;
-  p4.coordinate[0]=0;
-  p4.coordinate[1]=5;
-  p4.coordinate[2]=0;
-  p4.label="4";
-  listOfPoints.push_back(p4.label);
 
-  point p5;
-  p5.coordinate[0]=0;
-  p5.coordinate[1]=5;
-  p5.coordinate[2]=5;
-  p5.label="5";
-  listOfPoints.push_back(p5.label);
-
-  point p6;
-  p6.coordinate[0]=0;
-  p6.coordinate[1]=0;
-  p6.coordinate[2]=5;
-  p6.label="6";
-  listOfPoints.push_back(p6.label);
-  
-  point p7;
-  p7.coordinate[0]=5;
-  p7.coordinate[1]=0;
-  p7.coordinate[2]=5;
-  p7.label="7";
-  listOfPoints.push_back(p7.label);
-  
-  point p8;
-  p8.coordinate[0]=5;
-  p8.coordinate[1]=5;
-  p8.coordinate[2]=5;
-  p8.label="8";
-  listOfPoints.push_back(p8.label);
-
-  Interactive_editor a1;
-  // a1.drawLine(p1,p2);
-  // a1.drawLine(p1,p4);
-  // a1.drawLine(p1,p6);
-
-  // a1.drawLine(p2,p1);
-  // a1.drawLine(p2,p3);
-  // a1.drawLine(p2,p7);
-
-  // a1.drawLine(p3,p2);
-  // a1.drawLine(p3,p4);
-  // a1.drawLine(p3,p8);
-
-  // a1.drawLine(p4,p1);
-  // a1.drawLine(p4,p3);
-  // a1.drawLine(p4,p5);
-
-  // a1.drawLine(p5,p8);
-  // a1.drawLine(p5,p4);
-  // a1.drawLine(p5,p6);
-
-  // a1.drawLine(p6,p1);
-  // a1.drawLine(p6,p5);
-  // a1.drawLine(p6,p7);
-
-  // a1.drawLine(p7,p2);
-  // a1.drawLine(p7,p8);
-  // a1.drawLine(p7,p6);
-
-  // a1.drawLine(p8,p5);
-  // a1.drawLine(p8,p3);
-  // a1.drawLine(p8,p7);      
-  // a1.eraseIt(p4,p3);
-  // a1.eraseIt(p2,p1);  
-  // a1.print();
-
-// 3D testing
-  ThreeDGraph_class testObj;
-  // testObj.ThreeDGraph = a1.MyPlane;
-  testObj.listOfPoints = listOfPoints;
-  testObj.ThreeDGraph[p1.label].push_back(p1);
-  testObj.ThreeDGraph[p1.label].push_back(p2);
-  testObj.ThreeDGraph[p1.label].push_back(p4);
-  testObj.ThreeDGraph[p1.label].push_back(p6);
-
-  testObj.ThreeDGraph[p2.label].push_back(p2);
-  testObj.ThreeDGraph[p2.label].push_back(p1);
-  testObj.ThreeDGraph[p2.label].push_back(p3);
-  testObj.ThreeDGraph[p2.label].push_back(p7);
-
-  testObj.ThreeDGraph[p3.label].push_back(p3);
-  testObj.ThreeDGraph[p3.label].push_back(p2);
-  testObj.ThreeDGraph[p3.label].push_back(p4);
-  testObj.ThreeDGraph[p3.label].push_back(p8);
-
-  testObj.ThreeDGraph[p4.label].push_back(p4);
-  testObj.ThreeDGraph[p4.label].push_back(p1);
-  testObj.ThreeDGraph[p4.label].push_back(p3);
-  testObj.ThreeDGraph[p4.label].push_back(p5);
-
-  testObj.ThreeDGraph[p5.label].push_back(p5);
-  testObj.ThreeDGraph[p5.label].push_back(p8);
-  testObj.ThreeDGraph[p5.label].push_back(p4);
-  testObj.ThreeDGraph[p5.label].push_back(p6);
-
-  testObj.ThreeDGraph[p6.label].push_back(p6);
-  testObj.ThreeDGraph[p6.label].push_back(p1);
-  testObj.ThreeDGraph[p6.label].push_back(p5);
-  testObj.ThreeDGraph[p6.label].push_back(p7);
-
-  testObj.ThreeDGraph[p7.label].push_back(p7);
-  testObj.ThreeDGraph[p7.label].push_back(p2);
-  testObj.ThreeDGraph[p7.label].push_back(p8);
-  testObj.ThreeDGraph[p7.label].push_back(p6);
-
-  testObj.ThreeDGraph[p8.label].push_back(p8);
-  testObj.ThreeDGraph[p8.label].push_back(p3);
-  testObj.ThreeDGraph[p8.label].push_back(p5);
-  testObj.ThreeDGraph[p8.label].push_back(p7);
-  
-  // testObj.print3D();
-  testObj.ThreeDToOrthographic();
-  // TwoDGraph_class A1;
-  // copy(begin(testObj.TwoDGraph), end(testObj.TwoDGraph), begin(A1.TwoDGraph));
-  // A1.TwoDtoThreeD();
-  // A1.print3D();
-  // cout<<"---"<<endl;
-  // testObj.print3D();
-    // Output out;
-    // out.ThreeDGraph = testObj.ThreeDGraph;
-    // out.saveToFile3D();
-  // copy(begin(testObj.TwoDGraph), end(testObj.TwoDGraph), begin(out.TwoDGraph));
-  // out.saveToFile2D();
-  Input I1;
-  I1.filename="twoD.txt";
-  I1.ThreeDfile=false;
-  I1.ReadFile();
-  I1.print();
 
   return 0;
 }
