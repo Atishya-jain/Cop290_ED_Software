@@ -1,6 +1,9 @@
 /*! \file */
 // #include "qtlib/qtlib.h"
 #include "bits/stdc++.h"
+// #include <QtCore>
+// #include <QtGui>
+
 #include "Graphs.cpp"
 #include "InputSrc.cpp"
 #include "OutputSrc.cpp"
@@ -19,77 +22,77 @@ int main(){
 // cout << "compil/ed";
   vector <string> listOfPoints;
 
-  // point p1;
-  // p1.coordinate[0]=0;
-  // p1.coordinate[1]=0;
-  // p1.coordinate[2]=0;
-  // p1.label="1";
-  // listOfPoints.push_back(p1.label);
+  point p1;
+  p1.coordinate[0]=0;
+  p1.coordinate[1]=0;
+  p1.coordinate[2]=0;
+  p1.label="1";
+  listOfPoints.push_back(p1.label);
 
-  // point p2;
-  // p2.coordinate[0]=5;
-  // p2.coordinate[1]=0;
-  // p2.coordinate[2]=0;
-  // p2.label="2";
-  // listOfPoints.push_back(p2.label);
+  point p2;
+  p2.coordinate[0]=5;
+  p2.coordinate[1]=0;
+  p2.coordinate[2]=0;
+  p2.label="2";
+  listOfPoints.push_back(p2.label);
 
-  // point p3;
-  // p3.coordinate[0]=5;
-  // p3.coordinate[1]=5;
-  // p3.coordinate[2]=0;
-  // p3.label="3";
-  // listOfPoints.push_back(p3.label);
+  point p3;
+  p3.coordinate[0]=5;
+  p3.coordinate[1]=5;
+  p3.coordinate[2]=0;
+  p3.label="3";
+  listOfPoints.push_back(p3.label);
 
-  // point p4;
-  // p4.coordinate[0]=0;
-  // p4.coordinate[1]=5;
-  // p4.coordinate[2]=0;
-  // p4.label="4";
-  // listOfPoints.push_back(p4.label);
+  point p4;
+  p4.coordinate[0]=0;
+  p4.coordinate[1]=5;
+  p4.coordinate[2]=0;
+  p4.label="4";
+  listOfPoints.push_back(p4.label);
 
-  // point p5;
-  // p5.coordinate[0]=0;
-  // p5.coordinate[1]=5;
-  // p5.coordinate[2]=5;
-  // p5.label="5";
-  // listOfPoints.push_back(p5.label);
+  point p5;
+  p5.coordinate[0]=0;
+  p5.coordinate[1]=5;
+  p5.coordinate[2]=5;
+  p5.label="5";
+  listOfPoints.push_back(p5.label);
 
-  // point p6;
-  // p6.coordinate[0]=0;
-  // p6.coordinate[1]=0;
-  // p6.coordinate[2]=5;
-  // p6.label="6";
-  // listOfPoints.push_back(p6.label);
+  point p6;
+  p6.coordinate[0]=0;
+  p6.coordinate[1]=0;
+  p6.coordinate[2]=5;
+  p6.label="6";
+  listOfPoints.push_back(p6.label);
   
-  // point p7;
-  // p7.coordinate[0]=5;
-  // p7.coordinate[1]=0;
-  // p7.coordinate[2]=5;
-  // p7.label="7";
-  // listOfPoints.push_back(p7.label);
+  point p7;
+  p7.coordinate[0]=5;
+  p7.coordinate[1]=0;
+  p7.coordinate[2]=5;
+  p7.label="7";
+  listOfPoints.push_back(p7.label);
   
-  // point p8;
-  // p8.coordinate[0]=5;
-  // p8.coordinate[1]=5;
-  // p8.coordinate[2]=5;
-  // p8.label="8";
-  // listOfPoints.push_back(p8.label);
+  point p8;
+  p8.coordinate[0]=5;
+  p8.coordinate[1]=5;
+  p8.coordinate[2]=5;
+  p8.label="8";
+  listOfPoints.push_back(p8.label);
 
 
-  point p9;
-  p9.coordinate[0]=1;
-  p9.coordinate[1]=1;
-  p9.coordinate[2]=1;
-  p9.label="9";
-  listOfPoints.push_back(p9.label);
+  // point p9;
+  // p9.coordinate[0]=1;
+  // p9.coordinate[1]=1;
+  // p9.coordinate[2]=1;
+  // p9.label="9";
+  // listOfPoints.push_back(p9.label);
 
 
-  point p10;
-  p10.coordinate[0]=2;
-  p10.coordinate[1]=2;
-  p10.coordinate[2]=2;
-  p10.label="10";
-  listOfPoints.push_back(p10.label);
+  // point p10;
+  // p10.coordinate[0]=2;
+  // p10.coordinate[1]=2;
+  // p10.coordinate[2]=2;
+  // p10.label="10";
+  // listOfPoints.push_back(p10.label);
 
   // Interactive_editor a1;
   // a1.drawLine(p1,p2);
@@ -131,50 +134,50 @@ int main(){
   ThreeDGraph_class testObj;
   // testObj.ThreeDGraph = a1.MyPlane;
   testObj.listOfPoints = listOfPoints;
-  // testObj.ThreeDGraph[p1.label].push_back(p1);
-  // testObj.ThreeDGraph[p1.label].push_back(p2);
-  // testObj.ThreeDGraph[p1.label].push_back(p4);
-  // testObj.ThreeDGraph[p1.label].push_back(p6);
+  testObj.ThreeDGraph[p1.label].push_back(p1);
+  testObj.ThreeDGraph[p1.label].push_back(p2);
+  testObj.ThreeDGraph[p1.label].push_back(p4);
+  testObj.ThreeDGraph[p1.label].push_back(p6);
 
-  // testObj.ThreeDGraph[p2.label].push_back(p2);
-  // testObj.ThreeDGraph[p2.label].push_back(p1);
-  // testObj.ThreeDGraph[p2.label].push_back(p3);
-  // testObj.ThreeDGraph[p2.label].push_back(p7);
+  testObj.ThreeDGraph[p2.label].push_back(p2);
+  testObj.ThreeDGraph[p2.label].push_back(p1);
+  testObj.ThreeDGraph[p2.label].push_back(p3);
+  testObj.ThreeDGraph[p2.label].push_back(p7);
 
-  // testObj.ThreeDGraph[p3.label].push_back(p3);
-  // testObj.ThreeDGraph[p3.label].push_back(p2);
-  // testObj.ThreeDGraph[p3.label].push_back(p4);
-  // testObj.ThreeDGraph[p3.label].push_back(p8);
+  testObj.ThreeDGraph[p3.label].push_back(p3);
+  testObj.ThreeDGraph[p3.label].push_back(p2);
+  testObj.ThreeDGraph[p3.label].push_back(p4);
+  testObj.ThreeDGraph[p3.label].push_back(p8);
 
-  // testObj.ThreeDGraph[p4.label].push_back(p4);
-  // testObj.ThreeDGraph[p4.label].push_back(p1);
-  // testObj.ThreeDGraph[p4.label].push_back(p3);
-  // testObj.ThreeDGraph[p4.label].push_back(p5);
+  testObj.ThreeDGraph[p4.label].push_back(p4);
+  testObj.ThreeDGraph[p4.label].push_back(p1);
+  testObj.ThreeDGraph[p4.label].push_back(p3);
+  testObj.ThreeDGraph[p4.label].push_back(p5);
 
-  // testObj.ThreeDGraph[p5.label].push_back(p5);
-  // testObj.ThreeDGraph[p5.label].push_back(p8);
-  // testObj.ThreeDGraph[p5.label].push_back(p4);
-  // testObj.ThreeDGraph[p5.label].push_back(p6);
+  testObj.ThreeDGraph[p5.label].push_back(p5);
+  testObj.ThreeDGraph[p5.label].push_back(p8);
+  testObj.ThreeDGraph[p5.label].push_back(p4);
+  testObj.ThreeDGraph[p5.label].push_back(p6);
 
-  // testObj.ThreeDGraph[p6.label].push_back(p6);
-  // testObj.ThreeDGraph[p6.label].push_back(p1);
-  // testObj.ThreeDGraph[p6.label].push_back(p5);
-  // testObj.ThreeDGraph[p6.label].push_back(p7);
+  testObj.ThreeDGraph[p6.label].push_back(p6);
+  testObj.ThreeDGraph[p6.label].push_back(p1);
+  testObj.ThreeDGraph[p6.label].push_back(p5);
+  testObj.ThreeDGraph[p6.label].push_back(p7);
 
-  // testObj.ThreeDGraph[p7.label].push_back(p7);
-  // testObj.ThreeDGraph[p7.label].push_back(p2);
-  // testObj.ThreeDGraph[p7.label].push_back(p8);
-  // testObj.ThreeDGraph[p7.label].push_back(p6);
+  testObj.ThreeDGraph[p7.label].push_back(p7);
+  testObj.ThreeDGraph[p7.label].push_back(p2);
+  testObj.ThreeDGraph[p7.label].push_back(p8);
+  testObj.ThreeDGraph[p7.label].push_back(p6);
 
-  // testObj.ThreeDGraph[p8.label].push_back(p8);
-  // testObj.ThreeDGraph[p8.label].push_back(p3);
-  // testObj.ThreeDGraph[p8.label].push_back(p5);
-  // testObj.ThreeDGraph[p8.label].push_back(p7);
+  testObj.ThreeDGraph[p8.label].push_back(p8);
+  testObj.ThreeDGraph[p8.label].push_back(p3);
+  testObj.ThreeDGraph[p8.label].push_back(p5);
+  testObj.ThreeDGraph[p8.label].push_back(p7);
   
-  testObj.ThreeDGraph[p9.label].push_back(p9);
-  testObj.ThreeDGraph[p9.label].push_back(p10);
-  testObj.ThreeDGraph[p10.label].push_back(p10);
-  testObj.ThreeDGraph[p10.label].push_back(p9);
+  // testObj.ThreeDGraph[p9.label].push_back(p9);
+  // testObj.ThreeDGraph[p9.label].push_back(p10);
+  // testObj.ThreeDGraph[p10.label].push_back(p10);
+  // testObj.ThreeDGraph[p10.label].push_back(p9);
 
   testObj.ThreeDToOrthographic();
   testObj.print();
