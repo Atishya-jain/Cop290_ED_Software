@@ -213,6 +213,17 @@ using namespace std;
     //! A Member function.
     /*!
       \sa Translation()
+      Function to create listOfPoints for 3D graph
+    */
+    void GraphToList(){  
+      for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
+        listOfPoints.push_back(it->first);
+      }
+    }
+
+    //! A Member function.
+    /*!
+      \sa Translation()
       \param x to tell the amount of shift in x coordinate.
       \param y to tell the amount of shift in y coordinate.
       \param z to tell the amount of shift in z coordinate.
@@ -418,7 +429,7 @@ using namespace std;
       for (std::map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
         cout<<it->first+"->";
         for(int j=0;j<it->second.size();j++){
-          cout<<it->second[j].label << " ";
+          cout<<it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << " ";
         }
         cout<<endl;
       }
