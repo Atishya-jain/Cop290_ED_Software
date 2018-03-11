@@ -156,21 +156,23 @@ int main(){
   testObj.ThreeDGraph[p8.label].push_back(p7);
   
   // testObj.print3D();
-  // testObj.ThreeDToOrthographic();
+  testObj.ThreeDToOrthographic();
   // TwoDGraph_class A1;
   // copy(begin(testObj.TwoDGraph), end(testObj.TwoDGraph), begin(A1.TwoDGraph));
   // A1.TwoDtoThreeD();
   // A1.print3D();
   // cout<<"---"<<endl;
   // testObj.print3D();
-  //   Output out;
-  //   // out.ThreeDGraph = testObj.ThreeDGraph;
-  //   // out.saveToFile3D();
+    // Output out;
+    // out.ThreeDGraph = testObj.ThreeDGraph;
+    // out.saveToFile3D();
   // copy(begin(testObj.TwoDGraph), end(testObj.TwoDGraph), begin(out.TwoDGraph));
   // out.saveToFile2D();
   Input I1;
-  I1.getFileName();
+  I1.filename="twoD.txt";
+  I1.ThreeDfile=false;
   I1.ReadFile();
+  I1.print();
 
   return 0;
 }
