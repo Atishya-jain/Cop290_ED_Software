@@ -157,19 +157,46 @@ int main(){
   
   testObj.ThreeDToOrthographic();
   testObj.print();
-  // testObj.print3D();
-
   cout << "HI" << endl;
-  edge testedge;
-  testedge.p1.coordinate[0] = 1;
-  testedge.p1.coordinate[1] = 1;
-  testedge.p1.coordinate[2] = 1;
 
-  testedge.p2.coordinate[0] = 1;
-  testedge.p2.coordinate[1] = 1;
+
+  edge testedge;
+  testedge.p1.coordinate[0] = 0;
+  testedge.p1.coordinate[1] = 0;
+  testedge.p1.coordinate[2] = 0;
+
+  testedge.p2.coordinate[0] = 0;
+  testedge.p2.coordinate[1] = 0;
   testedge.p2.coordinate[2] = 5;
 
   testObj.ModelRotation(45,testedge);
+
+  testObj.ThreeDToOrthographic();
+  testObj.print();
+  
+  plane testPlane;
+  testPlane.A = 1;
+  testPlane.B = 0;
+  testPlane.C = 0;
+  testPlane.D = 0;
+  cout << "HI" << endl;
+
+  map<string, vector<point>> myTest = testObj.PlanarProjection(true, testPlane);
+  testObj.TwoDGraph[0].clear();
+  testObj.TwoDGraph[0] = myTest;
+  testObj.print();
+  // testObj.print3D();
+
+  // edge testedge;
+  // testedge.p1.coordinate[0] = 1;
+  // testedge.p1.coordinate[1] = 1;
+  // testedge.p1.coordinate[2] = 1;
+
+  // testedge.p2.coordinate[0] = 1;
+  // testedge.p2.coordinate[1] = 1;
+  // testedge.p2.coordinate[2] = 5;
+
+  // testObj.ModelRotation(45,testedge);
   // testObj.print3D();
 
   // testObj.Translation(1,1,1,testedge,true);

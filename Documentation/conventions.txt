@@ -11,3 +11,5 @@ i.e it will be present in the graph
 1st member of vector list given by map graph is the point itself
 
 Input angle in degrees
+
+margin = 0.0000001

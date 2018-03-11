@@ -1,3 +1,4 @@
+// I have not taken abs in num of distance from plane as signed number is needed for direction
 /*! \file */
 #include <bits/stdc++.h>
 #include "structs.cpp"
@@ -5,6 +6,7 @@
 typedef vector<float> Vec;
 typedef vector<Vec> Mat;
 #define PI 3.14159265
+#define ERRORMARGIN 0.0000001
 
 using namespace std;
 
@@ -34,18 +36,20 @@ using namespace std;
   */
   class ThreeDGraph_class{
     private:
-    static bool sortinrev(const pair<int,string> &a, const pair<int,string> &b){
+    static bool sortinrev(const pair<float,string> &a, const pair<float,string> &b){
            return (a.first > b.first);
     }
 
     string GetLabel(struct point myPoint, int GraphNo){
-      vector<point> tempPoints = ThreeDGraph[myPoint.label];
-      long tempSize = tempPoints.size();
-      vector< pair<int,string>> ToSort;
+      long tempSize = listOfPoints.size();
+      vector< pair<float,string>> ToSort;
       ToSort.push_back(make_pair(myPoint.coordinate[GraphNo],myPoint.label));
-      for(int j = 1;j<tempSize;j++){
-        if((tempPoints[j].coordinate[(GraphNo+1)%3] == myPoint.coordinate[(GraphNo+1)%3])&&(tempPoints[j].coordinate[(GraphNo+2)%3] == myPoint.coordinate[(GraphNo+2)%3])){
-          ToSort.push_back(make_pair(tempPoints[j].coordinate[GraphNo],tempPoints[j].label));
+      for(int j = 0;j<tempSize;j++){
+        point tempPoint = ThreeDGraph[listOfPoints[j]][0];
+        if((abs((tempPoint.coordinate[(GraphNo+1)%3]) - (myPoint.coordinate[(GraphNo+1)%3]))<= ERRORMARGIN)&&(abs((tempPoint.coordinate[(GraphNo+2)%3]) - (myPoint.coordinate[(GraphNo+2)%3]))<= ERRORMARGIN)){
+          if(abs((tempPoint.coordinate[(GraphNo)%3]) - (myPoint.coordinate[(GraphNo)%3]))>= ERRORMARGIN){
+            ToSort.push_back(make_pair(tempPoint.coordinate[GraphNo],tempPoint.label));
+          }
         }
       }
       sort(ToSort.begin(), ToSort.end(), sortinrev);
@@ -56,6 +60,70 @@ using namespace std;
         tempLabel.append(ToSort[j].second);
       }
       return tempLabel;  
+    }
+    
+    string GetLabel1(struct point myPoint, plane equationOfPlane){
+      long tempSize = listOfPoints.size();
+      vector< pair<float,string>> ToSort;
+      float distance = DistanceFromPlane(myPoint, equationOfPlane);
+      ToSort.push_back(make_pair(distance,myPoint.label));
+      point modMyPoint = pointProj(myPoint, equationOfPlane);
+      for(int j = 0;j<tempSize;j++){
+        point tempPoint = ThreeDGraph[listOfPoints[j]][0];
+        point modPoint = pointProj(tempPoint, equationOfPlane);
+        float tempA = modPoint.coordinate[0];  
+        float tempB = modPoint.coordinate[1];  
+        float tempC = modPoint.coordinate[2];              
+        float tempMyA = modMyPoint.coordinate[0];  
+        float tempMyB = modMyPoint.coordinate[1];  
+        float tempMyC = modMyPoint.coordinate[2];              
+        if(tempPoint.label != myPoint.label){
+          if((abs((tempA) - (tempMyA))<= ERRORMARGIN)&&(abs((tempB) - (tempMyB))<= ERRORMARGIN)&&(abs((tempC) - (tempMyC))<= ERRORMARGIN)){
+            distance = DistanceFromPlane(tempPoint, equationOfPlane);
+            ToSort.push_back(make_pair(distance,tempPoint.label));
+          }
+        }
+      }
+      sort(ToSort.begin(), ToSort.end(), sortinrev);
+      int ToSortLen = ToSort.size();
+      string tempLabel = ToSort[0].second;
+      for(int j = 1;j<ToSortLen;j++){
+        tempLabel.append("^");
+        tempLabel.append(ToSort[j].second);
+      }
+      return tempLabel;  
+    }
+
+    float DistanceFromPlane(point myPoint, plane equationOfPlane){
+      float a = equationOfPlane.A;
+      float b = equationOfPlane.B;
+      float c = equationOfPlane.C;
+      float num = (a*myPoint.coordinate[0]) + (b*myPoint.coordinate[1]) + (c*myPoint.coordinate[2]) + equationOfPlane.D; // Currently I have not taken Absolute value in numerator as I want it diection wise
+      float denom = sqrt(a*a + b*b + c*c);
+      return float(num/denom);
+    }
+
+    point pointProj(point myPoint, plane equationOfPlane){
+      point tempPoint;
+      float tempA = equationOfPlane.A;
+      float tempB = equationOfPlane.B;
+      float tempC = equationOfPlane.C;
+      float tempD = equationOfPlane.D;
+      float t = (tempD - ((tempA)*(myPoint.coordinate[0])) - ((tempB)*(myPoint.coordinate[1])) - ((tempC)*(myPoint.coordinate[2])))/((tempA*tempA)+(tempB*tempB)+(tempC*tempC));
+      tempPoint.coordinate[0] = myPoint.coordinate[0] + (tempA*t);  
+      tempPoint.coordinate[1] = myPoint.coordinate[1] + (tempB*t);  
+      tempPoint.coordinate[2] = myPoint.coordinate[2] + (tempC*t);              
+      return tempPoint;
+    }
+
+    bool present(vector<point> myList, string myLabel){
+      long leng = myList.size();
+      for(int i = 0;i<leng;i++){
+        if(myList[i].label == myLabel){
+          return true;
+        }
+      }
+      return false;
     }
 
     Mat matrixMultiply(vector<vector<float>> mat1, vector<vector<float>> mat2){
@@ -214,57 +282,64 @@ using namespace std;
       \param view to specify the viewing direction wrt origin.
       \param equationOfPlane this defines the plane on which projection has to be taken.
     */
-    // map<string, vector<point> > PlanarProjection(bool view, plane equationOfPlane){
-    //   map<string, vector<point> > tempProj;
+    map<string, vector<point> > PlanarProjection(bool view, plane equationOfPlane){
+      map<string, vector<point> > tempProj;
       
-    //   long siz = listOfPoints.size();
-    //   for(int i = 0; i<siz; i++){
-    //     vector<point> temp = ThreeDGraph[listOfPoints[i]];
-    //     long tempsiz = temp.size();
+      long siz = listOfPoints.size();
+      for(int i = 0; i<siz; i++){
+        vector<point> temp = ThreeDGraph[listOfPoints[i]];
+        long tempsiz = temp.size();
         
-    //     struct point myPoint = temp[0];
-    //     // if there is any other point in the list
-    //     if(tempsiz > 1){ 
+        struct point myPoint = temp[0];
+        // if there is any other point in the list
+        if(tempsiz > 1){ 
         
-    //       // Get combined Label
-    //       string tempLabel = GetLabel(myPoint, GraphNo);
-          
-    //       // If that label is not present already
-    //       if(tempProj.count(tempLabel) == 0){
-    //         // change my label
-    //         myPoint.label = tempLabel;
-    //         // Insert me in graph first
-    //         tempProj[myPoint.label].push_back(myPoint);                    
-    //         // Iterate over my neighbours
-    //         for(int j = 1;j<tempsiz;j++){
-    //           // Project coordinate on plane            
-    //           float tempA = equationOfPlane.A;
-    //           float tempB = equationOfPlane.B;
-    //           float tempC = equationOfPlane.C;
-    //           float tempD = equationOfPlane.D;
-    //           float t = (tempD - ((tempA)*(temp[j].coordinate[0])) - ((tempB)*(temp[j].coordinate[1])) - ((tempC)*(temp[j].coordinate[2])))/((tempA*tempA)+(tempB*tempB)+(tempC*tempC));
-    //           float newX = temp[j].coordinate[0] + (tempA*t);  
-    //           float newY = temp[j].coordinate[1] + (tempB*t);  
-    //           float newZ = temp[j].coordinate[2] + (tempC*t);              
+          // Get combined Label
+          string tempLabel = GetLabel1(myPoint, equationOfPlane);
+          // cout << tempLabel << " HIHI" << endl;
+          // If that label is not present already
+          if(tempProj.count(tempLabel) == 0){
+            // change my label
+            point modPoint = pointProj(myPoint, equationOfPlane);
+            myPoint.coordinate[0] = modPoint.coordinate[0];  
+            myPoint.coordinate[1] = modPoint.coordinate[1];  
+            myPoint.coordinate[2] = modPoint.coordinate[2];              
+            myPoint.label = tempLabel;
+            // Insert me in graph first
+            tempProj[myPoint.label].push_back(myPoint);                    
+            // Iterate over my neighbours
+            for(int j = 1;j<tempsiz;j++){
+              // Project coordinate on plane            
+              modPoint = pointProj(temp[j],equationOfPlane);
+              float tempA = modPoint.coordinate[0];  
+              float tempB = modPoint.coordinate[1];  
+              float tempC = modPoint.coordinate[2];              
 
-    //           // for All my non overlapping neighbours
-    //           if((temp[j].coordinate[0] != myPoint.coordinate[0])||(tempPoints[j].coordinate[1] != myPoint.coordinate[1])||(tempPoints[j].coordinate[2] != myPoint.coordinate[2])){
+              // for All my non overlapping neighbours
+              if((abs(tempA - (myPoint.coordinate[0]))>= ERRORMARGIN)||(abs(tempB - (myPoint.coordinate[1]))>= ERRORMARGIN)||(abs(tempC - (myPoint.coordinate[2]))>= ERRORMARGIN)){
                 
-    //             // Check with what all points do they overlapp and get label
-    //             temp[j].label = GetLabel(temp[j], GraphNo);
-    //             // If that combined label is not present already then add else join edge with pre existing label
-    //             if(tempProj.count(temp[j].label) == 0){
-    //               tempProj[myPoint.label].push_back(temp[j]);
-    //             }else{
-    //               tempProj[myPoint.label].push_back(tempProj[temp[j].label][0]);
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   return tempProj;        
-    // }
+                // Check with what all points do they overlapp and get label
+                temp[j].label = GetLabel1(temp[j], equationOfPlane);
+                // If that combined label is not present already then add else join edge with pre existing label
+                if(tempProj.count(temp[j].label) == 0){
+                  temp[j].coordinate[0] = tempA;
+                  temp[j].coordinate[1] = tempB;
+                  temp[j].coordinate[2] = tempC;
+                  if(!present(tempProj[myPoint.label], temp[j].label)){
+                    tempProj[myPoint.label].push_back(temp[j]);
+                  }
+                }else{
+                  if(!present(tempProj[myPoint.label], temp[j].label)){
+                    tempProj[myPoint.label].push_back(tempProj[temp[j].label][0]);
+                  }
+                }  
+              }
+            }
+          }
+        }
+      }
+      return tempProj;        
+    }
 
 	//! A Member function.
     /*!
@@ -301,19 +376,24 @@ using namespace std;
               TwoDGraph[GraphNo][myPoint.label].push_back(myPoint);                    
               // Iterate over my neighbours
               for(int j = 1;j<tempSize;j++){
-                // Reduce coordinate to 0
-                tempPoints[j].coordinate[GraphNo] = 0;
                 
                 // for All my non overlapping neighbours
-                if((tempPoints[j].coordinate[(GraphNo+1)%3] != myPoint.coordinate[(GraphNo+1)%3])||(tempPoints[j].coordinate[(GraphNo+2)%3] != myPoint.coordinate[(GraphNo+2)%3])){
+                if((abs(((tempPoints[j].coordinate[(GraphNo+1)%3]) - (myPoint.coordinate[(GraphNo+1)%3])))>= ERRORMARGIN)||(abs(((tempPoints[j].coordinate[(GraphNo+2)%3]) - (myPoint.coordinate[(GraphNo+2)%3])))>= ERRORMARGIN)){
                   
                   // Check with what all points do they overlapp and get label
                   tempPoints[j].label = GetLabel(tempPoints[j], GraphNo);
+                  // Reduce coordinate to 0
+                  tempPoints[j].coordinate[GraphNo] = 0;
+
                   // If that combined label is not present already then add else join edge with pre existing label
                   if(TwoDGraph[GraphNo].count(tempPoints[j].label) == 0){
-                    TwoDGraph[GraphNo][myPoint.label].push_back(tempPoints[j]);
+                    if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
+                      TwoDGraph[GraphNo][myPoint.label].push_back(tempPoints[j]);                      
+                    }
                   }else{
-                    TwoDGraph[GraphNo][myPoint.label].push_back(TwoDGraph[GraphNo][tempPoints[j].label][0]);
+                    if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
+                      TwoDGraph[GraphNo][myPoint.label].push_back(TwoDGraph[GraphNo][tempPoints[j].label][0]);
+                    }
                   }
                 }
               }
@@ -348,7 +428,8 @@ using namespace std;
       for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
         cout<<it->first+"->";
         for(int j=0;j<it->second.size();j++){
-          cout<<it->second[j].label <<" ";
+          // cout<<it->second[j].label <<" ";
+          it->second[j].print();
         }
         cout<<endl;
       }
