@@ -352,6 +352,75 @@ using namespace std;
       Translation(-1*axis.p1.coordinate[0], -1*axis.p1.coordinate[1], -1*axis.p1.coordinate[2], tempLineAns, true);
     }
 
+     //! A Member function.
+    /*!
+      \sa MeanNormalisation()
+    */
+    void MeanNormalisation(){
+      long siz = listOfPoints.size();
+      float meanx = 0;
+      float meany = 0;
+      float meanz = 0;
+      float maxX = -100000000, minX = 100000000;
+      float maxY = -100000000, minY = 100000000;
+      float maxZ = -100000000, minZ = 100000000;
+      for(int i = 0; i<siz; i++){
+        point temp = ThreeDGraph[listOfPoints[i]][0];
+        meanx += temp.coordinate[0];
+        meany += temp.coordinate[1];
+        meanz += temp.coordinate[2];
+        if(temp.coordinate[0] > maxX){
+          maxX = temp.coordinate[0];
+        }
+        if(temp.coordinate[1] > maxY){
+          maxY = temp.coordinate[1];
+        }
+        if(temp.coordinate[2] > maxZ){
+          maxZ = temp.coordinate[2];
+        }
+        if(temp.coordinate[0] < minX){
+          minX = temp.coordinate[0];
+        }        
+        if(temp.coordinate[1] < minY){
+          minY = temp.coordinate[1];
+        }
+        if(temp.coordinate[2] < minZ){
+          minZ = temp.coordinate[2];
+        }              
+      }
+      float MaxDist = -10000000;
+      if((maxX - minX) > (maxY - minY)){
+        if((maxX - minX) > (maxZ - minZ)){
+          MaxDist = (maxX - minX);
+        }else{
+          MaxDist = (maxZ - minZ);
+        }
+      }else if((maxY - minY) > (maxZ - minZ)){
+          MaxDist = (maxY - minY);
+      }else{
+          MaxDist = (maxZ - minZ);
+      }
+      float factor = 200/MaxDist;
+      meanx = float(meanx/siz);
+      meany = float(meany/siz);
+      meanz = float(meanz/siz);
+      for(int i = 0; i<siz; i++){
+        vector<point> temp = ThreeDGraph[listOfPoints[i]];
+        long tempsiz = temp.size();
+        for (int j = 0; j < tempsiz; j++)
+        {
+          ThreeDGraph[listOfPoints[i]][j].coordinate[0] = temp[j].coordinate[0] - meanx;
+          ThreeDGraph[listOfPoints[i]][j].coordinate[1] = temp[j].coordinate[1] - meany;
+          ThreeDGraph[listOfPoints[i]][j].coordinate[2] = temp[j].coordinate[2] - meanz;
+        }
+      }
+      Scaling(factor);
+    }
+
+    //! A Member function.
+    /*!
+      \sa Isometric()
+    */
     void Isometric(){
       long totalPoints;
       IsometricGraph = ThreeDGraph;

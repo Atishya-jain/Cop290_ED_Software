@@ -76,16 +76,19 @@ using namespace std;
         TwoDGraphTemp[0].clear();
         TwoDGraphTemp[1].clear();
         TwoDGraphTemp[2].clear();
-        int TopMargin = 50;
-        int BottomMargin = 50;
-        int LeftMargin = 50;
-        int RightMargin = 50;
-        int SpaceBetween = 100;
-        int TotalHeight = 600;
-        int TotalWidth = 600;
-        int ObjectSize = 200;
-        int MidH = TotalHeight/2;
-        int MidW = TotalWidth/2;
+        float startCoordinate = -300;
+        float centre = startCoordinate/2;
+        float negCentre = -1*centre;
+        // int TopMargin = 50;
+        // int BottomMargin = 50;
+        // int LeftMargin = 50;
+        // int RightMargin = 50;
+        // int SpaceBetween = 100;
+        // int TotalHeight = 600;
+        // int TotalWidth = 600;
+        // int ObjectSize = 200;
+        // int MidH = TotalHeight/2;
+        // int MidW = TotalWidth/2;
  
         QPainter p(&pi);
         p.setRenderHint(QPainter::Antialiasing);
@@ -98,13 +101,13 @@ using namespace std;
         for (map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
           long len = it->second.size();
           point tempPoint = it->second[0];
-          tempPoint.coordinate[1] =  TopMargin + SpaceBetween + ObjectSize + it->second[0].coordinate[1];
-          tempPoint.coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[0].coordinate[2];
+          tempPoint.coordinate[1] = negCentre + it->second[0].coordinate[1];
+          tempPoint.coordinate[0] = negCentre +it->second[0].coordinate[2];
           TwoDGraphTemp[0][it->first].push_back(tempPoint);
           for(int j=1;j<len;j++){
             tempPoint = it->second[j];
-            tempPoint.coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[2];
-            tempPoint.coordinate[1] = TopMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[1];
+            tempPoint.coordinate[0] = negCentre + it->second[j].coordinate[2];
+            tempPoint.coordinate[1] = negCentre + it->second[j].coordinate[1];
             TwoDGraphTemp[0][it->first].push_back(tempPoint);
           }
         }
@@ -112,14 +115,14 @@ using namespace std;
         for (map<string, vector<point> >::iterator it=TwoDGraph[1].begin(); it!=TwoDGraph[1].end(); ++it){
           long len = it->second.size();
           point tempPoint = it->second[0];
-          tempPoint.coordinate[1] = TopMargin + it->second[0].coordinate[0];
-          tempPoint.coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[0].coordinate[2];
+          tempPoint.coordinate[1] = centre +it->second[0].coordinate[0];
+          tempPoint.coordinate[0] = negCentre + it->second[0].coordinate[2];
           TwoDGraphTemp[1][it->first].push_back(tempPoint);
           for(int j=1;j<len;j++){
             // cout << "Early = " << it->first << " -> " << it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << endl;
             tempPoint = it->second[j];
-            tempPoint.coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[2];
-            tempPoint.coordinate[1] = TopMargin + it->second[j].coordinate[0];
+            tempPoint.coordinate[0] = negCentre + it->second[j].coordinate[2];
+            tempPoint.coordinate[1] = centre + it->second[j].coordinate[0];
             TwoDGraphTemp[1][it->first].push_back(tempPoint);
             // cout << it->first << " -> " << it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << endl;
           }
@@ -128,13 +131,13 @@ using namespace std;
         for (map<string, vector<point> >::iterator it=TwoDGraph[2].begin(); it!=TwoDGraph[2].end(); ++it){
           long len = it->second.size();
           point tempPoint = it->second[0];
-          tempPoint.coordinate[0] = LeftMargin + it->second[0].coordinate[0];
-          tempPoint.coordinate[1] = TopMargin + SpaceBetween + ObjectSize + it->second[0].coordinate[1];
+          tempPoint.coordinate[0] = centre + it->second[0].coordinate[0];
+          tempPoint.coordinate[1] = negCentre + it->second[0].coordinate[1];
           TwoDGraphTemp[2][it->first].push_back(tempPoint);
           for(int j=1;j<len;j++){
             tempPoint = it->second[j];
-            tempPoint.coordinate[0] = LeftMargin + it->second[j].coordinate[0];
-            tempPoint.coordinate[1] = TopMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[1];
+            tempPoint.coordinate[0] = centre + it->second[j].coordinate[0];
+            tempPoint.coordinate[1] = negCentre + it->second[j].coordinate[1];
             TwoDGraphTemp[2][it->first].push_back(tempPoint);
           }
         }
