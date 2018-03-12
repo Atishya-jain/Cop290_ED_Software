@@ -445,10 +445,11 @@ using namespace std;
     }
 
     void print(){
-      for (std::map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
+      for (std::map<string, vector<point> >::iterator it=TwoDGraph[2].begin(); it!=TwoDGraph[2].end(); ++it){
         cout<<it->first+"->";
         for(int j=0;j<it->second.size();j++){
-          cout<<it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << " ";
+          // cout<<it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << " ";
+          cout << it->second[j].coordinate[2] << " ";
         }
         cout<<endl;
       }

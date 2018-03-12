@@ -9,7 +9,9 @@
 #include "InteractiveSrc.cpp"
 using namespace std;
 /*! \fn main()*/
-int main(){
+int main(int argc, char *argv[]){
+   QApplication a(argc, argv);
+  
   // Input input;
   // input.displayOptions();
   // if(input.file){
@@ -29,51 +31,51 @@ int main(){
   listOfPoints.push_back(p1.label);
 
   point p2;
-  p2.coordinate[0]=5;
+  p2.coordinate[0]=200;
   p2.coordinate[1]=0;
   p2.coordinate[2]=0;
   p2.label="2";
   listOfPoints.push_back(p2.label);
 
   point p3;
-  p3.coordinate[0]=5;
-  p3.coordinate[1]=5;
+  p3.coordinate[0]=200;
+  p3.coordinate[1]=200;
   p3.coordinate[2]=0;
   p3.label="3";
   listOfPoints.push_back(p3.label);
 
   point p4;
   p4.coordinate[0]=0;
-  p4.coordinate[1]=5;
+  p4.coordinate[1]=200;
   p4.coordinate[2]=0;
   p4.label="4";
   listOfPoints.push_back(p4.label);
 
   point p5;
   p5.coordinate[0]=0;
-  p5.coordinate[1]=5;
-  p5.coordinate[2]=5;
+  p5.coordinate[1]=200;
+  p5.coordinate[2]=200;
   p5.label="5";
   listOfPoints.push_back(p5.label);
 
   point p6;
   p6.coordinate[0]=0;
   p6.coordinate[1]=0;
-  p6.coordinate[2]=5;
+  p6.coordinate[2]=200;
   p6.label="6";
   listOfPoints.push_back(p6.label);
   
   point p7;
-  p7.coordinate[0]=5;
+  p7.coordinate[0]=200;
   p7.coordinate[1]=0;
-  p7.coordinate[2]=5;
+  p7.coordinate[2]=200;
   p7.label="7";
   listOfPoints.push_back(p7.label);
   
   point p8;
-  p8.coordinate[0]=5;
-  p8.coordinate[1]=5;
-  p8.coordinate[2]=5;
+  p8.coordinate[0]=200;
+  p8.coordinate[1]=200;
+  p8.coordinate[2]=200;
   p8.label="8";
   listOfPoints.push_back(p8.label);
 
@@ -183,6 +185,30 @@ int main(){
   cout << "HI" << endl;
 
 
+  plane testPlane;
+  testPlane.A = 1;
+  testPlane.B = 1;
+  testPlane.C = 1;
+  testPlane.D = 0;
+  cout << "HI" << endl;
+
+  map<string, vector<point>> myTest = testObj.PlanarProjection(true, testPlane);
+  // testObj.TwoDGraph[0].clear();
+  // testObj.TwoDGraph[0] = myTest;
+  // testObj.print();
+
+
+  Output outTest;
+  // outTest.TwoDGraph = testObj.TwoDGraph;
+  // std::copy(std::begin(testObj.TwoDGraph), std::end(testObj.TwoDGraph), std::begin(outTest.TwoDGraph));
+  std::copy(std::begin(myTest), std::end(myTest), std::begin(outTest.PlaneProj));
+
+  QLabel l;
+  QPicture pi;
+  pi = outTest.RenderOutput3D(pi);
+  l.setPicture(pi);
+  l.show();
+
   // edge testedge;
   // testedge.p1.coordinate[0] = 0;
   // testedge.p1.coordinate[1] = 0;
@@ -197,26 +223,18 @@ int main(){
   // testObj.ThreeDToOrthographic();
   // testObj.print();
 
-  plane testPlane;
-  testPlane.A = 1;
-  testPlane.B = 1;
-  testPlane.C = 1;
-  testPlane.D = 0;
-  cout << "HI" << endl;
+  // plane testPlane;
+  // testPlane.A = 1;
+  // testPlane.B = 1;
+  // testPlane.C = 1;
+  // testPlane.D = 0;
+  // cout << "HI" << endl;
 
-  map<string, vector<point>> myTest = testObj.PlanarProjection(true, testPlane);
-  testObj.TwoDGraph[0].clear();
-  testObj.TwoDGraph[0] = myTest;
-  testObj.print();
+  // map<string, vector<point>> myTest = testObj.PlanarProjection(true, testPlane);
+  // testObj.TwoDGraph[0].clear();
+  // testObj.TwoDGraph[0] = myTest;
+  // testObj.print();
 
-  Output outTest;
-  outTest.TwoDGraph = testObj.TwoDGraph;
-
-  QLabel l;
-  QPicture pi;
-  pi = outTest.RenderOutput2D(pi);
-  l.setPicture(pi);
-  l.show();
 
   // testObj.print3D();
 
@@ -235,7 +253,8 @@ int main(){
   // testObj.Translation(1,1,1,testedge,true);
   // testObj.print3D();
   // a1.MyPlane = testObj.TwoDGraph[0];
-	return 0;
+   return a.exec();
+	// return 0;
 }
 
 // Our aim is not to create duplicates of graph everywhere but only to use pointers to point to one graph
