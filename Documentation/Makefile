@@ -7,11 +7,12 @@ DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB
 OBJECTS       = Index.o
 TARGET        = draw
 
+# all: Index.o
 %.o: %.cpp
-	$(CXX) -c -std=c++14 $< $(CXXFLAGS) $(INCPATH)
+	$(CXX) -c $< $(CXXFLAGS) $(INCPATH) -std=c++14
 
 $(TARGET):  $(OBJECTS)  
-	$(CXX) $(LFLAGS) -o -std=c++14 $@ $^ $(LIBS)
+	$(CXX) $(LFLAGS) -o $@ $^ $(LIBS) -std=c++14
 
 .PHONY: clean
 
