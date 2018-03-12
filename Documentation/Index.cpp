@@ -360,29 +360,31 @@ int main(int argc, char *argv[]){
 
 
   // outTest.TwoDGraph = testObj.TwoDGraph;
-  std::copy(std::begin(testObj.TwoDGraph), std::end(testObj.TwoDGraph), std::begin(outTest.TwoDGraph));
   // outTest.PlaneProj = myTest;
   // testObj.PlaneProj = myTest;
   // testObj.print();
     
+  
+
+  edge testedge;
+  testedge.p1.coordinate[0] = 0;
+  testedge.p1.coordinate[1] = 0;
+  testedge.p1.coordinate[2] = 0;
+
+  testedge.p2.coordinate[0] = 0;
+  testedge.p2.coordinate[1] = 0;
+  testedge.p2.coordinate[2] = 5;
+
+  testObj.ModelRotation(45,testedge);
+
+  testObj.ThreeDToOrthographic();
+  std::copy(std::begin(testObj.TwoDGraph), std::end(testObj.TwoDGraph), std::begin(outTest.TwoDGraph));
+  
   QLabel l;
   QPicture pi;
   pi = outTest.RenderOutput2D(pi);
   l.setPicture(pi);
   l.show();
-
-  // edge testedge;
-  // testedge.p1.coordinate[0] = 0;
-  // testedge.p1.coordinate[1] = 0;
-  // testedge.p1.coordinate[2] = 0;
-
-  // testedge.p2.coordinate[0] = 0;
-  // testedge.p2.coordinate[1] = 0;
-  // testedge.p2.coordinate[2] = 5;
-
-  // testObj.ModelRotation(45,testedge);
-
-  // testObj.ThreeDToOrthographic();
   // testObj.print();
 
   // plane testPlane;

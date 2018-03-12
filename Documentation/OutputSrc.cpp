@@ -167,9 +167,9 @@ using namespace std;
         \param filename a string argument.
         \param flag3Dfile boolean character to tell the type of file (3D/2D).
       */
-      void saveToFile3D(){
+      void saveToFile3D(string fname){
         ofstream myfile;
-        myfile.open("output.txt");
+        myfile.open(fname);
         int ct=0;
         for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it)
           ct++;
@@ -192,9 +192,9 @@ using namespace std;
         \param filename a string argument.
         \param flag3Dfile boolean character to tell the type of file (3D/2D).
       */
-      void saveToFile2D(){
+      void saveToFile2D(string fname){
         ofstream myfile;
-        myfile.open("output.txt");
+        myfile.open(fname);
         for(int j=0;j<3;j++){
           int ct=0;
           for (std::map<string, vector<point> >::iterator it=TwoDGraph[j].begin(); it!=TwoDGraph[j].end(); ++it){
