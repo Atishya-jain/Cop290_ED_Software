@@ -1,8 +1,7 @@
 /*! \file */
-// #include "qtlib/qtlib.h"
 #include "bits/stdc++.h"
-// #include <QtCore>
-// #include <QtGui>
+#include <QtCore>
+#include <QtGui>
 
 #include "Graphs.cpp"
 #include "InputSrc.cpp"
@@ -209,6 +208,16 @@ int main(){
   testObj.TwoDGraph[0].clear();
   testObj.TwoDGraph[0] = myTest;
   testObj.print();
+
+  Output outTest;
+  outTest.TwoDGraph = testObj.TwoDGraph;
+
+  QLabel l;
+  QPicture pi;
+  pi = outTest.RenderOutput2D(pi);
+  l.setPicture(pi);
+  l.show();
+
   // testObj.print3D();
 
   // edge testedge;

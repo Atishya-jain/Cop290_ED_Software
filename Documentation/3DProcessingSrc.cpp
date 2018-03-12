@@ -223,6 +223,25 @@ using namespace std;
 
     //! A Member function.
     /*!
+      \sa Scaling()
+      \param ScaleFactor to tell the factor of scale.
+    */
+    void Scaling(float ScaleFactor){  
+      long siz = listOfPoints.size();
+      for(int i = 0; i<siz; i++){
+        vector<point> temp = ThreeDGraph[listOfPoints[i]];
+        long tempsiz = temp.size();
+        for (int j = 0; j < tempsiz; j++)
+        {
+          ThreeDGraph[listOfPoints[i]][j].coordinate[0] = temp[j].coordinate[0]*ScaleFactor;
+          ThreeDGraph[listOfPoints[i]][j].coordinate[1] = temp[j].coordinate[1]*ScaleFactor;
+          ThreeDGraph[listOfPoints[i]][j].coordinate[2] = temp[j].coordinate[2]*ScaleFactor;
+        }
+      }        
+    }
+
+    //! A Member function.
+    /*!
       \sa Translation()
       \param x to tell the amount of shift in x coordinate.
       \param y to tell the amount of shift in y coordinate.
