@@ -23,6 +23,8 @@ using namespace std;
       map<string, vector<point> > TwoDGraph[3]; /*!< This is the array of orthographic projections */
       map<string, vector<point> > ThreeDGraph;  /*!< This is the 3D graph */
       map<string, vector<point> > PlaneProj;
+      map<string, vector<point> > TwoDGraphTemp[3]; 
+      map<string, vector<point> > PlaneProjTemp; 
   	  
       //! A Member function.
       /*!
@@ -34,22 +36,24 @@ using namespace std;
         QPainter p(&pi);
         p.setRenderHint(QPainter::Antialiasing);
         p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
-        p.drawLine(0, 0, 0, 600);
-        p.drawLine(0, 600, 600, 600);
-        p.drawLine(600, 600, 600, 0);
-        p.drawLine(600, 0, 0, 0);
+        // p.drawLine(0, 0, 0, 600);
+        // p.drawLine(0, 600, 600, 600);
+        // p.drawLine(600, 600, 600, 0);
+        // p.drawLine(600, 0, 0, 0);
 
         for (map<string, vector<point> >::iterator it=PlaneProj.begin(); it!=PlaneProj.end(); ++it){
           long len = it->second.size();
           for(int j=0;j<len;j++){
-            it->second[j].coordinate[0] = 50 + it->second[j].coordinate[0];
-            it->second[j].coordinate[1] = 50 + it->second[j].coordinate[1];
+            point tempPoint = it->second[j];
+            tempPoint.coordinate[0] = 50 + it->second[j].coordinate[0];
+            tempPoint.coordinate[1] = 50 + it->second[j].coordinate[1];
+            PlaneProjTemp[it->first].push_back(tempPoint);
           }
         }
 
         p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
 
-        for (map<string, vector<point> >::iterator it=PlaneProj.begin(); it!=PlaneProj.end(); ++it){
+        for (map<string, vector<point> >::iterator it=PlaneProjTemp.begin(); it!=PlaneProjTemp.end(); ++it){
           long len = it->second.size();
           point MainPoint = it->second[0];
           for(int j=1;j<len;j++){
@@ -69,6 +73,9 @@ using namespace std;
         \param flag3Dfile boolean character to tell the type of file (3D/2D).
       */
       QPicture RenderOutput2D(QPicture pi){
+        TwoDGraphTemp[0].clear();
+        TwoDGraphTemp[1].clear();
+        TwoDGraphTemp[2].clear();
         int TopMargin = 50;
         int BottomMargin = 50;
         int LeftMargin = 50;
@@ -83,39 +90,59 @@ using namespace std;
         QPainter p(&pi);
         p.setRenderHint(QPainter::Antialiasing);
         p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
-        p.drawLine(0, 0, 0, 600);
-        p.drawLine(0, 600, 600, 600);
-        p.drawLine(600, 600, 600, 0);
-        p.drawLine(600, 0, 0, 0);
+        p.drawLine(-300, -300, -300, 300);
+        p.drawLine(-300, 300, 300, 300);
+        p.drawLine(300, 300, 300, -300);
+        p.drawLine(300, -300, -300, -300);
  
         for (map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
           long len = it->second.size();
-          for(int j=0;j<len;j++){
-            it->second[j].coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[2];
-            it->second[j].coordinate[1] = TopMargin + ObjectSize + SpaceBetween + it->second[j].coordinate[1];
+          point tempPoint = it->second[0];
+          tempPoint.coordinate[1] =  TopMargin + SpaceBetween + ObjectSize + it->second[0].coordinate[1];
+          tempPoint.coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[0].coordinate[2];
+          TwoDGraphTemp[0][it->first].push_back(tempPoint);
+          for(int j=1;j<len;j++){
+            tempPoint = it->second[j];
+            tempPoint.coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[2];
+            tempPoint.coordinate[1] = TopMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[1];
+            TwoDGraphTemp[0][it->first].push_back(tempPoint);
           }
         }
  
         for (map<string, vector<point> >::iterator it=TwoDGraph[1].begin(); it!=TwoDGraph[1].end(); ++it){
           long len = it->second.size();
-          for(int j=0;j<len;j++){
-            it->second[j].coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[2];
-            it->second[j].coordinate[1] = TopMargin + it->second[j].coordinate[0];
+          point tempPoint = it->second[0];
+          tempPoint.coordinate[1] = TopMargin + it->second[0].coordinate[0];
+          tempPoint.coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[0].coordinate[2];
+          TwoDGraphTemp[1][it->first].push_back(tempPoint);
+          for(int j=1;j<len;j++){
+            // cout << "Early = " << it->first << " -> " << it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << endl;
+            tempPoint = it->second[j];
+            tempPoint.coordinate[0] = LeftMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[2];
+            tempPoint.coordinate[1] = TopMargin + it->second[j].coordinate[0];
+            TwoDGraphTemp[1][it->first].push_back(tempPoint);
+            // cout << it->first << " -> " << it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << endl;
           }
         }
  
         for (map<string, vector<point> >::iterator it=TwoDGraph[2].begin(); it!=TwoDGraph[2].end(); ++it){
           long len = it->second.size();
-          for(int j=0;j<len;j++){
-            it->second[j].coordinate[0] = LeftMargin + it->second[j].coordinate[0];
-            it->second[j].coordinate[1] = TopMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[1];
+          point tempPoint = it->second[0];
+          tempPoint.coordinate[0] = LeftMargin + it->second[0].coordinate[0];
+          tempPoint.coordinate[1] = TopMargin + SpaceBetween + ObjectSize + it->second[0].coordinate[1];
+          TwoDGraphTemp[2][it->first].push_back(tempPoint);
+          for(int j=1;j<len;j++){
+            tempPoint = it->second[j];
+            tempPoint.coordinate[0] = LeftMargin + it->second[j].coordinate[0];
+            tempPoint.coordinate[1] = TopMargin + SpaceBetween + ObjectSize + it->second[j].coordinate[1];
+            TwoDGraphTemp[2][it->first].push_back(tempPoint);
           }
         }
  
         p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
         
-        for(int j = 0;j<3;j++){
-          for (map<string, vector<point> >::iterator it=TwoDGraph[j].begin(); it!=TwoDGraph[j].end(); ++it){
+        for(int i = 0;i<3;i++){
+          for (map<string, vector<point> >::iterator it=TwoDGraphTemp[i].begin(); it!=TwoDGraphTemp[i].end(); ++it){
             long len = it->second.size();
             point MainPoint = it->second[0];
             for(int j=1;j<len;j++){
@@ -123,9 +150,9 @@ using namespace std;
             }
           }
         }
-         
-        p.drawLine(0,MidH,TotalWidth,MidH);
-        p.drawLine(MidW,0,MidW,TotalHeight);
+
+        p.drawLine(0,-300,0,300);
+        p.drawLine(-300,0,300,0);
  
         p.end();
         return pi;      

@@ -153,7 +153,7 @@ using namespace std;
       return tempMatrix;
     }
 
-    void specificRotation(float angle, int choiceAxis, Vec Aline, bool GraphOrLine){
+    void specificRotation(float angle, int choiceAxis, Vec Aline, bool GraphOrLine, bool ThreeDGraphOrPlaneProj){
       if(choiceAxis == 0){
         matrix[0][1][1] = cos(angle);
         matrix[0][2][2] = cos(angle);
@@ -171,9 +171,20 @@ using namespace std;
         matrix[2][0][1] = -1.0*sin(angle);
       }
       if(GraphOrLine){
-        long totalPoints = listOfPoints.size();
+        long totalPoints;
+        if (ThreeDGraphOrPlaneProj)
+        {
+          totalPoints = listOfPoints.size();          
+        }else{
+          totalPoints = listOfPointsForPlane.size();          
+        }
         for(int i = 0; i < totalPoints; ++i){
-          vector<point> tempList = ThreeDGraph[listOfPoints[i]];
+          vector<point> tempList;
+          if(ThreeDGraphOrPlaneProj){
+            tempList = ThreeDGraph[listOfPoints[i]];
+          }else{
+            tempList = PlaneProj[listOfPointsForPlane[i]];
+          }
           long tempsiz = tempList.size();
           for (int j = 0; j < tempsiz; j++){
             Vec tempVec;
@@ -182,13 +193,24 @@ using namespace std;
             tempVec.push_back(tempList[j].coordinate[2]);
             tempVec.push_back(1);
             tempVec = matrix[choiceAxis]*tempVec;
-            ThreeDGraph[listOfPoints[i]][j].coordinate[0] = tempVec[0];  
-            ThreeDGraph[listOfPoints[i]][j].coordinate[1] = tempVec[1];  
-            ThreeDGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];  
+            if(ThreeDGraphOrPlaneProj){
+              ThreeDGraph[listOfPoints[i]][j].coordinate[0] = tempVec[0];  
+              ThreeDGraph[listOfPoints[i]][j].coordinate[1] = tempVec[1];  
+              ThreeDGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];  
+            }else{
+              PlaneProj[listOfPointsForPlane[i]][j].coordinate[0] = tempVec[0];  
+              PlaneProj[listOfPointsForPlane[i]][j].coordinate[1] = tempVec[1];  
+              PlaneProj[listOfPointsForPlane[i]][j].coordinate[2] = tempVec[2];  
+            }
           }
         }
       }else{
-        tempLineVect = matrix[choiceAxis]*Aline;
+        if(ThreeDGraphOrPlaneProj){
+          tempLineVect = matrix[choiceAxis]*Aline;
+        }else{
+          cout << "YOYOYO" << endl;
+          tempLineVectForPlane = matrix[choiceAxis]*Aline;
+        }       
       }
     }    
     // Access specifier
@@ -198,26 +220,50 @@ using namespace std;
       matrix[0] = createMatrix();
       matrix[1] = createMatrix();
       matrix[2] = createMatrix();
+      matrixA = createMatrix();
+      matrixB = createMatrix();
+      matrixA[1][1] = cos(35.264*PI/180);
+      matrixA[1][2] = sin(35.264*PI/180);
+      matrixA[2][1] = -1*sin(35.264*PI/180);
+      matrixA[1][1] = cos(35.264*PI/180);
+
+      matrixB[0][0] = cos(45*PI/180);
+      matrixB[2][0] = sin(45*PI/180);
+      matrixB[0][2] = -1*sin(45*PI/180);
+      matrixB[2][2] = cos(45*PI/180);
     }
   
     // Data Members
     map<string, vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
+    map<string, vector<point> > IsometricGraph; /*!< This is the Isometric graph representation */
     map<string, vector<point> > TwoDGraph[3]; /*!< This is orthographic projections */
     map<string, vector<point> > PlaneProj; /*!< This is planar projection of 3D graph when requested */
     vector<string> listOfPoints;/*!< This is list of points available in 3D graph */
+    vector<string> listOfPointsForPlane;/*!< This is list of points available in planar Projection */
     Mat matrixAns;/*!< This is answer calculated after matrix computations */
     Mat matrix[3]; /*!< This is matrix for rotating about specific axis */
+    Mat matrixA; /*!< This is matrix for rotating about specific axis */
+    Mat matrixB; /*!< This is matrix for rotating about specific axis */
     edge tempLineAns;
     Vec tempLineVect;
+    Vec tempLineVectForPlane;
 
     //! A Member function.
     /*!
       \sa Translation()
       Function to create listOfPoints for 3D graph
     */
-    void GraphToList(){  
-      for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
-        listOfPoints.push_back(it->first);
+    void GraphToList(bool ThreeDGraphOrPlaneProj){  
+      if(ThreeDGraphOrPlaneProj){ 
+        listOfPoints.clear(); 
+        for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
+          listOfPoints.push_back(it->first);
+        }
+      }else{
+        listOfPointsForPlane.clear(); 
+        for (std::map<string, vector<point> >::iterator it=PlaneProj.begin(); it!=PlaneProj.end(); ++it){
+          listOfPointsForPlane.push_back(it->first);
+        }
       }
     }
 
@@ -290,25 +336,48 @@ using namespace std;
 
       // calculate angleX
       float angleX = (atan(tempLineVect[1]/tempLineVect[2])); // angleX = y/z
-      specificRotation(angleX,0,tempLineVect,false);
-      specificRotation(angleX,0,tempLineVect,true);
+      specificRotation(angleX,0,tempLineVect,false,true);
+      specificRotation(angleX,0,tempLineVect,true,true);
       
       // calculate angleY
       float angleY = (atan(tempLineVect[0]/tempLineVect[2])); // angleY = x/z
-      specificRotation(angleY,1,tempLineVect,false);
-      specificRotation(angleY,1,tempLineVect,true);
+      specificRotation(angleY,1,tempLineVect,false,true);
+      specificRotation(angleY,1,tempLineVect,true,true);
 
-      specificRotation(angle,2,tempLineVect,true);
+      specificRotation(angle,2,tempLineVect,true,true);
       // Inverse Transformations
       tempLineVect.clear();
-      specificRotation(-1*angleY,1,tempLineVect,true);
-      specificRotation(-1*angleX,0,tempLineVect,true);
+      specificRotation(-1*angleY,1,tempLineVect,true,true);
+      specificRotation(-1*angleX,0,tempLineVect,true,true);
       Translation(-1*axis.p1.coordinate[0], -1*axis.p1.coordinate[1], -1*axis.p1.coordinate[2], tempLineAns, true);
+    }
+
+    void Isometric(){
+      long totalPoints;
+      IsometricGraph = ThreeDGraph;
+      totalPoints = listOfPoints.size();          
+      for(int i = 0; i < totalPoints; ++i){
+        vector<point> tempList;
+        tempList = IsometricGraph[listOfPoints[i]];
+        long tempsiz = tempList.size();
+        for (int j = 0; j < tempsiz; j++){
+          Vec tempVec;
+          tempVec.push_back(tempList[j].coordinate[0]);  
+          tempVec.push_back(tempList[j].coordinate[1]);  
+          tempVec.push_back(tempList[j].coordinate[2]);
+          tempVec.push_back(1);
+          tempVec = matrixB*tempVec;
+          tempVec = matrixA*tempVec;
+          IsometricGraph[listOfPoints[i]][j].coordinate[0] = tempVec[0];  
+          IsometricGraph[listOfPoints[i]][j].coordinate[1] = tempVec[1];  
+          IsometricGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];  
+        }
+      }
     }
 
 	//! A Member function.
     /*!
-      \sa PlanerProjection()
+      \sa GraphToList()
       \param view to specify the viewing direction wrt origin.
       \param equationOfPlane this defines the plane on which projection has to be taken.
     */
@@ -368,6 +437,29 @@ using namespace std;
           }
         }
       }
+
+      cout << "YOYOYOYOYOYOYOYO" << endl;
+
+      tempLineVectForPlane.clear();
+      tempLineVectForPlane.push_back(equationOfPlane.A);
+      tempLineVectForPlane.push_back(equationOfPlane.B);
+      tempLineVectForPlane.push_back(equationOfPlane.C);
+      tempLineVectForPlane.push_back(1);
+
+      PlaneProj = tempProj;
+      print();
+      GraphToList(false);
+
+      // calculate angleX
+      float angleX = (atan(equationOfPlane.B/equationOfPlane.C)); // angleX = y/z
+      specificRotation(angleX,0,tempLineVectForPlane,false,false);
+      specificRotation(angleX,0,tempLineVectForPlane,true,false);
+      
+      // calculate angleY
+      float angleY = -1*(atan(tempLineVectForPlane[0]/tempLineVectForPlane[2])); // angleY = x/z
+      specificRotation(angleY,1,tempLineVectForPlane,true,false);
+
+      tempProj = PlaneProj;
       return tempProj;        
     }
 
@@ -445,11 +537,11 @@ using namespace std;
     }
 
     void print(){
-      for (std::map<string, vector<point> >::iterator it=TwoDGraph[2].begin(); it!=TwoDGraph[2].end(); ++it){
-        cout<<it->first+"->";
+      for (std::map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
+        cout<< it->first << " -> " << it->second[0].coordinate[0] << " " << it->second[0].coordinate[1] << " " << it->second[0].coordinate[2] << "->";
         for(int j=0;j<it->second.size();j++){
           // cout<<it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << " ";
-          cout << it->second[j].coordinate[2] << " ";
+          // cout << it->second[j].coordinate[0] << " ";
         }
         cout<<endl;
       }
