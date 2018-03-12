@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['savetofile2d',['saveToFile2D',['../classOutput.html#aa9ea0df4774ce32a319bdb1b3a6712a8',1,'Output']]],
-  ['savetofile3d',['saveToFile3D',['../classOutput.html#aa16a2893d743f7c218c026efa3e65718',1,'Output']]],
-  ['setline',['setline',['../classInteractive__editor.html#acf3e55ad6b947af72b83d996f409c176',1,'Interactive_editor']]],
-  ['setplane',['setPlane',['../classInteractive__editor.html#a1332966f87d6df07b217ed663105379b',1,'Interactive_editor']]],
-  ['setpoint',['setPoint',['../classInteractive__editor.html#a21c3f807f2e892c9b40cae987593e2cb',1,'Interactive_editor']]]
+  ['readfile',['ReadFile',['../classInput.html#a9d9395f68b01faa00f962791878723a2',1,'Input']]],
+  ['renderoutput2d',['RenderOutput2D',['../classOutput.html#aabbc20a5012e08ef1d242c2800ba8421',1,'Output']]],
+  ['renderoutput3d',['RenderOutput3D',['../classOutput.html#aac99693b73661bf4af821aa5d32094ea',1,'Output']]]
 ];

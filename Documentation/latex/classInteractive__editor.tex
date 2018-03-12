@@ -7,8 +7,7 @@ Editor class.
 
 
 
-Inheritance diagram for Interactive\+\_\+editor\+:
-\nopagebreak
+Inheritance diagram for Interactive\+\_\+editor\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,8 +16,7 @@ Inheritance diagram for Interactive\+\_\+editor\+:
 \end{figure}
 
 
-Collaboration diagram for Interactive\+\_\+editor\+:
-\nopagebreak
+Collaboration diagram for Interactive\+\_\+editor\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,11 +30,11 @@ void \hyperlink{classInteractive__editor_aa7d472e169eed213d1fcb874c6f5a6cd}{user
 \item 
 void \hyperlink{classInteractive__editor_a8078ec1404bdd80e09320d14d198f628}{display\+Options} ()
 \item 
-void \hyperlink{classInteractive__editor_a30310b574f37f50f7d40e2acebf93723}{draw\+Line} ()
+void \hyperlink{classInteractive__editor_a5a7723f6affebd15ae935eb48e91359f}{draw\+Line} (\hyperlink{structpoint}{point} p1, \hyperlink{structpoint}{point} p2)
 \item 
-void \hyperlink{classInteractive__editor_a630465bba8474cf03efb3e0716009e1f}{draw\+Circle} ()
+void \hyperlink{classInteractive__editor_a678c382483cb0b40d1616c1d28eaf200}{erase\+It} (\hyperlink{structpoint}{point} p1, \hyperlink{structpoint}{point} p2)
 \item 
-void \hyperlink{classInteractive__editor_a29bd8d4ac9bff675360a661ab9f04db4}{erase\+It} ()
+void \hyperlink{classInteractive__editor_aedd168ce9dc711e3756aafa44146cb76}{print} ()
 \item 
 void \hyperlink{classInteractive__editor_a6543fe863fa4a902fb4dd71cf6318533}{extrude} ()
 \item 
@@ -44,24 +42,20 @@ void \hyperlink{classInteractive__editor_a1332966f87d6df07b217ed663105379b}{set\
 \item 
 void \hyperlink{classInteractive__editor_a21c3f807f2e892c9b40cae987593e2cb}{set\+Point} ()
 \item 
-void \hyperlink{classInteractive__editor_acf3e55ad6b947af72b83d996f409c176}{setline} ()
+void \hyperlink{classInteractive__editor_a2fd6f0fbf708dc85884fd39628c50c1b}{set\+Line} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classThreeDGraph__class}{Three\+D\+Graph\+\_\+class} \hyperlink{classInteractive__editor_ab0a5452e01c787797bad0624452bf555}{obj3d}
+map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classInteractive__editor_a1e77c81fdaf1da82816d476fa431fc34}{My\+Plane}
 \item 
-\hyperlink{classTwoDGraph__class}{Two\+D\+Graph\+\_\+class} \hyperlink{classInteractive__editor_a0974df86dfc8021afda1fcc07907671a}{obj2d} \mbox{[}3\mbox{]}
-\item 
-\hyperlink{classTwoDGraph__class}{Two\+D\+Graph\+\_\+class} \hyperlink{classInteractive__editor_ace6d6a503a0b62b7a8b6f87177dca677}{plane\+Obj}
-\item 
-pair$<$ float, float $>$ \hyperlink{classInteractive__editor_a5b1e9a4bfa2a98c594828367eeaf2acf}{point}
-\item 
-pair$<$ pair$<$ float, float $>$, pair$<$ float, float $>$ $>$ \hyperlink{classInteractive__editor_ab12d018a266f71e228845e7ae5bd2181}{line}
-\item 
-Two\+D\+Graph \hyperlink{classInteractive__editor_aed0bc7a1d2cafae39f3fbf2eb119649c}{plane\+Obj}
+bool \hyperlink{classInteractive__editor_a66468db06170aca0dae8e057d98253bd}{exit\+Yes\+No}
 \item 
 bool \hyperlink{classInteractive__editor_a2e6cd28cc09c6250bb5aa720acfc16a4}{saved}
+\item 
+bool \hyperlink{classInteractive__editor_a82aa208ba6d10c885699d227d928c82c}{save\+To\+File}
+\item 
+bool \hyperlink{classInteractive__editor_a7af788147541bfc20163c1c2a8550cbe}{save}
 \item 
 bool \hyperlink{classInteractive__editor_a93c2f2041e432c8047d51942345cc3f9}{type}
 \item 
@@ -71,17 +65,15 @@ bool \hyperlink{classInteractive__editor_ace62b483a0866c64212ee0c641445c7a}{draw
 \item 
 bool \hyperlink{classInteractive__editor_aa0de8abac09ce2259252fba6c1958e83}{line\+Draw}
 \item 
-bool \hyperlink{classInteractive__editor_a1d7855fd44f17fb78dbb86e8b7962758}{circle\+Draw}
-\item 
 bool \hyperlink{classInteractive__editor_ac2f2f1dfb6c21585d4ed5ed043e41b25}{erase}
 \item 
-bool \hyperlink{classInteractive__editor_a3e4db48e715e92969ba3ec52ab14ce8d}{extrude}
+bool \hyperlink{classInteractive__editor_a1688fc65949d3d4c337b7b4e36986f3c}{extrude\+Yes\+No}
 \item 
 bool \hyperlink{classInteractive__editor_a9da61abe038ee33f9d15ef4a028dc8ab}{select\+Plane}
 \item 
 bool \hyperlink{classInteractive__editor_ab0f07759c3ff1bcfe45d0c285abe29b5}{select\+Point}
 \item 
-bool \hyperlink{classInteractive__editor_ad2e77097ff1ba602c3cdca2905febea7}{selectline}
+bool \hyperlink{classInteractive__editor_a69d697425045525e2aadd2eb956fce24}{select\+Line}
 \item 
 bool \hyperlink{classInteractive__editor_a13a2206b6c7e86947e85830afb229f36}{Convert2\+Dto3D}
 \item 
@@ -97,7 +89,7 @@ int \hyperlink{classInteractive__editor_a9b368072fc0a220476d21079b4bcb739}{point
 \item 
 int \hyperlink{classInteractive__editor_a65f9bb481055109e9d52e2a6bc2db58e}{thickness}
 \item 
-int \hyperlink{classInteractive__editor_a0b7d6c7396f1d143791ca39d83b7cf54}{color0}
+int \hyperlink{classInteractive__editor_a8bb78acdc55bebbe34bc545eb720217c}{color}
 \item 
 int \hyperlink{classInteractive__editor_aced5ec777fe62fb280f3668a1c59f9b7}{height}
 \item 
@@ -118,31 +110,14 @@ This class contains the methods to edit a drawing or to play with a model drawin
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a8078ec1404bdd80e09320d14d198f628}{}\label{classInteractive__editor_a8078ec1404bdd80e09320d14d198f628}
-Will display the options/settings user desires \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!draw\+Circle@{draw\+Circle}}
-\index{draw\+Circle@{draw\+Circle}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{draw\+Circle()}{drawCircle()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::draw\+Circle (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a630465bba8474cf03efb3e0716009e1f}{}\label{classInteractive__editor_a630465bba8474cf03efb3e0716009e1f}
-Will set the options/settings user desires 
-\begin{DoxyParams}{Parameters}
-{\em centre} & To get center of circle. \\
-\hline
-{\em point2} & To get a point on circumference. \\
-\hline
-{\em thickness} & To get thickness of circle. \\
-\hline
-{\em color} & To get color of the circle. \\
-\hline
-\end{DoxyParams}
-\index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!draw\+Line@{draw\+Line}}
+Will display the options/settings user desires \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!draw\+Line@{draw\+Line}}
 \index{draw\+Line@{draw\+Line}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{draw\+Line()}{drawLine()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::draw\+Line (
+\subsubsection[{\texorpdfstring{draw\+Line(point p1, point p2)}{drawLine(point p1, point p2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::draw\+Line (
 \begin{DoxyParamCaption}
-{}
+\item[{{\bf point}}]{p1, }
+\item[{{\bf point}}]{p2}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a30310b574f37f50f7d40e2acebf93723}{}\label{classInteractive__editor_a30310b574f37f50f7d40e2acebf93723}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a5a7723f6affebd15ae935eb48e91359f}{}\label{classInteractive__editor_a5a7723f6affebd15ae935eb48e91359f}
 Will set the options/settings user desires 
 \begin{DoxyParams}{Parameters}
 {\em poin1} & To get 1st point of line. \\
@@ -156,11 +131,12 @@ Will set the options/settings user desires
 \end{DoxyParams}
 \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!erase\+It@{erase\+It}}
 \index{erase\+It@{erase\+It}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{erase\+It()}{eraseIt()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::erase\+It (
+\subsubsection[{\texorpdfstring{erase\+It(point p1, point p2)}{eraseIt(point p1, point p2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::erase\+It (
 \begin{DoxyParamCaption}
-{}
+\item[{{\bf point}}]{p1, }
+\item[{{\bf point}}]{p2}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a29bd8d4ac9bff675360a661ab9f04db4}{}\label{classInteractive__editor_a29bd8d4ac9bff675360a661ab9f04db4}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a678c382483cb0b40d1616c1d28eaf200}{}\label{classInteractive__editor_a678c382483cb0b40d1616c1d28eaf200}
 Will set the options/settings user desires \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!extrude@{extrude}}
 \index{extrude@{extrude}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{extrude()}{extrude()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::extrude (
@@ -175,13 +151,20 @@ Will extrude the object
 {\em height} & \\
 \hline
 \end{DoxyParams}
-\index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!setline@{setline}}
-\index{setline@{setline}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{setline()}{setline()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::setline (
+\index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!print@{print}}
+\index{print@{print}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{print()}{print()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::print (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_acf3e55ad6b947af72b83d996f409c176}{}\label{classInteractive__editor_acf3e55ad6b947af72b83d996f409c176}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_aedd168ce9dc711e3756aafa44146cb76}{}\label{classInteractive__editor_aedd168ce9dc711e3756aafa44146cb76}
+To print the graph \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!set\+Line@{set\+Line}}
+\index{set\+Line@{set\+Line}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{set\+Line()}{setLine()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::set\+Line (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a2fd6f0fbf708dc85884fd39628c50c1b}{}\label{classInteractive__editor_a2fd6f0fbf708dc85884fd39628c50c1b}
 Will set the line the user wants to select to some data structure 
 \begin{DoxyParams}{Parameters}
 {\em point1} & \\
@@ -245,12 +228,9 @@ Will set the options/settings user desires
 \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!centre@{centre}}
 \index{centre@{centre}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{centre}{centre}}]{\setlength{\rightskip}{0pt plus 5cm}int Interactive\+\_\+editor\+::centre}\hypertarget{classInteractive__editor_acb67c8393df8fe6f6f938f0609f24050}{}\label{classInteractive__editor_acb67c8393df8fe6f6f938f0609f24050}
-This is the height of extrusion W\+H\+AT IS T\+H\+IS? R\+E\+P\+E\+T\+I\+T\+I\+O\+N3 \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!circle\+Draw@{circle\+Draw}}
-\index{circle\+Draw@{circle\+Draw}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{circle\+Draw}{circleDraw}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::circle\+Draw}\hypertarget{classInteractive__editor_a1d7855fd44f17fb78dbb86e8b7962758}{}\label{classInteractive__editor_a1d7855fd44f17fb78dbb86e8b7962758}
-This flag is set to identify whether user wants to draw a circle or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!color0@{color0}}
-\index{color0@{color0}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{color0}{color0}}]{\setlength{\rightskip}{0pt plus 5cm}int Interactive\+\_\+editor\+::color0}\hypertarget{classInteractive__editor_a0b7d6c7396f1d143791ca39d83b7cf54}{}\label{classInteractive__editor_a0b7d6c7396f1d143791ca39d83b7cf54}
+This is the height of extrusion W\+H\+AT IS T\+H\+IS? R\+E\+P\+E\+T\+I\+T\+I\+O\+N3 \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!color@{color}}
+\index{color@{color}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{color}{color}}]{\setlength{\rightskip}{0pt plus 5cm}int Interactive\+\_\+editor\+::color}\hypertarget{classInteractive__editor_a8bb78acdc55bebbe34bc545eb720217c}{}\label{classInteractive__editor_a8bb78acdc55bebbe34bc545eb720217c}
 This is the color of the line \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!Convert2\+Dto3D@{Convert2\+Dto3D}}
 \index{Convert2\+Dto3D@{Convert2\+Dto3D}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{Convert2\+Dto3D}{Convert2Dto3D}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::\+Convert2\+Dto3D}\hypertarget{classInteractive__editor_a13a2206b6c7e86947e85830afb229f36}{}\label{classInteractive__editor_a13a2206b6c7e86947e85830afb229f36}
@@ -263,34 +243,22 @@ This flag is set to identify whether user wants to convert 3D to 2D \index{Inter
 This flag is set to identify whether user wants to draw or input a file. By Default it is set to file \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!erase@{erase}}
 \index{erase@{erase}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{erase}{erase}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::erase}\hypertarget{classInteractive__editor_ac2f2f1dfb6c21585d4ed5ed043e41b25}{}\label{classInteractive__editor_ac2f2f1dfb6c21585d4ed5ed043e41b25}
-This flag is set to identify whether user wants to erase something or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!extrude@{extrude}}
-\index{extrude@{extrude}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{extrude}{extrude}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::extrude}\hypertarget{classInteractive__editor_a3e4db48e715e92969ba3ec52ab14ce8d}{}\label{classInteractive__editor_a3e4db48e715e92969ba3ec52ab14ce8d}
+This flag is set to identify whether user wants to erase something or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!exit\+Yes\+No@{exit\+Yes\+No}}
+\index{exit\+Yes\+No@{exit\+Yes\+No}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{exit\+Yes\+No}{exitYesNo}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::exit\+Yes\+No}\hypertarget{classInteractive__editor_a66468db06170aca0dae8e057d98253bd}{}\label{classInteractive__editor_a66468db06170aca0dae8e057d98253bd}
+This flag is set to identify whether user has to exit \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!extrude\+Yes\+No@{extrude\+Yes\+No}}
+\index{extrude\+Yes\+No@{extrude\+Yes\+No}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{extrude\+Yes\+No}{extrudeYesNo}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::extrude\+Yes\+No}\hypertarget{classInteractive__editor_a1688fc65949d3d4c337b7b4e36986f3c}{}\label{classInteractive__editor_a1688fc65949d3d4c337b7b4e36986f3c}
 This flag is set to identify whether user wants to extrude something or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!height@{height}}
 \index{height@{height}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{height}{height}}]{\setlength{\rightskip}{0pt plus 5cm}int Interactive\+\_\+editor\+::height}\hypertarget{classInteractive__editor_aced5ec777fe62fb280f3668a1c59f9b7}{}\label{classInteractive__editor_aced5ec777fe62fb280f3668a1c59f9b7}
-This is the height of extrusion \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!line@{line}}
-\index{line@{line}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{line}{line}}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$pair$<$float,float$>$,pair$<$float,float$>$ $>$ Interactive\+\_\+editor\+::line}\hypertarget{classInteractive__editor_ab12d018a266f71e228845e7ae5bd2181}{}\label{classInteractive__editor_ab12d018a266f71e228845e7ae5bd2181}
-This object is to store a line\textquotesingle{}s datastructure \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!line\+Draw@{line\+Draw}}
+This is the height of extrusion \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!line\+Draw@{line\+Draw}}
 \index{line\+Draw@{line\+Draw}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{line\+Draw}{lineDraw}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::line\+Draw}\hypertarget{classInteractive__editor_aa0de8abac09ce2259252fba6c1958e83}{}\label{classInteractive__editor_aa0de8abac09ce2259252fba6c1958e83}
-This flag is set to identify whether user wants to draw a line or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!obj2d@{obj2d}}
-\index{obj2d@{obj2d}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{obj2d}{obj2d}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Two\+D\+Graph\+\_\+class} Interactive\+\_\+editor\+::obj2d\mbox{[}3\mbox{]}}\hypertarget{classInteractive__editor_a0974df86dfc8021afda1fcc07907671a}{}\label{classInteractive__editor_a0974df86dfc8021afda1fcc07907671a}
-Array of 2D objects local copy to work on \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!obj3d@{obj3d}}
-\index{obj3d@{obj3d}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{obj3d}{obj3d}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Three\+D\+Graph\+\_\+class} Interactive\+\_\+editor\+::obj3d}\hypertarget{classInteractive__editor_ab0a5452e01c787797bad0624452bf555}{}\label{classInteractive__editor_ab0a5452e01c787797bad0624452bf555}
-3D object local copy to work on \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!plane\+Obj@{plane\+Obj}}
-\index{plane\+Obj@{plane\+Obj}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{plane\+Obj}{planeObj}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Two\+D\+Graph\+\_\+class} Interactive\+\_\+editor\+::plane\+Obj}\hypertarget{classInteractive__editor_ace6d6a503a0b62b7a8b6f87177dca677}{}\label{classInteractive__editor_ace6d6a503a0b62b7a8b6f87177dca677}
-This object is to store a plane\textquotesingle{}s datastructure \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!plane\+Obj@{plane\+Obj}}
-\index{plane\+Obj@{plane\+Obj}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{plane\+Obj}{planeObj}}]{\setlength{\rightskip}{0pt plus 5cm}Two\+D\+Graph Interactive\+\_\+editor\+::plane\+Obj}\hypertarget{classInteractive__editor_aed0bc7a1d2cafae39f3fbf2eb119649c}{}\label{classInteractive__editor_aed0bc7a1d2cafae39f3fbf2eb119649c}
-This object is to store a plane\textquotesingle{}s datastructure \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!point@{point}}
-\index{point@{point}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{point}{point}}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$float,float$>$ Interactive\+\_\+editor\+::point}\hypertarget{classInteractive__editor_a5b1e9a4bfa2a98c594828367eeaf2acf}{}\label{classInteractive__editor_a5b1e9a4bfa2a98c594828367eeaf2acf}
-This object is to store a point\textquotesingle{}s datastructure \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!point1@{point1}}
+This flag is set to identify whether user wants to draw a line or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!My\+Plane@{My\+Plane}}
+\index{My\+Plane@{My\+Plane}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{My\+Plane}{MyPlane}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<${\bf point}$>$ $>$ Interactive\+\_\+editor\+::\+My\+Plane}\hypertarget{classInteractive__editor_a1e77c81fdaf1da82816d476fa431fc34}{}\label{classInteractive__editor_a1e77c81fdaf1da82816d476fa431fc34}
+This is a plane \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!point1@{point1}}
 \index{point1@{point1}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{point1}{point1}}]{\setlength{\rightskip}{0pt plus 5cm}int Interactive\+\_\+editor\+::point1}\hypertarget{classInteractive__editor_a07fe2897bcad8eabf5b98e01a162b2a1}{}\label{classInteractive__editor_a07fe2897bcad8eabf5b98e01a162b2a1}
 This is a point\textquotesingle{}s location on the coordinates \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!point2@{point2}}
@@ -302,12 +270,18 @@ This is a point\textquotesingle{}s location on the coordinates \index{Interactiv
 This is a point\textquotesingle{}s location on the coordinates \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!rotate@{rotate}}
 \index{rotate@{rotate}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{rotate}{rotate}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::rotate}\hypertarget{classInteractive__editor_a9accc369abf6972993bb5c2ba047542c}{}\label{classInteractive__editor_a9accc369abf6972993bb5c2ba047542c}
-This flag is set to identify whether user wants to rotate a 3D object or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!saved@{saved}}
+This flag is set to identify whether user wants to rotate a 3D object or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!save@{save}}
+\index{save@{save}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{save}{save}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::save}\hypertarget{classInteractive__editor_a7af788147541bfc20163c1c2a8550cbe}{}\label{classInteractive__editor_a7af788147541bfc20163c1c2a8550cbe}
+This flag is set to identify whether user has pressed save button \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!saved@{saved}}
 \index{saved@{saved}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{saved}{saved}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::saved}\hypertarget{classInteractive__editor_a2e6cd28cc09c6250bb5aa720acfc16a4}{}\label{classInteractive__editor_a2e6cd28cc09c6250bb5aa720acfc16a4}
-This flag is set to identify whether user has something left to be saved \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!selectline@{selectline}}
-\index{selectline@{selectline}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{selectline}{selectline}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::selectline}\hypertarget{classInteractive__editor_ad2e77097ff1ba602c3cdca2905febea7}{}\label{classInteractive__editor_ad2e77097ff1ba602c3cdca2905febea7}
+This flag is set to identify whether user has something left to be saved \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!save\+To\+File@{save\+To\+File}}
+\index{save\+To\+File@{save\+To\+File}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{save\+To\+File}{saveToFile}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::save\+To\+File}\hypertarget{classInteractive__editor_a82aa208ba6d10c885699d227d928c82c}{}\label{classInteractive__editor_a82aa208ba6d10c885699d227d928c82c}
+This flag is set to identify whether user has something to be saved in a file \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!select\+Line@{select\+Line}}
+\index{select\+Line@{select\+Line}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
+\subsubsection[{\texorpdfstring{select\+Line}{selectLine}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::select\+Line}\hypertarget{classInteractive__editor_a69d697425045525e2aadd2eb956fce24}{}\label{classInteractive__editor_a69d697425045525e2aadd2eb956fce24}
 This flag is set to identify whether user wants to select a line or not \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!select\+Plane@{select\+Plane}}
 \index{select\+Plane@{select\+Plane}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{select\+Plane}{selectPlane}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::select\+Plane}\hypertarget{classInteractive__editor_a9da61abe038ee33f9d15ef4a028dc8ab}{}\label{classInteractive__editor_a9da61abe038ee33f9d15ef4a028dc8ab}

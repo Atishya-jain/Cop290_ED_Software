@@ -79,40 +79,40 @@ int main(int argc, char *argv[]){
   // p8.label="8";
   // listOfPoints.push_back(p8.label);
 
-  point p1;
-  p1.coordinate[0]=-50;
-  p1.coordinate[1]=-50;
-  p1.coordinate[2]=0;
-  p1.label="1";
-  listOfPoints.push_back(p1.label);
+  // point p1;
+  // p1.coordinate[0]=-50;
+  // p1.coordinate[1]=-50;
+  // p1.coordinate[2]=0;
+  // p1.label="1";
+  // listOfPoints.push_back(p1.label);
 
-  point p2;
-  p2.coordinate[0]=-50;
-  p2.coordinate[1]=50;
-  p2.coordinate[2]=0;
-  p2.label="2";
-  listOfPoints.push_back(p2.label);
+  // point p2;
+  // p2.coordinate[0]=-50;
+  // p2.coordinate[1]=50;
+  // p2.coordinate[2]=0;
+  // p2.label="2";
+  // listOfPoints.push_back(p2.label);
 
-  point p3;
-  p3.coordinate[0]=50;
-  p3.coordinate[1]=50;
-  p3.coordinate[2]=0;
-  p3.label="3";
-  listOfPoints.push_back(p3.label);
+  // point p3;
+  // p3.coordinate[0]=50;
+  // p3.coordinate[1]=50;
+  // p3.coordinate[2]=0;
+  // p3.label="3";
+  // listOfPoints.push_back(p3.label);
 
-  point p4;
-  p4.coordinate[0]=50;
-  p4.coordinate[1]=-50;
-  p4.coordinate[2]=0;
-  p4.label="4";
-  listOfPoints.push_back(p4.label);
+  // point p4;
+  // p4.coordinate[0]=50;
+  // p4.coordinate[1]=-50;
+  // p4.coordinate[2]=0;
+  // p4.label="4";
+  // listOfPoints.push_back(p4.label);
 
-  point p5;
-  p5.coordinate[0]=0;
-  p5.coordinate[1]=0;
-  p5.coordinate[2]=50;
-  p5.label="5";
-  listOfPoints.push_back(p5.label);
+  // point p5;
+  // p5.coordinate[0]=0;
+  // p5.coordinate[1]=0;
+  // p5.coordinate[2]=50;
+  // p5.label="5";
+  // listOfPoints.push_back(p5.label);
 
   // point p9;
   // p9.coordinate[0]=1;
@@ -165,33 +165,33 @@ int main(int argc, char *argv[]){
   // a1.eraseIt(p2,p1);  
   // a1.print();
 
-  // point p1;
-  // p1.coordinate[0]=50;
-  // p1.coordinate[1]=50;
-  // p1.coordinate[2]=50;
-  // p1.label="1";
-  // listOfPoints.push_back(p1.label);
+  point p1;
+  p1.coordinate[0]=100;
+  p1.coordinate[1]=0;
+  p1.coordinate[2]=0;
+  p1.label="1";
+  listOfPoints.push_back(p1.label);
 
-  // point p2;
-  // p2.coordinate[0]=650;
-  // p2.coordinate[1]=50;
-  // p2.coordinate[2]=50;
-  // p2.label="2";
-  // listOfPoints.push_back(p2.label);
+  point p2;
+  p2.coordinate[0]=0;
+  p2.coordinate[1]=200;
+  p2.coordinate[2]=0;
+  p2.label="2";
+  listOfPoints.push_back(p2.label);
 
-  // point p3;
-  // p3.coordinate[0]=450;
-  // p3.coordinate[1]=350;
-  // p3.coordinate[2]=50;
-  // p3.label="3";
-  // listOfPoints.push_back(p3.label);
+  point p3;
+  p3.coordinate[0]=200;
+  p3.coordinate[1]=200;
+  p3.coordinate[2]=0;
+  p3.label="3";
+  listOfPoints.push_back(p3.label);
 
-  // point p4;
-  // p4.coordinate[0]=250;
-  // p4.coordinate[1]=350;
-  // p4.coordinate[2]=50;
-  // p4.label="4";
-  // listOfPoints.push_back(p4.label);
+  point p4;
+  p4.coordinate[0]=100;
+  p4.coordinate[1]=100;
+  p4.coordinate[2]=200;
+  p4.label="4";
+  listOfPoints.push_back(p4.label);
 
   // point p5;
   // p5.coordinate[0]=50;
@@ -227,6 +227,49 @@ int main(int argc, char *argv[]){
   ThreeDGraph_class testObj;
 
   testObj.listOfPoints = listOfPoints;
+
+  // testObj.ThreeDGraph[p1.label].push_back(p1);
+  // testObj.ThreeDGraph[p1.label].push_back(p2);
+  // testObj.ThreeDGraph[p1.label].push_back(p4);
+  // testObj.ThreeDGraph[p1.label].push_back(p6);
+
+  // testObj.ThreeDGraph[p2.label].push_back(p2);
+  // testObj.ThreeDGraph[p2.label].push_back(p1);
+  // testObj.ThreeDGraph[p2.label].push_back(p3);
+  // testObj.ThreeDGraph[p2.label].push_back(p7);
+
+  // testObj.ThreeDGraph[p3.label].push_back(p3);
+  // testObj.ThreeDGraph[p3.label].push_back(p4);
+  // testObj.ThreeDGraph[p3.label].push_back(p2);
+  // testObj.ThreeDGraph[p3.label].push_back(p8);
+
+  // testObj.ThreeDGraph[p4.label].push_back(p4);
+  // testObj.ThreeDGraph[p4.label].push_back(p1);
+  // testObj.ThreeDGraph[p4.label].push_back(p3);
+  // testObj.ThreeDGraph[p4.label].push_back(p5);
+
+  // testObj.ThreeDGraph[p5.label].push_back(p5);
+  // testObj.ThreeDGraph[p5.label].push_back(p6);
+  // testObj.ThreeDGraph[p5.label].push_back(p8);
+  // testObj.ThreeDGraph[p5.label].push_back(p7);
+
+  // testObj.ThreeDGraph[p6.label].push_back(p6);
+  // testObj.ThreeDGraph[p6.label].push_back(p5);
+  // testObj.ThreeDGraph[p6.label].push_back(p1);
+  // testObj.ThreeDGraph[p6.label].push_back(p7);
+
+  // testObj.ThreeDGraph[p7.label].push_back(p7);
+  // testObj.ThreeDGraph[p7.label].push_back(p2);
+  // testObj.ThreeDGraph[p7.label].push_back(p8);
+  // testObj.ThreeDGraph[p7.label].push_back(p6);
+
+  // testObj.ThreeDGraph[p8.label].push_back(p8);
+  // testObj.ThreeDGraph[p8.label].push_back(p3);
+  // testObj.ThreeDGraph[p8.label].push_back(p5);
+  // testObj.ThreeDGraph[p8.label].push_back(p7);
+  
+
+
   // testObj.ThreeDGraph[p1.label].push_back(p1);
   // testObj.ThreeDGraph[p1.label].push_back(p2);
   // testObj.ThreeDGraph[p1.label].push_back(p4);
@@ -270,38 +313,38 @@ int main(int argc, char *argv[]){
 
 
   testObj.ThreeDGraph[p1.label].push_back(p1);
-  testObj.ThreeDGraph[p1.label].push_back(p4);
   testObj.ThreeDGraph[p1.label].push_back(p2);
-  testObj.ThreeDGraph[p1.label].push_back(p5);
+  testObj.ThreeDGraph[p1.label].push_back(p3);
+  testObj.ThreeDGraph[p1.label].push_back(p4);
 
   testObj.ThreeDGraph[p2.label].push_back(p2);
-  testObj.ThreeDGraph[p2.label].push_back(p3);
   testObj.ThreeDGraph[p2.label].push_back(p1);
-  testObj.ThreeDGraph[p2.label].push_back(p5);
+  testObj.ThreeDGraph[p2.label].push_back(p3);
+  testObj.ThreeDGraph[p2.label].push_back(p4);
 
   testObj.ThreeDGraph[p3.label].push_back(p3);
   testObj.ThreeDGraph[p3.label].push_back(p2);
   testObj.ThreeDGraph[p3.label].push_back(p4);
-  testObj.ThreeDGraph[p3.label].push_back(p5);
+  testObj.ThreeDGraph[p3.label].push_back(p1);
 
   testObj.ThreeDGraph[p4.label].push_back(p4);
   testObj.ThreeDGraph[p4.label].push_back(p3);
   testObj.ThreeDGraph[p4.label].push_back(p1);
-  testObj.ThreeDGraph[p4.label].push_back(p5);
+  testObj.ThreeDGraph[p4.label].push_back(p2);
 
-  testObj.ThreeDGraph[p5.label].push_back(p5);
-  testObj.ThreeDGraph[p5.label].push_back(p1);
-  testObj.ThreeDGraph[p5.label].push_back(p2);
-  testObj.ThreeDGraph[p5.label].push_back(p3);
-  testObj.ThreeDGraph[p5.label].push_back(p4);
+  // testObj.ThreeDGraph[p5.label].push_back(p5);
+  // testObj.ThreeDGraph[p5.label].push_back(p1);
+  // testObj.ThreeDGraph[p5.label].push_back(p2);
+  // testObj.ThreeDGraph[p5.label].push_back(p3);
+  // testObj.ThreeDGraph[p5.label].push_back(p4);
   testObj.MeanNormalisation();
-  // testObj.Isometric();
+  testObj.Isometric();
   testObj.ThreeDToOrthographic();
   testObj.print();
   cout << "HI" << endl;
 
   Output outTest;
-  // outTest.PlaneProj = testObj.IsometricGraph;
+  outTest.PlaneProj = testObj.IsometricGraph;
 
   // plane testPlane;
   // testPlane.A = 1;

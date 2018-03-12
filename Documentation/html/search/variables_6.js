@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['obj2d',['obj2d',['../classInteractive__editor.html#a0974df86dfc8021afda1fcc07907671a',1,'Interactive_editor']]],
-  ['obj3d',['obj3d',['../classInteractive__editor.html#ab0a5452e01c787797bad0624452bf555',1,'Interactive_editor']]]
+  ['linedraw',['lineDraw',['../classInteractive__editor.html#aa0de8abac09ce2259252fba6c1958e83',1,'Interactive_editor']]],
+  ['listofpoints',['listOfPoints',['../classThreeDGraph__class.html#ab24656328d4be1eae0f6f5742add5969',1,'ThreeDGraph_class']]],
+  ['listofpointsforplane',['listOfPointsForPlane',['../classThreeDGraph__class.html#a7a63687d665e48d41867a293d5d8bc16',1,'ThreeDGraph_class']]]
 ];

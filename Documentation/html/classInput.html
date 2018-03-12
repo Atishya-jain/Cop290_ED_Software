@@ -105,6 +105,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af0a5bad322752da31bcd7b1e2d99d611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d9395f68b01faa00f962791878723a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a9d9395f68b01faa00f962791878723a2">ReadFile</a> ()</td></tr>
 <tr class="separator:a9d9395f68b01faa00f962791878723a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a862e529a6ed3fcfd0719274a04174b7d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a862e529a6ed3fcfd0719274a04174b7d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="separator:a862e529a6ed3fcfd0719274a04174b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced126e54ffa271b2a40f7e7a5e90376"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aced126e54ffa271b2a40f7e7a5e90376"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print3D</b> ()</td></tr>
+<tr class="separator:aced126e54ffa271b2a40f7e7a5e90376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -112,8 +118,14 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af296359065236ac9139aab7736d6844d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad073fa115ead2e8b7492214215ebd22d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#ad073fa115ead2e8b7492214215ebd22d">file</a> = false</td></tr>
 <tr class="separator:ad073fa115ead2e8b7492214215ebd22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacb0e034125e32179081a97eecab47df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#aacb0e034125e32179081a97eecab47df">ThreeDfile</a> = false</td></tr>
+<tr class="separator:aacb0e034125e32179081a97eecab47df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82141fe9142aec447f9ef52fd2f78c73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a82141fe9142aec447f9ef52fd2f78c73">TwoDFileCount</a> = 0</td></tr>
 <tr class="separator:a82141fe9142aec447f9ef52fd2f78c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55526617adbcb0db4b3d565f4dbe772d"><td class="memItemLeft" align="right" valign="top">map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a55526617adbcb0db4b3d565f4dbe772d">TwoDGraph</a> [3]</td></tr>
+<tr class="separator:a55526617adbcb0db4b3d565f4dbe772d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed882deebbb45d8423e5477e8ccaee60"><td class="memItemLeft" align="right" valign="top">map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#aed882deebbb45d8423e5477e8ccaee60">ThreeDGraph</a></td></tr>
+<tr class="separator:aed882deebbb45d8423e5477e8ccaee60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classInput.html" title="Input class. ">Input</a> class. </p>
@@ -254,6 +266,32 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aacb0e034125e32179081a97eecab47df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Input::ThreeDfile = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is flag for checking whether file has 3D or 2D input </p>
+
+</div>
+</div>
+<a class="anchor" id="aed882deebbb45d8423e5477e8ccaee60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, vector&lt;<a class="el" href="structpoint.html">point</a>&gt; &gt; Input::ThreeDGraph</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the 3D graph </p>
+
+</div>
+</div>
 <a class="anchor" id="a82141fe9142aec447f9ef52fd2f78c73"></a>
 <div class="memitem">
 <div class="memproto">
@@ -264,6 +302,19 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Count of 2D objects as there has to be 3 projections for our software to work on </p>
+
+</div>
+</div>
+<a class="anchor" id="a55526617adbcb0db4b3d565f4dbe772d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, vector&lt;<a class="el" href="structpoint.html">point</a>&gt; &gt; Input::TwoDGraph[3]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the array of orthographic projections </p>
 
 </div>
 </div>

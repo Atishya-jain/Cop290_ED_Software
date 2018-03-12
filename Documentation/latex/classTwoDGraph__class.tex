@@ -8,29 +8,25 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Two\+D\+Graph\+\_\+class} (vector$<$ vector$<$ \hyperlink{structpoint}{point} $>$ $>$ graph1, vector$<$ vector$<$ \hyperlink{structpoint}{point} $>$ $>$ graph2, vector$<$ vector$<$ \hyperlink{structpoint}{point} $>$ $>$ graph3)\hypertarget{classTwoDGraph__class_aa666c42d1e81f8da8cc9229f46c572f5}{}\label{classTwoDGraph__class_aa666c42d1e81f8da8cc9229f46c572f5}
-
-\item 
 void \hyperlink{classTwoDGraph__class_a48222790dda1c34caf1366ce1cc0ce1d}{Two\+Dto\+ThreeD} ()
 \begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+void {\bfseries print3D} ()\hypertarget{classTwoDGraph__class_a767c2d4861c0b78aa617e1403fcb65e1}{}\label{classTwoDGraph__class_a767c2d4861c0b78aa617e1403fcb65e1}
+
+\item 
 void \hyperlink{classTwoDGraph__class_af0b7cb652fec315e79e0f4826c64ae6d}{face\+Recognition} ()
 \begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
 void \hyperlink{classTwoDGraph__class_a551441ccdbceddd7c5d7df8c3a0a3e04}{Hidden\+Edge\+Test} ()
 \begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
 void \hyperlink{classTwoDGraph__class_aac6062b9859be331a44d1fe61036d5a1}{False\+Node\+Detect} ()
 \begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
+\subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static vector$<$ vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classTwoDGraph__class_a973baa8979a298061224d1b949381a58}{Two\+D\+Graph\+Main}
+map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classTwoDGraph__class_aab69ccead28f685a9e084f52e1488354}{Two\+D\+Graph} \mbox{[}3\mbox{]}
 \item 
-static vector$<$ vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classTwoDGraph__class_a238b6e7f880ff95f27e21c951b54440b}{Two\+D\+Graph1}
+map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classTwoDGraph__class_a6b9cd70ed1be50fb248b56f6da30a3c5}{Three\+D\+Graph}
 \item 
-static vector$<$ vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classTwoDGraph__class_aaedb57508908d5d956caa874e6a88505}{Two\+D\+Graph2}
-\item 
-static vector$<$ vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classTwoDGraph__class_a45b2a73d8f2a9ce4b72a2a6aaa8e2c4f}{Three\+D\+Graph}
-\item 
-static map$<$ string, vector$<$ vector$<$ \hyperlink{structedge}{edge} $>$ $>$ $>$ \hyperlink{classTwoDGraph__class_a80d22cc10e3cfa2d3f090bc0b506e2ea}{face\+Set}
+map$<$ string, vector$<$ vector$<$ \hyperlink{structedge}{edge} $>$ $>$ $>$ \hyperlink{classTwoDGraph__class_a80d22cc10e3cfa2d3f090bc0b506e2ea}{face\+Set}
 \end{DoxyCompactItemize}
 
 
@@ -129,20 +125,14 @@ A Member function.
 \subsection{Member Data Documentation}
 \index{Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}!face\+Set@{face\+Set}}
 \index{face\+Set@{face\+Set}!Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}}
-\subsubsection[{\texorpdfstring{face\+Set}{faceSet}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string,vector$<$vector$<${\bf edge}$>$ $>$ $>$ Two\+D\+Graph\+\_\+class\+::face\+Set\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTwoDGraph__class_a80d22cc10e3cfa2d3f090bc0b506e2ea}{}\label{classTwoDGraph__class_a80d22cc10e3cfa2d3f090bc0b506e2ea}
+\subsubsection[{\texorpdfstring{face\+Set}{faceSet}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string,vector$<$vector$<${\bf edge}$>$ $>$ $>$ Two\+D\+Graph\+\_\+class\+::face\+Set}\hypertarget{classTwoDGraph__class_a80d22cc10e3cfa2d3f090bc0b506e2ea}{}\label{classTwoDGraph__class_a80d22cc10e3cfa2d3f090bc0b506e2ea}
 This consists of the faces. It would be a dictionary with face equation as keys as values as those edges which lie in that plane \index{Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}!Three\+D\+Graph@{Three\+D\+Graph}}
 \index{Three\+D\+Graph@{Three\+D\+Graph}!Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}}
-\subsubsection[{\texorpdfstring{Three\+D\+Graph}{ThreeDGraph}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<${\bf point}$>$ $>$ Two\+D\+Graph\+\_\+class\+::\+Three\+D\+Graph\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTwoDGraph__class_a45b2a73d8f2a9ce4b72a2a6aaa8e2c4f}{}\label{classTwoDGraph__class_a45b2a73d8f2a9ce4b72a2a6aaa8e2c4f}
-This is the 3D graph representation \index{Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}!Two\+D\+Graph1@{Two\+D\+Graph1}}
-\index{Two\+D\+Graph1@{Two\+D\+Graph1}!Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}}
-\subsubsection[{\texorpdfstring{Two\+D\+Graph1}{TwoDGraph1}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<${\bf point}$>$ $>$ Two\+D\+Graph\+\_\+class\+::\+Two\+D\+Graph1\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTwoDGraph__class_a238b6e7f880ff95f27e21c951b54440b}{}\label{classTwoDGraph__class_a238b6e7f880ff95f27e21c951b54440b}
-This is an orthographic projection \index{Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}!Two\+D\+Graph2@{Two\+D\+Graph2}}
-\index{Two\+D\+Graph2@{Two\+D\+Graph2}!Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}}
-\subsubsection[{\texorpdfstring{Two\+D\+Graph2}{TwoDGraph2}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<${\bf point}$>$ $>$ Two\+D\+Graph\+\_\+class\+::\+Two\+D\+Graph2\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTwoDGraph__class_aaedb57508908d5d956caa874e6a88505}{}\label{classTwoDGraph__class_aaedb57508908d5d956caa874e6a88505}
-This is an orthographic projection \index{Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}!Two\+D\+Graph\+Main@{Two\+D\+Graph\+Main}}
-\index{Two\+D\+Graph\+Main@{Two\+D\+Graph\+Main}!Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}}
-\subsubsection[{\texorpdfstring{Two\+D\+Graph\+Main}{TwoDGraphMain}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<${\bf point}$>$ $>$ Two\+D\+Graph\+\_\+class\+::\+Two\+D\+Graph\+Main\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTwoDGraph__class_a973baa8979a298061224d1b949381a58}{}\label{classTwoDGraph__class_a973baa8979a298061224d1b949381a58}
-This is an orthographic projection 
+\subsubsection[{\texorpdfstring{Three\+D\+Graph}{ThreeDGraph}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<${\bf point}$>$ $>$ Two\+D\+Graph\+\_\+class\+::\+Three\+D\+Graph}\hypertarget{classTwoDGraph__class_a6b9cd70ed1be50fb248b56f6da30a3c5}{}\label{classTwoDGraph__class_a6b9cd70ed1be50fb248b56f6da30a3c5}
+This is the 3D graph representation \index{Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}!Two\+D\+Graph@{Two\+D\+Graph}}
+\index{Two\+D\+Graph@{Two\+D\+Graph}!Two\+D\+Graph\+\_\+class@{Two\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Two\+D\+Graph}{TwoDGraph}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<${\bf point}$>$ $>$ Two\+D\+Graph\+\_\+class\+::\+Two\+D\+Graph\mbox{[}3\mbox{]}}\hypertarget{classTwoDGraph__class_aab69ccead28f685a9e084f52e1488354}{}\label{classTwoDGraph__class_aab69ccead28f685a9e084f52e1488354}
+This is the orthographic projections 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

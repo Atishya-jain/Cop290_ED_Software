@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['planeobj',['planeObj',['../classInteractive__editor.html#ace6d6a503a0b62b7a8b6f87177dca677',1,'Interactive_editor::planeObj()'],['../classInteractive__editor.html#aed0bc7a1d2cafae39f3fbf2eb119649c',1,'Interactive_editor::planeObj()']]],
-  ['point',['point',['../classInteractive__editor.html#a5b1e9a4bfa2a98c594828367eeaf2acf',1,'Interactive_editor']]],
-  ['point1',['point1',['../classInteractive__editor.html#a07fe2897bcad8eabf5b98e01a162b2a1',1,'Interactive_editor']]],
-  ['point2',['point2',['../classInteractive__editor.html#af60245cb328db4c6b1ca00f1512dfc75',1,'Interactive_editor']]],
-  ['point3',['point3',['../classInteractive__editor.html#a9b368072fc0a220476d21079b4bcb739',1,'Interactive_editor']]]
+  ['matrix',['matrix',['../classThreeDGraph__class.html#a276acab9cffc9952e64514aad293da84',1,'ThreeDGraph_class']]],
+  ['matrixa',['matrixA',['../classThreeDGraph__class.html#a03032b7bde495a752d3ccf43c3328f78',1,'ThreeDGraph_class']]],
+  ['matrixans',['matrixAns',['../classThreeDGraph__class.html#a52564aaa0f2223a754dccb28b347b009',1,'ThreeDGraph_class']]],
+  ['matrixb',['matrixB',['../classThreeDGraph__class.html#a487c0f52b65d943a04cf75077ab6b5fe',1,'ThreeDGraph_class']]],
+  ['myplane',['MyPlane',['../classInteractive__editor.html#a1e77c81fdaf1da82816d476fa431fc34',1,'Interactive_editor']]]
 ];

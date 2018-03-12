@@ -1,5 +1,6 @@
 var searchData=
 [
   ['erase',['erase',['../classInteractive__editor.html#ac2f2f1dfb6c21585d4ed5ed043e41b25',1,'Interactive_editor']]],
-  ['extrude',['extrude',['../classInteractive__editor.html#a3e4db48e715e92969ba3ec52ab14ce8d',1,'Interactive_editor']]]
+  ['exityesno',['exitYesNo',['../classInteractive__editor.html#a66468db06170aca0dae8e057d98253bd',1,'Interactive_editor']]],
+  ['extrudeyesno',['extrudeYesNo',['../classInteractive__editor.html#a1688fc65949d3d4c337b7b4e36986f3c',1,'Interactive_editor']]]
 ];
