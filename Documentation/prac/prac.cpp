@@ -71,8 +71,24 @@ int main(){
 	// int a2[3];
 	// std::copy(std::begin(a1), std::end(a1), std::begin(a2));
 	// a1[2]=22;
-	cout<<foo();
-
+	system("stty raw"); 
+	int a;
+	while(a!='a'){
+		system("stty raw"); 
+		a=getchar();
+		a = getchar();
+		a = getchar();
+		system("stty cooked"); 
+		cout<<endl;
+		switch(a){
+			case 65 : cout<<"up\n";break;
+			case 66 : cout<<"down\n";break;
+			case 68 : cout<<"left\n";break;
+			case 67 : cout<<"right\n";break;
+			default : cout<<a<<endl;
+		}
+	}
+	return 0;
 }
 // int main() {
 //     ostringstream ss;
