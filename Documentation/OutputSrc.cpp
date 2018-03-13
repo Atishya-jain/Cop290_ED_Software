@@ -33,7 +33,9 @@ using namespace std;
         \param flag3Dfile boolean character to tell the type of file (3D/2D).
       */
       QPicture RenderOutput3D(QPicture pi){
+        PlaneProjTemp.clear();
         QPainter p(&pi);
+//        p.begin(&pi);
         p.setRenderHint(QPainter::Antialiasing);
         p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
         // p.drawLine(0, 0, 0, 600);
@@ -91,6 +93,7 @@ using namespace std;
         // int MidW = TotalWidth/2;
  
         QPainter p(&pi);
+//        p.begin(&pi);
         p.setRenderHint(QPainter::Antialiasing);
         p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
         p.drawLine(-300, -300, -300, 300);

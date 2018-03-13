@@ -31,7 +31,7 @@ using namespace std;
       \brief 3D behaviour class.
 
       This class has all the functionalities that a 3D object can possess
-      in the software. It can be rotated, projected along some plane or 
+      in the software. It can be rotated, projected along some plane or
       can give its orthographic projections
   */
   class ThreeDGraph_class{
@@ -59,7 +59,7 @@ using namespace std;
         tempLabel.append("^");
         tempLabel.append(ToSort[j].second);
       }
-      return tempLabel;  
+      return tempLabel;
     }
     
     string GetLabel1(struct point myPoint, plane equationOfPlane){
@@ -71,12 +71,12 @@ using namespace std;
       for(int j = 0;j<tempSize;j++){
         point tempPoint = ThreeDGraph[listOfPoints[j]][0];
         point modPoint = pointProj(tempPoint, equationOfPlane);
-        float tempA = modPoint.coordinate[0];  
-        float tempB = modPoint.coordinate[1];  
-        float tempC = modPoint.coordinate[2];              
-        float tempMyA = modMyPoint.coordinate[0];  
-        float tempMyB = modMyPoint.coordinate[1];  
-        float tempMyC = modMyPoint.coordinate[2];              
+        float tempA = modPoint.coordinate[0];
+        float tempB = modPoint.coordinate[1];
+        float tempC = modPoint.coordinate[2];
+        float tempMyA = modMyPoint.coordinate[0];
+        float tempMyB = modMyPoint.coordinate[1];
+        float tempMyC = modMyPoint.coordinate[2];
         if(tempPoint.label != myPoint.label){
           if((abs((tempA) - (tempMyA))<= ERRORMARGIN)&&(abs((tempB) - (tempMyB))<= ERRORMARGIN)&&(abs((tempC) - (tempMyC))<= ERRORMARGIN)){
             distance = DistanceFromPlane(tempPoint, equationOfPlane);
@@ -91,7 +91,7 @@ using namespace std;
         tempLabel.append("^");
         tempLabel.append(ToSort[j].second);
       }
-      return tempLabel;  
+      return tempLabel;
     }
 
     float DistanceFromPlane(point myPoint, plane equationOfPlane){
@@ -110,9 +110,9 @@ using namespace std;
       float tempC = equationOfPlane.C;
       float tempD = equationOfPlane.D;
       float t = (tempD - ((tempA)*(myPoint.coordinate[0])) - ((tempB)*(myPoint.coordinate[1])) - ((tempC)*(myPoint.coordinate[2])))/((tempA*tempA)+(tempB*tempB)+(tempC*tempC));
-      tempPoint.coordinate[0] = myPoint.coordinate[0] + (tempA*t);  
-      tempPoint.coordinate[1] = myPoint.coordinate[1] + (tempB*t);  
-      tempPoint.coordinate[2] = myPoint.coordinate[2] + (tempC*t);              
+      tempPoint.coordinate[0] = myPoint.coordinate[0] + (tempA*t);
+      tempPoint.coordinate[1] = myPoint.coordinate[1] + (tempB*t);
+      tempPoint.coordinate[2] = myPoint.coordinate[2] + (tempC*t);
       return tempPoint;
     }
 
@@ -128,9 +128,9 @@ using namespace std;
 
     Mat matrixMultiply(vector<vector<float>> mat1, vector<vector<float>> mat2){
       long row1,col1,row2,col2;
-      row1 = mat1.size(); 
-      row2 = mat2.size(); 
-      col1 = mat1[0].size(); 
+      row1 = mat1.size();
+      row2 = mat2.size();
+      col1 = mat1[0].size();
       col2 = mat2[0].size();
       return matrixAns;
     }
@@ -159,7 +159,7 @@ using namespace std;
         matrix[0][2][2] = cos(angle);
         matrix[0][2][1] = sin(angle);
         matrix[0][1][2] = -1.0*sin(angle);
-      }else if(choiceAxis == 1){ 
+      }else if(choiceAxis == 1){
         matrix[1][0][0] = cos(angle);
         matrix[1][2][2] = cos(angle);
         matrix[1][0][2] = sin(angle);
@@ -174,11 +174,11 @@ using namespace std;
         long totalPoints;
         if (ThreeDGraphOrPlaneProj)
         {
-          totalPoints = listOfPoints.size();          
+          totalPoints = listOfPoints.size();
         }else{
-          totalPoints = listOfPointsForPlane.size();          
+          totalPoints = listOfPointsForPlane.size();
         }
-        for(int i = 0; i < totalPoints; i++){
+        for(int i = 0; i < totalPoints; ++i){
           vector<point> tempList;
           if(ThreeDGraphOrPlaneProj){
             tempList = ThreeDGraph[listOfPoints[i]];
@@ -188,19 +188,19 @@ using namespace std;
           long tempsiz = tempList.size();
           for (int j = 0; j < tempsiz; j++){
             Vec tempVec;
-            tempVec.push_back(tempList[j].coordinate[0]);  
-            tempVec.push_back(tempList[j].coordinate[1]);  
+            tempVec.push_back(tempList[j].coordinate[0]);
+            tempVec.push_back(tempList[j].coordinate[1]);
             tempVec.push_back(tempList[j].coordinate[2]);
             tempVec.push_back(1);
             tempVec = matrix[choiceAxis]*tempVec;
             if(ThreeDGraphOrPlaneProj){
-              ThreeDGraph[listOfPoints[i]][j].coordinate[0] = tempVec[0];  
-              ThreeDGraph[listOfPoints[i]][j].coordinate[1] = tempVec[1];  
-              ThreeDGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];  
+              ThreeDGraph[listOfPoints[i]][j].coordinate[0] = tempVec[0];
+              ThreeDGraph[listOfPoints[i]][j].coordinate[1] = tempVec[1];
+              ThreeDGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];
             }else{
-              PlaneProj[listOfPointsForPlane[i]][j].coordinate[0] = tempVec[0];  
-              PlaneProj[listOfPointsForPlane[i]][j].coordinate[1] = tempVec[1];  
-              PlaneProj[listOfPointsForPlane[i]][j].coordinate[2] = tempVec[2];  
+              PlaneProj[listOfPointsForPlane[i]][j].coordinate[0] = tempVec[0];
+              PlaneProj[listOfPointsForPlane[i]][j].coordinate[1] = tempVec[1];
+              PlaneProj[listOfPointsForPlane[i]][j].coordinate[2] = tempVec[2];
             }
           }
         }
@@ -208,10 +208,11 @@ using namespace std;
         if(ThreeDGraphOrPlaneProj){
           tempLineVect = matrix[choiceAxis]*Aline;
         }else{
+          cout << "YOYOYO" << endl;
           tempLineVectForPlane = matrix[choiceAxis]*Aline;
-        }       
+        }
       }
-    }    
+    }
     // Access specifier
     public:
 
@@ -252,14 +253,14 @@ using namespace std;
       \sa Translation()
       Function to create listOfPoints for 3D graph
     */
-    void GraphToList(bool ThreeDGraphOrPlaneProj){  
-      if(ThreeDGraphOrPlaneProj){ 
-        listOfPoints.clear(); 
+    void GraphToList(bool ThreeDGraphOrPlaneProj){
+      if(ThreeDGraphOrPlaneProj){
+        listOfPoints.clear();
         for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
           listOfPoints.push_back(it->first);
         }
       }else{
-        listOfPointsForPlane.clear(); 
+        listOfPointsForPlane.clear();
         for (std::map<string, vector<point> >::iterator it=PlaneProj.begin(); it!=PlaneProj.end(); ++it){
           listOfPointsForPlane.push_back(it->first);
         }
@@ -271,7 +272,7 @@ using namespace std;
       \sa Scaling()
       \param ScaleFactor to tell the factor of scale.
     */
-    void Scaling(float ScaleFactor){  
+    void Scaling(float ScaleFactor){
       long siz = listOfPoints.size();
       for(int i = 0; i<siz; i++){
         vector<point> temp = ThreeDGraph[listOfPoints[i]];
@@ -282,7 +283,7 @@ using namespace std;
           ThreeDGraph[listOfPoints[i]][j].coordinate[1] = temp[j].coordinate[1]*ScaleFactor;
           ThreeDGraph[listOfPoints[i]][j].coordinate[2] = temp[j].coordinate[2]*ScaleFactor;
         }
-      }        
+      }
     }
 
     //! A Member function.
@@ -293,8 +294,8 @@ using namespace std;
       \param z to tell the amount of shift in z coordinate.
       \param GraphOrLine boolean character to tell whether rotation required is of line or graph.
     */
-    void Translation(float x, float y, float z,edge line, bool GraphOrLine){  
-      if (GraphOrLine){ // if true then graph else axis        
+    void Translation(float x, float y, float z,edge line, bool GraphOrLine){
+      if (GraphOrLine){ // if true then graph else axis
         long siz = listOfPoints.size();
         for(int i = 0; i<siz; i++){
           vector<point> temp = ThreeDGraph[listOfPoints[i]];
@@ -305,15 +306,15 @@ using namespace std;
             ThreeDGraph[listOfPoints[i]][j].coordinate[1] = temp[j].coordinate[1] - y;
             ThreeDGraph[listOfPoints[i]][j].coordinate[2] = temp[j].coordinate[2] - z;
           }
-        }        
+        }
       }else{
-        tempLineAns.p1.coordinate[0] = line.p1.coordinate[0] - x; 
-        tempLineAns.p1.coordinate[1] = line.p1.coordinate[1] - y; 
-        tempLineAns.p1.coordinate[2] = line.p1.coordinate[2] - z; 
+        tempLineAns.p1.coordinate[0] = line.p1.coordinate[0] - x;
+        tempLineAns.p1.coordinate[1] = line.p1.coordinate[1] - y;
+        tempLineAns.p1.coordinate[2] = line.p1.coordinate[2] - z;
 
-        tempLineAns.p2.coordinate[0] = line.p2.coordinate[0] - x; 
-        tempLineAns.p2.coordinate[1] = line.p2.coordinate[1] - y; 
-        tempLineAns.p2.coordinate[2] = line.p2.coordinate[2] - z; 
+        tempLineAns.p2.coordinate[0] = line.p2.coordinate[0] - x;
+        tempLineAns.p2.coordinate[1] = line.p2.coordinate[1] - y;
+        tempLineAns.p2.coordinate[2] = line.p2.coordinate[2] - z;
       }
     }
 
@@ -389,13 +390,13 @@ using namespace std;
         }
         if(temp.coordinate[0] < minX){
           minX = temp.coordinate[0];
-        }        
+        }
         if(temp.coordinate[1] < minY){
           minY = temp.coordinate[1];
         }
         if(temp.coordinate[2] < minZ){
           minZ = temp.coordinate[2];
-        }              
+        }
       }
       float MaxDist = -10000000;
       if((maxX - minX) > (maxY - minY)){
@@ -433,27 +434,27 @@ using namespace std;
     void Isometric(){
       long totalPoints;
       IsometricGraph = ThreeDGraph;
-      totalPoints = listOfPoints.size();          
+      totalPoints = listOfPoints.size();
       for(int i = 0; i < totalPoints; ++i){
         vector<point> tempList;
         tempList = IsometricGraph[listOfPoints[i]];
         long tempsiz = tempList.size();
         for (int j = 0; j < tempsiz; j++){
           Vec tempVec;
-          tempVec.push_back(tempList[j].coordinate[0]);  
-          tempVec.push_back(tempList[j].coordinate[1]);  
+          tempVec.push_back(tempList[j].coordinate[0]);
+          tempVec.push_back(tempList[j].coordinate[1]);
           tempVec.push_back(tempList[j].coordinate[2]);
           tempVec.push_back(1);
           tempVec = matrixB*tempVec;
           tempVec = matrixA*tempVec;
-          IsometricGraph[listOfPoints[i]][j].coordinate[0] = tempVec[0];  
-          IsometricGraph[listOfPoints[i]][j].coordinate[1] = tempVec[1];  
-          IsometricGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];  
+          IsometricGraph[listOfPoints[i]][j].coordinate[0] = tempVec[0];
+          IsometricGraph[listOfPoints[i]][j].coordinate[1] = tempVec[1];
+          IsometricGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];
         }
       }
     }
 
-	//! A Member function.
+    //! A Member function.
     /*!
       \sa GraphToList()
       \param view to specify the viewing direction wrt origin.
@@ -469,7 +470,7 @@ using namespace std;
         
         struct point myPoint = temp[0];
         // if there is any other point in the list
-        if(tempsiz > 1){ 
+        if(tempsiz > 1){
         
           // Get combined Label
           string tempLabel = GetLabel1(myPoint, equationOfPlane);
@@ -478,19 +479,19 @@ using namespace std;
           if(tempProj.count(tempLabel) == 0){
             // change my label
             point modPoint = pointProj(myPoint, equationOfPlane);
-            myPoint.coordinate[0] = modPoint.coordinate[0];  
-            myPoint.coordinate[1] = modPoint.coordinate[1];  
-            myPoint.coordinate[2] = modPoint.coordinate[2];              
+            myPoint.coordinate[0] = modPoint.coordinate[0];
+            myPoint.coordinate[1] = modPoint.coordinate[1];
+            myPoint.coordinate[2] = modPoint.coordinate[2];
             myPoint.label = tempLabel;
             // Insert me in graph first
-            tempProj[myPoint.label].push_back(myPoint);                    
+            tempProj[myPoint.label].push_back(myPoint);
             // Iterate over my neighbours
             for(int j = 1;j<tempsiz;j++){
-              // Project coordinate on plane            
+              // Project coordinate on plane
               modPoint = pointProj(temp[j],equationOfPlane);
-              float tempA = modPoint.coordinate[0];  
-              float tempB = modPoint.coordinate[1];  
-              float tempC = modPoint.coordinate[2];              
+              float tempA = modPoint.coordinate[0];
+              float tempB = modPoint.coordinate[1];
+              float tempC = modPoint.coordinate[2];
 
               // for All my non overlapping neighbours
               if((abs(tempA - (myPoint.coordinate[0]))>= ERRORMARGIN)||(abs(tempB - (myPoint.coordinate[1]))>= ERRORMARGIN)||(abs(tempC - (myPoint.coordinate[2]))>= ERRORMARGIN)){
@@ -509,12 +510,15 @@ using namespace std;
                   if(!present(tempProj[myPoint.label], temp[j].label)){
                     tempProj[myPoint.label].push_back(tempProj[temp[j].label][0]);
                   }
-                }  
+                }
               }
             }
           }
         }
       }
+
+      cout << "YOYOYOYOYOYOYOYO" << endl;
+
       tempLineVectForPlane.clear();
       tempLineVectForPlane.push_back(equationOfPlane.A);
       tempLineVectForPlane.push_back(equationOfPlane.B);
@@ -535,10 +539,10 @@ using namespace std;
       specificRotation(angleY,1,tempLineVectForPlane,true,false);
 
       tempProj = PlaneProj;
-      return tempProj;        
+      return tempProj;
     }
 
-	//! A Member function.
+    //! A Member function.
     /*!
       \sa ThreeDToOrthographic()
       \param filename a string argument.
@@ -559,7 +563,7 @@ using namespace std;
           long tempSize = tempPoints.size();
           struct point myPoint = tempPoints[0];
           // if there is any other point in the list
-          if(tempSize > 1){ 
+          if(tempSize > 1){
           
             // Get combined Label
             string tempLabel = GetLabel(myPoint, GraphNo);
@@ -570,7 +574,7 @@ using namespace std;
               myPoint.label = tempLabel;
               myPoint.coordinate[GraphNo] = 0;
               // Insert me in graph first
-              TwoDGraph[GraphNo][myPoint.label].push_back(myPoint);                    
+              TwoDGraph[GraphNo][myPoint.label].push_back(myPoint);
               // Iterate over my neighbours
               for(int j = 1;j<tempSize;j++){
                 
@@ -585,7 +589,7 @@ using namespace std;
                   // If that combined label is not present already then add else join edge with pre existing label
                   if(TwoDGraph[GraphNo].count(tempPoints[j].label) == 0){
                     if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
-                      TwoDGraph[GraphNo][myPoint.label].push_back(tempPoints[j]);                      
+                      TwoDGraph[GraphNo][myPoint.label].push_back(tempPoints[j]);
                     }
                   }else{
                     if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
@@ -598,9 +602,9 @@ using namespace std;
           }
         }
       }
-    }    
+    }
 
-	//! A Member function.
+    //! A Member function.
     /*!
       returns true if edge = solid line else false
       \sa HiddenEdgeCheck()
@@ -614,10 +618,10 @@ using namespace std;
     void print(){
       for (std::map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
         cout<< it->first << " -> " << it->second[0].coordinate[0] << " " << it->second[0].coordinate[1] << " " << it->second[0].coordinate[2] << "->";
-        // for(int j=0;j<it->second.size();j++){
-        //   // cout<<it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << " ";
-        //   // cout << it->second[j].coordinate[0] << " ";
-        // }
+        for(int j=0;j<it->second.size();j++){
+          // cout<<it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << " ";
+          // cout << it->second[j].coordinate[0] << " ";
+        }
         cout<<endl;
       }
     }
@@ -627,7 +631,6 @@ using namespace std;
         cout<<it->first+"->";
         for(int j=0;j<it->second.size();j++){
           // cout<<it->second[j].label <<" ";
-          cout << "j iter -> ";
           cout<<it->second[j].print();
         }
         cout<<endl;
