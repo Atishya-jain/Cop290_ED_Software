@@ -178,7 +178,7 @@ using namespace std;
         }else{
           totalPoints = listOfPointsForPlane.size();          
         }
-        for(int i = 0; i < totalPoints; ++i){
+        for(int i = 0; i < totalPoints; i++){
           vector<point> tempList;
           if(ThreeDGraphOrPlaneProj){
             tempList = ThreeDGraph[listOfPoints[i]];
@@ -208,7 +208,6 @@ using namespace std;
         if(ThreeDGraphOrPlaneProj){
           tempLineVect = matrix[choiceAxis]*Aline;
         }else{
-          cout << "YOYOYO" << endl;
           tempLineVectForPlane = matrix[choiceAxis]*Aline;
         }       
       }
@@ -335,12 +334,22 @@ using namespace std;
       tempLineVect.push_back(1);
 
       // calculate angleX
-      float angleX = (atan(tempLineVect[1]/tempLineVect[2])); // angleX = y/z
+      float angleX;
+      if(tempLineVect[2] != 0){
+        angleX = (atan(tempLineVect[1]/tempLineVect[2])); // angleX = y/z
+      }else{
+        angleX = PI/2;
+      }
       specificRotation(angleX,0,tempLineVect,false,true);
       specificRotation(angleX,0,tempLineVect,true,true);
       
       // calculate angleY
-      float angleY = (atan(tempLineVect[0]/tempLineVect[2])); // angleY = x/z
+      float angleY;
+      if(tempLineVect[2] != 0){
+        angleY = (atan(tempLineVect[0]/tempLineVect[2])); // angleY = x/z
+      }else{
+        angleY = -1*PI/2;
+      }
       specificRotation(angleY,1,tempLineVect,false,true);
       specificRotation(angleY,1,tempLineVect,true,true);
 
@@ -506,9 +515,6 @@ using namespace std;
           }
         }
       }
-
-      cout << "YOYOYOYOYOYOYOYO" << endl;
-
       tempLineVectForPlane.clear();
       tempLineVectForPlane.push_back(equationOfPlane.A);
       tempLineVectForPlane.push_back(equationOfPlane.B);
@@ -608,10 +614,10 @@ using namespace std;
     void print(){
       for (std::map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
         cout<< it->first << " -> " << it->second[0].coordinate[0] << " " << it->second[0].coordinate[1] << " " << it->second[0].coordinate[2] << "->";
-        for(int j=0;j<it->second.size();j++){
-          // cout<<it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << " ";
-          // cout << it->second[j].coordinate[0] << " ";
-        }
+        // for(int j=0;j<it->second.size();j++){
+        //   // cout<<it->second[j].coordinate[0] << " " << it->second[j].coordinate[1] << " " << it->second[j].coordinate[2] << " ";
+        //   // cout << it->second[j].coordinate[0] << " ";
+        // }
         cout<<endl;
       }
     }
@@ -621,6 +627,7 @@ using namespace std;
         cout<<it->first+"->";
         for(int j=0;j<it->second.size();j++){
           // cout<<it->second[j].label <<" ";
+          cout << "j iter -> ";
           cout<<it->second[j].print();
         }
         cout<<endl;

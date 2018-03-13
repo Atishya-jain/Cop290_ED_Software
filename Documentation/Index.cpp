@@ -337,14 +337,16 @@ int main(int argc, char *argv[]){
   // testObj.ThreeDGraph[p5.label].push_back(p2);
   // testObj.ThreeDGraph[p5.label].push_back(p3);
   // testObj.ThreeDGraph[p5.label].push_back(p4);
-  testObj.MeanNormalisation();
-  testObj.Isometric();
-  testObj.ThreeDToOrthographic();
-  testObj.print();
-  cout << "HI" << endl;
+ 
+  // testObj.MeanNormalisation();
+  // testObj.Isometric();
+  // testObj.ThreeDToOrthographic();
+  // testObj.print();
+  // cout << "HI" << endl;
 
   Output outTest;
-  outTest.PlaneProj = testObj.IsometricGraph;
+  // asd
+  // outTest.PlaneProj = testObj.IsometricGraph;
 
   // plane testPlane;
   // testPlane.A = 1;
@@ -371,18 +373,25 @@ int main(int argc, char *argv[]){
   testedge.p1.coordinate[1] = 0;
   testedge.p1.coordinate[2] = 0;
 
-  testedge.p2.coordinate[0] = 0;
+  testedge.p2.coordinate[0] = 5;
   testedge.p2.coordinate[1] = 0;
-  testedge.p2.coordinate[2] = 5;
+  testedge.p2.coordinate[2] = 0;
 
+  testObj.MeanNormalisation();
+  // testObj.print3D();
   testObj.ModelRotation(45,testedge);
+  // testObj.print3D();
+  testObj.MeanNormalisation();
+  testObj.Isometric();
+  // testObj.IsometricGraph = testObj.ThreeDGraph;
+  outTest.PlaneProj = testObj.IsometricGraph;
 
-  testObj.ThreeDToOrthographic();
-  std::copy(std::begin(testObj.TwoDGraph), std::end(testObj.TwoDGraph), std::begin(outTest.TwoDGraph));
+  // testObj.ThreeDToOrthographic();
+  // std::copy(std::begin(testObj.TwoDGraph), std::end(testObj.TwoDGraph), std::begin(outTest.TwoDGraph));
   
   QLabel l;
   QPicture pi;
-  pi = outTest.RenderOutput2D(pi);
+  pi = outTest.RenderOutput3D(pi);
   l.setPicture(pi);
   l.show();
   // testObj.print();
