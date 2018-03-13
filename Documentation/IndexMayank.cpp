@@ -46,13 +46,13 @@ int main(int argc, char *argv[]){
     	while(cont){
     		cout<<"Enter label for point 1: "<<endl;
     		point p1;
-    		getline(cin,p1.label);
+    		cin>>p1.label;
     		cout<<"Enter space seperated coordinates for point 1: "<<endl;
     		cin>>p1.coordinate[0]>>p1.coordinate[1]>>p1.coordinate[2];
     		cout<<endl;
     		cout<<"Enter label for point 2: "<<endl;
     		point p2;
-    		getline(cin,p2.label);
+    		cin>>p2.label;
     		cout<<"Enter space seperated coordinates for point 2: "<<endl;
     		cin>>p2.coordinate[0]>>p2.coordinate[1]>>p2.coordinate[2];
     		cout<<endl;
@@ -84,13 +84,13 @@ int main(int argc, char *argv[]){
 	    	while(cont){
 	    		cout<<"Enter label for point 1: "<<endl;
 	    		point p1;
-	    		getline(cin,p1.label);
+	    		cin>>p1.label;
 	    		cout<<"Enter space seperated coordinates for point 1: "<<endl;
 	    		cin>>p1.coordinate[0]>>p1.coordinate[1]>>p1.coordinate[2];
 	    		cout<<endl;
 	    		cout<<"Enter label for point 2: "<<endl;
 	    		point p2;
-	    		getline(cin,p2.label);
+	    		cin>>p2.label;
 	    		cout<<"Enter space seperated coordinates for point 2: "<<endl;
 	    		cin>>p2.coordinate[0]>>p2.coordinate[1]>>p2.coordinate[2];
 	    		cout<<endl;
@@ -113,6 +113,7 @@ int main(int argc, char *argv[]){
 	    	tmpTwoDGraph[tt]=I1.MyPlane;
 
     	}
+      std::copy(std::begin(tmpTwoDGraph), std::end(tmpTwoDGraph), std::begin(input_2d.TwoDGraph));
 
     }
    }
