@@ -27,17 +27,12 @@ class Input
   /*!
      Will prompt the user for filename or through GUI
   */
-  void getFileName(){
-    cout << "Enter File Name: ";
-    cin >> filename;
-    cout<<endl;
-    cout << "Enter 1 if input is 3D or else enter 2: ";
-    int x;
-    cin >> x;
-    if(x==1) 
-      ThreeDfile = true;
-    else 
-      ThreeDfile = false;
+  void getFileName(string file, bool threeD){
+//    cout << "Enter File Name: ";
+    filename=file;
+//    cout<<endl;
+//    cout << "Enter 1 if input is 3D or else enter 2: ";
+    ThreeDfile=threeD;
   }
 
   /*!

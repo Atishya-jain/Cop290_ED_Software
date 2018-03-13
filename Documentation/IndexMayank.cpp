@@ -12,10 +12,17 @@
 #include "InteractiveSrc.cpp"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dialog.h"
+#include "ui_dialog.h"
+#include <QFileDialog>
+#include <QDir>
 TwoDGraph_class input_2d;
 ThreeDGraph_class input_3d;
 Output O1;
 Output O2;
+bool isFile3d;
+bool isInputFile;
+string filename;
 using namespace std;
 /*! \fn main()*/
 void MainWindow::on_buttonUP_clicked()
@@ -237,25 +244,60 @@ void MainWindow::on_buttonPlane_clicked()
     ui->planeProj->setPicture(pi3);
     ui->planeProj->show();
 }
+void Dialog::on_pushButton_clicked()
+{
+    if(ui->rad2_inter->isChecked())
+        isInputFile=false;
+    filename=ui->filename->toPlainText().toStdString();
+    if(ui->rad4_2d->isChecked())
+        isFile3d=false;
+    cout<<isFile3d<<endl;
+    close();
+}
+void Dialog::on_browse_clicked()
+{
+    QString tmpFileName = QFileDialog::getOpenFileName(this,"Select the file",QDir::currentPath());
+    ui->filename->setPlainText(tmpFileName);
+}
+
+
 int main(int argc, char *argv[]){
   QApplication a(argc, argv);
   MainWindow w;
-
-
-  bool isFile3d = true;
+  Dialog d;
+  d.setModal(true);
+  isFile3d = true;
   int ch;
-  bool isInputFile=true;
+  isInputFile=true;
+  d.exec();
+
+
+
 
   cout<<"------INPUT------"<<endl;
-  cout<<"Enter 1 to input via file or 2 to draw(2d only): ";
-  cin>>ch;
-  cout<<endl;
-  if(ch!=1) isInputFile=false;
+//  cout<<"Enter 1 to input via file or 2 to draw(2d only): ";
+//  cin>>ch;
+//  cout<<endl;
+//  if(ch!=1) isInputFile=false;
   if(isInputFile){
     //take input from file
     Input I1;
-    I1.getFileName();
-    isFile3d = I1.ThreeDfile;
+
+//        cout << "Enter File Name: ";
+
+//        cin>>filename;
+//        cout<<endl;
+        int x;
+//        bool t=false;
+//        cout << "Enter 1 if input is 3D or else enter 2: ";
+//        cin>>x;
+//        cout<<endl;
+//        if (x==1)
+//            t=true;
+
+
+    I1.getFileName(filename,isFile3d);
+//    isFile3d = I1.ThreeDfile;
     I1.ReadFile();
     if(isFile3d){
       input_3d.ThreeDGraph = I1.ThreeDGraph;
@@ -446,19 +488,17 @@ int main(int argc, char *argv[]){
 
 
     //SAVING IN FILE
-    char ch4;
-    cout<<"Do you want to save the file?(y/n): ";
-    cin>>ch4;
-    cout<<endl;
-    if(ch4=='y'){
-      cout<<"saving in output.txt ";
-      if(isFile3d)
-        O1.saveToFile2D("output.txt");
-      else{
-        O1.ThreeDGraph = input_3d.ThreeDGraph;
-        O1.saveToFile3D("output.txt");
-        }
+//    cout<<"Do you want to save the file?(y/n): ";
+//    cin>>ch4;
+//    cout<<endl;
+  cout<<"saving in output.txt ";
+  if(isFile3d)
+    O1.saveToFile2D("output.txt");
+  else{
+    O1.ThreeDGraph = input_3d.ThreeDGraph;
+    O1.saveToFile3D("output.txt");
     }
+
     w.show();
       cout<<"Thanks for using our software"<<endl;
       return a.exec();

@@ -29,17 +29,20 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QPushButton *pushButton;
+    QPushButton *buttonPlane;
     QLabel *isometric;
-    QTextEdit *coordx;
-    QTextEdit *coordy;
-    QTextEdit *coordz;
     QLabel *planeProj;
     QTextEdit *Ax;
     QTextEdit *By;
     QTextEdit *Cz;
     QTextEdit *Dd;
     QLabel *orthographic;
+    QPushButton *buttonUP;
+    QPushButton *buttonDOWN;
+    QPushButton *buttonLEFT;
+    QPushButton *buttonRIGHT;
+    QPushButton *buttonZplus;
+    QPushButton *buttonZminus;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -48,27 +51,18 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(2217, 790);
+        MainWindow->resize(2504, 1154);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(450, 410, 86, 31));
+        buttonPlane = new QPushButton(centralWidget);
+        buttonPlane->setObjectName(QStringLiteral("buttonPlane"));
+        buttonPlane->setGeometry(QRect(320, 400, 121, 31));
         isometric = new QLabel(centralWidget);
         isometric->setObjectName(QStringLiteral("isometric"));
-        isometric->setGeometry(QRect(770, 40, 491, 351));
-        coordx = new QTextEdit(centralWidget);
-        coordx->setObjectName(QStringLiteral("coordx"));
-        coordx->setGeometry(QRect(780, 420, 41, 31));
-        coordy = new QTextEdit(centralWidget);
-        coordy->setObjectName(QStringLiteral("coordy"));
-        coordy->setGeometry(QRect(840, 420, 41, 31));
-        coordz = new QTextEdit(centralWidget);
-        coordz->setObjectName(QStringLiteral("coordz"));
-        coordz->setGeometry(QRect(900, 420, 41, 31));
+        isometric->setGeometry(QRect(460, 80, 491, 351));
         planeProj = new QLabel(centralWidget);
         planeProj->setObjectName(QStringLiteral("planeProj"));
-        planeProj->setGeometry(QRect(40, 30, 561, 361));
+        planeProj->setGeometry(QRect(40, 30, 321, 361));
         Ax = new QTextEdit(centralWidget);
         Ax->setObjectName(QStringLiteral("Ax"));
         Ax->setGeometry(QRect(30, 400, 41, 31));
@@ -83,11 +77,29 @@ public:
         Dd->setGeometry(QRect(220, 400, 41, 31));
         orthographic = new QLabel(centralWidget);
         orthographic->setObjectName(QStringLiteral("orthographic"));
-        orthographic->setGeometry(QRect(1320, 0, 781, 681));
+        orthographic->setGeometry(QRect(1010, 70, 661, 631));
+        buttonUP = new QPushButton(centralWidget);
+        buttonUP->setObjectName(QStringLiteral("buttonUP"));
+        buttonUP->setGeometry(QRect(1090, 20, 41, 41));
+        buttonDOWN = new QPushButton(centralWidget);
+        buttonDOWN->setObjectName(QStringLiteral("buttonDOWN"));
+        buttonDOWN->setGeometry(QRect(1070, 720, 41, 41));
+        buttonLEFT = new QPushButton(centralWidget);
+        buttonLEFT->setObjectName(QStringLiteral("buttonLEFT"));
+        buttonLEFT->setGeometry(QRect(405, 235, 41, 41));
+        buttonRIGHT = new QPushButton(centralWidget);
+        buttonRIGHT->setObjectName(QStringLiteral("buttonRIGHT"));
+        buttonRIGHT->setGeometry(QRect(1700, 290, 41, 41));
+        buttonZplus = new QPushButton(centralWidget);
+        buttonZplus->setObjectName(QStringLiteral("buttonZplus"));
+        buttonZplus->setGeometry(QRect(1235, 30, 41, 36));
+        buttonZminus = new QPushButton(centralWidget);
+        buttonZminus->setObjectName(QStringLiteral("buttonZminus"));
+        buttonZminus->setGeometry(QRect(1280, 30, 41, 36));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 2217, 33));
+        menuBar->setGeometry(QRect(0, 0, 2504, 33));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -104,10 +116,16 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        buttonPlane->setText(QApplication::translate("MainWindow", "Get Projection", nullptr));
         isometric->setText(QApplication::translate("MainWindow", "isometric", nullptr));
         planeProj->setText(QApplication::translate("MainWindow", "plane projection", nullptr));
         orthographic->setText(QApplication::translate("MainWindow", "orthographic", nullptr));
+        buttonUP->setText(QApplication::translate("MainWindow", "up", nullptr));
+        buttonDOWN->setText(QApplication::translate("MainWindow", "down", nullptr));
+        buttonLEFT->setText(QApplication::translate("MainWindow", "left", nullptr));
+        buttonRIGHT->setText(QApplication::translate("MainWindow", "right", nullptr));
+        buttonZplus->setText(QApplication::translate("MainWindow", "Z+", nullptr));
+        buttonZminus->setText(QApplication::translate("MainWindow", "Z-", nullptr));
     } // retranslateUi
 
 };

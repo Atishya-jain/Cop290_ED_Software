@@ -196,6 +196,7 @@ using namespace std;
         \param flag3Dfile boolean character to tell the type of file (3D/2D).
       */
       void saveToFile2D(string fname){
+          cout<<"IN davinf 2d"<<endl;
         ofstream myfile;
         myfile.open(fname);
         for(int j=0;j<3;j++){
