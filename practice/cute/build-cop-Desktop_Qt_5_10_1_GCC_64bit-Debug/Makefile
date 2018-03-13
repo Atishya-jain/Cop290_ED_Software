@@ -52,13 +52,17 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../../../Documentation/cop/mainwindow.cpp \
 		../../../Documentation/IndexMayank.cpp \
-		../../../Documentation/cop/dialog.cpp moc_mainwindow.cpp \
-		moc_dialog.cpp
+		../../../Documentation/cop/dialog.cpp \
+		../../../Documentation/cop/interactiveinput.cpp moc_mainwindow.cpp \
+		moc_dialog.cpp \
+		moc_interactiveinput.cpp
 OBJECTS       = mainwindow.o \
 		IndexMayank.o \
 		dialog.o \
+		interactiveinput.o \
 		moc_mainwindow.o \
-		moc_dialog.o
+		moc_dialog.o \
+		moc_interactiveinput.o
 DIST          = /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/common/unix.conf \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/common/linux.conf \
@@ -243,9 +247,11 @@ DIST          = /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/spec_pre
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/yacc.prf \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/lex.prf \
 		../../../../Documentation/cop/cop.pro ../../../Documentation/cop/mainwindow.h \
-		../../../Documentation/cop/dialog.h ../../../Documentation/cop/mainwindow.cpp \
+		../../../Documentation/cop/dialog.h \
+		../../../Documentation/cop/interactiveinput.h ../../../Documentation/cop/mainwindow.cpp \
 		../../../Documentation/IndexMayank.cpp \
-		../../../Documentation/cop/dialog.cpp
+		../../../Documentation/cop/dialog.cpp \
+		../../../Documentation/cop/interactiveinput.cpp
 QMAKE_TARGET  = cop
 DESTDIR       = 
 TARGET        = cop
@@ -254,7 +260,7 @@ TARGET        = cop
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_dialog.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_dialog.h ui_interactiveinput.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../../../Documentation/cop/cop.pro /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++/qmake.conf /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/spec_pre.prf \
@@ -647,9 +653,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../Documentation/cop/mainwindow.h ../../../Documentation/cop/dialog.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../Documentation/cop/mainwindow.cpp ../../../Documentation/IndexMayank.cpp ../../../Documentation/cop/dialog.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../Documentation/cop/mainwindow.ui ../../../Documentation/cop/dialog.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../Documentation/cop/mainwindow.h ../../../Documentation/cop/dialog.h ../../../Documentation/cop/interactiveinput.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../Documentation/cop/mainwindow.cpp ../../../Documentation/IndexMayank.cpp ../../../Documentation/cop/dialog.cpp ../../../Documentation/cop/interactiveinput.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../Documentation/cop/mainwindow.ui ../../../Documentation/cop/dialog.ui ../../../Documentation/cop/interactiveinput.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -681,9 +687,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_dialog.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_dialog.cpp moc_interactiveinput.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_dialog.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_dialog.cpp moc_interactiveinput.cpp
 moc_mainwindow.cpp: /home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QMainWindow \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qmainwindow.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -904,13 +910,122 @@ moc_dialog.cpp: /home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc
 	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Documentation/cop -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../Documentation/cop/dialog.h -o moc_dialog.cpp
 
+moc_interactiveinput.cpp: /home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdialog.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qconfig.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlogging.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qflags.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmutex.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtgui-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qwidget.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstring.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qchar.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringview.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qiterator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpair.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregexp.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmargins.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrect.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsize.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpoint.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpalette.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qcolor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrgb.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrgba64.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qbrush.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvector.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qmatrix.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpolygon.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qregion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qline.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtransform.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpainterpath.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimage.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixelformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhash.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfont.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qcursor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qkeysequence.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qevent.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvariant.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdebug.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlocale.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qset.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qurl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qurlquery.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfiledevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector2d.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../Documentation/cop/interactiveinput.h \
+		moc_predefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc
+	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Documentation/cop -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../Documentation/cop/interactiveinput.h -o moc_interactiveinput.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_dialog.h
+compiler_uic_make_all: ui_mainwindow.h ui_dialog.h ui_interactiveinput.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_dialog.h
+	-$(DEL_FILE) ui_mainwindow.h ui_dialog.h ui_interactiveinput.h
 ui_mainwindow.h: ../../../Documentation/cop/mainwindow.ui \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/uic
 	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/uic ../../../Documentation/cop/mainwindow.ui -o ui_mainwindow.h
@@ -918,6 +1033,10 @@ ui_mainwindow.h: ../../../Documentation/cop/mainwindow.ui \
 ui_dialog.h: ../../../Documentation/cop/dialog.ui \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/uic
 	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/uic ../../../Documentation/cop/dialog.ui -o ui_dialog.h
+
+ui_interactiveinput.h: ../../../Documentation/cop/interactiveinput.ui \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/uic
+	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/uic ../../../Documentation/cop/interactiveinput.ui -o ui_interactiveinput.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1455,7 +1574,21 @@ IndexMayank.o: ../../../Documentation/IndexMayank.cpp ../../../Documentation/cop
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtextedit.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QToolBar \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtoolbar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QWidget
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QWidget \
+		../../../Documentation/cop/dialog.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdialog.h \
+		ui_dialog.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QRadioButton \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QFileDialog \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QDir
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o IndexMayank.o ../../../Documentation/IndexMayank.cpp
 
 dialog.o: ../../../Documentation/cop/dialog.cpp ../../../Documentation/cop/dialog.h \
@@ -1563,14 +1696,175 @@ dialog.o: ../../../Documentation/cop/dialog.cpp ../../../Documentation/cop/dialo
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfiledevice.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector2d.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_dialog.h
+		ui_dialog.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QVariant \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QAction \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qaction.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qicon.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QApplication \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qapplication.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeventloop.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qguiapplication.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qinputmethod.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QHeaderView \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qframe.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvalidator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregularexpression.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qslider.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstyle.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QPushButton \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QRadioButton \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QTextEdit \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocument.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextoption.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextcursor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpen.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialog.o ../../../Documentation/cop/dialog.cpp
+
+interactiveinput.o: ../../../Documentation/cop/interactiveinput.cpp ../../../Documentation/cop/interactiveinput.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdialog.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qconfig.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlogging.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qflags.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmutex.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtgui-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qwidget.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstring.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qchar.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringview.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qiterator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpair.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregexp.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmargins.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrect.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsize.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpoint.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpalette.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qcolor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrgb.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrgba64.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qbrush.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvector.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qmatrix.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpolygon.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qregion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qline.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtransform.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpainterpath.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimage.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixelformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhash.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfont.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qcursor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qkeysequence.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qevent.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvariant.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdebug.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlocale.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qset.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qurl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qurlquery.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfiledevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector2d.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
+		ui_interactiveinput.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interactiveinput.o ../../../Documentation/cop/interactiveinput.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_dialog.o: moc_dialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialog.o moc_dialog.cpp
+
+moc_interactiveinput.o: moc_interactiveinput.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_interactiveinput.o moc_interactiveinput.cpp
 
 ####### Install
 

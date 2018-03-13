@@ -14,10 +14,13 @@
 #include "ui_mainwindow.h"
 #include "dialog.h"
 #include "ui_dialog.h"
+#include "interactiveinput.h"
+#include "ui_interactiveinput.h"
 #include <QFileDialog>
 #include <QDir>
 TwoDGraph_class input_2d;
 ThreeDGraph_class input_3d;
+Interactive_editor I1;
 Output O1;
 Output O2;
 bool isFile3d;
@@ -259,6 +262,63 @@ void Dialog::on_browse_clicked()
     QString tmpFileName = QFileDialog::getOpenFileName(this,"Select the file",QDir::currentPath());
     ui->filename->setPlainText(tmpFileName);
 }
+void InteractiveInput::on_draw_clicked()
+{
+    point p1;
+    p1.label=ui->p1label->toPlainText().toStdString();
+    p1.coordinate[0]=ui->p1x->toPlainText().toFloat();
+    p1.coordinate[1]=ui->p1y->toPlainText().toFloat();
+    p1.coordinate[2]=ui->p1z->toPlainText().toFloat();
+    point p2;
+    p2.label=ui->p2label->toPlainText().toStdString();
+    p2.coordinate[0]=ui->p2x->toPlainText().toFloat();
+    p2.coordinate[1]=ui->p2y->toPlainText().toFloat();
+    p2.coordinate[2]=ui->p2z->toPlainText().toFloat();
+    I1.drawLine(p1,p2);
+    ThreeDGraph_class Itmp;
+    Itmp.ThreeDGraph = I1.MyPlane;
+    Itmp.GraphToList(true);
+    Itmp.MeanNormalisation();
+    Itmp.Isometric();
+    Output Otmp;
+    Otmp.PlaneProj=Itmp.IsometricGraph;
+    QPicture pi;
+    pi = Otmp.RenderOutput3D(pi);
+    ui->label->setPicture(pi);
+    ui->label->show();
+
+}
+void InteractiveInput::on_erase_clicked()
+{
+    point p1;
+    p1.label=ui->p1label->toPlainText().toStdString();
+    p1.coordinate[0]=ui->p1x->toPlainText().toFloat();
+    p1.coordinate[1]=ui->p1y->toPlainText().toFloat();
+    p1.coordinate[2]=ui->p1z->toPlainText().toFloat();
+    point p2;
+    p2.label=ui->p2label->toPlainText().toStdString();
+    p2.coordinate[0]=ui->p2x->toPlainText().toFloat();
+    p2.coordinate[1]=ui->p2y->toPlainText().toFloat();
+    p2.coordinate[2]=ui->p2z->toPlainText().toFloat();
+    I1.eraseIt(p1,p2);
+    ThreeDGraph_class Itmp;
+    Itmp.ThreeDGraph = I1.MyPlane;
+    Itmp.GraphToList(true);
+    Itmp.MeanNormalisation();
+    Itmp.Isometric();
+    Output Otmp;
+    Otmp.PlaneProj=Itmp.IsometricGraph;
+    QPicture pi;
+    pi = Otmp.RenderOutput3D(pi);
+    ui->label->setPicture(pi);
+    ui->label->show();
+}
+
+void InteractiveInput::on_Done_clicked()
+{
+    close();
+}
+
 
 
 int main(int argc, char *argv[]){
@@ -307,80 +367,23 @@ int main(int argc, char *argv[]){
   }
   else{
     //interactive input
-    Interactive_editor I1;
-    cout<<"2D input or 3D input?(2/3): ";
-    cin>>ch;
-    cout<<endl;
-    if (ch==3){
-        isFile3d = true;
-        bool cont = true;
-        while(cont){
-            cout<<"Enter label for point 1: "<<endl;
-            point p1;
-            cin>>p1.label;
-            cout<<"Enter space seperated coordinates for point 1: "<<endl;
-            cin>>p1.coordinate[0]>>p1.coordinate[1]>>p1.coordinate[2];
-            cout<<endl;
-            cout<<"Enter label for point 2: "<<endl;
-            point p2;
-            cin>>p2.label;
-            cout<<"Enter space seperated coordinates for point 2: "<<endl;
-            cin>>p2.coordinate[0]>>p2.coordinate[1]>>p2.coordinate[2];
-            cout<<endl;
-            cout<<"draw or erase?(d/e): ";
-            char de;
-            cin>>de;
-            cout<<endl;
-            if(de=='d')
-                I1.drawLine(p1,p2);
-            else
-                I1.eraseIt(p1,p2);
-            cout<<"continut(y/n): ";
-            cin>>de;
-            cout<<endl;
-            if(de=='y')
-                cont=true;
-            else
-                cont=false;
-        }
+
+//    cout<<"2D input or 3D input?(2/3): ";
+//    cin>>ch;
+//    cout<<endl;
+    if (isFile3d){
+        InteractiveInput i;
+        i.exec();
         input_3d.ThreeDGraph=I1.MyPlane;
     }else{
-        isFile3d = false;
         map<string, vector<point> > tmpTwoDGraph[3];/*!< This is the orthographic projections */
         for(int tt=0;tt<3;tt++){
-            bool cont = true;
             cout<<"Enter details of "<<tt<<" view.";
             map<string, vector<point> > freshGraph;
             I1.MyPlane=freshGraph;
-            while(cont){
-                cout<<"Enter label for point 1: "<<endl;
-                point p1;
-                cin>>p1.label;
-                cout<<"Enter space seperated coordinates for point 1: "<<endl;
-                cin>>p1.coordinate[0]>>p1.coordinate[1]>>p1.coordinate[2];
-                cout<<endl;
-                cout<<"Enter label for point 2: "<<endl;
-                point p2;
-                cin>>p2.label;
-                cout<<"Enter space seperated coordinates for point 2: "<<endl;
-                cin>>p2.coordinate[0]>>p2.coordinate[1]>>p2.coordinate[2];
-                cout<<endl;
-                cout<<"draw or erase?(d/e): ";
-                char de;
-                cin>>de;
-                cout<<endl;
-                if(de=='d')
-                    I1.drawLine(p1,p2);
-                else
-                    I1.eraseIt(p1,p2);
-                cout<<"continut(y/n): ";
-                cin>>de;
-                cout<<endl;
-                if(de=='y')
-                    cont=true;
-                else
-                    cont=false;
-            }
+            InteractiveInput i;
+            i.exec();
+
             tmpTwoDGraph[tt]=I1.MyPlane;
 
         }

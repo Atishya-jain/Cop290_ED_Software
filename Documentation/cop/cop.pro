@@ -34,12 +34,15 @@ SOURCES += \
     ../InteractiveSrc.cpp \
     ../OutputSrc.cpp \
     ../structs.cpp \
-    dialog.cpp
+    dialog.cpp \
+    interactiveinput.cpp
 
 HEADERS += \
         mainwindow.h \
-    dialog.h
+    dialog.h \
+    interactiveinput.h
 
 FORMS += \
         mainwindow.ui \
-    dialog.ui
+    dialog.ui \
+    interactiveinput.ui

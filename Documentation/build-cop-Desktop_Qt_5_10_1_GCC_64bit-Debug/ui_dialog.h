@@ -28,6 +28,7 @@ class Ui_Dialog
 public:
     QTextEdit *filename;
     QPushButton *pushButton;
+    QPushButton *browse;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
     QRadioButton *rad1_file;
@@ -44,10 +45,15 @@ public:
         Dialog->resize(743, 504);
         filename = new QTextEdit(Dialog);
         filename->setObjectName(QStringLiteral("filename"));
-        filename->setGeometry(QRect(70, 80, 121, 41));
+        filename->setGeometry(QRect(70, 80, 431, 101));
+        filename->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        filename->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         pushButton = new QPushButton(Dialog);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(410, 270, 86, 36));
+        browse = new QPushButton(Dialog);
+        browse->setObjectName(QStringLiteral("browse"));
+        browse->setGeometry(QRect(510, 80, 86, 36));
         widget = new QWidget(Dialog);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(70, 30, 224, 36));
@@ -66,7 +72,7 @@ public:
 
         widget1 = new QWidget(Dialog);
         widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(70, 150, 224, 36));
+        widget1->setGeometry(QRect(70, 230, 224, 36));
         horizontalLayout_2 = new QHBoxLayout(widget1);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -90,6 +96,7 @@ public:
     {
         Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", nullptr));
         pushButton->setText(QApplication::translate("Dialog", "OK", nullptr));
+        browse->setText(QApplication::translate("Dialog", "Browse", nullptr));
         rad1_file->setText(QApplication::translate("Dialog", "file", nullptr));
         rad2_inter->setText(QApplication::translate("Dialog", "interactive", nullptr));
         rad3_3d->setText(QApplication::translate("Dialog", "3d", nullptr));
