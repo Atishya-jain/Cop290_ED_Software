@@ -1,4 +1,5 @@
 CXX=g++
+DEPS		  =  OutputSrc.h 3DProcessingSrc.h 2DProcessingSrc.h InputSrc.h InteractiveSrc.h
 LFLAGS        = -m64
 CXXFLAGS      = -m64 -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)
 INCPATH       = -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtGui -I/usr/include/qt4 -I.
@@ -8,7 +9,7 @@ OBJECTS       = IndexPrac.o
 TARGET        = draw
 
 # all: Index.o
-%.o: %.cpp
+%.o: %.cpp $(DEPS)
 	$(CXX) -c $< $(CXXFLAGS) $(INCPATH) -std=c++14
 
 $(TARGET):  $(OBJECTS)  

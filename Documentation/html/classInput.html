@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -63,7 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -94,15 +92,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><a class="el" href="classInput.html" title="Input class. ">Input</a> class.  
  <a href="classInput.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="InputSrc_8h_source.html">InputSrc.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abb4311267ded94768e6df9cb88b179bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#abb4311267ded94768e6df9cb88b179bb">getFileName</a> ()</td></tr>
-<tr class="separator:abb4311267ded94768e6df9cb88b179bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29639b68a8a421e0cb1b576eae3f8259"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a29639b68a8a421e0cb1b576eae3f8259">displayOptions</a> ()</td></tr>
-<tr class="separator:a29639b68a8a421e0cb1b576eae3f8259"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0a5bad322752da31bcd7b1e2d99d611"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#af0a5bad322752da31bcd7b1e2d99d611">getOptions</a> ()</td></tr>
-<tr class="separator:af0a5bad322752da31bcd7b1e2d99d611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45065353b80f9980111402e827aae0fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a45065353b80f9980111402e827aae0fe">getFileName</a> (string <a class="el" href="classInput.html#ad073fa115ead2e8b7492214215ebd22d">file</a>, bool threeD)</td></tr>
+<tr class="separator:a45065353b80f9980111402e827aae0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d9395f68b01faa00f962791878723a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a9d9395f68b01faa00f962791878723a2">ReadFile</a> ()</td></tr>
 <tr class="separator:a9d9395f68b01faa00f962791878723a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a862e529a6ed3fcfd0719274a04174b7d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a862e529a6ed3fcfd0719274a04174b7d"></a>
@@ -131,90 +127,36 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p><a class="el" href="classInput.html" title="Input class. ">Input</a> class. </p>
 <p>This class contains the methods to input content from a file or drawing etc.. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a29639b68a8a421e0cb1b576eae3f8259"></a>
+<a class="anchor" id="a45065353b80f9980111402e827aae0fe"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Input::displayOptions </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classInput.html#af0a5bad322752da31bcd7b1e2d99d611">getOptions()</a> Will display the main page of GUI with options </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="abb4311267ded94768e6df9cb88b179bb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Input::getFileName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>threeD</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Will prompt the user for filename or through GUI </p>
-
-</div>
-</div>
-<a class="anchor" id="af0a5bad322752da31bcd7b1e2d99d611"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Input::getOptions </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Will set the options/settings user desires </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">graph::ThreeDorTwoD</td><td>To check if 3D model file is input or a 2D model file. </td></tr>
-    <tr><td class="paramname">file</td><td>To check if file is input or an intercative input. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
 <a class="anchor" id="a9d9395f68b01faa00f962791878723a2"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Input::ReadFile </td>
@@ -223,11 +165,6 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -318,7 +255,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="InputSrc_8h_source.html">InputSrc.h</a></li>
 <li><a class="el" href="InputSrc_8cpp.html">InputSrc.cpp</a></li>
 </ul>
 </div><!-- contents -->

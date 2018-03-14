@@ -5,14 +5,14 @@
 \hyperlink{classInput}{Input} class.  
 
 
+
+
+{\ttfamily \#include $<$Input\+Src.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classInput_abb4311267ded94768e6df9cb88b179bb}{get\+File\+Name} ()
-\item 
-void \hyperlink{classInput_a29639b68a8a421e0cb1b576eae3f8259}{display\+Options} ()
-\item 
-void \hyperlink{classInput_af0a5bad322752da31bcd7b1e2d99d611}{get\+Options} ()
+void \hyperlink{classInput_a45065353b80f9980111402e827aae0fe}{get\+File\+Name} (string \hyperlink{classInput_ad073fa115ead2e8b7492214215ebd22d}{file}, bool threeD)
 \item 
 void \hyperlink{classInput_a9d9395f68b01faa00f962791878723a2}{Read\+File} ()
 \item 
@@ -45,44 +45,21 @@ map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{class
 This class contains the methods to input content from a file or drawing etc.. 
 
 \subsection{Member Function Documentation}
-\index{Input@{Input}!display\+Options@{display\+Options}}
-\index{display\+Options@{display\+Options}!Input@{Input}}
-\subsubsection[{\texorpdfstring{display\+Options()}{displayOptions()}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::display\+Options (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInput_a29639b68a8a421e0cb1b576eae3f8259}{}\label{classInput_a29639b68a8a421e0cb1b576eae3f8259}
-\begin{DoxySeeAlso}{See also}
-\hyperlink{classInput_af0a5bad322752da31bcd7b1e2d99d611}{get\+Options()} Will display the main page of G\+UI with options 
-\end{DoxySeeAlso}
 \index{Input@{Input}!get\+File\+Name@{get\+File\+Name}}
 \index{get\+File\+Name@{get\+File\+Name}!Input@{Input}}
-\subsubsection[{\texorpdfstring{get\+File\+Name()}{getFileName()}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::get\+File\+Name (
+\subsubsection[{\texorpdfstring{get\+File\+Name(string file, bool three\+D)}{getFileName(string file, bool threeD)}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::get\+File\+Name (
 \begin{DoxyParamCaption}
-{}
+\item[{string}]{file, }
+\item[{bool}]{threeD}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInput_abb4311267ded94768e6df9cb88b179bb}{}\label{classInput_abb4311267ded94768e6df9cb88b179bb}
-Will prompt the user for filename or through G\+UI \index{Input@{Input}!get\+Options@{get\+Options}}
-\index{get\+Options@{get\+Options}!Input@{Input}}
-\subsubsection[{\texorpdfstring{get\+Options()}{getOptions()}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::get\+Options (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInput_af0a5bad322752da31bcd7b1e2d99d611}{}\label{classInput_af0a5bad322752da31bcd7b1e2d99d611}
-Will set the options/settings user desires 
-\begin{DoxyParams}{Parameters}
-{\em graph\+::\+Three\+Dor\+TwoD} & To check if 3D model file is input or a 2D model file. \\
-\hline
-{\em file} & To check if file is input or an intercative input. \\
-\hline
-\end{DoxyParams}
-\index{Input@{Input}!Read\+File@{Read\+File}}
+)}\hypertarget{classInput_a45065353b80f9980111402e827aae0fe}{}\label{classInput_a45065353b80f9980111402e827aae0fe}
+Will prompt the user for filename or through G\+UI \index{Input@{Input}!Read\+File@{Read\+File}}
 \index{Read\+File@{Read\+File}!Input@{Input}}
 \subsubsection[{\texorpdfstring{Read\+File()}{ReadFile()}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::\+Read\+File (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInput_a9d9395f68b01faa00f962791878723a2}{}\label{classInput_a9d9395f68b01faa00f962791878723a2}
+)}\hypertarget{classInput_a9d9395f68b01faa00f962791878723a2}{}\label{classInput_a9d9395f68b01faa00f962791878723a2}
 
 \begin{DoxyParams}{Parameters}
 {\em filename} & a string argument. \\
@@ -113,6 +90,7 @@ Count of 2D objects as there has to be 3 projections for our software to work on
 \subsubsection[{\texorpdfstring{Two\+D\+Graph}{TwoDGraph}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<${\bf point}$>$ $>$ Input\+::\+Two\+D\+Graph\mbox{[}3\mbox{]}}\hypertarget{classInput_a55526617adbcb0db4b3d565f4dbe772d}{}\label{classInput_a55526617adbcb0db4b3d565f4dbe772d}
 This is the array of orthographic projections 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
+\hyperlink{InputSrc_8h}{Input\+Src.\+h}\item 
 \hyperlink{InputSrc_8cpp}{Input\+Src.\+cpp}\end{DoxyCompactItemize}

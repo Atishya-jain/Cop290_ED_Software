@@ -7,22 +7,8 @@ Editor class.
 
 
 
-Inheritance diagram for Interactive\+\_\+editor\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=550pt]{classInteractive__editor__inherit__graph}
-\end{center}
-\end{figure}
+{\ttfamily \#include $<$Interactive\+Src.\+h$>$}
 
-
-Collaboration diagram for Interactive\+\_\+editor\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classInteractive__editor__coll__graph}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -35,14 +21,6 @@ void \hyperlink{classInteractive__editor_a5a7723f6affebd15ae935eb48e91359f}{draw
 void \hyperlink{classInteractive__editor_a678c382483cb0b40d1616c1d28eaf200}{erase\+It} (\hyperlink{structpoint}{point} p1, \hyperlink{structpoint}{point} p2)
 \item 
 void \hyperlink{classInteractive__editor_aedd168ce9dc711e3756aafa44146cb76}{print} ()
-\item 
-void \hyperlink{classInteractive__editor_a6543fe863fa4a902fb4dd71cf6318533}{extrude} ()
-\item 
-void \hyperlink{classInteractive__editor_a1332966f87d6df07b217ed663105379b}{set\+Plane} ()
-\item 
-void \hyperlink{classInteractive__editor_a21c3f807f2e892c9b40cae987593e2cb}{set\+Point} ()
-\item 
-void \hyperlink{classInteractive__editor_a2fd6f0fbf708dc85884fd39628c50c1b}{set\+Line} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -109,7 +87,7 @@ This class contains the methods to edit a drawing or to play with a model drawin
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a8078ec1404bdd80e09320d14d198f628}{}\label{classInteractive__editor_a8078ec1404bdd80e09320d14d198f628}
+)}\hypertarget{classInteractive__editor_a8078ec1404bdd80e09320d14d198f628}{}\label{classInteractive__editor_a8078ec1404bdd80e09320d14d198f628}
 Will display the options/settings user desires \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!draw\+Line@{draw\+Line}}
 \index{draw\+Line@{draw\+Line}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{draw\+Line(point p1, point p2)}{drawLine(point p1, point p2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::draw\+Line (
@@ -117,7 +95,7 @@ Will display the options/settings user desires \index{Interactive\+\_\+editor@{I
 \item[{{\bf point}}]{p1, }
 \item[{{\bf point}}]{p2}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a5a7723f6affebd15ae935eb48e91359f}{}\label{classInteractive__editor_a5a7723f6affebd15ae935eb48e91359f}
+)}\hypertarget{classInteractive__editor_a5a7723f6affebd15ae935eb48e91359f}{}\label{classInteractive__editor_a5a7723f6affebd15ae935eb48e91359f}
 Will set the options/settings user desires 
 \begin{DoxyParams}{Parameters}
 {\em poin1} & To get 1st point of line. \\
@@ -136,77 +114,21 @@ Will set the options/settings user desires
 \item[{{\bf point}}]{p1, }
 \item[{{\bf point}}]{p2}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a678c382483cb0b40d1616c1d28eaf200}{}\label{classInteractive__editor_a678c382483cb0b40d1616c1d28eaf200}
-Will set the options/settings user desires \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!extrude@{extrude}}
-\index{extrude@{extrude}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{extrude()}{extrude()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::extrude (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a6543fe863fa4a902fb4dd71cf6318533}{}\label{classInteractive__editor_a6543fe863fa4a902fb4dd71cf6318533}
-Will extrude the object 
-\begin{DoxyParams}{Parameters}
-{\em plane} & \\
-\hline
-{\em height} & \\
-\hline
-\end{DoxyParams}
-\index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!print@{print}}
+)}\hypertarget{classInteractive__editor_a678c382483cb0b40d1616c1d28eaf200}{}\label{classInteractive__editor_a678c382483cb0b40d1616c1d28eaf200}
+Will set the options/settings user desires \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!print@{print}}
 \index{print@{print}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{print()}{print()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::print (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_aedd168ce9dc711e3756aafa44146cb76}{}\label{classInteractive__editor_aedd168ce9dc711e3756aafa44146cb76}
-To print the graph \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!set\+Line@{set\+Line}}
-\index{set\+Line@{set\+Line}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{set\+Line()}{setLine()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::set\+Line (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a2fd6f0fbf708dc85884fd39628c50c1b}{}\label{classInteractive__editor_a2fd6f0fbf708dc85884fd39628c50c1b}
-Will set the line the user wants to select to some data structure 
-\begin{DoxyParams}{Parameters}
-{\em point1} & \\
-\hline
-{\em point2} & \\
-\hline
-\end{DoxyParams}
-\index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!set\+Plane@{set\+Plane}}
-\index{set\+Plane@{set\+Plane}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{set\+Plane()}{setPlane()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::set\+Plane (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a1332966f87d6df07b217ed663105379b}{}\label{classInteractive__editor_a1332966f87d6df07b217ed663105379b}
-Will set the plane the user wants to select to some data structure 
-\begin{DoxyParams}{Parameters}
-{\em point1} & \\
-\hline
-{\em point2} & \\
-\hline
-{\em point3} & \\
-\hline
-\end{DoxyParams}
-\index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!set\+Point@{set\+Point}}
-\index{set\+Point@{set\+Point}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
-\subsubsection[{\texorpdfstring{set\+Point()}{setPoint()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::set\+Point (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_a21c3f807f2e892c9b40cae987593e2cb}{}\label{classInteractive__editor_a21c3f807f2e892c9b40cae987593e2cb}
-Will set a point user wants to select to some data structure 
-\begin{DoxyParams}{Parameters}
-{\em point1} & \\
-\hline
-\end{DoxyParams}
-\index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!user\+Input@{user\+Input}}
+)}\hypertarget{classInteractive__editor_aedd168ce9dc711e3756aafa44146cb76}{}\label{classInteractive__editor_aedd168ce9dc711e3756aafa44146cb76}
+To print the graph \index{Interactive\+\_\+editor@{Interactive\+\_\+editor}!user\+Input@{user\+Input}}
 \index{user\+Input@{user\+Input}!Interactive\+\_\+editor@{Interactive\+\_\+editor}}
 \subsubsection[{\texorpdfstring{user\+Input()}{userInput()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interactive\+\_\+editor\+::user\+Input (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classInteractive__editor_aa7d472e169eed213d1fcb874c6f5a6cd}{}\label{classInteractive__editor_aa7d472e169eed213d1fcb874c6f5a6cd}
+)}\hypertarget{classInteractive__editor_aa7d472e169eed213d1fcb874c6f5a6cd}{}\label{classInteractive__editor_aa7d472e169eed213d1fcb874c6f5a6cd}
 Will set the options/settings user desires 
 \begin{DoxyParams}{Parameters}
 {\em drawing} & To check if user wants to draw something or want to edit the current drawing. \\
@@ -299,6 +221,7 @@ This identifies the projection we are working with of 2D objects. By Default it 
 \subsubsection[{\texorpdfstring{type}{type}}]{\setlength{\rightskip}{0pt plus 5cm}bool Interactive\+\_\+editor\+::type}\hypertarget{classInteractive__editor_a93c2f2041e432c8047d51942345cc3f9}{}\label{classInteractive__editor_a93c2f2041e432c8047d51942345cc3f9}
 Type is to tell whether it is a 3D or 2D graph here. True means 3D. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
+\hyperlink{InteractiveSrc_8h}{Interactive\+Src.\+h}\item 
 \hyperlink{InteractiveSrc_8cpp}{Interactive\+Src.\+cpp}\end{DoxyCompactItemize}

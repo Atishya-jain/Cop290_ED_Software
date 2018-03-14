@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -63,7 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -94,14 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Render and save class.  
  <a href="classOutput.html#details">More...</a></p>
-<div class="dynheader">
-Inheritance diagram for Output:</div>
-<div class="dyncontent">
-<div class="center"><img src="classOutput__inherit__graph.png" border="0" usemap="#Output_inherit__map" alt="Inheritance graph"/></div>
-<map name="Output_inherit__map" id="Output_inherit__map">
-<area shape="rect" id="node2" href="classInteractive__editor.html" title="Editor class. " alt="" coords="25,175,168,765"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+
+<p><code>#include &lt;<a class="el" href="OutputSrc_8h_source.html">OutputSrc.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -111,12 +103,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aabbc20a5012e08ef1d242c2800ba8421"><td class="memItemLeft" align="right" valign="top">QPicture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#aabbc20a5012e08ef1d242c2800ba8421">RenderOutput2D</a> (QPicture pi)</td></tr>
 <tr class="memdesc:aabbc20a5012e08ef1d242c2800ba8421"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Member function.  <a href="#aabbc20a5012e08ef1d242c2800ba8421">More...</a><br /></td></tr>
 <tr class="separator:aabbc20a5012e08ef1d242c2800ba8421"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa16a2893d743f7c218c026efa3e65718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#aa16a2893d743f7c218c026efa3e65718">saveToFile3D</a> ()</td></tr>
-<tr class="memdesc:aa16a2893d743f7c218c026efa3e65718"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Member function.  <a href="#aa16a2893d743f7c218c026efa3e65718">More...</a><br /></td></tr>
-<tr class="separator:aa16a2893d743f7c218c026efa3e65718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9ea0df4774ce32a319bdb1b3a6712a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#aa9ea0df4774ce32a319bdb1b3a6712a8">saveToFile2D</a> ()</td></tr>
-<tr class="memdesc:aa9ea0df4774ce32a319bdb1b3a6712a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Member function.  <a href="#aa9ea0df4774ce32a319bdb1b3a6712a8">More...</a><br /></td></tr>
-<tr class="separator:aa9ea0df4774ce32a319bdb1b3a6712a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f2365e8a4f60a0845de5e637266588"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#a23f2365e8a4f60a0845de5e637266588">saveToFile3D</a> (string fname)</td></tr>
+<tr class="memdesc:a23f2365e8a4f60a0845de5e637266588"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Member function.  <a href="#a23f2365e8a4f60a0845de5e637266588">More...</a><br /></td></tr>
+<tr class="separator:a23f2365e8a4f60a0845de5e637266588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae97e0cb97e7d7b5a8d2b044319a2f5b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#ae97e0cb97e7d7b5a8d2b044319a2f5b9">saveToFile2D</a> (string fname)</td></tr>
+<tr class="memdesc:ae97e0cb97e7d7b5a8d2b044319a2f5b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Member function.  <a href="#ae97e0cb97e7d7b5a8d2b044319a2f5b9">More...</a><br /></td></tr>
+<tr class="separator:ae97e0cb97e7d7b5a8d2b044319a2f5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -141,9 +133,6 @@ map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; 
 <a class="anchor" id="aabbc20a5012e08ef1d242c2800ba8421"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QPicture Output::RenderOutput2D </td>
@@ -153,11 +142,6 @@ map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; 
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>A Member function. </p>
@@ -175,9 +159,6 @@ map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; 
 <a class="anchor" id="aac99693b73661bf4af821aa5d32094ea"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QPicture Output::RenderOutput3D </td>
@@ -187,11 +168,6 @@ map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; 
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>A Member function. </p>
@@ -206,29 +182,22 @@ map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; 
 
 </div>
 </div>
-<a class="anchor" id="aa9ea0df4774ce32a319bdb1b3a6712a8"></a>
+<a class="anchor" id="ae97e0cb97e7d7b5a8d2b044319a2f5b9"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Output::saveToFile2D </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fname</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>A Member function. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classOutput.html#aa9ea0df4774ce32a319bdb1b3a6712a8" title="A Member function. ">saveToFile2D()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classOutput.html#ae97e0cb97e7d7b5a8d2b044319a2f5b9" title="A Member function. ">saveToFile2D()</a> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>a string argument. </td></tr>
@@ -239,29 +208,22 @@ map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; 
 
 </div>
 </div>
-<a class="anchor" id="aa16a2893d743f7c218c026efa3e65718"></a>
+<a class="anchor" id="a23f2365e8a4f60a0845de5e637266588"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Output::saveToFile3D </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fname</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>A Member function. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classOutput.html#aa16a2893d743f7c218c026efa3e65718" title="A Member function. ">saveToFile3D()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classOutput.html#a23f2365e8a4f60a0845de5e637266588" title="A Member function. ">saveToFile3D()</a> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>a string argument. </td></tr>
@@ -299,7 +261,8 @@ map&lt; string, vector&lt; <a class="el" href="structpoint.html">point</a> &gt; 
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="OutputSrc_8h_source.html">OutputSrc.h</a></li>
 <li><a class="el" href="OutputSrc_8cpp.html">OutputSrc.cpp</a></li>
 </ul>
 </div><!-- contents -->
