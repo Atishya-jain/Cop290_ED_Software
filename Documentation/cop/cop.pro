@@ -28,8 +28,7 @@ SOURCES += \
         mainwindow.cpp \
     ../2DProcessingSrc.cpp \
     ../3DProcessingSrc.cpp \
-    ../Graphs.cpp \
-    ../IndexMayank.cpp \
+    ../Index.cpp \
     ../InputSrc.cpp \
     ../InteractiveSrc.cpp \
     ../OutputSrc.cpp \
