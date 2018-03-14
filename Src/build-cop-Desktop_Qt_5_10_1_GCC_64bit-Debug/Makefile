@@ -35,7 +35,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = cop1.0.0
-DISTDIR = /home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Documentation/build-cop-Desktop_Qt_5_10_1_GCC_64bit-Debug/.tmp/cop1.0.0
+DISTDIR = /home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Src/build-cop-Desktop_Qt_5_10_1_GCC_64bit-Debug/.tmp/cop1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/mayanksingh2298/Qt/5.10.1/gcc_64/lib
 LIBS          = $(SUBLIBS) -L/home/mayanksingh2298/Qt/5.10.1/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -51,13 +51,23 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../cop/mainwindow.cpp \
-		../IndexMayank.cpp \
+		../2DProcessingSrc.cpp \
+		../3DProcessingSrc.cpp \
+		../Index.cpp \
+		../InputSrc.cpp \
+		../InteractiveSrc.cpp \
+		../OutputSrc.cpp \
 		../cop/dialog.cpp \
 		../cop/interactiveinput.cpp moc_mainwindow.cpp \
 		moc_dialog.cpp \
 		moc_interactiveinput.cpp
 OBJECTS       = mainwindow.o \
-		IndexMayank.o \
+		2DProcessingSrc.o \
+		3DProcessingSrc.o \
+		Index.o \
+		InputSrc.o \
+		InteractiveSrc.o \
+		OutputSrc.o \
 		dialog.o \
 		interactiveinput.o \
 		moc_mainwindow.o \
@@ -249,7 +259,12 @@ DIST          = /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/spec_pre
 		../cop/cop.pro ../cop/mainwindow.h \
 		../cop/dialog.h \
 		../cop/interactiveinput.h ../cop/mainwindow.cpp \
-		../IndexMayank.cpp \
+		../2DProcessingSrc.cpp \
+		../3DProcessingSrc.cpp \
+		../Index.cpp \
+		../InputSrc.cpp \
+		../InteractiveSrc.cpp \
+		../OutputSrc.cpp \
 		../cop/dialog.cpp \
 		../cop/interactiveinput.cpp
 QMAKE_TARGET  = cop
@@ -654,7 +669,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../cop/mainwindow.h ../cop/dialog.h ../cop/interactiveinput.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../cop/mainwindow.cpp ../IndexMayank.cpp ../cop/dialog.cpp ../cop/interactiveinput.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../cop/mainwindow.cpp ../2DProcessingSrc.cpp ../3DProcessingSrc.cpp ../Index.cpp ../InputSrc.cpp ../InteractiveSrc.cpp ../OutputSrc.cpp ../cop/dialog.cpp ../cop/interactiveinput.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../cop/mainwindow.ui ../cop/dialog.ui ../cop/interactiveinput.ui $(DISTDIR)/
 
 
@@ -799,7 +814,7 @@ moc_mainwindow.cpp: /home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QMa
 		../cop/mainwindow.h \
 		moc_predefs.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc
-	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Documentation/cop -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cop/mainwindow.h -o moc_mainwindow.cpp
+	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Src/cop -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cop/mainwindow.h -o moc_mainwindow.cpp
 
 moc_dialog.cpp: /home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdialog.h \
@@ -908,7 +923,7 @@ moc_dialog.cpp: /home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog
 		../cop/dialog.h \
 		moc_predefs.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc
-	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Documentation/cop -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cop/dialog.h -o moc_dialog.cpp
+	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Src/cop -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cop/dialog.h -o moc_dialog.cpp
 
 moc_interactiveinput.cpp: /home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdialog.h \
@@ -1017,7 +1032,7 @@ moc_interactiveinput.cpp: /home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidge
 		../cop/interactiveinput.h \
 		moc_predefs.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc
-	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Documentation/cop -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cop/interactiveinput.h -o moc_interactiveinput.cpp
+	/home/mayanksingh2298/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mayanksingh2298/IIT_Course/sem4/cop290/Cop290_ED_Software/Src/cop -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui -I/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cop/interactiveinput.h -o moc_interactiveinput.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1155,61 +1170,20 @@ mainwindow.o: ../cop/mainwindow.cpp ../cop/mainwindow.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qicon.h \
-		ui_mainwindow.h \
+		../cop/ui_mainwindow.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QVariant \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QAction \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qaction.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qactiongroup.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QApplication \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qapplication.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreapplication.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeventloop.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qguiapplication.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qinputmethod.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QButtonGroup \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qbuttongroup.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QHeaderView \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qheaderview.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qframe.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qitemselectionmodel.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstyleoption.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvalidator.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregularexpression.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qslider.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractslider.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstyle.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtabbar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QLabel \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlabel.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QMenuBar \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qmenubar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qmenu.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QPushButton \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QStatusBar \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstatusbar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QTextEdit \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtextedit.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocument.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextoption.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextcursor.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextformat.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpen.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QToolBar \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtoolbar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QWidget \
 		../structs.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../cop/mainwindow.cpp
 
-IndexMayank.o: ../IndexMayank.cpp ../cop/mainwindow.h \
+2DProcessingSrc.o: ../2DProcessingSrc.cpp ../../Include/2DProcessingSrc.h \
+		../../Include/structs.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o 2DProcessingSrc.o ../2DProcessingSrc.cpp
+
+3DProcessingSrc.o: ../3DProcessingSrc.cpp ../../Include/3DProcessingSrc.h \
+		../../Include/structs.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o 3DProcessingSrc.o ../3DProcessingSrc.cpp
+
+Index.o: ../Index.cpp ../cop/mainwindow.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QMainWindow \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qmainwindow.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1536,60 +1510,669 @@ IndexMayank.o: ../IndexMayank.cpp ../cop/mainwindow.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QLabel \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlabel.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qframe.h \
-		../Graphs.cpp \
-		../2DProcessingSrc.cpp \
-		../structs.cpp \
-		../3DProcessingSrc.cpp \
-		../InputSrc.cpp \
-		../OutputSrc.cpp \
-		../InteractiveSrc.cpp \
-		ui_mainwindow.h \
+		../../Include/structs.h \
+		../../Include/2DProcessingSrc.h \
+		../../Include/3DProcessingSrc.h \
+		../../Include/InputSrc.h \
+		../../Include/OutputSrc.h \
+		../../Include/InteractiveSrc.h \
+		../cop/ui_mainwindow.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QVariant \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QAction \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qaction.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qactiongroup.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QButtonGroup \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qbuttongroup.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QHeaderView \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qheaderview.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstyleoption.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qslider.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractslider.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstyle.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtabbar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QMenuBar \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qmenubar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qmenu.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QPushButton \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QStatusBar \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstatusbar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QTextEdit \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtextedit.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QToolBar \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtoolbar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QWidget \
 		../cop/dialog.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdialog.h \
-		ui_dialog.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlayout.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QRadioButton \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qradiobutton.h \
+		../cop/ui_dialog.h \
+		../cop/interactiveinput.h \
+		../cop/ui_interactiveinput.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QFileDialog \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qfiledialog.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QDir
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o IndexMayank.o ../IndexMayank.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Index.o ../Index.cpp
+
+InputSrc.o: ../InputSrc.cpp ../../Include/InputSrc.h \
+		../../Include/structs.h \
+		../../Include/2DProcessingSrc.h \
+		../../Include/3DProcessingSrc.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o InputSrc.o ../InputSrc.cpp
+
+InteractiveSrc.o: ../InteractiveSrc.cpp ../../Include/structs.h \
+		../../Include/InteractiveSrc.h \
+		../../Include/OutputSrc.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QtCore \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QtCoreDepends \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qconfig.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlogging.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qflags.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmutex.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstring.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qchar.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringview.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qiterator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpair.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregexp.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstracteventdispatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeventloop.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvariant.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdebug.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhash.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlocale.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvector.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpoint.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qset.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractproxymodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractstate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstracttransition.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qanimationgroup.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbasictimer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbitarray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbuffer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearraymatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcache.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcollator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcommandlineoption.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcommandlineparser.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdatetime.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdir.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfileinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfiledevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdiriterator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeasingcurve.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qendian.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeventtransition.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qexception.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfactoryinterface.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfileselector.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QObject \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QStringList \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfilesystemwatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfinalstate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfuture.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfutureinterface.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrunnable.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qresultstore.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfuturesynchronizer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfuturewatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhistorystate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qidentityproxymodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qisenum.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qjsonarray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qjsondocument.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qjsonobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlibrary.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlibraryinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qversionnumber.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qline.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlinkedlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlockfile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qloggingcategory.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmargins.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmath.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmessageauthenticationcode.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmetaobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmimedata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmimedatabase.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmimetype.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectcleanuphandler.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qoperatingsystemversion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qparallelanimationgroup.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpauseanimation.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpluginloader.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qprocess.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpropertyanimation.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvariantanimation.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qqueue.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrandom.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qreadwritelock.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrect.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsize.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregularexpression.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qresource.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsavefile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qscopedvaluerollback.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsemaphore.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsequentialanimationgroup.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsettings.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedmemory.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsignalmapper.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsignaltransition.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsocketnotifier.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsortfilterproxymodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstack.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstandardpaths.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstatemachine.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstorageinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringlistmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsystemsemaphore.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtemporarydir.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QScopedPointer \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtemporaryfile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtextboundaryfinder.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtextcodec.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qthread.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qthreadpool.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qthreadstorage.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtimeline.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtimer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtimezone.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtranslator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtypetraits.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qurl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qurlquery.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/quuid.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qwaitcondition.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qwineventnotifier.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qxmlstream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtcoreversion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QtGui \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QtGuiDepends \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtgui-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qabstracttextdocumentlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qcolor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrgb.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrgba64.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qevent.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qregion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qkeysequence.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector2d.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfont.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpen.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qbrush.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qmatrix.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpolygon.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtransform.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpainterpath.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimage.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixelformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextoption.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qglyphrun.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrawfont.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontdatabase.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextcursor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocument.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpalette.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qaccessible.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qaccessiblebridge.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qaccessibleobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qaccessibleplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qbackingstore.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindow.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QEvent \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QMargins \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QRect \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qsurface.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qicon.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qcursor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qbitmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qclipboard.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qdesktopservices.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qdrag.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qgenericmatrix.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qgenericplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qgenericpluginfactory.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qguiapplication.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qinputmethod.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qiconengine.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qiconengineplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimageiohandler.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimagereader.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimagewriter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qmatrix4x4.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector3d.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector4d.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qquaternion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qmovie.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qoffscreensurface.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qt_windows.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengles2ext.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglext.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglbuffer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglcontext.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QSurfaceFormat \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglversionfunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengldebug.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglextrafunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglframebufferobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglpaintdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglpixeltransferoptions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QSharedDataPointer \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglshaderprogram.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengltexture.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengltextureblitter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QMatrix3x3 \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QMatrix4x4 \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengltimerquery.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglvertexarrayobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglwindow.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QPaintDeviceWindow \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpaintdevicewindow.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QWindow \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QPaintDevice \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QOpenGLContext \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QImage \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpagedpaintdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpagelayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpagesize.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpaintengine.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpainter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpdfwriter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpicture.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpictureformatplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixmapcache.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrasterwindow.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qscreen.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QList \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QSize \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QSizeF \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QTransform \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qsessionmanager.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qstandarditemmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qstatictext.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qstylehints.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qsyntaxhighlighter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocumentfragment.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocumentwriter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtexttable.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvalidator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtguiversion.h \
+		../../Include/2DProcessingSrc.h \
+		../../Include/3DProcessingSrc.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o InteractiveSrc.o ../InteractiveSrc.cpp
+
+OutputSrc.o: ../OutputSrc.cpp ../../Include/OutputSrc.h \
+		../../Include/structs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QtCore \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QtCoreDepends \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qconfig.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlogging.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qflags.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmutex.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstring.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qchar.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringview.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qiterator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpair.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregexp.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstracteventdispatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeventloop.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvariant.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdebug.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhash.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlocale.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvector.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpoint.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qset.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractproxymodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractstate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstracttransition.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qanimationgroup.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbasictimer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbitarray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbuffer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qbytearraymatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcache.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcollator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcommandlineoption.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcommandlineparser.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdatetime.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdir.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfileinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfiledevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qdiriterator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeasingcurve.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qendian.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeventtransition.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qexception.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfactoryinterface.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfileselector.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QObject \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QStringList \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfilesystemwatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfinalstate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfuture.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfutureinterface.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrunnable.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qresultstore.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfuturesynchronizer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfuturewatcher.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qhistorystate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qidentityproxymodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qisenum.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qjsonarray.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qjsondocument.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qjsonobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlibrary.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlibraryinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qversionnumber.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qline.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlinkedlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qlockfile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qloggingcategory.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmargins.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmath.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmessageauthenticationcode.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmetaobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmimedata.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmimedatabase.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qmimetype.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qobjectcleanuphandler.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qoperatingsystemversion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qparallelanimationgroup.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpauseanimation.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpointer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpluginloader.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qprocess.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qpropertyanimation.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qvariantanimation.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qqueue.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrandom.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qreadwritelock.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qrect.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsize.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregularexpression.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qresource.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsavefile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qscopedvaluerollback.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsemaphore.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsequentialanimationgroup.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsettings.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsharedmemory.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsignalmapper.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsignaltransition.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsocketnotifier.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsortfilterproxymodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstack.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstandardpaths.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstate.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstatemachine.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstorageinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qstringlistmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qsystemsemaphore.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtemporarydir.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QScopedPointer \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtemporaryfile.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtextboundaryfinder.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtextcodec.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qthread.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qthreadpool.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qthreadstorage.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtimeline.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtimer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtimezone.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtranslator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtypetraits.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qurl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qurlquery.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/quuid.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qwaitcondition.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qwineventnotifier.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qxmlstream.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qtcoreversion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QtGui \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QtGuiDepends \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtgui-config.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qabstracttextdocumentlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextlayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qcolor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrgb.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrgba64.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qevent.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qregion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qkeysequence.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector2d.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfont.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpen.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qbrush.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qmatrix.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpolygon.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtransform.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpainterpath.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimage.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixelformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextoption.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qglyphrun.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrawfont.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontdatabase.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextcursor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocument.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpalette.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qaccessible.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qaccessiblebridge.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qaccessibleobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qaccessibleplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qbackingstore.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qwindow.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QEvent \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QMargins \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QRect \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qsurface.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qicon.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qcursor.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qbitmap.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qclipboard.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qdesktopservices.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qdrag.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontinfo.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qgenericmatrix.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qgenericplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qgenericpluginfactory.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qguiapplication.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qinputmethod.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qiconengine.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qiconengineplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimageiohandler.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimagereader.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qimagewriter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qmatrix4x4.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector3d.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector4d.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qquaternion.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qmovie.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qoffscreensurface.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengl.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qt_windows.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengles2ext.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglext.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglbuffer.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglcontext.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QSurfaceFormat \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglversionfunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengldebug.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglextrafunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglframebufferobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglpaintdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglpixeltransferoptions.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QSharedDataPointer \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglshaderprogram.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengltexture.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengltextureblitter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QMatrix3x3 \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QMatrix4x4 \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopengltimerquery.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglvertexarrayobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qopenglwindow.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QPaintDeviceWindow \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpaintdevicewindow.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QWindow \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QPaintDevice \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QOpenGLContext \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QImage \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpagedpaintdevice.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpagelayout.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpagesize.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpaintengine.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpainter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpdfwriter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpicture.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpictureformatplugin.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpixmapcache.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qrasterwindow.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qscreen.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QList \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QSize \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QSizeF \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/QTransform \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qsessionmanager.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qstandarditemmodel.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qstatictext.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qstylehints.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qsyntaxhighlighter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextobject.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocumentfragment.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocumentwriter.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextlist.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtexttable.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvalidator.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtguiversion.h \
+		../../Include/2DProcessingSrc.h \
+		../../Include/3DProcessingSrc.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OutputSrc.o ../OutputSrc.cpp
 
 dialog.o: ../cop/dialog.cpp ../cop/dialog.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QDialog \
@@ -1696,57 +2279,8 @@ dialog.o: ../cop/dialog.cpp ../cop/dialog.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfiledevice.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector2d.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_dialog.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QVariant \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QAction \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qaction.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qicon.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qactiongroup.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QApplication \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qapplication.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qcoreapplication.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qeventloop.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qguiapplication.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qinputmethod.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QButtonGroup \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qbuttongroup.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlayout.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QHeaderView \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qheaderview.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qframe.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qitemselectionmodel.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstyleoption.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvalidator.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qregularexpression.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qslider.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractslider.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qstyle.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtabbar.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QPushButton \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QRadioButton \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QTextEdit \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/qtextedit.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextdocument.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextoption.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextcursor.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtextformat.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qpen.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtWidgets/QWidget
+		../cop/ui_dialog.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QVariant
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialog.o ../cop/dialog.cpp
 
 interactiveinput.o: ../cop/interactiveinput.cpp ../cop/interactiveinput.h \
@@ -1854,7 +2388,8 @@ interactiveinput.o: ../cop/interactiveinput.cpp ../cop/interactiveinput.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/qfiledevice.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvector2d.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_interactiveinput.h
+		../cop/ui_interactiveinput.h \
+		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QVariant
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interactiveinput.o ../cop/interactiveinput.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

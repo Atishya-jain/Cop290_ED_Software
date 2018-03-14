@@ -45,7 +45,7 @@ void MainWindow::on_buttonUP_clicked()
          tmp3.coordinate[2]=0;
          tmp.p2=tmp3;
          input_3d.ModelRotation(10,tmp);
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
@@ -56,7 +56,7 @@ void MainWindow::on_buttonUP_clicked()
          ui->isometric->show();
 
          //Orthographic projection
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi4;
@@ -79,7 +79,7 @@ void MainWindow::on_buttonLEFT_clicked()
          tmp3.coordinate[2]=0;
          tmp.p2=tmp3;
          input_3d.ModelRotation(10,tmp);
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
@@ -90,7 +90,7 @@ void MainWindow::on_buttonLEFT_clicked()
          ui->isometric->show();
 
          //Orthographic projection
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi4;
@@ -113,7 +113,7 @@ void MainWindow::on_buttonRIGHT_clicked()
          tmp3.coordinate[2]=0;
          tmp.p2=tmp3;
          input_3d.ModelRotation(-10,tmp);
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
@@ -124,7 +124,7 @@ void MainWindow::on_buttonRIGHT_clicked()
          ui->isometric->show();
 
          //Orthographic projection
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi4;
@@ -147,7 +147,7 @@ void MainWindow::on_buttonDOWN_clicked()
          tmp3.coordinate[2]=0;
          tmp.p2=tmp3;
          input_3d.ModelRotation(-10,tmp);
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
@@ -158,7 +158,7 @@ void MainWindow::on_buttonDOWN_clicked()
          ui->isometric->show();
 
          //Orthographic projection
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi4;
@@ -181,7 +181,7 @@ void MainWindow::on_buttonZplus_clicked()
          tmp3.coordinate[2]=5;
          tmp.p2=tmp3;
          input_3d.ModelRotation(10,tmp);
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
@@ -192,7 +192,7 @@ void MainWindow::on_buttonZplus_clicked()
          ui->isometric->show();
 
          //Orthographic projection
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi4;
@@ -215,7 +215,7 @@ void MainWindow::on_buttonZminus_clicked()
          tmp3.coordinate[2]=5;
          tmp.p2=tmp3;
          input_3d.ModelRotation(-10,tmp);
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
@@ -226,7 +226,7 @@ void MainWindow::on_buttonZminus_clicked()
          ui->isometric->show();
 
          //Orthographic projection
-         input_3d.MeanNormalisation();
+         // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi4;
@@ -280,7 +280,7 @@ void InteractiveInput::on_draw_clicked()
     ThreeDGraph_class Itmp;
     Itmp.ThreeDGraph = I1.MyPlane;
     Itmp.GraphToList(true);
-    Itmp.MeanNormalisation();
+    // Itmp.MeanNormalisation();
     Itmp.Isometric();
     Output Otmp;
     Otmp.PlaneProj=Itmp.IsometricGraph;
@@ -306,7 +306,7 @@ void InteractiveInput::on_erase_clicked()
     ThreeDGraph_class Itmp;
     Itmp.ThreeDGraph = I1.MyPlane;
     Itmp.GraphToList(true);
-    Itmp.MeanNormalisation();
+    // Itmp.MeanNormalisation();
     Itmp.Isometric();
     Output Otmp;
     Otmp.PlaneProj=Itmp.IsometricGraph;
@@ -422,8 +422,8 @@ int main(int argc, char *argv[]){
     //MODEL ROTATATION
   // if(isFile3d){
     input_3d.GraphToList(true);
-     input_3d.MeanNormalisation();
-     input_3d.ThreeDToOrthographic();
+    input_3d.MeanNormalisation();
+    input_3d.ThreeDToOrthographic();
 //    cout<<"Model Rotation \nEnter 3 space seperated floats, which stand for angle of rotation along x, y and z axis\n ";
 //    float ch1,ch2,ch3;
 //    cin>>ch1>>ch2>>ch3;
@@ -455,6 +455,7 @@ int main(int argc, char *argv[]){
 //    input_3d.Isometric();
 //    O1.PlaneProj = input_3d.IsometricGraph;
 //    std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+   // std::copy::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
 
 
     // PLANE PROJECTION
@@ -497,8 +498,10 @@ int main(int argc, char *argv[]){
 //    cin>>ch4;
 //    cout<<endl;
   cout<<"saving in output.txt ";
-  if(isFile3d)
-    O1.saveToFile2D("output.txt");
+  if(isFile3d){
+        copy(begin(input_3d.TwoDGraph), end(input_3d.TwoDGraph), begin(O1.TwoDGraph));
+        O1.saveToFile2D("output.txt");
+    }
   else{
     O1.ThreeDGraph = input_3d.ThreeDGraph;
     O1.saveToFile3D("output.txt");

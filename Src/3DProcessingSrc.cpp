@@ -244,11 +244,75 @@ Vec operator*(const Mat &a, const Vec &x){
   // Vec tempLineVect;
   // Vec tempLineVectForPlane;
 
-  //! A Member function.
+  // bool checkSamePlane(Point p1, Point p2, Point p3, Point p4){
+  //     //returns whether they are in the same plane or not
+  //     float a = p2.coordinate[0]-p1.coordinate[0];
+  //     float b = p2.coordinate[1]-p1.coordinate[1];
+  //     float c = p2.coordinate[2]-p1.coordinate[2];
+  //     float p = p4.coordinate[0]-p3.coordinate[0];
+  //     float q = p4.coordinate[1]-p3.coordinate[1];
+  //     float r = p4.coordinate[2]-p3.coordinate[2];
+
+  //     float cpx = b*r-q*c;
+  //     float cpy = c*p-r*a;
+  //     float cpz = a*q-p*b;
+  //     float diffx = p1.x-p4.x;
+  //     float diffy = p1.y-p4.y;
+  //     float diffz = p1.z-p4.z;
+
+  //     if(abs(diffx*cpx+diffy*cpy+diffz*cpz)<0.0001) return true;
+  //     else return false;
+
+
+  //   }
+
+  // vector<plane,<point> > getPolygons(){
+  //     // vector<string> tmpListPoints;
+  //     vector<plane> listOfPlanes;
+  //     vector<vector<point>> toReturn;
+  //     // for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it)
+  //         // tmpListPoints.push_back(it->first);
+  //     for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
+  //       for(int i=1;i<it->second.size();i++){
+  //         for(int j=1;j<ThreeDGraph[it->second[i].label].size();j++){
+  //           for(int k=1;k<ThreeDGraph[ThreeDGraph[it->second[i].label].label].size();k++){
+  //             point p1 = it->second[0];
+  //             point p2 = it->second[i];
+  //             point p3 = ThreeDGraph[it->second[i].label][j];
+  //             point p4 = ThreeDGraph[ThreeDGraph[it->second[i].label].label][k];
+  //             if(checkSamePlane(p1,p2,p3,p4)){
+  //               //add to planes 
+  //               float a =p1.coordinate[0]-p2.coordinate[0];
+  //               float b =p1.coordinate[1]-p2.coordinate[1];
+  //               float c =p1.coordinate[2]-p2.coordinate[2];
+  //               float p =p1.coordinate[0]-p3.coordinate[0];
+  //               float q =p1.coordinate[1]-p3.coordinate[1];
+  //               float r =p1.coordinate[2]-p3.coordinate[2];
+  //               plane Pla1;
+  //               Pla1.A = b*r-q*c;
+  //               Pla1.B = c*p-r*a;
+  //               Pla1.C = a*q-p*b;
+  //               Pla1.D = Pla1.A*p1.coordinate[0]+Pla1.B*p1.coordinate[1]+Pla1.C*p1.coordinate[2];
+  //               int ind=0;
+  //               for(;ind<listOfPlanes.size();ind++){
+  //                 if(listOfPlanes[ind]==Pla1) break;
+  //               }
+  //               if(ind<listOfPlanes.size())
+  //                 toReturn.push_back(p4);
+  //                 //add stuff here
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+
+  //   }
+     //! A Member function.
   /*!
     \sa Translation()
     Function to create listOfPoints for 3D graph
   */
+    
   void ThreeDGraph_class::GraphToList(bool ThreeDGraphOrPlaneProj){
     if(ThreeDGraphOrPlaneProj){
       listOfPoints.clear();
@@ -542,6 +606,7 @@ Vec operator*(const Mat &a, const Vec &x){
     \param flag3Dfile boolean character to tell the type of file (3D/2D).
   */
   void ThreeDGraph_class::ThreeDToOrthographic(){
+    // MeanNormalisation();
     TwoDGraph[0].clear();
     TwoDGraph[1].clear();
     TwoDGraph[2].clear();
