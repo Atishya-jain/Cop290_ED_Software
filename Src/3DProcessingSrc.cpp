@@ -470,7 +470,7 @@ Vec operator*(const Mat &a, const Vec &x){
     }else{
         MaxDist = (maxZ - minZ);
     }
-    float factor = 200/MaxDist;
+    float factor = 170/MaxDist;
     meanx = float(meanx/siz);
     meany = float(meany/siz);
     meanz = float(meanz/siz);
