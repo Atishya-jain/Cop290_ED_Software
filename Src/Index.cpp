@@ -32,7 +32,6 @@ string filename;
 /*! \fn main()*/
 void MainWindow::on_buttonUP_clicked()
 {
-
         //MODEL ROTATION and ISOMETRIC
         edge tmp;
         point tmp2;
@@ -250,23 +249,10 @@ void MainWindow::on_buttonPlane_clicked()
     ui->planeProj->setPicture(pi3);
     ui->planeProj->show();
 }
-void Dialog::on_rad1_file_clicked()
-{
-    ui->browse->setEnabled(true);
-    ui->filename->setEnabled(true);
-}
-void Dialog::on_rad2_inter_clicked()
-{
-    ui->browse->setEnabled(false);
-    ui->filename->setEnabled(false);
-}
-
 void Dialog::on_pushButton_clicked()
 {
-
-    if(ui->rad2_inter->isChecked()){
+    if(ui->rad2_inter->isChecked())
         isInputFile=false;
-    }
     filename=ui->filename->toPlainText().toStdString();
     if(ui->rad4_2d->isChecked())
         isFile3d=false;
@@ -340,11 +326,10 @@ void InteractiveInput::on_Done_clicked()
 int main(int argc, char *argv[]){
   QApplication a(argc, argv);
   MainWindow w;
-  w.setWindowTitle("Visualizer");
   Dialog d;
-  d.setWindowTitle("File Input");
   d.setModal(true);
   isFile3d = true;
+  int ch;
   isInputFile=true;
   d.exec();
 
@@ -523,9 +508,6 @@ int main(int argc, char *argv[]){
     }
 
     w.show();
-    w.ui->buttonLEFT->click();
-    w.ui->buttonRIGHT->click();
-
       cout<<"Thanks for using our software"<<endl;
       return a.exec();
 }

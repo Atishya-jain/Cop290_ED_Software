@@ -2171,8 +2171,7 @@ OutputSrc.o: ../OutputSrc.cpp ../../Include/OutputSrc.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qvalidator.h \
 		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtGui/qtguiversion.h \
 		../../Include/2DProcessingSrc.h \
-		../../Include/3DProcessingSrc.h \
-		/home/mayanksingh2298/Qt/5.10.1/gcc_64/include/QtCore/QString
+		../../Include/3DProcessingSrc.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OutputSrc.o ../OutputSrc.cpp
 
 dialog.o: ../cop/dialog.cpp ../cop/dialog.h \

@@ -39,6 +39,16 @@ using namespace std;
       p.setRenderHint(QPainter::Antialiasing);
       p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
 
+
+      // p.drawLine(0, 0, 100, 0);
+      // p.drawLine(0, 0, 0, 100);
+      // QString axisLabx = "x";
+      // QString axisLaby = "y";
+      // p.drawText(100, 5, axisLabx);
+      // p.drawText(5, 100, axisLaby);
+      
+      // p.drawLine(300, -300, -300, -300);
+
       for (map<string, vector<point> >::iterator it=PlaneProj.begin(); it!=PlaneProj.end(); ++it){
         long len = it->second.size();
         for(int j=0;j<len;j++){
@@ -82,6 +92,10 @@ using namespace std;
       float centre = startCoordinate/2;
       float negCentre = -1*centre;
 
+      QString heading1 = "Top View";
+      QString heading2 = "Front View";
+      QString heading3 = "Left View";
+
       QPainter p(&pi);
       p.setRenderHint(QPainter::Antialiasing);
       p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
@@ -90,16 +104,20 @@ using namespace std;
       p.drawLine(300, 300, 300, -300);
       p.drawLine(300, -300, -300, -300);
 
+      p.drawText(155, -20, heading1);
+      p.drawText(155, 280, heading2);
+      p.drawText(-155, 280, heading3);
+
       for (map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
         long len = it->second.size();
         point tempPoint = it->second[0];
-        tempPoint.coordinate[1] = negCentre + it->second[0].coordinate[1];
-        tempPoint.coordinate[0] = negCentre +it->second[0].coordinate[2];
+        tempPoint.coordinate[1] = negCentre + (-1)*it->second[0].coordinate[2];
+        tempPoint.coordinate[0] = negCentre +it->second[0].coordinate[1];
         TwoDGraphTemp[0][it->first].push_back(tempPoint);
         for(int j=1;j<len;j++){
           tempPoint = it->second[j];
-          tempPoint.coordinate[0] = negCentre + it->second[j].coordinate[2];
-          tempPoint.coordinate[1] = negCentre + it->second[j].coordinate[1];
+          tempPoint.coordinate[0] = negCentre + it->second[j].coordinate[1];
+          tempPoint.coordinate[1] = negCentre + (-1)*it->second[j].coordinate[2];
           TwoDGraphTemp[0][it->first].push_back(tempPoint);
         }
       }
@@ -107,13 +125,13 @@ using namespace std;
       for (map<string, vector<point> >::iterator it=TwoDGraph[1].begin(); it!=TwoDGraph[1].end(); ++it){
         long len = it->second.size();
         point tempPoint = it->second[0];
-        tempPoint.coordinate[1] = centre +it->second[0].coordinate[0];
-        tempPoint.coordinate[0] = negCentre + it->second[0].coordinate[2];
+        tempPoint.coordinate[0] = centre +it->second[0].coordinate[0];
+        tempPoint.coordinate[1] = negCentre + -1*it->second[0].coordinate[2];
         TwoDGraphTemp[1][it->first].push_back(tempPoint);
         for(int j=1;j<len;j++){
           tempPoint = it->second[j];
-          tempPoint.coordinate[0] = negCentre + it->second[j].coordinate[2];
-          tempPoint.coordinate[1] = centre + it->second[j].coordinate[0];
+          tempPoint.coordinate[1] = negCentre + -1*it->second[j].coordinate[2];
+          tempPoint.coordinate[0] = centre + it->second[j].coordinate[0];
           TwoDGraphTemp[1][it->first].push_back(tempPoint);
         }
       }
@@ -121,13 +139,13 @@ using namespace std;
       for (map<string, vector<point> >::iterator it=TwoDGraph[2].begin(); it!=TwoDGraph[2].end(); ++it){
         long len = it->second.size();
         point tempPoint = it->second[0];
-        tempPoint.coordinate[0] = centre + it->second[0].coordinate[0];
-        tempPoint.coordinate[1] = negCentre + it->second[0].coordinate[1];
+        tempPoint.coordinate[0] = negCentre + it->second[0].coordinate[1];
+        tempPoint.coordinate[1] = centre + it->second[0].coordinate[0];
         TwoDGraphTemp[2][it->first].push_back(tempPoint);
         for(int j=1;j<len;j++){
           tempPoint = it->second[j];
-          tempPoint.coordinate[0] = centre + it->second[j].coordinate[0];
-          tempPoint.coordinate[1] = negCentre + it->second[j].coordinate[1];
+          tempPoint.coordinate[0] = negCentre + it->second[j].coordinate[1];
+          tempPoint.coordinate[1] = centre + it->second[j].coordinate[0];
           TwoDGraphTemp[2][it->first].push_back(tempPoint);
         }
       }
@@ -151,6 +169,38 @@ using namespace std;
       p.drawLine(0,-300,0,300);
       p.drawLine(-300,0,300,0);
 
+      p.setPen(QPen(Qt::black, 1, Qt::DashLine, Qt::RoundCap));
+
+      for (map<string, vector<point> >::iterator it=TwoDGraphTemp[2].begin(); it!=TwoDGraphTemp[2].end(); ++it){
+        long len = it->second.size();
+        point MainPoint = it->second[0];
+        p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], MainPoint.coordinate[1], MainPoint.coordinate[1]);
+      }
+
+
+      for (map<string, vector<point> >::iterator it=TwoDGraphTemp[1].begin(); it!=TwoDGraphTemp[1].end(); ++it){
+        long len = it->second.size();
+        point MainPoint = it->second[0];
+        p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], MainPoint.coordinate[0], MainPoint.coordinate[0]);
+      }
+
+
+      for (map<string, vector<point> >::iterator it=TwoDGraphTemp[1].begin(); it!=TwoDGraphTemp[1].end(); ++it){
+        long len = it->second.size();
+        point MainPoint = it->second[0];
+        float targetX = TwoDGraphTemp[2][it->first][0].coordinate[0];
+        float targetY = MainPoint.coordinate[1];
+        p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], targetX, targetY);
+      }
+
+
+      for (map<string, vector<point> >::iterator it=TwoDGraphTemp[2].begin(); it!=TwoDGraphTemp[2].end(); ++it){
+        long len = it->second.size();
+        point MainPoint = it->second[0];
+        float targetY = TwoDGraphTemp[1][it->first][0].coordinate[1];
+        float targetX = MainPoint.coordinate[0];
+        p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], targetX, targetY);
+      }
       p.end();
       return pi;      
     }

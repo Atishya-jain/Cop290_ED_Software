@@ -6,21 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>781</width>
-    <height>418</height>
+    <width>743</width>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <widget class="QTextEdit" name="filename">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>110</y>
+     <x>70</x>
+     <y>80</y>
      <width>431</width>
      <height>101</height>
     </rect>
@@ -35,8 +32,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>300</y>
+     <x>410</x>
+     <y>270</y>
      <width>86</width>
      <height>36</height>
     </rect>
@@ -46,13 +43,10 @@
    </property>
   </widget>
   <widget class="QPushButton" name="browse">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>110</y>
+     <x>510</x>
+     <y>80</y>
      <width>86</width>
      <height>36</height>
     </rect>
@@ -61,11 +55,37 @@
     <string>Browse</string>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>250</y>
+     <x>70</x>
+     <y>30</y>
+     <width>224</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QRadioButton" name="rad1_file">
+      <property name="text">
+       <string>file</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="rad2_inter">
+      <property name="text">
+       <string>interactive</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>230</y>
      <width>224</width>
      <height>36</height>
     </rect>
@@ -84,69 +104,6 @@
        <string>2d</string>
       </property>
      </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>110</y>
-     <width>111</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Select the file:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>240</y>
-     <width>161</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Is this file 3d or 2d?</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>60</y>
-     <width>360</width>
-     <height>38</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Select file or interactive input: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QRadioButton" name="rad1_file">
-        <property name="text">
-         <string>file</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="rad2_inter">
-        <property name="text">
-         <string>interactive</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </item>
    </layout>
   </widget>
