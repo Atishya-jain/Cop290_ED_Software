@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InteractiveInput</class>
+ <widget class="QDialog" name="InteractiveInput">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>788</width>
+    <height>699</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>561</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="p1x">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>530</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>  x</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="p1y">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>530</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>  y</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="p1z">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>530</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>  z</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="p1label">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>580</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>    label for point 1</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="p2label">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>580</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>    label for point 2</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="p2x">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>530</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>  x</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="p2y">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>530</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>  y</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="p2z">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>530</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>  z</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="draw">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>530</y>
+     <width>86</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>draw</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="erase">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>580</y>
+     <width>86</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>erase</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Done">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>630</y>
+     <width>86</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string>Done</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>490</y>
+     <width>66</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Point 1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>490</y>
+     <width>66</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Point 2</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
