@@ -20,6 +20,9 @@ private slots:
 
     void on_browse_clicked();
 
+    void on_rad1_file_clicked();
+    void on_rad2_inter_clicked();
+
 public:
     Ui::Dialog *ui;
 };

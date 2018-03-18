@@ -43,7 +43,6 @@ public:
     QPushButton *buttonRIGHT;
     QPushButton *buttonZplus;
     QPushButton *buttonZminus;
-    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -57,7 +56,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         buttonPlane = new QPushButton(centralWidget);
         buttonPlane->setObjectName(QStringLiteral("buttonPlane"));
-        buttonPlane->setGeometry(QRect(270, 430, 121, 31));
+        buttonPlane->setGeometry(QRect(320, 400, 121, 31));
         isometric = new QLabel(centralWidget);
         isometric->setObjectName(QStringLiteral("isometric"));
         isometric->setGeometry(QRect(460, 80, 491, 351));
@@ -66,21 +65,16 @@ public:
         planeProj->setGeometry(QRect(40, 30, 321, 361));
         Ax = new QTextEdit(centralWidget);
         Ax->setObjectName(QStringLiteral("Ax"));
-        Ax->setGeometry(QRect(30, 430, 41, 31));
-        Ax->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        Ax->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        Ax->setGeometry(QRect(30, 400, 41, 31));
         By = new QTextEdit(centralWidget);
         By->setObjectName(QStringLiteral("By"));
-        By->setGeometry(QRect(100, 430, 41, 31));
-        By->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        By->setGeometry(QRect(100, 400, 41, 31));
         Cz = new QTextEdit(centralWidget);
         Cz->setObjectName(QStringLiteral("Cz"));
-        Cz->setGeometry(QRect(160, 430, 41, 31));
-        Cz->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        Cz->setGeometry(QRect(160, 400, 41, 31));
         Dd = new QTextEdit(centralWidget);
         Dd->setObjectName(QStringLiteral("Dd"));
-        Dd->setGeometry(QRect(220, 430, 41, 31));
-        Dd->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        Dd->setGeometry(QRect(220, 400, 41, 31));
         orthographic = new QLabel(centralWidget);
         orthographic->setObjectName(QStringLiteral("orthographic"));
         orthographic->setGeometry(QRect(1010, 70, 661, 631));
@@ -102,9 +96,6 @@ public:
         buttonZminus = new QPushButton(centralWidget);
         buttonZminus->setObjectName(QStringLiteral("buttonZminus"));
         buttonZminus->setGeometry(QRect(1280, 30, 41, 36));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 400, 401, 28));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -126,25 +117,15 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         buttonPlane->setText(QApplication::translate("MainWindow", "Get Projection", nullptr));
-        isometric->setText(QString());
-        planeProj->setText(QString());
-        Ax->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Garuda'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        Ax->setPlaceholderText(QApplication::translate("MainWindow", "  A", nullptr));
-        By->setPlaceholderText(QApplication::translate("MainWindow", "  B", nullptr));
-        Cz->setPlaceholderText(QApplication::translate("MainWindow", "  C", nullptr));
-        Dd->setPlaceholderText(QApplication::translate("MainWindow", "  D", nullptr));
-        orthographic->setText(QString());
+        isometric->setText(QApplication::translate("MainWindow", "isometric", nullptr));
+        planeProj->setText(QApplication::translate("MainWindow", "plane projection", nullptr));
+        orthographic->setText(QApplication::translate("MainWindow", "orthographic", nullptr));
         buttonUP->setText(QApplication::translate("MainWindow", "up", nullptr));
         buttonDOWN->setText(QApplication::translate("MainWindow", "down", nullptr));
         buttonLEFT->setText(QApplication::translate("MainWindow", "left", nullptr));
         buttonRIGHT->setText(QApplication::translate("MainWindow", "right", nullptr));
         buttonZplus->setText(QApplication::translate("MainWindow", "Z+", nullptr));
         buttonZminus->setText(QApplication::translate("MainWindow", "Z-", nullptr));
-        label->setText(QApplication::translate("MainWindow", "Get the projection along an arbitrary plane: Ax+By+Cz=D", nullptr));
     } // retranslateUi
 
 };

@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="buttonPlane">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>400</y>
+      <x>270</x>
+      <y>430</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>isometric</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="planeProj">
@@ -50,47 +50,81 @@
      </rect>
     </property>
     <property name="text">
-     <string>plane projection</string>
+     <string/>
     </property>
    </widget>
    <widget class="QTextEdit" name="Ax">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>400</y>
+      <y>430</y>
       <width>41</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Garuda'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="placeholderText">
+     <string>  A</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="By">
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>400</y>
+      <y>430</y>
       <width>41</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  B</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="Cz">
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>400</y>
+      <y>430</y>
       <width>41</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  C</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="Dd">
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>400</y>
+      <y>430</y>
       <width>41</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  D</string>
     </property>
    </widget>
    <widget class="QLabel" name="orthographic">
@@ -103,7 +137,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>orthographic</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonUP">
@@ -182,6 +216,19 @@
     </property>
     <property name="text">
      <string>Z-</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>400</y>
+      <width>401</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Get the projection along an arbitrary plane: Ax+By+Cz=D</string>
     </property>
    </widget>
   </widget>
