@@ -1,0 +1,300 @@
+\hypertarget{classThreeDGraph__class}{}\section{Three\+D\+Graph\+\_\+class Class Reference}
+\label{classThreeDGraph__class}\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+
+
+3D behaviour class.  
+
+
+
+
+{\ttfamily \#include $<$3\+D\+Processing\+Src.\+h$>$}
+
+
+
+Collaboration diagram for Three\+D\+Graph\+\_\+class\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classThreeDGraph__class__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classThreeDGraph__class_a521cb31c72fa3828840a3bf4403e1395}{Graph\+To\+List} (bool Three\+D\+Graph\+Or\+Plane\+Proj)
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+void \hyperlink{classThreeDGraph__class_afa131e00002ddff96be961a903e2c589}{Scaling} (float Scale\+Factor)
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+void \hyperlink{classThreeDGraph__class_aa3f177ba316ff1fc411926ba9d08c80f}{Translation} (float x, float y, float z, \hyperlink{structedge}{edge} line, bool Graph\+Or\+Line)
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+void \hyperlink{classThreeDGraph__class_a400bececda29db8682455d92872f0a5e}{Model\+Rotation} (float angle, \hyperlink{structedge}{edge} axis)
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+void \hyperlink{classThreeDGraph__class_ad30f5f058cfe9a0de8a91dd062fb10c5}{Mean\+Normalisation} ()
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+void \hyperlink{classThreeDGraph__class_aec760645bb97742c87a50fe66aa68efe}{Isometric} ()
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classThreeDGraph__class_a7d36151c400305282da3656437b957ff}{Planar\+Projection} (bool view, \hyperlink{structplane}{plane} equation\+Of\+Plane)
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+void \hyperlink{classThreeDGraph__class_ae69c2ee22498d903d1afa6b988edd1b6}{Three\+D\+To\+Orthographic} ()
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+bool \hyperlink{classThreeDGraph__class_a2cfae37ac914b040194e3dae011454d6}{Hidden\+Edge\+Check} (\hyperlink{structedge}{edge} line)
+\begin{DoxyCompactList}\small\item\em A Member function. \end{DoxyCompactList}\item 
+void {\bfseries print} ()\hypertarget{classThreeDGraph__class_af53c26ef3f673e77e1213789fe14c8a2}{}\label{classThreeDGraph__class_af53c26ef3f673e77e1213789fe14c8a2}
+
+\item 
+void {\bfseries print3D} ()\hypertarget{classThreeDGraph__class_a08a1a3131c7090b8f783809f07810725}{}\label{classThreeDGraph__class_a08a1a3131c7090b8f783809f07810725}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classThreeDGraph__class_a10f2244053d72def3eed9fb4101f0236}{Three\+D\+Graph}
+\item 
+map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classThreeDGraph__class_afa3f00ec2a3864317ad121d087c9896d}{Isometric\+Graph}
+\item 
+map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classThreeDGraph__class_a352d2c3b25256d8a071132dd87606f99}{Two\+D\+Graph} \mbox{[}3\mbox{]}
+\item 
+map$<$ string, vector$<$ \hyperlink{structpoint}{point} $>$ $>$ \hyperlink{classThreeDGraph__class_ad800b572d58a46cbd5b4139b3ec7b173}{Plane\+Proj}
+\item 
+vector$<$ string $>$ \hyperlink{classThreeDGraph__class_ab24656328d4be1eae0f6f5742add5969}{list\+Of\+Points}
+\item 
+vector$<$ string $>$ \hyperlink{classThreeDGraph__class_a7a63687d665e48d41867a293d5d8bc16}{list\+Of\+Points\+For\+Plane}
+\item 
+Mat \hyperlink{classThreeDGraph__class_a52564aaa0f2223a754dccb28b347b009}{matrix\+Ans}
+\item 
+Mat \hyperlink{classThreeDGraph__class_a276acab9cffc9952e64514aad293da84}{matrix} \mbox{[}3\mbox{]}
+\item 
+Mat \hyperlink{classThreeDGraph__class_a03032b7bde495a752d3ccf43c3328f78}{matrixA}
+\item 
+Mat \hyperlink{classThreeDGraph__class_a487c0f52b65d943a04cf75077ab6b5fe}{matrixB}
+\item 
+\hyperlink{structedge}{edge} {\bfseries temp\+Line\+Ans}\hypertarget{classThreeDGraph__class_aa7a987df28f93f04fa0021d56a364a98}{}\label{classThreeDGraph__class_aa7a987df28f93f04fa0021d56a364a98}
+
+\item 
+Vec {\bfseries temp\+Line\+Vect}\hypertarget{classThreeDGraph__class_a48d310a18f7602769320d2dae4445d25}{}\label{classThreeDGraph__class_a48d310a18f7602769320d2dae4445d25}
+
+\item 
+Vec {\bfseries temp\+Line\+Vect\+For\+Plane}\hypertarget{classThreeDGraph__class_a68fb902385d303dcfcd1d9b0afd935cb}{}\label{classThreeDGraph__class_a68fb902385d303dcfcd1d9b0afd935cb}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+3D behaviour class. 
+
+This class has all the functionalities that a 3D object can possess in the software. It can be rotated, projected along some plane or can give its orthographic projections 
+
+\subsection{Member Function Documentation}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Graph\+To\+List@{Graph\+To\+List}}
+\index{Graph\+To\+List@{Graph\+To\+List}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Graph\+To\+List(bool Three\+D\+Graph\+Or\+Plane\+Proj)}{GraphToList(bool ThreeDGraphOrPlaneProj)}}]{\setlength{\rightskip}{0pt plus 5cm}void Three\+D\+Graph\+\_\+class\+::\+Graph\+To\+List (
+\begin{DoxyParamCaption}
+\item[{bool}]{Three\+D\+Graph\+Or\+Plane\+Proj}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_a521cb31c72fa3828840a3bf4403e1395}{}\label{classThreeDGraph__class_a521cb31c72fa3828840a3bf4403e1395}
+
+
+A Member function. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_aa3f177ba316ff1fc411926ba9d08c80f}{Translation()} Function to create \hyperlink{classThreeDGraph__class_ab24656328d4be1eae0f6f5742add5969}{list\+Of\+Points} for 3D graph 
+\end{DoxySeeAlso}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Hidden\+Edge\+Check@{Hidden\+Edge\+Check}}
+\index{Hidden\+Edge\+Check@{Hidden\+Edge\+Check}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Hidden\+Edge\+Check(edge line)}{HiddenEdgeCheck(edge line)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Three\+D\+Graph\+\_\+class\+::\+Hidden\+Edge\+Check (
+\begin{DoxyParamCaption}
+\item[{{\bf edge}}]{line}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_a2cfae37ac914b040194e3dae011454d6}{}\label{classThreeDGraph__class_a2cfae37ac914b040194e3dae011454d6}
+
+
+A Member function. 
+
+returns true if edge = solid line else false \begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_a2cfae37ac914b040194e3dae011454d6}{Hidden\+Edge\+Check()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & a string argument. \\
+\hline
+\end{DoxyParams}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Isometric@{Isometric}}
+\index{Isometric@{Isometric}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Isometric()}{Isometric()}}]{\setlength{\rightskip}{0pt plus 5cm}void Three\+D\+Graph\+\_\+class\+::\+Isometric (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_aec760645bb97742c87a50fe66aa68efe}{}\label{classThreeDGraph__class_aec760645bb97742c87a50fe66aa68efe}
+
+
+A Member function. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_aec760645bb97742c87a50fe66aa68efe}{Isometric()} 
+\end{DoxySeeAlso}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Mean\+Normalisation@{Mean\+Normalisation}}
+\index{Mean\+Normalisation@{Mean\+Normalisation}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Mean\+Normalisation()}{MeanNormalisation()}}]{\setlength{\rightskip}{0pt plus 5cm}void Three\+D\+Graph\+\_\+class\+::\+Mean\+Normalisation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_ad30f5f058cfe9a0de8a91dd062fb10c5}{}\label{classThreeDGraph__class_ad30f5f058cfe9a0de8a91dd062fb10c5}
+
+
+A Member function. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_ad30f5f058cfe9a0de8a91dd062fb10c5}{Mean\+Normalisation()} 
+\end{DoxySeeAlso}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Model\+Rotation@{Model\+Rotation}}
+\index{Model\+Rotation@{Model\+Rotation}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Model\+Rotation(float angle, edge axis)}{ModelRotation(float angle, edge axis)}}]{\setlength{\rightskip}{0pt plus 5cm}void Three\+D\+Graph\+\_\+class\+::\+Model\+Rotation (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{{\bf edge}}]{axis}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_a400bececda29db8682455d92872f0a5e}{}\label{classThreeDGraph__class_a400bececda29db8682455d92872f0a5e}
+
+
+A Member function. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_a400bececda29db8682455d92872f0a5e}{Model\+Rotation()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & a string argument. \\
+\hline
+{\em flag3\+Dfile} & boolean character to tell the type of file (3\+D/2D). \\
+\hline
+\end{DoxyParams}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Planar\+Projection@{Planar\+Projection}}
+\index{Planar\+Projection@{Planar\+Projection}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Planar\+Projection(bool view, plane equation\+Of\+Plane)}{PlanarProjection(bool view, plane equationOfPlane)}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$ string, vector$<$ {\bf point} $>$ $>$ Three\+D\+Graph\+\_\+class\+::\+Planar\+Projection (
+\begin{DoxyParamCaption}
+\item[{bool}]{view, }
+\item[{{\bf plane}}]{equation\+Of\+Plane}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_a7d36151c400305282da3656437b957ff}{}\label{classThreeDGraph__class_a7d36151c400305282da3656437b957ff}
+
+
+A Member function. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_a521cb31c72fa3828840a3bf4403e1395}{Graph\+To\+List()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em view} & to specify the viewing direction wrt origin. \\
+\hline
+{\em equation\+Of\+Plane} & this defines the plane on which projection has to be taken. \\
+\hline
+\end{DoxyParams}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Scaling@{Scaling}}
+\index{Scaling@{Scaling}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Scaling(float Scale\+Factor)}{Scaling(float ScaleFactor)}}]{\setlength{\rightskip}{0pt plus 5cm}void Three\+D\+Graph\+\_\+class\+::\+Scaling (
+\begin{DoxyParamCaption}
+\item[{float}]{Scale\+Factor}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_afa131e00002ddff96be961a903e2c589}{}\label{classThreeDGraph__class_afa131e00002ddff96be961a903e2c589}
+
+
+A Member function. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_afa131e00002ddff96be961a903e2c589}{Scaling()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em Scale\+Factor} & to tell the factor of scale. \\
+\hline
+\end{DoxyParams}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Three\+D\+To\+Orthographic@{Three\+D\+To\+Orthographic}}
+\index{Three\+D\+To\+Orthographic@{Three\+D\+To\+Orthographic}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Three\+D\+To\+Orthographic()}{ThreeDToOrthographic()}}]{\setlength{\rightskip}{0pt plus 5cm}void Three\+D\+Graph\+\_\+class\+::\+Three\+D\+To\+Orthographic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_ae69c2ee22498d903d1afa6b988edd1b6}{}\label{classThreeDGraph__class_ae69c2ee22498d903d1afa6b988edd1b6}
+
+
+A Member function. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_ae69c2ee22498d903d1afa6b988edd1b6}{Three\+D\+To\+Orthographic()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & a string argument. \\
+\hline
+{\em flag3\+Dfile} & boolean character to tell the type of file (3\+D/2D). \\
+\hline
+\end{DoxyParams}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Translation@{Translation}}
+\index{Translation@{Translation}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Translation(float x, float y, float z, edge line, bool Graph\+Or\+Line)}{Translation(float x, float y, float z, edge line, bool GraphOrLine)}}]{\setlength{\rightskip}{0pt plus 5cm}void Three\+D\+Graph\+\_\+class\+::\+Translation (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z, }
+\item[{{\bf edge}}]{line, }
+\item[{bool}]{Graph\+Or\+Line}
+\end{DoxyParamCaption}
+)}\hypertarget{classThreeDGraph__class_aa3f177ba316ff1fc411926ba9d08c80f}{}\label{classThreeDGraph__class_aa3f177ba316ff1fc411926ba9d08c80f}
+
+
+A Member function. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classThreeDGraph__class_aa3f177ba316ff1fc411926ba9d08c80f}{Translation()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & to tell the amount of shift in x coordinate. \\
+\hline
+{\em y} & to tell the amount of shift in y coordinate. \\
+\hline
+{\em z} & to tell the amount of shift in z coordinate. \\
+\hline
+{\em Graph\+Or\+Line} & boolean character to tell whether rotation required is of line or graph. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Isometric\+Graph@{Isometric\+Graph}}
+\index{Isometric\+Graph@{Isometric\+Graph}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Isometric\+Graph}{IsometricGraph}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<${\bf point}$>$ $>$ Three\+D\+Graph\+\_\+class\+::\+Isometric\+Graph}\hypertarget{classThreeDGraph__class_afa3f00ec2a3864317ad121d087c9896d}{}\label{classThreeDGraph__class_afa3f00ec2a3864317ad121d087c9896d}
+This is the Isometric graph representation \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!list\+Of\+Points@{list\+Of\+Points}}
+\index{list\+Of\+Points@{list\+Of\+Points}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{list\+Of\+Points}{listOfPoints}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ Three\+D\+Graph\+\_\+class\+::list\+Of\+Points}\hypertarget{classThreeDGraph__class_ab24656328d4be1eae0f6f5742add5969}{}\label{classThreeDGraph__class_ab24656328d4be1eae0f6f5742add5969}
+This is list of points available in 3D graph \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!list\+Of\+Points\+For\+Plane@{list\+Of\+Points\+For\+Plane}}
+\index{list\+Of\+Points\+For\+Plane@{list\+Of\+Points\+For\+Plane}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{list\+Of\+Points\+For\+Plane}{listOfPointsForPlane}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ Three\+D\+Graph\+\_\+class\+::list\+Of\+Points\+For\+Plane}\hypertarget{classThreeDGraph__class_a7a63687d665e48d41867a293d5d8bc16}{}\label{classThreeDGraph__class_a7a63687d665e48d41867a293d5d8bc16}
+This is list of points available in planar Projection \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!matrix@{matrix}}
+\index{matrix@{matrix}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{matrix}{matrix}}]{\setlength{\rightskip}{0pt plus 5cm}Mat Three\+D\+Graph\+\_\+class\+::matrix\mbox{[}3\mbox{]}}\hypertarget{classThreeDGraph__class_a276acab9cffc9952e64514aad293da84}{}\label{classThreeDGraph__class_a276acab9cffc9952e64514aad293da84}
+This is matrix for rotating about specific axis \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!matrixA@{matrixA}}
+\index{matrixA@{matrixA}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{matrixA}{matrixA}}]{\setlength{\rightskip}{0pt plus 5cm}Mat Three\+D\+Graph\+\_\+class\+::matrixA}\hypertarget{classThreeDGraph__class_a03032b7bde495a752d3ccf43c3328f78}{}\label{classThreeDGraph__class_a03032b7bde495a752d3ccf43c3328f78}
+This is matrix for rotating about specific axis \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!matrix\+Ans@{matrix\+Ans}}
+\index{matrix\+Ans@{matrix\+Ans}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{matrix\+Ans}{matrixAns}}]{\setlength{\rightskip}{0pt plus 5cm}Mat Three\+D\+Graph\+\_\+class\+::matrix\+Ans}\hypertarget{classThreeDGraph__class_a52564aaa0f2223a754dccb28b347b009}{}\label{classThreeDGraph__class_a52564aaa0f2223a754dccb28b347b009}
+This is answer calculated after matrix computations \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!matrixB@{matrixB}}
+\index{matrixB@{matrixB}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{matrixB}{matrixB}}]{\setlength{\rightskip}{0pt plus 5cm}Mat Three\+D\+Graph\+\_\+class\+::matrixB}\hypertarget{classThreeDGraph__class_a487c0f52b65d943a04cf75077ab6b5fe}{}\label{classThreeDGraph__class_a487c0f52b65d943a04cf75077ab6b5fe}
+This is matrix for rotating about specific axis \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Plane\+Proj@{Plane\+Proj}}
+\index{Plane\+Proj@{Plane\+Proj}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Plane\+Proj}{PlaneProj}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<${\bf point}$>$ $>$ Three\+D\+Graph\+\_\+class\+::\+Plane\+Proj}\hypertarget{classThreeDGraph__class_ad800b572d58a46cbd5b4139b3ec7b173}{}\label{classThreeDGraph__class_ad800b572d58a46cbd5b4139b3ec7b173}
+This is planar projection of 3D graph when requested \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Three\+D\+Graph@{Three\+D\+Graph}}
+\index{Three\+D\+Graph@{Three\+D\+Graph}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Three\+D\+Graph}{ThreeDGraph}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<${\bf point}$>$ $>$ Three\+D\+Graph\+\_\+class\+::\+Three\+D\+Graph}\hypertarget{classThreeDGraph__class_a10f2244053d72def3eed9fb4101f0236}{}\label{classThreeDGraph__class_a10f2244053d72def3eed9fb4101f0236}
+This is the 3D graph representation \index{Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}!Two\+D\+Graph@{Two\+D\+Graph}}
+\index{Two\+D\+Graph@{Two\+D\+Graph}!Three\+D\+Graph\+\_\+class@{Three\+D\+Graph\+\_\+class}}
+\subsubsection[{\texorpdfstring{Two\+D\+Graph}{TwoDGraph}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<${\bf point}$>$ $>$ Three\+D\+Graph\+\_\+class\+::\+Two\+D\+Graph\mbox{[}3\mbox{]}}\hypertarget{classThreeDGraph__class_a352d2c3b25256d8a071132dd87606f99}{}\label{classThreeDGraph__class_a352d2c3b25256d8a071132dd87606f99}
+This is orthographic projections 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{3DProcessingSrc_8h}{3\+D\+Processing\+Src.\+h}\item 
+\hyperlink{3DProcessingSrc_8cpp}{3\+D\+Processing\+Src.\+cpp}\end{DoxyCompactItemize}
