@@ -385,41 +385,43 @@ Vec operator*(const Mat &a, const Vec &x){
     \param flag3Dfile boolean character to tell the type of file (3D/2D).
   */
   void ThreeDGraph_class::ModelRotation(float angle, edge axis){
-    angle = angle*(PI/180);
-    Translation(axis.p1.coordinate[0], axis.p1.coordinate[1], axis.p1.coordinate[2], axis, false);
-    Translation(axis.p1.coordinate[0], axis.p1.coordinate[1], axis.p1.coordinate[2], axis, true);
-    tempLineVect.clear();
-    tempLineVect.push_back(tempLineAns.p2.coordinate[0]);
-    tempLineVect.push_back(tempLineAns.p2.coordinate[1]);
-    tempLineVect.push_back(tempLineAns.p2.coordinate[2]);
-    tempLineVect.push_back(1);
+    if (angle!=0){
+      angle = angle*(PI/180);
+      Translation(axis.p1.coordinate[0], axis.p1.coordinate[1], axis.p1.coordinate[2], axis, false);
+      Translation(axis.p1.coordinate[0], axis.p1.coordinate[1], axis.p1.coordinate[2], axis, true);
+      tempLineVect.clear();
+      tempLineVect.push_back(tempLineAns.p2.coordinate[0]);
+      tempLineVect.push_back(tempLineAns.p2.coordinate[1]);
+      tempLineVect.push_back(tempLineAns.p2.coordinate[2]);
+      tempLineVect.push_back(1);
 
-    // calculate angleX
-    float angleX;
-    if(tempLineVect[2] != 0){
-      angleX = (atan(tempLineVect[1]/tempLineVect[2])); // angleX = y/z
-    }else{
-      angleX = PI/2;
-    }
-    specificRotation(angleX,0,tempLineVect,false,true);
-    specificRotation(angleX,0,tempLineVect,true,true);
-    
-    // calculate angleY
-    float angleY;
-    if(tempLineVect[2] != 0){
-      angleY = (atan(tempLineVect[0]/tempLineVect[2])); // angleY = x/z
-    }else{
-      angleY = -1*PI/2;
-    }
-    specificRotation(angleY,1,tempLineVect,false,true);
-    specificRotation(angleY,1,tempLineVect,true,true);
+      // calculate angleX
+      float angleX;
+      if(tempLineVect[2] != 0){
+        angleX = (atan(tempLineVect[1]/tempLineVect[2])); // angleX = y/z
+      }else{
+        angleX = PI/2;
+      }
+      specificRotation(angleX,0,tempLineVect,false,true);
+      specificRotation(angleX,0,tempLineVect,true,true);
+      
+      // calculate angleY
+      float angleY;
+      if(tempLineVect[2] != 0){
+        angleY = (atan(tempLineVect[0]/tempLineVect[2])); // angleY = x/z
+      }else{
+        angleY = -1*PI/2;
+      }
+      specificRotation(angleY,1,tempLineVect,false,true);
+      specificRotation(angleY,1,tempLineVect,true,true);
 
-    specificRotation(angle,2,tempLineVect,true,true);
-    // Inverse Transformations
-    tempLineVect.clear();
-    specificRotation(-1*angleY,1,tempLineVect,true,true);
-    specificRotation(-1*angleX,0,tempLineVect,true,true);
-    Translation(-1*axis.p1.coordinate[0], -1*axis.p1.coordinate[1], -1*axis.p1.coordinate[2], tempLineAns, true);
+      specificRotation(angle,2,tempLineVect,true,true);
+      // Inverse Transformations
+      tempLineVect.clear();
+      specificRotation(-1*angleY,1,tempLineVect,true,true);
+      specificRotation(-1*angleX,0,tempLineVect,true,true);
+      Translation(-1*axis.p1.coordinate[0], -1*axis.p1.coordinate[1], -1*axis.p1.coordinate[2], tempLineAns, true);
+    }
   }
 
    //! A Member function.

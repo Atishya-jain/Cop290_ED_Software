@@ -506,7 +506,8 @@ int main(int argc, char *argv[]){
     O1.ThreeDGraph = input_3d.ThreeDGraph;
     O1.saveToFile3D("output.txt");
     }
-
+    w.ui->buttonUP->click();
+    w.ui->buttonDOWN->click();
     w.show();
       cout<<"Thanks for using our software"<<endl;
       return a.exec();

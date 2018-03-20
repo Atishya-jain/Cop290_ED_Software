@@ -168,8 +168,10 @@ using namespace std;
 
       p.drawLine(0,-300,0,300);
       p.drawLine(-300,0,300,0);
+      p.setPen(QPen(Qt::black, 1.5, Qt::SolidLine, Qt::RoundCap));
+      p.drawLine(0,0,-300,-300);
 
-      p.setPen(QPen(Qt::black, 1, Qt::DashLine, Qt::RoundCap));
+      p.setPen(QPen(Qt::black, 0.5, Qt::DashLine, Qt::RoundCap));
 
       for (map<string, vector<point> >::iterator it=TwoDGraphTemp[2].begin(); it!=TwoDGraphTemp[2].end(); ++it){
         long len = it->second.size();
