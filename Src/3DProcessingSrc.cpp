@@ -466,55 +466,67 @@ Vec operator*(const Mat &a, const Vec &x){
   	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
   	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
   	a4.p1 = ThreeDGraph["4"][0]; a4.p2 = ThreeDGraph["1"][0];
-  	FaceGraph[0].push_back(a1);
-  	FaceGraph[0].push_back(a2);
-  	FaceGraph[0].push_back(a3);
-  	FaceGraph[0].push_back(a4);
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
 
   	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
   	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["7"][0];
   	a3.p1 = ThreeDGraph["7"][0]; a3.p2 = ThreeDGraph["6"][0];
   	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
-  	FaceGraph[1].push_back(a1);
-  	FaceGraph[1].push_back(a2);
-  	FaceGraph[1].push_back(a3);
-  	FaceGraph[1].push_back(a4);
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
 
   	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
   	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
   	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["6"][0];
   	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
-  	FaceGraph[2].push_back(a1);
-  	FaceGraph[2].push_back(a2);
-  	FaceGraph[2].push_back(a3);
-  	FaceGraph[2].push_back(a4);
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
 
   	a1.p1 = ThreeDGraph["6"][0]; a1.p2 = ThreeDGraph["7"][0];
   	a2.p1 = ThreeDGraph["7"][0]; a2.p2 = ThreeDGraph["8"][0];
   	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["5"][0];
   	a4.p1 = ThreeDGraph["5"][0]; a4.p2 = ThreeDGraph["6"][0];
-  	FaceGraph[3].push_back(a1);
-  	FaceGraph[3].push_back(a2);
-  	FaceGraph[3].push_back(a3);
-  	FaceGraph[3].push_back(a4);
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
 
   	a1.p1 = ThreeDGraph["3"][0]; a1.p2 = ThreeDGraph["4"][0];
   	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
   	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["8"][0];
   	a4.p1 = ThreeDGraph["8"][0]; a4.p2 = ThreeDGraph["3"][0];
-  	FaceGraph[4].push_back(a1);
-  	FaceGraph[4].push_back(a2);
-  	FaceGraph[4].push_back(a3);
-  	FaceGraph[4].push_back(a4);
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
 
   	a1.p1 = ThreeDGraph["2"][0]; a1.p2 = ThreeDGraph["3"][0];
   	a2.p1 = ThreeDGraph["3"][0]; a2.p2 = ThreeDGraph["8"][0];
   	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["7"][0];
   	a4.p1 = ThreeDGraph["7"][0]; a4.p2 = ThreeDGraph["2"][0];
-  	FaceGraph[5].push_back(a1);
-  	FaceGraph[5].push_back(a2);
-  	FaceGraph[5].push_back(a3);
-  	FaceGraph[5].push_back(a4);
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
   }
   // Access specifier
   // public:
