@@ -19,7 +19,7 @@ QPicture draw(QPicture pi){
    QPainter p(&pi);
    p.setRenderHint(QPainter::Antialiasing);
    // p.setPen(QPen(Qt::black, 5, Qt::DashDotLine, Qt::RoundCap));
-   p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
+   p.setPen(QPen(Qt::black, 5, Qt::DashLine, Qt::RoundCap));
    p.drawLine(0, 0, 0, -600);
    p.drawLine(0, -600, 600, -600);
    p.drawLine(600, -600, 600, 0);
@@ -146,24 +146,24 @@ int main(int argc, char *argv[])
    
    // QPicture pi;
    // pi = draw(pi);
-   QPicture pi;
-   pi = draw(pi);
-   
-   QGraphicsRectItem * rect = new QGraphicsRectItem();
-
-   rect->setRect(0,0,100,100);
-
-   // scene->addItem(rect);
-   scene -> addItem(pi);
-
-   QGraphicsView * view = new QGraphicsView(scene);
-   // view->setScene(scene);
-   view->show(); 
-   // QLabel l;
    // QPicture pi;
    // pi = draw(pi);
-   // l.setPicture(pi);
-   // l.show();
+   
+   // QGraphicsRectItem * rect = new QGraphicsRectItem();
+
+   // rect->setRect(0,0,100,100);
+
+   // scene->addItem(rect);
+   // scene -> addItem(pi);
+
+   // QGraphicsView * view = new QGraphicsView(scene);
+   // view->setScene(scene);
+   // view->show(); 
+   QLabel l;
+   QPicture pi;
+   pi = draw(pi);
+   l.setPicture(pi);
+   l.show();
 
 
 

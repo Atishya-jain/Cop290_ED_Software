@@ -56,6 +56,14 @@ using namespace std;
     void classifyHiddenEdge(int GraphNum);
 
     void FaceRecognition();
+
+    bool lieOnLine(point p, edge a, int GraphNum);
+
+    float distancePts(point a, point b, int GraphNum);
+
+    bool planeBehindOrFront(point p, vector<edge> face, int GraphNum);
+
+
     // Access specifier
     public:
 
