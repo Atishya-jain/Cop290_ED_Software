@@ -219,6 +219,7 @@ int main(int argc, char *argv[]){
     input_3d.Isometric();
 	O1.PlaneProj = input_3d.IsometricGraph;
 	std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+    std::copy(std::begin(input_3d.LookupForHidden2D), std::end(input_3d.LookupForHidden2D), std::begin(O1.LookupForHidden2D));
 
 	// PLANE PROJECTION
 	cout<<"Do you want projection along a specific plane?y/n: ";

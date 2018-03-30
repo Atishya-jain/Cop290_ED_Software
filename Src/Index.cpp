@@ -59,6 +59,7 @@ void MainWindow::on_buttonUP_clicked()
          // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+         std::copy(std::begin(input_3d.LookupForHidden2D), std::end(input_3d.LookupForHidden2D), std::begin(O1.LookupForHidden2D));
          QPicture pi4;
          pi4 = O1.RenderOutput2D(pi4);
          ui->orthographic->setPicture(pi4);
@@ -93,6 +94,7 @@ void MainWindow::on_buttonLEFT_clicked()
          // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+         std::copy(std::begin(input_3d.LookupForHidden2D), std::end(input_3d.LookupForHidden2D), std::begin(O1.LookupForHidden2D));
          QPicture pi4;
          pi4 = O1.RenderOutput2D(pi4);
          ui->orthographic->setPicture(pi4);
@@ -127,6 +129,7 @@ void MainWindow::on_buttonRIGHT_clicked()
          // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+         std::copy(std::begin(input_3d.LookupForHidden2D), std::end(input_3d.LookupForHidden2D), std::begin(O1.LookupForHidden2D));
          QPicture pi4;
          pi4 = O1.RenderOutput2D(pi4);
          ui->orthographic->setPicture(pi4);
@@ -161,6 +164,7 @@ void MainWindow::on_buttonDOWN_clicked()
          // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+         std::copy(std::begin(input_3d.LookupForHidden2D), std::end(input_3d.LookupForHidden2D), std::begin(O1.LookupForHidden2D));
          QPicture pi4;
          pi4 = O1.RenderOutput2D(pi4);
          ui->orthographic->setPicture(pi4);
@@ -195,6 +199,7 @@ void MainWindow::on_buttonZplus_clicked()
          // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+         std::copy(std::begin(input_3d.LookupForHidden2D), std::end(input_3d.LookupForHidden2D), std::begin(O1.LookupForHidden2D));
          QPicture pi4;
          pi4 = O1.RenderOutput2D(pi4);
          ui->orthographic->setPicture(pi4);
@@ -229,6 +234,7 @@ void MainWindow::on_buttonZminus_clicked()
          // input_3d.MeanNormalisation();
          input_3d.ThreeDToOrthographic();
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
+         std::copy(std::begin(input_3d.LookupForHidden2D), std::end(input_3d.LookupForHidden2D), std::begin(O1.LookupForHidden2D));
          QPicture pi4;
          pi4 = O1.RenderOutput2D(pi4);
          ui->orthographic->setPicture(pi4);
@@ -341,10 +347,12 @@ int main(int argc, char *argv[]){
 //  cin>>ch;
 //  cout<<endl;
 //  if(ch!=1) isInputFile=false;
+  // cout << isInputFile << endl;
   if(isInputFile){
     //take input from file
+    // cout << "hiiii";
     Input I1;
-
+    // cout << "hi";
 //        cout << "Enter File Name: ";
 
 //        cin>>filename;
@@ -370,7 +378,7 @@ int main(int argc, char *argv[]){
   else{
     //interactive input
 
-//    cout<<"2D input or 3D input?(2/3): ";
+   // cout<<"2D input or 3D input?(2/3): ";
 //    cin>>ch;
 //    cout<<endl;
     if (isFile3d){
@@ -393,7 +401,7 @@ int main(int argc, char *argv[]){
 
     }
    }
-
+// cout << "YOYO";
     // std::copy(std::begin(I1.MyPlane), std::end(I1.MyPlane), std::begin(input_2d.TwoDGraph));
     //add the code for interactive editor
   // }

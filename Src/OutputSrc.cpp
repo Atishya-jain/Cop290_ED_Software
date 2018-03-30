@@ -150,22 +150,30 @@ using namespace std;
         }
       }
 
-      p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
+      p.setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
       
       for(int i = 0;i<3;i++){
         for (map<string, vector<point> >::iterator it=TwoDGraphTemp[i].begin(); it!=TwoDGraphTemp[i].end(); ++it){
           long len = it->second.size();
-	      QString lab = QString::fromStdString(it->first);
-	      p.drawText(it->second[0].coordinate[0]+5, it->second[0].coordinate[1]+15, lab);
+	        QString lab = QString::fromStdString(it->first);
+	        p.drawText(it->second[0].coordinate[0]+5, it->second[0].coordinate[1]+15, lab);
           point MainPoint = it->second[0];
           for(int j=1;j<len;j++){
             lab = QString::fromStdString(it->second[j].label);
             p.drawText(it->second[j].coordinate[0]+5, it->second[j].coordinate[1]+15, lab);
-            p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
+            if(LookupForHidden2D[i][it->first][j]){
+              // true = hidden
+              p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
+            }else{
+              p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
+              p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
+              p.setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
+            }
           }
         }
       }
 
+      p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
       p.drawLine(0,-300,0,300);
       p.drawLine(-300,0,300,0);
       p.setPen(QPen(Qt::black, 1.5, Qt::SolidLine, Qt::RoundCap));

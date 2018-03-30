@@ -37,6 +37,12 @@ Vec operator*(const Mat &a, const Vec &x){
          return (a.first > b.first);
   }
 
+  // Driver function to sort the vector elements
+  // by second element of pairs
+  bool ThreeDGraph_class::sortbyfir(const pair<float,point> &a, const pair<float,point> &b){
+    return (a.first < b.first);
+  }
+
   string ThreeDGraph_class::GetLabel(struct point myPoint, int GraphNo){
     long tempSize = listOfPoints.size();
     vector< pair<float,string>> ToSort;
@@ -209,6 +215,307 @@ Vec operator*(const Mat &a, const Vec &x){
       }
     }
   }
+
+  point ThreeDGraph_class::getIntersect(edge my1, edge my2, int GraphNum, int lab){
+  	float x1 = my1.p1.coordinate[(GraphNum+1)%3];	
+  	float y1 = my1.p1.coordinate[(GraphNum+2)%3];
+
+  	float x2 = my1.p2.coordinate[(GraphNum+1)%3];	
+  	float y2 = my1.p2.coordinate[(GraphNum+2)%3];
+
+  	float a1 = y2-y1;
+  	float b1 = x1-x2;
+  	float c1 = (a1*x1) + (y1*b1);
+
+
+  	float xx1 = my2.p1.coordinate[(GraphNum+1)%3];	
+  	float yy1 = my2.p1.coordinate[(GraphNum+2)%3];
+
+  	float xx2 = my2.p2.coordinate[(GraphNum+1)%3];	
+  	float yy2 = my2.p2.coordinate[(GraphNum+2)%3];
+
+  	float a2 = yy2-yy1;
+  	float b2 = xx1-xx2;
+  	float c2 = (a2*xx1) + (yy1*b2);
+
+  	point temp;
+  	temp.coordinate[GraphNum] = 0;
+  	float denom = a1*b2 - a2*b1;
+  	if(denom >= .00001){
+	  	temp.coordinate[(GraphNum+1)%3] = (c1*b2 - c2*b1)/denom;
+	  	temp.coordinate[(GraphNum+2)%3] = -1.0*((c1*a2 - c2*a1)/denom);
+  	}
+	if((((my1.p1.coordinate[(GraphNum+1)%3]) - (temp.coordinate[(GraphNum+1)%3])) <= .00001) && (((my1.p1.coordinate[(GraphNum+2)%3]) - (temp.coordinate[(GraphNum+2)%3])) <= .00001)){
+		temp.label = my1.p1.label;
+	}else if((((my1.p2.coordinate[(GraphNum+1)%3]) - (temp.coordinate[(GraphNum+1)%3])) <= .00001) && (((my1.p2.coordinate[(GraphNum+2)%3]) - (temp.coordinate[(GraphNum+2)%3])) <= .00001)){
+		temp.label = my1.p2.label;
+	}else if((((my2.p2.coordinate[(GraphNum+1)%3]) - (temp.coordinate[(GraphNum+1)%3])) <= .00001) && (((my2.p2.coordinate[(GraphNum+2)%3]) - (temp.coordinate[(GraphNum+2)%3])) <= .00001)){
+		temp.label = my2.p2.label;
+	}else if((((my2.p1.coordinate[(GraphNum+1)%3]) - (temp.coordinate[(GraphNum+1)%3])) <= .00001) && (((my2.p1.coordinate[(GraphNum+2)%3]) - (temp.coordinate[(GraphNum+2)%3])) <= .00001)){
+		temp.label = my2.p1.label;
+	}else{
+		temp.label = "Point " + lab;
+		NewOrOldvertexForOrthographic[temp.label] = false;
+	}
+  	
+  	return temp;
+  }
+
+  bool ThreeDGraph_class::onSegment(point p, point q, point r, int GraphNum){
+    if (q.coordinate[(GraphNum+1)%3] <= max(p.coordinate[(GraphNum+1)%3], r.coordinate[(GraphNum+1)%3]) && q.coordinate[(GraphNum+1)%3] >= min(p.coordinate[(GraphNum+1)%3], r.coordinate[(GraphNum+1)%3]) &&
+            q.coordinate[(GraphNum+2)%3] <= max(p.coordinate[(GraphNum+2)%3], r.coordinate[(GraphNum+2)%3]) && q.coordinate[(GraphNum+2)%3] >= min(p.coordinate[(GraphNum+2)%3], r.coordinate[(GraphNum+2)%3]))
+        return true;
+    return false;
+  }
+
+  int ThreeDGraph_class::orientation(point p, point q, point r, int GraphNum){
+    int val = (q.coordinate[(GraphNum+2)%3] - p.coordinate[(GraphNum+2)%3]) * (r.coordinate[(GraphNum+1)%3] - q.coordinate[(GraphNum+1)%3]) - (q.coordinate[(GraphNum+1)%3] - p.coordinate[(GraphNum+1)%3]) * (r.coordinate[(GraphNum+2)%3] - q.coordinate[(GraphNum+2)%3]);
+ 
+    if (val == 0) return 0;  // collinear
+    return (val > 0)? 1: 2; // clock or counterclock wise
+  }
+
+  bool ThreeDGraph_class::doIntersect(edge a1, edge a2, int GraphNum){
+    // Find the four orientations needed for general and
+    // special cases
+    point p1 = a1.p1;
+    point q1 = a1.p2;
+    point p2 = a2.p1;
+    point q2 = a2.p2;
+    int o1 = orientation(p1, q1, p2, GraphNum);
+    int o2 = orientation(p1, q1, q2, GraphNum);
+    int o3 = orientation(p2, q2, p1, GraphNum);
+    int o4 = orientation(p2, q2, q1, GraphNum);
+ 
+    // General case
+    if (o1 != o2 && o3 != o4)
+        return true;
+ 
+    // Special Cases
+    // p1, q1 and p2 are colinear and p2 lies on segment p1q1
+    if (o1 == 0 && onSegment(p1, p2, q1, GraphNum)) return true;
+ 
+    // p1, q1 and p2 are colinear and q2 lies on segment p1q1
+    if (o2 == 0 && onSegment(p1, q2, q1, GraphNum)) return true;
+ 
+    // p2, q2 and p1 are colinear and p1 lies on segment p2q2
+    if (o3 == 0 && onSegment(p2, p1, q2, GraphNum)) return true;
+ 
+     // p2, q2 and q1 are colinear and q1 lies on segment p2q2
+    if (o4 == 0 && onSegment(p2, q1, q2, GraphNum)) return true;
+ 
+    return false; // Doesn't fall in any of the above cases
+  }
+
+  bool ThreeDGraph_class::isInside(vector<edge> face, point p, int GraphNum){
+  	long n = face.size();
+  	// There must be at least 3 vertices in face
+    if (n < 3)  return false;
+ 
+    // Create a point for line segment from p to infinite
+    point extreme;
+ 	extreme.coordinate[GraphNum] = 0;
+ 	extreme.coordinate[(GraphNum+1)%3] = INF;
+ 	extreme.coordinate[(GraphNum+2)%3] = p.coordinate[(GraphNum+2)%3];
+    
+ 	p.coordinate[GraphNum] = 0;
+    // Count intersections of the above line with sides of polygon
+    int count = 0, i = 0;
+    do
+    {
+        int next = (i+1)%(n);
+ 		face[i].p1.coordinate[GraphNum] = 0;
+ 		face[i].p2.coordinate[GraphNum] = 0;
+        // Check if the line segment from 'p' to 'extreme' intersects
+        // with the line segment from 'face[i].p1' to 'face[i].p2'
+        edge tempEdge; tempEdge.p1 = face[i].p1; tempEdge.p2 = face[i].p2;
+        edge tempEdge2; tempEdge2.p1 = p; tempEdge2.p2 = extreme;
+        if (doIntersect(tempEdge, tempEdge2, GraphNum))
+        {
+            // If the point 'p' is colinear with line segment 'i-next',
+            // then check if it lies on segment. If it lies, return true,
+            // otherwise false
+            if (orientation(face[i].p1, p, face[i].p2, GraphNum) == 0)
+               return onSegment(face[i].p1, p, face[i].p2, GraphNum);
+ 
+            count++;
+        }
+        i = next;
+    } while (i != 0);
+ 
+    // Return true if count is odd, false otherwise
+    return count&1;  // Same as (count%2 == 1)	
+  }
+
+  void ThreeDGraph_class::InitialiseLookupForHidden3D(){
+  	LookupForHidden3D.clear();
+	for (map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
+	    long len = it->second.size();
+	    for(int j=0;j<len;j++){
+	        LookupForHidden3D[it->first].push_back(false);
+	    }
+	}
+  }
+
+ // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
+  void ThreeDGraph_class::classifyHiddenEdge(int GraphNum){
+	InitialiseLookupForHidden3D();
+	int totalIntersections = 0;
+	// long length = listOfPointsForOrthographic.size();
+	long NoOfFaces = FaceGraph.size();
+	for (int i = 0; i < listOfPointsForOrthographic.size(); i++){
+	  	for(int j = 0;j<NoOfFaces;j++){
+	  		/*For all points traverse their neighbours*/
+	  		point myPoint = ThreeDGraphForOrthographic[listOfPointsForOrthographic[i]][0];
+	  		
+	  		/*check whether myPoint is inside or outside*/
+	  		bool inside = isInside(FaceGraph[j], myPoint, GraphNum);
+	  		
+	  		vector<point> tempPoints = ThreeDGraph[myPoint.label];
+	  		long tempSize = tempPoints.size();
+	  		for(int k = 1;k<tempSize;k++){
+	  			/*Now check whether this line intersects any of face edges or not*/
+				// make an edge of myPoint and neighbour
+				edge temp;
+				temp.p1 = myPoint;
+				temp.p2 = tempPoints[k];
+				long noOfIntersections = 0;
+				long NoEdgeslength = FaceGraph[j].size();
+				vector< pair< float, point>> newPts;
+				for(int l = 0;l<NoEdgeslength;l++){
+					if(doIntersect(temp, FaceGraph[j][l], GraphNum)){
+						noOfIntersections++;
+						totalIntersections++;
+						// point that lies on the intersection of these 2 segments
+						point trickyPoint = getIntersect(temp, FaceGraph[j][l], GraphNum, totalIntersections);
+						float tempDist = sqrt(pow((myPoint.coordinate[(GraphNum+1)%3] - trickyPoint.coordinate[(GraphNum+1)%3]),2)+pow((myPoint.coordinate[(GraphNum+2)%3] - trickyPoint.coordinate[(GraphNum+2)%3]),2));
+						// Now we insert this point in the listOfPointsForOrthographic and also modify ThreeDGraphForOrthographic
+						newPts.push_back(make_pair(tempDist ,trickyPoint));
+						// Label will be Point counter
+						if(!NewOrOldvertex[trickyPoint.label]){
+							// listOfPointsForOrthographic.push_back(trickyPoint.label);
+							ThreeDGraphForOrthographic[myPoint.label].push_back(trickyPoint);
+							// ThreeDGraphForOrthographic[tempPoints[k].label].push_back(trickyPoint);
+						
+							// TwoDGraph[GraphNum][trickyPoint.]
+							// ThreeDGraphForOrthographic[trickyPoint.label].push_back(trickyPoint);
+							// ThreeDGraphForOrthographic[trickyPoint.label].push_back(trickyPoint);
+						}	
+					}
+				}
+				if(noOfIntersections > 0){
+					sort(newPts.begin(), newPts.end(), sortbyfir);
+					bool startDash;
+					if(inside){
+						startDash = true;
+					}else{
+						startDash = false;
+					}
+					if(!NewOrOldvertexForOrthographic[newPts[0].second.label]){
+						ThreeDGraphForOrthographic[myPoint.label].push_back(newPts[0].second);
+						LookupForHidden3D[myPoint.label].push_back(startDash);
+						TwoDGraph[GraphNum][newPts[0].second.label].push_back(newPts[0].second);
+						LookupForHidden2D[GraphNum][newPts[0].second.label].push_back(false);
+					}else{
+						for(int m = 1;m<ThreeDGraphForOrthographic[myPoint.label].size();m++){
+							if(ThreeDGraphForOrthographic[myPoint.label][m].label == newPts[0].second.label){
+								// ThreeDToOrthographic[myPoint.label].push_back(newPts[0].second);
+								LookupForHidden3D[myPoint.label][m] = startDash;					
+							}
+						}	
+					}
+					startDash = !startDash;
+					for(int l = 1;l<newPts.size();l++){
+						
+						string tempLabel = newPts[l-1].second.label;
+						// ThreeDToOrthographic[tempLabel].push_back(newPts[l].second);
+						// LookupForHidden3D[tempLabel].push_back(startDash);
+						if(!NewOrOldvertexForOrthographic[newPts[l].second.label]){
+							ThreeDGraphForOrthographic[tempLabel].push_back(newPts[l].second);
+							LookupForHidden3D[tempLabel].push_back(startDash);
+							if (!NewOrOldvertexForOrthographic[tempLabel]){
+								TwoDGraph[GraphNum][tempLabel].push_back(newPts[l].second);
+								LookupForHidden2D[GraphNum][tempLabel].push_back(startDash);
+							}
+							TwoDGraph[GraphNum][newPts[l].second.label].push_back(newPts[l].second);
+							LookupForHidden2D[GraphNum][newPts[l].second.label].push_back(false);
+						}else{
+							for(int m = 1;m<ThreeDGraphForOrthographic[tempLabel].size();m++){
+								if(ThreeDGraphForOrthographic[tempLabel][m].label == newPts[l].second.label){
+									if (!NewOrOldvertexForOrthographic[tempLabel]){
+										TwoDGraph[GraphNum][tempLabel].push_back(newPts[l].second);
+										LookupForHidden2D[GraphNum][tempLabel].push_back(startDash);
+									}		// ThreeDToOrthographic[myPoint.label].push_back(newPts[0].second);
+									LookupForHidden3D[tempLabel][m] = startDash;					
+								}
+							}	
+						}
+						startDash = !startDash;
+					}
+				}
+	  		}
+	  	}	
+	}
+  }
+
+  void ThreeDGraph_class::FaceRecognition(){
+  	FaceGraph.clear();
+  	vector<edge> list;
+  	edge a1,a2,a3,a4;
+  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
+  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
+  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
+  	a4.p1 = ThreeDGraph["4"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	FaceGraph[0].push_back(a1);
+  	FaceGraph[0].push_back(a2);
+  	FaceGraph[0].push_back(a3);
+  	FaceGraph[0].push_back(a4);
+
+  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
+  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["7"][0];
+  	a3.p1 = ThreeDGraph["7"][0]; a3.p2 = ThreeDGraph["6"][0];
+  	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	FaceGraph[1].push_back(a1);
+  	FaceGraph[1].push_back(a2);
+  	FaceGraph[1].push_back(a3);
+  	FaceGraph[1].push_back(a4);
+
+  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
+  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
+  	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["6"][0];
+  	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	FaceGraph[2].push_back(a1);
+  	FaceGraph[2].push_back(a2);
+  	FaceGraph[2].push_back(a3);
+  	FaceGraph[2].push_back(a4);
+
+  	a1.p1 = ThreeDGraph["6"][0]; a1.p2 = ThreeDGraph["7"][0];
+  	a2.p1 = ThreeDGraph["7"][0]; a2.p2 = ThreeDGraph["8"][0];
+  	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["5"][0];
+  	a4.p1 = ThreeDGraph["5"][0]; a4.p2 = ThreeDGraph["6"][0];
+  	FaceGraph[3].push_back(a1);
+  	FaceGraph[3].push_back(a2);
+  	FaceGraph[3].push_back(a3);
+  	FaceGraph[3].push_back(a4);
+
+  	a1.p1 = ThreeDGraph["3"][0]; a1.p2 = ThreeDGraph["4"][0];
+  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
+  	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["8"][0];
+  	a4.p1 = ThreeDGraph["8"][0]; a4.p2 = ThreeDGraph["3"][0];
+  	FaceGraph[4].push_back(a1);
+  	FaceGraph[4].push_back(a2);
+  	FaceGraph[4].push_back(a3);
+  	FaceGraph[4].push_back(a4);
+
+  	a1.p1 = ThreeDGraph["2"][0]; a1.p2 = ThreeDGraph["3"][0];
+  	a2.p1 = ThreeDGraph["3"][0]; a2.p2 = ThreeDGraph["8"][0];
+  	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["7"][0];
+  	a4.p1 = ThreeDGraph["7"][0]; a4.p2 = ThreeDGraph["2"][0];
+  	FaceGraph[5].push_back(a1);
+  	FaceGraph[5].push_back(a2);
+  	FaceGraph[5].push_back(a3);
+  	FaceGraph[5].push_back(a4);
+  }
   // Access specifier
   // public:
 
@@ -316,8 +623,10 @@ Vec operator*(const Mat &a, const Vec &x){
   void ThreeDGraph_class::GraphToList(bool ThreeDGraphOrPlaneProj){
     if(ThreeDGraphOrPlaneProj){
       listOfPoints.clear();
+      NewOrOldvertex.clear();
       for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
         listOfPoints.push_back(it->first);
+        NewOrOldvertex[it->first] = true;
       }
     }else{
       listOfPointsForPlane.clear();
@@ -608,24 +917,30 @@ Vec operator*(const Mat &a, const Vec &x){
     \param flag3Dfile boolean character to tell the type of file (3D/2D).
   */
   void ThreeDGraph_class::ThreeDToOrthographic(){
+    NewOrOldvertexForOrthographic = NewOrOldvertex;
+    FaceRecognition();
     // MeanNormalisation();
     TwoDGraph[0].clear();
     TwoDGraph[1].clear();
     TwoDGraph[2].clear();
-    long length = listOfPoints.size();
     for(int GraphNo = 0; GraphNo<3;GraphNo++){
+	  ThreeDGraphForOrthographic = ThreeDGraph;
+	  listOfPointsForOrthographic = listOfPoints;
+	  classifyHiddenEdge(GraphNo); // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
+      long length = listOfPoints.size();
       // TwoDGraph[0] is graph with x = 0 -> Y-Z plane
       // TwoDGraph[1] is graph with y = 0 -> X-Z plane
       // TwoDGraph[2] is graph with z = 0 -> X-Y plane
       for(int i = 0;i<length;i++){
         // Iterate over all points
-        vector<point> tempPoints = ThreeDGraph[listOfPoints[i]];
+        vector<point> tempPoints = ThreeDGraphForOrthographic[listOfPoints[i]];
         long tempSize = tempPoints.size();
         struct point myPoint = tempPoints[0];
         // if there is any other point in the list
         if(tempSize > 1){
         
           // Get combined Label
+          string originalLabel = myPoint.label;
           string tempLabel = GetLabel(myPoint, GraphNo);
           
           // If that label is not present already
@@ -635,6 +950,7 @@ Vec operator*(const Mat &a, const Vec &x){
             myPoint.coordinate[GraphNo] = 0;
             // Insert me in graph first
             TwoDGraph[GraphNo][myPoint.label].push_back(myPoint);
+            LookupForHidden2D[GraphNo][myPoint.label].push_back(true);
             // Iterate over my neighbours
             for(int j = 1;j<tempSize;j++){
               
@@ -650,10 +966,12 @@ Vec operator*(const Mat &a, const Vec &x){
                 if(TwoDGraph[GraphNo].count(tempPoints[j].label) == 0){
                   if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
                     TwoDGraph[GraphNo][myPoint.label].push_back(tempPoints[j]);
+                    LookupForHidden2D[GraphNo][myPoint.label].push_back(LookupForHidden3D[originalLabel][j]);
                   }
                 }else{
                   if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
                     TwoDGraph[GraphNo][myPoint.label].push_back(TwoDGraph[GraphNo][tempPoints[j].label][0]);
+                    LookupForHidden2D[GraphNo][myPoint.label].push_back(LookupForHidden3D[originalLabel][j]);
                   }
                 }
               }

@@ -20,6 +20,7 @@ using namespace std;
       public:
 
       // Data Members
+      map<string, vector<bool> > LookupForHidden2D[3]; /*!< This is orthographic projections hidden edges*/
       map<string, vector<point> > TwoDGraph[3]; /*!< This is the array of orthographic projections */
       map<string, vector<point> > ThreeDGraph;  /*!< This is the 3D graph */
       map<string, vector<point> > PlaneProj;
