@@ -13,14 +13,7 @@ using namespace std;
 */
 
 
-// class TwoDGraph_class{
-  // Access specifier
-  // public:
-  // Data Members
-  // map<string, vector<point> > TwoDGraph[3];/*!< This is the orthographic projections */
-  // map<string, vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
-  // map<string,vector<vector<edge> > > faceSet; /*!<This consists of the faces. It would be a dictionary with face equation as keys as values as those edges which lie in that plane*/
-
+  
   //! A Member function.
   /*!
     \sa TwoDtoThreeD()
@@ -142,34 +135,4 @@ void TwoDGraph_class::print3D(){
   }
 }
 
-
-//! A Member function.
-  /*!
-    \sa faceRecognition()
-    \param filename a string argument.
-    \param flag3Dfile boolean character to tell the type of file (3D/2D).
-  */
-  void TwoDGraph_class::faceRecognition(){
-    // set up the faceset here
-  }    
-
-//! A Member function.
-  /*!
-    \sa HiddenEdgeTest()
-    \param filename a string argument.
-    \param flag3Dfile boolean character to tell the type of file (3D/2D).
-  */
-  void TwoDGraph_class::HiddenEdgeTest(){
-    //use the face set to detect false hidden edges and remove them if found
-  }
-
-//! A Member function.
-  /*!
-    \sa FalseNodeDetect()
-    \param filename a string argument.
-    \param flag3Dfile boolean character to tell the type of file (3D/2D).
-  */
-  void TwoDGraph_class::FalseNodeDetect(){
-    //delete all the false nodes
-  }
 // };

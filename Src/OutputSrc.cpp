@@ -15,17 +15,7 @@ using namespace std;
 
     This class contains the methods to render the object on screen as well as save it in a file.
 */
-// class Output
-// {
-    // Access specifier
-    // public:
 
-    // Data Members
-    // map<string, vector<point> > TwoDGraph[3]; /*!< This is the array of orthographic projections */
-    // map<string, vector<point> > ThreeDGraph;  !< This is the 3D graph 
-    // map<string, vector<point> > PlaneProj;
-    // map<string, vector<point> > TwoDGraphTemp[3]; 
-    // map<string, vector<point> > PlaneProjTemp; 
 	  
     //! A Member function.
     /*!
@@ -38,16 +28,6 @@ using namespace std;
       QPainter p(&pi);
       p.setRenderHint(QPainter::Antialiasing);
       p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
-
-
-      // p.drawLine(0, 0, 100, 0);
-      // p.drawLine(0, 0, 0, 100);
-      // QString axisLabx = "x";
-      // QString axisLaby = "y";
-      // p.drawText(100, 5, axisLabx);
-      // p.drawText(5, 100, axisLaby);
-      
-      // p.drawLine(300, -300, -300, -300);
 
       for (map<string, vector<point> >::iterator it=PlaneProj.begin(); it!=PlaneProj.end(); ++it){
         long len = it->second.size();
@@ -71,12 +51,7 @@ using namespace std;
           if(!LookupForHidden3D[MainPoint.label][j]){
             p.drawText(it->second[j].coordinate[0]+5, it->second[j].coordinate[1]+15, lab);
             p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
-          }
-          // else{
-          //   p.setPen(QPen(Qt::black, 0, Qt::SolidLine, Qt::RoundCap));
-          //   p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
-          //   p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
-          // }        
+          }      
         }
       }
 

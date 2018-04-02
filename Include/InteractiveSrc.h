@@ -23,29 +23,8 @@ class Interactive_editor
   map<string, vector<point> > MyPlane; /*!< This is a plane */
   // pair<float,float> point; /*!< This object is to store a point's datastructure*/
   // pair<pair<float,float>,pair<float,float>> line; /*!< This object is to store a line's datastructure*/
-  bool exitYesNo; /*!< This flag is set to identify whether user has to exit*/
-  bool saved; /*!< This flag is set to identify whether user has something left to be saved*/
-  bool saveToFile;/*!< This flag is set to identify whether user has something to be saved in a file*/
-  bool save;/*!< This flag is set to identify whether user has pressed save button*/
-  bool type; /*!< Type is to tell whether it is a 3D or 2D graph here. True means 3D.*/
-  int TwoDFileNumber; /*!< This identifies the projection we are working with of 2D objects. By Default it is set to 1st projection*/
-  bool drawing; /*!< This flag is set to identify whether user wants to draw or input a file. By Default it is set to file*/
   bool lineDraw; /*!< This flag is set to identify whether user wants to draw a line or not*/
   bool erase; /*!< This flag is set to identify whether user wants to erase something or not*/
-  bool extrudeYesNo; /*!< This flag is set to identify whether user wants to extrude something or not*/
-  bool selectPlane; /*!< This flag is set to identify whether user wants to select a plane or not*/
-  bool selectPoint; /*!< This flag is set to identify whether user wants to select a point or not*/
-  bool selectLine; /*!< This flag is set to identify whether user wants to select a line or not*/
-  bool Convert2Dto3D; /*!< This flag is set to identify whether user wants to convert 2D to 3D*/
-  bool Convert3Dto2D; /*!< This flag is set to identify whether user wants to convert 3D to 2D*/
-  bool rotate; /*!< This flag is set to identify whether user wants to rotate a 3D object or not*/
-  int point1; /*!< This is a point's location on the coordinates*/
-  int point2; /*!< This is a point's location on the coordinates*/
-  int point3; /*!< This is a point's location on the coordinates*/
-  int thickness; /*!< This is the thickness of the line*/
-  int color; /*!< This is the color of the line*/
-  int height; /*!< This is the height of extrusion*/
-  int centre; /*!< This is the height of extrusion WHAT IS THIS? REPETITION3*/
   
 
   Interactive_editor();

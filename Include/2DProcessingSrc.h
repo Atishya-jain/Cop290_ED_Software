@@ -32,28 +32,5 @@ using namespace std;
       void print3D();
 
 
-  	//! A Member function.
-      /*!
-        \sa faceRecognition()
-        \param filename a string argument.
-        \param flag3Dfile boolean character to tell the type of file (3D/2D).
-      */
-      void faceRecognition();
-
-  	//! A Member function.
-      /*!
-        \sa HiddenEdgeTest()
-        \param filename a string argument.
-        \param flag3Dfile boolean character to tell the type of file (3D/2D).
-      */
-      void HiddenEdgeTest();
-
-  	//! A Member function.
-      /*!
-        \sa FalseNodeDetect()
-        \param filename a string argument.
-        \param flag3Dfile boolean character to tell the type of file (3D/2D).
-      */
-      void FalseNodeDetect();
   };
 #endif
