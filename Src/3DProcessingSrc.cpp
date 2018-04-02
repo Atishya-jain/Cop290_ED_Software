@@ -351,14 +351,23 @@ Vec operator*(const Mat &a, const Vec &x){
     return count&1;  // Same as (count%2 == 1)	
   }
 
-  void ThreeDGraph_class::InitialiseLookupForHidden3D(){
+  void ThreeDGraph_class::InitialiseLookupForHidden3D(bool IsoOr3D){
   	LookupForHidden3D.clear();
-	for (map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
-	    long len = it->second.size();
-	    for(int j=0;j<len;j++){
-	        LookupForHidden3D[it->first].push_back(false);
-	    }
-	}
+	  if(IsoOr3D){	
+		for (map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
+		    long len = it->second.size();
+		    for(int j=0;j<len;j++){
+		        LookupForHidden3D[it->first].push_back(false);
+		    }
+		}
+	  }else{
+		for (map<string, vector<point> >::iterator it=IsometricGraph.begin(); it!=IsometricGraph.end(); ++it){
+		    long len = it->second.size();
+		    for(int j=0;j<len;j++){
+		        LookupForHidden3D[it->first].push_back(false);
+		    }
+		}
+	  }
   }
 
   bool ThreeDGraph_class::lieOnLine(point p, edge a, int GraphNum){
@@ -439,28 +448,46 @@ Vec operator*(const Mat &a, const Vec &x){
   }
 
  // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
-  void ThreeDGraph_class::classifyHiddenEdge(int GraphNum){
-	InitialiseLookupForHidden3D();
+  void ThreeDGraph_class::classifyHiddenEdge(int GraphNum, bool IsoOr3D){
+	InitialiseLookupForHidden3D(IsoOr3D);
 	// int totalIntersections = 0;
 	long NoOfFaces = FaceGraph.size();
 	for (int i = 0; i < listOfPointsForOrthographic.size(); i++){
 	  	for(int j = 0;j<NoOfFaces;j++){
 	  		/*For all points traverse their neighbours*/
-	  		point myPoint = ThreeDGraphForOrthographic[listOfPointsForOrthographic[i]][0];
+	  		point myPoint;
+	  		if (IsoOr3D){
+	  			myPoint = ThreeDGraphForOrthographic[listOfPointsForOrthographic[i]][0];	  			
+	  		}else{
+	  			myPoint = IsometricGraph[listOfPoints[i]][0];	  			
+	  		}
+	  		
 	  		// cout << "FACEBElow " << j << endl;
 	  		/*check whether myPoint is inside or outside*/
 	  		bool inside = isInside(FaceGraph[j], myPoint, GraphNum);
 	  		bool behind = planeBehindOrFront(myPoint, FaceGraph[j], GraphNum);
 	  		// cout << "Face " << j << " GraphNum "  << GraphNum << " -> " << myPoint.coordinate[(GraphNum+1)%3] << " " << myPoint.coordinate[(GraphNum+1)%3] << inside << endl;
-	  		vector<point> tempPoints = ThreeDGraph[myPoint.label];
+  			vector<point> tempPoints;
+	  		if (IsoOr3D){
+	  			tempPoints = ThreeDGraph[myPoint.label];
+	  		}else{
+	  			tempPoints = IsometricGraph[myPoint.label];
+	  		}
+	  		
 	  		long tempSize = tempPoints.size();
 			if(inside && behind){  	
 		  		for(int k = 1;k<tempSize;k++){
 		  			LookupForHidden3D[myPoint.label][k] = true;
 
-		  			long temptempSize = ThreeDGraph[tempPoints[k].label].size();
-	  				vector<point> temptempPoints = ThreeDGraph[tempPoints[k].label];
-		  			
+		  			long temptempSize;
+	  				vector<point> temptempPoints;
+		  			if(IsoOr3D){
+			  			temptempSize = ThreeDGraph[tempPoints[k].label].size();
+		  				temptempPoints = ThreeDGraph[tempPoints[k].label];
+		  			}else{
+			  			temptempSize = IsometricGraph[tempPoints[k].label].size();
+		  				temptempPoints = IsometricGraph[tempPoints[k].label];
+		  			}
 		  			for(int m = 1;m<temptempSize;m++){
 		  				if((temptempPoints[m].label == myPoint.label)){
 							LookupForHidden3D[tempPoints[k].label][m] = true;
@@ -586,107 +613,107 @@ Vec operator*(const Mat &a, const Vec &x){
   	vector<edge> list;
   	edge a1,a2,a3,a4;
 
-  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
-  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["4"][0];
-  	a3.p1 = ThreeDGraph["4"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
-  	a1.p1 = ThreeDGraph["4"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
-  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
   	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
   	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
-  	// a4.p1 = ThreeDGraph["4"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
   	// list.push_back(a1);
   	// list.push_back(a2);
   	// list.push_back(a3);
-  	// list.push_back(a4);
   	// FaceGraph.push_back(list);
   	// list.clear();
 
   	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["7"][0];
-  	// a3.p1 = ThreeDGraph["7"][0]; a3.p2 = ThreeDGraph["6"][0];
-  	// a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["4"][0];
+  	// a3.p1 = ThreeDGraph["4"][0]; a3.p2 = ThreeDGraph["1"][0];
   	// list.push_back(a1);
   	// list.push_back(a2);
   	// list.push_back(a3);
-  	// list.push_back(a4);
+  	// FaceGraph.push_back(list);
+  	// list.clear();
+
+  	// a1.p1 = ThreeDGraph["4"][0]; a1.p2 = ThreeDGraph["2"][0];
+  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
+  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
+  	// list.push_back(a1);
+  	// list.push_back(a2);
+  	// list.push_back(a3);
   	// FaceGraph.push_back(list);
   	// list.clear();
 
   	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	// a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
-  	// a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["6"][0];
-  	// a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	// a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["3"][0];
+  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
   	// list.push_back(a1);
   	// list.push_back(a2);
   	// list.push_back(a3);
-  	// list.push_back(a4);
   	// FaceGraph.push_back(list);
   	// list.clear();
 
-  	// a1.p1 = ThreeDGraph["6"][0]; a1.p2 = ThreeDGraph["7"][0];
-  	// a2.p1 = ThreeDGraph["7"][0]; a2.p2 = ThreeDGraph["8"][0];
-  	// a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["5"][0];
-  	// a4.p1 = ThreeDGraph["5"][0]; a4.p2 = ThreeDGraph["6"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// list.push_back(a4);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
+  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
+  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
+  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
+  	a4.p1 = ThreeDGraph["4"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
 
-  	// a1.p1 = ThreeDGraph["3"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	// a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
-  	// a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["8"][0];
-  	// a4.p1 = ThreeDGraph["8"][0]; a4.p2 = ThreeDGraph["3"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// list.push_back(a4);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
+  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
+  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["7"][0];
+  	a3.p1 = ThreeDGraph["7"][0]; a3.p2 = ThreeDGraph["6"][0];
+  	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
 
-  	// a1.p1 = ThreeDGraph["2"][0]; a1.p2 = ThreeDGraph["3"][0];
-  	// a2.p1 = ThreeDGraph["3"][0]; a2.p2 = ThreeDGraph["8"][0];
-  	// a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["7"][0];
-  	// a4.p1 = ThreeDGraph["7"][0]; a4.p2 = ThreeDGraph["2"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// list.push_back(a4);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
+  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
+  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
+  	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["6"][0];
+  	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
+
+  	a1.p1 = ThreeDGraph["6"][0]; a1.p2 = ThreeDGraph["7"][0];
+  	a2.p1 = ThreeDGraph["7"][0]; a2.p2 = ThreeDGraph["8"][0];
+  	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["5"][0];
+  	a4.p1 = ThreeDGraph["5"][0]; a4.p2 = ThreeDGraph["6"][0];
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
+
+  	a1.p1 = ThreeDGraph["3"][0]; a1.p2 = ThreeDGraph["4"][0];
+  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
+  	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["8"][0];
+  	a4.p1 = ThreeDGraph["8"][0]; a4.p2 = ThreeDGraph["3"][0];
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
+
+  	a1.p1 = ThreeDGraph["2"][0]; a1.p2 = ThreeDGraph["3"][0];
+  	a2.p1 = ThreeDGraph["3"][0]; a2.p2 = ThreeDGraph["8"][0];
+  	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["7"][0];
+  	a4.p1 = ThreeDGraph["7"][0]; a4.p2 = ThreeDGraph["2"][0];
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
+  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
   }
   // Access specifier
   // public:
@@ -995,6 +1022,8 @@ Vec operator*(const Mat &a, const Vec &x){
         IsometricGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];
       }
     }
+    FaceRecognition();
+    classifyHiddenEdge(2, false);
   }
 
   //! A Member function.
@@ -1101,7 +1130,7 @@ Vec operator*(const Mat &a, const Vec &x){
     for(int GraphNo = 0; GraphNo<3;GraphNo++){
 	  ThreeDGraphForOrthographic = ThreeDGraph;
 	  listOfPointsForOrthographic = listOfPoints;
-	  classifyHiddenEdge(GraphNo); // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
+	  classifyHiddenEdge(GraphNo, true); // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
         
 		// print3D();
 		// cout << "--------------------------------------------------Graph " << GraphNo << " \n";

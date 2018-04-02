@@ -51,9 +51,9 @@ using namespace std;
 
     bool isInside(vector<edge> face, point p, int GraphNum);
 
-    void InitialiseLookupForHidden3D();
+    void InitialiseLookupForHidden3D(bool IsoOr3D);
 
-    void classifyHiddenEdge(int GraphNum);
+    void classifyHiddenEdge(int GraphNum, bool IsoOr3D);
 
     void FaceRecognition();
 

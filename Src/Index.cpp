@@ -49,6 +49,7 @@ void MainWindow::on_buttonUP_clicked()
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
+         O1.LookupForHidden3D = input_3d.LookupForHidden3D;
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi;
          pi = O1.RenderOutput3D(pi);
@@ -84,6 +85,7 @@ void MainWindow::on_buttonLEFT_clicked()
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
+         O1.LookupForHidden3D = input_3d.LookupForHidden3D;
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi;
          pi = O1.RenderOutput3D(pi);
@@ -119,6 +121,7 @@ void MainWindow::on_buttonRIGHT_clicked()
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
+         O1.LookupForHidden3D = input_3d.LookupForHidden3D;
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi;
          pi = O1.RenderOutput3D(pi);
@@ -154,6 +157,7 @@ void MainWindow::on_buttonDOWN_clicked()
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
+         O1.LookupForHidden3D = input_3d.LookupForHidden3D;
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi;
          pi = O1.RenderOutput3D(pi);
@@ -189,6 +193,7 @@ void MainWindow::on_buttonZplus_clicked()
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
+         O1.LookupForHidden3D = input_3d.LookupForHidden3D;
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi;
          pi = O1.RenderOutput3D(pi);
@@ -224,6 +229,7 @@ void MainWindow::on_buttonZminus_clicked()
          input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
+         O1.LookupForHidden3D = input_3d.LookupForHidden3D;
          std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
          QPicture pi;
          pi = O1.RenderOutput3D(pi);

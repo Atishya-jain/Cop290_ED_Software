@@ -69,7 +69,14 @@ using namespace std;
         for(int j=1;j<len;j++){
           lab = QString::fromStdString(it->second[j].label);
           p.drawText(it->second[j].coordinate[0]+5, it->second[j].coordinate[1]+15, lab);
-          p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
+          if(!LookupForHidden3D[MainPoint.label][j]){
+            p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
+          }
+          // else{
+          //   p.setPen(QPen(Qt::black, 0, Qt::SolidLine, Qt::RoundCap));
+          //   p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
+          //   p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
+          // }        
         }
       }
 
