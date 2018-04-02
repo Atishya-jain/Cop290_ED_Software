@@ -122,7 +122,7 @@ void Interactive_editor::eraseIt(point p1, point p2) {
   /*erases a line*/
 
   if (MyPlane.count(p1.label) != 0) {
-    for (int j = 0; j < MyPlane[p1.label].size(); j++) {
+    for (int j = 0; j < signed(MyPlane[p1.label].size()); j++) {
       if (MyPlane[p1.label][j] == p2) {
         MyPlane[p1.label].erase(MyPlane[p1.label].begin() + j);
         break;
@@ -134,7 +134,7 @@ void Interactive_editor::eraseIt(point p1, point p2) {
   }
 
   if (MyPlane.count(p2.label) != 0) {
-    for (int j = 0; j < MyPlane[p2.label].size(); j++) {
+    for (int j = 0; j < signed(MyPlane[p2.label].size()); j++) {
       if (MyPlane[p2.label][j] == p1) {
         MyPlane[p2.label].erase(MyPlane[p2.label].begin() + j);
         break;
@@ -151,7 +151,7 @@ void Interactive_editor::eraseIt(point p1, point p2) {
 void Interactive_editor::print() {
   for (std::map<string, vector<point> >::iterator it = MyPlane.begin(); it != MyPlane.end(); ++it) {
     cout << it->first + "->";
-    for (int j = 0; j < it->second.size(); j++) {
+    for (int j = 0; j < signed(it->second.size()); j++) {
       cout << it->second[j].label + " ";
     }
     cout << endl;

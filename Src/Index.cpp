@@ -320,7 +320,6 @@ int main(int argc, char *argv[]) {
     Dialog d;
     d.setModal(true);
     isFile3d = true;
-    int ch;
     isInputFile = true;
     d.exec();
 
@@ -330,7 +329,6 @@ int main(int argc, char *argv[]) {
     cout << "------INPUT------" << endl;
     if (isInputFile) {
         Input I1;
-        int x;
         I1.getFileName(filename, isFile3d);
         I1.ReadFile();
         if (isFile3d) {

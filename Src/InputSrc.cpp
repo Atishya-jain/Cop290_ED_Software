@@ -68,13 +68,12 @@ using namespace std;
             s = post;
             delimiter = " ";
             pos = 0;
-            token;
             while ((pos = s.find(delimiter)) != std::string::npos) {
               token = s.substr(0, pos);
               elems.push_back(token);
               s.erase(0, pos + delimiter.length());
             }
-            for(int j=0;j<elems.size();j++){
+            for(int j=0;j<signed(elems.size());j++){
               vector<string> newParts;
               //code to split the key into keys
               string s2 = elems[j];
@@ -132,14 +131,13 @@ using namespace std;
               s = post;
               delimiter = " ";
               pos = 0;
-              token;
               while ((pos = s.find(delimiter)) != std::string::npos) {
                 token = s.substr(0, pos);
                 elems.push_back(token);
                 s.erase(0, pos + delimiter.length());
               }
               // elems.push_back(s);   
-              for(int j=0;j<elems.size();j++){
+              for(int j=0;j<signed(elems.size());j++){
                 vector<string> newParts;
                 //code to split the key into keys
                 string s2 = elems[j];
@@ -171,7 +169,7 @@ using namespace std;
   void Input::print(){
       for (std::map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
         cout<<it->first+"->";
-        for(int j=0;j<it->second.size();j++){
+        for(int j=0;j<signed(it->second.size());j++){
           cout<<it->second[j].label << " ";
         }
         cout<<endl;
@@ -180,7 +178,7 @@ using namespace std;
   void Input::print3D(){
       for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
         cout<<it->first+"->";
-        for(int j=0;j<it->second.size();j++){
+        for(int j=0;j<signed(it->second.size());j++){
           cout<<it->second[j].print();
         }
         cout<<endl;

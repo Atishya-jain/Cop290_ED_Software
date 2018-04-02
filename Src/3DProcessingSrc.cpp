@@ -132,11 +132,11 @@ Vec operator*(const Mat &a, const Vec &x){
   }
 
   Mat ThreeDGraph_class::matrixMultiply(vector<vector<float>> mat1, vector<vector<float>> mat2){
-    long row1,col1,row2,col2;
-    row1 = mat1.size();
-    row2 = mat2.size();
-    col1 = mat1[0].size();
-    col2 = mat2[0].size();
+    // long row1,col1,row2,col2;
+    // row1 = mat1.size();
+    // row2 = mat2.size();
+    // col1 = mat1[0].size();
+    // col2 = mat2[0].size();
     return matrixAns;
   }
 
@@ -452,7 +452,7 @@ Vec operator*(const Mat &a, const Vec &x){
 	InitialiseLookupForHidden3D(IsoOr3D);
 	// int totalIntersections = 0;
 	long NoOfFaces = FaceGraph.size();
-	for (int i = 0; i < listOfPointsForOrthographic.size(); i++){
+	for (int i = 0; i < signed(listOfPointsForOrthographic.size()); i++){
 	  	for(int j = 0;j<NoOfFaces;j++){
 	  		/*For all points traverse their neighbours*/
 	  		point myPoint;
@@ -685,9 +685,9 @@ Vec operator*(const Mat &a, const Vec &x){
       // for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it)
           // tmpListPoints.push_back(it->first);
       for (std::map<string, vector<point> >::iterator it=iterateOver.begin(); it!=iterateOver.end(); ++it){
-        for(int i=1;i<it->second.size();i++){
-          for(int j=1;j<iterateOver[it->second[i].label].size();j++){
-            for(int k=1;k<iterateOver[iterateOver[it->second[i].label][j].label].size();k++){
+        for(int i=1;i<signed(it->second.size());i++){
+          for(int j=1;j<signed(iterateOver[it->second[i].label].size());j++){
+            for(int k=1;k<signed(iterateOver[iterateOver[it->second[i].label][j].label].size());k++){
               point p1 = it->second[0];
               point p2 = it->second[i];
               point p3 = iterateOver[it->second[i].label][j];
@@ -700,7 +700,7 @@ Vec operator*(const Mat &a, const Vec &x){
                 //add to planes 
                 
                 int ind=0;
-                for(;ind<listOfPlanes.size();ind++){
+                for(;ind<signed(listOfPlanes.size());ind++){
                   float v1 = listOfPlanes[ind].A*p1.coordinate[0] + listOfPlanes[ind].B*p1.coordinate[1] + listOfPlanes[ind].C*p1.coordinate[2] - listOfPlanes[ind].D;
                   float v2 = listOfPlanes[ind].A*p2.coordinate[0] + listOfPlanes[ind].B*p2.coordinate[1] + listOfPlanes[ind].C*p2.coordinate[2] - listOfPlanes[ind].D;
                   float v3 = listOfPlanes[ind].A*p3.coordinate[0] + listOfPlanes[ind].B*p3.coordinate[1] + listOfPlanes[ind].C*p3.coordinate[2] - listOfPlanes[ind].D;
@@ -709,11 +709,11 @@ Vec operator*(const Mat &a, const Vec &x){
                   // cout <<v1<<", "<<v2<<", "<<v3<<", "<<v4<<endl;
                   if((v1>-5) && (v1<5) && (v2>-5) && (v2<5) && (v3>-5) && (v3<5) && (v4>-5) && (v4<5)) break;
                 }
-                if(ind<listOfPlanes.size()){
+                if(ind<signed(listOfPlanes.size())){
                   a1.p1 = p3;
                   a1.p2 = p4;
                   bool flag = false;
-                  for(int t=0;t<toReturn[ind].size();t++){
+                  for(int t=0;t<signed(toReturn[ind].size());t++){
                     if(a1==toReturn[ind][t]){
                       flag=true;
                       break;
@@ -753,14 +753,6 @@ Vec operator*(const Mat &a, const Vec &x){
           }
         }
       }
-      vector<vector<edge> > polyFaces= toReturn;
-    cout<<polyFaces.size()<<"This is the size"<<endl;
-    for(int kk=0;kk<polyFaces.size();kk++){
-        vector<edge> E1 = polyFaces[kk];
-        for(int ll=0;ll<E1.size();ll++)
-            cout<<E1[ll].p1.print()<<" <--> "<<E1[ll].p2.print()<<endl;
-        cout<<"------------------"<<kk<<endl;
-    } 
       return toReturn;
     }
      //! A Member function.

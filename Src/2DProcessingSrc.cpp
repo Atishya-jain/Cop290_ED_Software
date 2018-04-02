@@ -42,7 +42,7 @@ void TwoDGraph_class::TwoDtoThreeD(){
             s.erase(0, pos + delimiter.length());
         }
         keys.push_back(s);
-        for(int j=0;j<keys.size();j++){
+        for(int j=0;j<signed(keys.size());j++){
           if(i==0){
             pointsList[keys[j]]=it->second[0];
             pointsList[keys[j]].label=keys[j];
@@ -76,17 +76,17 @@ void TwoDGraph_class::TwoDtoThreeD(){
           s.erase(0, pos + delimiter.length());
         }
         keys.push_back(s);
-        for(int j=0;j<keys.size();j++){
+        for(int j=0;j<signed(keys.size());j++){
           if(i==0){
             vector<point> tmp;
             ThreeDGraph[keys[j]]=tmp;
           }
           ThreeDGraph[keys[j]].push_back(pointsList[keys[j]]);
-          for(int k=0;k<keys.size();k++){
+          for(int k=0;k<signed(keys.size());k++){
             if(k==j) continue;
             ThreeDGraph[keys[j]].push_back(pointsList[keys[k]]);
           }
-          for(int k=1;k<it->second.size();k++){
+          for(int k=1;k<signed(it->second.size());k++){
             vector<string> sepKeys;
 
             //code to split the key into keys
@@ -100,7 +100,7 @@ void TwoDGraph_class::TwoDtoThreeD(){
                 s2.erase(0, pos2 + delimiter2.length());
             }
             sepKeys.push_back(s2);
-            for(int l=0;l<sepKeys.size();l++){
+            for(int l=0;l<signed(sepKeys.size());l++){
               ThreeDGraph[keys[j]].push_back(pointsList[sepKeys[l]]);
             }
           }
@@ -112,9 +112,9 @@ void TwoDGraph_class::TwoDtoThreeD(){
       // for(int j=0;j<it->second.size();j++){
         // cout<<it->second[j].label<<"*";
       // }
-      for(int i=0;i<it->second.size();i++){
+      for(int i=0;i<signed(it->second.size());i++){
         int ct=0;
-        for(int j=i+1;j<it->second.size();j++)
+        for(int j=i+1;j<signed(it->second.size());j++)
           if (it->second[j]==it->second[i]) ct++;
         if(ct==2){
           // cout<<it->first<<"*"<<endl;
@@ -127,7 +127,7 @@ void TwoDGraph_class::TwoDtoThreeD(){
 void TwoDGraph_class::print3D(){
   for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
     cout<<it->first+"->";
-    for(int j=0;j<it->second.size();j++){
+    for(int j=0;j<signed(it->second.size());j++){
       // cout<<it->second[j].label <<" ";
       cout<<it->second[j].print();
     }

@@ -165,21 +165,18 @@ using namespace std;
       p.setPen(QPen(Qt::black, 0.25, Qt::DashLine, Qt::RoundCap));
 
       for (map<string, vector<point> >::iterator it=TwoDGraphTemp[2].begin(); it!=TwoDGraphTemp[2].end(); ++it){
-        long len = it->second.size();
         point MainPoint = it->second[0];
         p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], MainPoint.coordinate[1], MainPoint.coordinate[1]);
       }
 
 
       for (map<string, vector<point> >::iterator it=TwoDGraphTemp[1].begin(); it!=TwoDGraphTemp[1].end(); ++it){
-        long len = it->second.size();
         point MainPoint = it->second[0];
         p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], MainPoint.coordinate[0], MainPoint.coordinate[0]);
       }
 
 
       for (map<string, vector<point> >::iterator it=TwoDGraphTemp[1].begin(); it!=TwoDGraphTemp[1].end(); ++it){
-        long len = it->second.size();
         point MainPoint = it->second[0];
         float targetX = TwoDGraphTemp[2][it->first][0].coordinate[0];
         float targetY = MainPoint.coordinate[1];
@@ -188,7 +185,6 @@ using namespace std;
 
 
       for (map<string, vector<point> >::iterator it=TwoDGraphTemp[2].begin(); it!=TwoDGraphTemp[2].end(); ++it){
-        long len = it->second.size();
         point MainPoint = it->second[0];
         float targetY = TwoDGraphTemp[1][it->first][0].coordinate[1];
         float targetX = MainPoint.coordinate[0];
@@ -214,7 +210,7 @@ using namespace std;
       for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
         myfile<<it->second[0].print();
         myfile<<"->";
-        for(int i=1;i<it->second.size();i++){
+        for(int i=1;i<signed(it->second.size());i++){
           myfile<<it->second[i].print();
         }
         myfile<<endl;
@@ -242,7 +238,7 @@ using namespace std;
         for (std::map<string, vector<point> >::iterator it=TwoDGraph[j].begin(); it!=TwoDGraph[j].end(); ++it){
           myfile<<it->second[0].print();
           myfile<<"->";
-          for(int i=1;i<it->second.size();i++){
+          for(int i=1;i<signed(it->second.size());i++){
             myfile<<it->second[i].print();
           }
           myfile<<endl;
