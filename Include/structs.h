@@ -13,7 +13,7 @@ using namespace std;
     	float coordinate[3];
     	string label;
         bool operator==(const point& rhs){
-            return (coordinate[0]==rhs.coordinate[0])&&(coordinate[1]==rhs.coordinate[1])&&(coordinate[2]==rhs.coordinate[2])&&(label.compare(rhs.label)==0);
+            return ((fabs(coordinate[0]-rhs.coordinate[0])<0.001)&&(fabs(coordinate[1]-rhs.coordinate[1])<0.001)&&(fabs(coordinate[2]-rhs.coordinate[2])<0.001)&&(label.compare(rhs.label)==0));
         }
         string print(){
             return label+","+to_string(coordinate[0])+","+to_string(coordinate[1])+","+to_string(coordinate[2])+" ";
@@ -69,6 +69,9 @@ using namespace std;
         point p1;
         point p2;
         bool Dotted=false;
+        bool operator==(const edge& rhs){
+            return ((p1==rhs.p1 && p2==rhs.p2)||(p1==rhs.p2 && p2==rhs.p1));
+        }
     };
     
 #endif

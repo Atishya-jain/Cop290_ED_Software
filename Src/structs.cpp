@@ -69,6 +69,9 @@ using namespace std;
         point p1;
         point p2;
         bool Dotted=false;
+        bool operator==(const edge& rhs){
+            return ((p1==rhs.p1 && p2==rhs.p2)||(p1==rhs.p2 && p2==rhs.p1));
+        }
     };
     
 #endif

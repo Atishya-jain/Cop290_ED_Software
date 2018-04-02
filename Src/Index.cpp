@@ -46,7 +46,7 @@ void MainWindow::on_buttonUP_clicked()
          tmp.p2=tmp3;
          input_3d.ModelRotation(10,tmp);
          // input_3d.MeanNormalisation();
-         input_3d.ThreeDToOrthographic();
+         // input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
          O1.LookupForHidden3D = input_3d.LookupForHidden3D;
@@ -82,7 +82,7 @@ void MainWindow::on_buttonLEFT_clicked()
          tmp.p2=tmp3;
          input_3d.ModelRotation(10,tmp);
          // input_3d.MeanNormalisation();
-         input_3d.ThreeDToOrthographic();
+         // input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
          O1.LookupForHidden3D = input_3d.LookupForHidden3D;
@@ -118,7 +118,7 @@ void MainWindow::on_buttonRIGHT_clicked()
          tmp.p2=tmp3;
          input_3d.ModelRotation(-10,tmp);
          // input_3d.MeanNormalisation();
-         input_3d.ThreeDToOrthographic();
+         // input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
          O1.LookupForHidden3D = input_3d.LookupForHidden3D;
@@ -154,7 +154,7 @@ void MainWindow::on_buttonDOWN_clicked()
          tmp.p2=tmp3;
          input_3d.ModelRotation(-10,tmp);
          // input_3d.MeanNormalisation();
-         input_3d.ThreeDToOrthographic();
+         // input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
          O1.LookupForHidden3D = input_3d.LookupForHidden3D;
@@ -190,7 +190,7 @@ void MainWindow::on_buttonZplus_clicked()
          tmp.p2=tmp3;
          input_3d.ModelRotation(10,tmp);
          // input_3d.MeanNormalisation();
-         input_3d.ThreeDToOrthographic();
+         // input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
          O1.LookupForHidden3D = input_3d.LookupForHidden3D;
@@ -226,7 +226,7 @@ void MainWindow::on_buttonZminus_clicked()
          tmp.p2=tmp3;
          input_3d.ModelRotation(-10,tmp);
          // input_3d.MeanNormalisation();
-         input_3d.ThreeDToOrthographic();
+         // input_3d.ThreeDToOrthographic();
          input_3d.Isometric();
          O1.PlaneProj = input_3d.IsometricGraph;
          O1.LookupForHidden3D = input_3d.LookupForHidden3D;
@@ -416,6 +416,17 @@ int main(int argc, char *argv[]){
 
 
   //OUTPUTTING
+  //DEBEGGING
+    vector<vector<edge> > polyFaces= input_3d.getPolygons(true);
+    // cout<<polyFaces.size()<<"!@!@!@!@"<<endl;
+    for(int kk=0;kk<polyFaces.size();kk++){
+        vector<edge> E1 = polyFaces[kk];
+        for(int ll=0;ll<E1.size();ll++)
+            cout<<E1[ll].p1.print()<<" <--> "<<E1[ll].p2.print()<<endl;
+        cout<<"------------------"<<kk<<endl;
+    } 
+
+  //DEBEGGING
 
 
   if(isFile3d==false){

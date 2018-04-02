@@ -608,112 +608,9 @@ Vec operator*(const Mat &a, const Vec &x){
 	// cout << "totalIntersections " << totalIntersections << endl;	
   }
 
-  void ThreeDGraph_class::FaceRecognition(){
+  void ThreeDGraph_class::FaceRecognition(bool ch){
   	FaceGraph.clear();
-  	vector<edge> list;
-  	edge a1,a2,a3,a4;
-
-  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
-
-  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["4"][0];
-  	// a3.p1 = ThreeDGraph["4"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
-
-  	// a1.p1 = ThreeDGraph["4"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
-
-  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	// a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
-
-  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
-  	a4.p1 = ThreeDGraph["4"][0]; a4.p2 = ThreeDGraph["1"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
-  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["7"][0];
-  	a3.p1 = ThreeDGraph["7"][0]; a3.p2 = ThreeDGraph["6"][0];
-  	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
-  	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
-  	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["6"][0];
-  	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
-  	a1.p1 = ThreeDGraph["6"][0]; a1.p2 = ThreeDGraph["7"][0];
-  	a2.p1 = ThreeDGraph["7"][0]; a2.p2 = ThreeDGraph["8"][0];
-  	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["5"][0];
-  	a4.p1 = ThreeDGraph["5"][0]; a4.p2 = ThreeDGraph["6"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
-  	a1.p1 = ThreeDGraph["3"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
-  	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["8"][0];
-  	a4.p1 = ThreeDGraph["8"][0]; a4.p2 = ThreeDGraph["3"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
-
-  	a1.p1 = ThreeDGraph["2"][0]; a1.p2 = ThreeDGraph["3"][0];
-  	a2.p1 = ThreeDGraph["3"][0]; a2.p2 = ThreeDGraph["8"][0];
-  	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["7"][0];
-  	a4.p1 = ThreeDGraph["7"][0]; a4.p2 = ThreeDGraph["2"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
+    FaceGraph = getPolygons(ch);
   }
   // Access specifier
   // public:
@@ -750,77 +647,122 @@ Vec operator*(const Mat &a, const Vec &x){
   // Vec tempLineVect;
   // Vec tempLineVectForPlane;
 
-  // bool checkSamePlane(Point p1, Point p2, Point p3, Point p4){
-  //     //returns whether they are in the same plane or not
-  //     float a = p2.coordinate[0]-p1.coordinate[0];
-  //     float b = p2.coordinate[1]-p1.coordinate[1];
-  //     float c = p2.coordinate[2]-p1.coordinate[2];
-  //     float p = p4.coordinate[0]-p3.coordinate[0];
-  //     float q = p4.coordinate[1]-p3.coordinate[1];
-  //     float r = p4.coordinate[2]-p3.coordinate[2];
+  bool ThreeDGraph_class::checkSamePlane(point p1, point p2, point p3, point p4){
+      //returns whether they are in the same plane or not
+      bool ne = !(p1==p2) && !(p2==p3) && !(p3==p4) && !(p1==p3) && !(p2==p4); 
+      float a = p2.coordinate[0]-p1.coordinate[0];
+      float b = p2.coordinate[1]-p1.coordinate[1];
+      float c = p2.coordinate[2]-p1.coordinate[2];
+      float p = p4.coordinate[0]-p3.coordinate[0];
+      float q = p4.coordinate[1]-p3.coordinate[1];
+      float r = p4.coordinate[2]-p3.coordinate[2];
 
-  //     float cpx = b*r-q*c;
-  //     float cpy = c*p-r*a;
-  //     float cpz = a*q-p*b;
-  //     float diffx = p1.x-p4.x;
-  //     float diffy = p1.y-p4.y;
-  //     float diffz = p1.z-p4.z;
+      float cpx = b*r-q*c;
+      float cpy = c*p-r*a;
+      float cpz = a*q-p*b;
+      float diffx = p1.coordinate[0]-p4.coordinate[0];
+      float diffy = p1.coordinate[1]-p4.coordinate[1];
+      float diffz = p1.coordinate[2]-p4.coordinate[2];
 
-  //     if(abs(diffx*cpx+diffy*cpy+diffz*cpz)<0.0001) return true;
-  //     else return false;
+      if(fabs(diffx*cpx+diffy*cpy+diffz*cpz)<5 && ne) return true;
+      else return false;
 
 
-  //   }
+    }
 
-  // vector<plane,<point> > getPolygons(){
-  //     // vector<string> tmpListPoints;
-  //     vector<plane> listOfPlanes;
-  //     vector<vector<point>> toReturn;
-  //     // for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it)
-  //         // tmpListPoints.push_back(it->first);
-  //     for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
-  //       for(int i=1;i<it->second.size();i++){
-  //         for(int j=1;j<ThreeDGraph[it->second[i].label].size();j++){
-  //           for(int k=1;k<ThreeDGraph[ThreeDGraph[it->second[i].label].label].size();k++){
-  //             point p1 = it->second[0];
-  //             point p2 = it->second[i];
-  //             point p3 = ThreeDGraph[it->second[i].label][j];
-  //             point p4 = ThreeDGraph[ThreeDGraph[it->second[i].label][j].label][k];
-  //             if(checkSamePlane(p1,p2,p3,p4)){
-  //               //add to planes 
-  //               float a =p1.coordinate[0]-p2.coordinate[0];
-  //               float b =p1.coordinate[1]-p2.coordinate[1];
-  //               float c =p1.coordinate[2]-p2.coordinate[2];
-  //               float p =p1.coordinate[0]-p3.coordinate[0];
-  //               float q =p1.coordinate[1]-p3.coordinate[1];
-  //               float r =p1.coordinate[2]-p3.coordinate[2];
-  //               plane Pla1;
-  //               Pla1.A = b*r-q*c;
-  //               Pla1.B = c*p-r*a;
-  //               Pla1.C = a*q-p*b;
-  //               Pla1.D = Pla1.A*p1.coordinate[0]+Pla1.B*p1.coordinate[1]+Pla1.C*p1.coordinate[2];
-  //               int ind=0;
-  //               for(;ind<listOfPlanes.size();ind++){
-  //                 if(listOfPlanes[ind]==Pla1) break;
-  //               }
-  //               if(ind<listOfPlanes.size())
-  //                 toReturn[ind].push_back(p4);
-  //         else{
-    //          vector<point> newPlane;
-              // newPlane.push_back(p1);
-              // newPlane.push_back(p2);
-              // newPlane.push_back(p3);
-              // newPlane.push_back(p4);
-              // toReturn.push_back(newPlane);
-//          } 
-  //                 //add stuff here
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
+  vector<vector<edge> > ThreeDGraph_class::getPolygons(bool ch){
+      // vector<string> tmpListPoints;
+      edge a1;
+      vector<plane> listOfPlanes;
+      vector<vector<edge> > toReturn;
+      map<string, vector<point> > iterateOver;
+      // ch=true;
+      if (ch){
+        iterateOver = ThreeDGraph;
+      }else{
+        iterateOver = IsometricGraph;
+      }
+      // for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it)
+          // tmpListPoints.push_back(it->first);
+      for (std::map<string, vector<point> >::iterator it=iterateOver.begin(); it!=iterateOver.end(); ++it){
+        for(int i=1;i<it->second.size();i++){
+          for(int j=1;j<iterateOver[it->second[i].label].size();j++){
+            for(int k=1;k<iterateOver[iterateOver[it->second[i].label][j].label].size();k++){
+              point p1 = it->second[0];
+              point p2 = it->second[i];
+              point p3 = iterateOver[it->second[i].label][j];
+              point p4 = iterateOver[iterateOver[it->second[i].label][j].label][k];
+              // cout<<p1.print()<<" -- "<<p2.print()<<" -- "<<p3.print()<<" -- "<<p4.print()<<endl;
+              // cout<<0<<" -- "<<i<<" -- "<<j<<" -- "<<k<<endl;
 
-  //   }
+              // cout<<"Size: "<<toReturn.size()<<endl;
+              if(checkSamePlane(p1,p2,p3,p4)){
+                //add to planes 
+                
+                int ind=0;
+                for(;ind<listOfPlanes.size();ind++){
+                  float v1 = listOfPlanes[ind].A*p1.coordinate[0] + listOfPlanes[ind].B*p1.coordinate[1] + listOfPlanes[ind].C*p1.coordinate[2] - listOfPlanes[ind].D;
+                  float v2 = listOfPlanes[ind].A*p2.coordinate[0] + listOfPlanes[ind].B*p2.coordinate[1] + listOfPlanes[ind].C*p2.coordinate[2] - listOfPlanes[ind].D;
+                  float v3 = listOfPlanes[ind].A*p3.coordinate[0] + listOfPlanes[ind].B*p3.coordinate[1] + listOfPlanes[ind].C*p3.coordinate[2] - listOfPlanes[ind].D;
+                  float v4 = listOfPlanes[ind].A*p4.coordinate[0] + listOfPlanes[ind].B*p4.coordinate[1] + listOfPlanes[ind].C*p4.coordinate[2] - listOfPlanes[ind].D;
+                  // cout<<listOfPlanes[ind].A<<"x+"<<listOfPlanes[ind].B<<"y+"<<listOfPlanes[ind].C<<"z="<<listOfPlanes[ind].D<<endl;
+                  // cout <<v1<<", "<<v2<<", "<<v3<<", "<<v4<<endl;
+                  if((v1>-5) && (v1<5) && (v2>-5) && (v2<5) && (v3>-5) && (v3<5) && (v4>-5) && (v4<5)) break;
+                }
+                if(ind<listOfPlanes.size()){
+                  a1.p1 = p3;
+                  a1.p2 = p4;
+                  bool flag = false;
+                  for(int t=0;t<toReturn[ind].size();t++){
+                    if(a1==toReturn[ind][t]){
+                      flag=true;
+                      break;
+                    } 
+                  }
+                  if (flag==false)
+                    toReturn[ind].push_back(a1);
+                }
+                else{
+                  float a =p1.coordinate[0]-p2.coordinate[0];
+                  float b =p1.coordinate[1]-p2.coordinate[1];
+                  float c =p1.coordinate[2]-p2.coordinate[2];
+                  float p =p1.coordinate[0]-p3.coordinate[0];
+                  float q =p1.coordinate[1]-p3.coordinate[1];
+                  float r =p1.coordinate[2]-p3.coordinate[2];
+                  plane Pla1;
+                  Pla1.A = b*r-q*c;
+                  Pla1.B = c*p-r*a;
+                  Pla1.C = a*q-p*b;
+                  Pla1.D = Pla1.A*p1.coordinate[0]+Pla1.B*p1.coordinate[1]+Pla1.C*p1.coordinate[2];
+                
+                  listOfPlanes.push_back(Pla1);
+                  vector<edge> newPlane;
+                  a1.p1 = p1;
+                  a1.p2 = p2;
+                  newPlane.push_back(a1);
+                  a1.p1 = p2;
+                  a1.p2 = p3;
+                  newPlane.push_back(a1);
+                  a1.p1 = p3;
+                  a1.p2 = p4;
+                  newPlane.push_back(a1);
+                  toReturn.push_back(newPlane);
+               } 
+              }
+            }
+          }
+        }
+      }
+      vector<vector<edge> > polyFaces= toReturn;
+    cout<<polyFaces.size()<<"This is the size"<<endl;
+    for(int kk=0;kk<polyFaces.size();kk++){
+        vector<edge> E1 = polyFaces[kk];
+        for(int ll=0;ll<E1.size();ll++)
+            cout<<E1[ll].p1.print()<<" <--> "<<E1[ll].p2.print()<<endl;
+        cout<<"------------------"<<kk<<endl;
+    } 
+      return toReturn;
+    }
      //! A Member function.
   /*!
     \sa Translation()
@@ -1030,7 +972,7 @@ Vec operator*(const Mat &a, const Vec &x){
         IsometricGraph[listOfPoints[i]][j].coordinate[2] = tempVec[2];
       }
     }
-    FaceRecognition();
+    FaceRecognition(false);
     classifyHiddenEdge(2, false);
   }
 
@@ -1131,7 +1073,7 @@ Vec operator*(const Mat &a, const Vec &x){
     LookupForHidden2D[0].clear();
     LookupForHidden2D[1].clear();
     LookupForHidden2D[2].clear();
-    FaceRecognition();
+    FaceRecognition(true);
     // MeanNormalisation();
     TwoDGraph[0].clear();
     TwoDGraph[1].clear();
@@ -1219,7 +1161,7 @@ Vec operator*(const Mat &a, const Vec &x){
 			        for(int z = 0;z<ThreeDGraph[a22].size();z++){
 			        	if(ThreeDGraph[a22][z].label == a11){
 			        		val = LookupForHidden3D[a22][z];
-			        		cout << "Val -> " << val << " GraphNum-> " << GraphNo << " label 1-> " << a22 << " label 2 -> " << a11 << endl;
+			        		// cout << "Val -> " << val << " GraphNum-> " << GraphNo << " label 1-> " << a22 << " label 2 -> " << a11 << endl;
 			        	}
 			        }
 
@@ -1257,7 +1199,7 @@ Vec operator*(const Mat &a, const Vec &x){
 			        for(int z = 0;z<ThreeDGraph[a22].size();z++){
 			        	if(ThreeDGraph[a22][z].label == a11){
 			        		val = LookupForHidden3D[a22][z];
-			        		cout << "Val -> " << val << " GraphNum-> " << GraphNo << " label 1-> " << a22 << " label 2 -> " << a11 << endl;
+			        		// cout << "Val -> " << val << " GraphNum-> " << GraphNo << " label 1-> " << a22 << " label 2 -> " << a11 << endl;
 			        	}
 			        }
 

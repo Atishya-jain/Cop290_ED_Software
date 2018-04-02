@@ -55,7 +55,7 @@ using namespace std;
 
     void classifyHiddenEdge(int GraphNum, bool IsoOr3D);
 
-    void FaceRecognition();
+    void FaceRecognition(bool ch);
 
     bool lieOnLine(point p, edge a, int GraphNum);
 
@@ -63,9 +63,14 @@ using namespace std;
 
     bool planeBehindOrFront(point p, vector<edge> face, int GraphNum);
 
+    bool checkSamePlane(point p1, point p2, point p3, point p4);
+
+
+
 
     // Access specifier
     public:
+    vector<vector<edge> > getPolygons(bool ch);
 
     ThreeDGraph_class();
   
