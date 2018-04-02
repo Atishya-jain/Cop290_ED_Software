@@ -47,11 +47,13 @@ Vec operator*(const Mat &a, const Vec &x){
     long tempSize = listOfPoints.size();
     vector< pair<float,string>> ToSort;
     ToSort.push_back(make_pair(myPoint.coordinate[GraphNo],myPoint.label));
+    digit.clear();
     for(int j = 0;j<tempSize;j++){
       point tempPoint = ThreeDGraph[listOfPoints[j]][0];
       if((abs((tempPoint.coordinate[(GraphNo+1)%3]) - (myPoint.coordinate[(GraphNo+1)%3]))<= ERRORMARGIN)&&(abs((tempPoint.coordinate[(GraphNo+2)%3]) - (myPoint.coordinate[(GraphNo+2)%3]))<= ERRORMARGIN)){
         if(abs((tempPoint.coordinate[(GraphNo)%3]) - (myPoint.coordinate[(GraphNo)%3]))>= ERRORMARGIN){
           ToSort.push_back(make_pair(tempPoint.coordinate[GraphNo],tempPoint.label));
+          digit.push_back(j);
         }
       }
     }
@@ -396,19 +398,40 @@ Vec operator*(const Mat &a, const Vec &x){
   	float y3 = face[1].p2.coordinate[1];
   	float z3 = face[1].p2.coordinate[2];
 
+  	// float a = y2*z3 - y3*z2;
+  	// float b = z2*x3 - z3*x2;
+  	// float c = x2*y3 - x3*y2;
   	float a = (y2-y1)*(z3-z1) - (z2-z1)*(y3-y1);
-  	float b = (x2-x1)*(z3-z1) - (z2-z1)*(x3-x1);
+  	float b = -1*((x2-x1)*(z3-z1) - (z2-z1)*(x3-x1));
   	float c = (x2-x1)*(y3-y1) - (y2-y1)*(x3-x1);
   	float d = a*x1 + b*y1 + c*z1;
 
+  	// cout << "-----------------------------------------------------------\n";
+  	// cout << "GraphNum " << GraphNum << endl;
+  	// cout << "x1 -> " << x1 << " y1-> " << y1 << " z1-> " << z1 << endl;
+  	// cout << "x2 -> " << x2 << " y2-> " << y2 << " z2-> " << z2 << endl;
+  	// cout << "x3 -> " << x3 << " y3-> " << y3 << " z3-> " << z3 << endl;
   	float ans1 = a*p.coordinate[0] + b*p.coordinate[1] + c*p.coordinate[2] - d;
-  	if((GraphNum == 0) && (a <= 0.00001)){
+  	// cout << "x -> " << p.coordinate[0] << " y-> " << p.coordinate[1] << " z-> " << p.coordinate[2] << endl;
+  	p.coordinate[GraphNum] = -1000000;
+  	float ans2 = a*p.coordinate[0] + b*p.coordinate[1] + c*p.coordinate[2] - d;
+  	float finalAns;
+  	if((ans1 >= 5) || (ans1 <= -5)){
+  		finalAns = ans2/ans1;
+  		// cout << "a -> " << a << " b-> " << b << " c-> " << c << " d -> " << d << endl;
+  		// cout << "Label here "<< p.label << " " << ans1 << " \n";
+  		// cout << "finalAns " << finalAns << endl;
+  	}else{
   		return false;
-  	}else if((GraphNum == 1) && (b <= 0.00001)){
+  	}
+  	if((GraphNum == 0) && ((a <= 0.00001) && (a >= -0.00001))){
   		return false;
-  	}else if((GraphNum == 2) && (c <= 0.00001)){
+  	}else if((GraphNum == 1) && ((b <= 0.00001) && (b >= -0.00001))){
   		return false;
-  	}else if((ans1 < -0.1)){
+  	}else if((GraphNum == 2) && ((c <= 0.00001) && (c >= -0.00001))){
+  		return false;
+  	}else if((finalAns > 0.1)){
+  		// cout << "Yippe I am Here\n";
   		return true;
   	}else{
   		return false;
@@ -424,7 +447,7 @@ Vec operator*(const Mat &a, const Vec &x){
 	  	for(int j = 0;j<NoOfFaces;j++){
 	  		/*For all points traverse their neighbours*/
 	  		point myPoint = ThreeDGraphForOrthographic[listOfPointsForOrthographic[i]][0];
-	  		
+	  		// cout << "FACEBElow " << j << endl;
 	  		/*check whether myPoint is inside or outside*/
 	  		bool inside = isInside(FaceGraph[j], myPoint, GraphNum);
 	  		bool behind = planeBehindOrFront(myPoint, FaceGraph[j], GraphNum);
@@ -563,107 +586,107 @@ Vec operator*(const Mat &a, const Vec &x){
   	vector<edge> list;
   	edge a1,a2,a3,a4;
 
-  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
-
-  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["4"][0];
-  	// a3.p1 = ThreeDGraph["4"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
-
-  	// a1.p1 = ThreeDGraph["4"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
-
-  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	// a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
-  	// list.push_back(a1);
-  	// list.push_back(a2);
-  	// list.push_back(a3);
-  	// FaceGraph.push_back(list);
-  	// list.clear();
-
   	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
   	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
-  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
-  	a4.p1 = ThreeDGraph["4"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
   	list.push_back(a1);
   	list.push_back(a2);
   	list.push_back(a3);
-  	list.push_back(a4);
   	FaceGraph.push_back(list);
   	list.clear();
 
   	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
-  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["7"][0];
-  	a3.p1 = ThreeDGraph["7"][0]; a3.p2 = ThreeDGraph["6"][0];
-  	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["4"][0];
+  	a3.p1 = ThreeDGraph["4"][0]; a3.p2 = ThreeDGraph["1"][0];
   	list.push_back(a1);
   	list.push_back(a2);
   	list.push_back(a3);
-  	list.push_back(a4);
+  	FaceGraph.push_back(list);
+  	list.clear();
+
+  	a1.p1 = ThreeDGraph["4"][0]; a1.p2 = ThreeDGraph["2"][0];
+  	a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
+  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
+  	list.push_back(a1);
+  	list.push_back(a2);
+  	list.push_back(a3);
   	FaceGraph.push_back(list);
   	list.clear();
 
   	a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
-  	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["6"][0];
-  	a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["3"][0];
+  	a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["1"][0];
   	list.push_back(a1);
   	list.push_back(a2);
   	list.push_back(a3);
-  	list.push_back(a4);
   	FaceGraph.push_back(list);
   	list.clear();
 
-  	a1.p1 = ThreeDGraph["6"][0]; a1.p2 = ThreeDGraph["7"][0];
-  	a2.p1 = ThreeDGraph["7"][0]; a2.p2 = ThreeDGraph["8"][0];
-  	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["5"][0];
-  	a4.p1 = ThreeDGraph["5"][0]; a4.p2 = ThreeDGraph["6"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
+  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
+  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["3"][0];
+  	// a3.p1 = ThreeDGraph["3"][0]; a3.p2 = ThreeDGraph["4"][0];
+  	// a4.p1 = ThreeDGraph["4"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	// list.push_back(a1);
+  	// list.push_back(a2);
+  	// list.push_back(a3);
+  	// list.push_back(a4);
+  	// FaceGraph.push_back(list);
+  	// list.clear();
 
-  	a1.p1 = ThreeDGraph["3"][0]; a1.p2 = ThreeDGraph["4"][0];
-  	a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
-  	a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["8"][0];
-  	a4.p1 = ThreeDGraph["8"][0]; a4.p2 = ThreeDGraph["3"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
+  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["2"][0];
+  	// a2.p1 = ThreeDGraph["2"][0]; a2.p2 = ThreeDGraph["7"][0];
+  	// a3.p1 = ThreeDGraph["7"][0]; a3.p2 = ThreeDGraph["6"][0];
+  	// a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	// list.push_back(a1);
+  	// list.push_back(a2);
+  	// list.push_back(a3);
+  	// list.push_back(a4);
+  	// FaceGraph.push_back(list);
+  	// list.clear();
 
-  	a1.p1 = ThreeDGraph["2"][0]; a1.p2 = ThreeDGraph["3"][0];
-  	a2.p1 = ThreeDGraph["3"][0]; a2.p2 = ThreeDGraph["8"][0];
-  	a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["7"][0];
-  	a4.p1 = ThreeDGraph["7"][0]; a4.p2 = ThreeDGraph["2"][0];
-  	list.push_back(a1);
-  	list.push_back(a2);
-  	list.push_back(a3);
-  	list.push_back(a4);
-  	FaceGraph.push_back(list);
-  	list.clear();
+  	// a1.p1 = ThreeDGraph["1"][0]; a1.p2 = ThreeDGraph["4"][0];
+  	// a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
+  	// a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["6"][0];
+  	// a4.p1 = ThreeDGraph["6"][0]; a4.p2 = ThreeDGraph["1"][0];
+  	// list.push_back(a1);
+  	// list.push_back(a2);
+  	// list.push_back(a3);
+  	// list.push_back(a4);
+  	// FaceGraph.push_back(list);
+  	// list.clear();
+
+  	// a1.p1 = ThreeDGraph["6"][0]; a1.p2 = ThreeDGraph["7"][0];
+  	// a2.p1 = ThreeDGraph["7"][0]; a2.p2 = ThreeDGraph["8"][0];
+  	// a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["5"][0];
+  	// a4.p1 = ThreeDGraph["5"][0]; a4.p2 = ThreeDGraph["6"][0];
+  	// list.push_back(a1);
+  	// list.push_back(a2);
+  	// list.push_back(a3);
+  	// list.push_back(a4);
+  	// FaceGraph.push_back(list);
+  	// list.clear();
+
+  	// a1.p1 = ThreeDGraph["3"][0]; a1.p2 = ThreeDGraph["4"][0];
+  	// a2.p1 = ThreeDGraph["4"][0]; a2.p2 = ThreeDGraph["5"][0];
+  	// a3.p1 = ThreeDGraph["5"][0]; a3.p2 = ThreeDGraph["8"][0];
+  	// a4.p1 = ThreeDGraph["8"][0]; a4.p2 = ThreeDGraph["3"][0];
+  	// list.push_back(a1);
+  	// list.push_back(a2);
+  	// list.push_back(a3);
+  	// list.push_back(a4);
+  	// FaceGraph.push_back(list);
+  	// list.clear();
+
+  	// a1.p1 = ThreeDGraph["2"][0]; a1.p2 = ThreeDGraph["3"][0];
+  	// a2.p1 = ThreeDGraph["3"][0]; a2.p2 = ThreeDGraph["8"][0];
+  	// a3.p1 = ThreeDGraph["8"][0]; a3.p2 = ThreeDGraph["7"][0];
+  	// a4.p1 = ThreeDGraph["7"][0]; a4.p2 = ThreeDGraph["2"][0];
+  	// list.push_back(a1);
+  	// list.push_back(a2);
+  	// list.push_back(a3);
+  	// list.push_back(a4);
+  	// FaceGraph.push_back(list);
+  	// list.clear();
   }
   // Access specifier
   // public:
@@ -1079,17 +1102,17 @@ Vec operator*(const Mat &a, const Vec &x){
 	  ThreeDGraphForOrthographic = ThreeDGraph;
 	  listOfPointsForOrthographic = listOfPoints;
 	  classifyHiddenEdge(GraphNo); // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
-
-	print3D();
-    cout << "--------------------------------------------------Graph " << GraphNo << " \n";
-    for (std::map<string, vector<bool> >::iterator it=LookupForHidden3D.begin(); it!=LookupForHidden3D.end(); ++it){
-      cout << it->first << " -> ";
-      for(int i = 0;i< it->second.size();i++){
-      	cout<< it->second[i] << " ";      	
-      }
-      cout<<endl;
-    }
-      
+        
+		// print3D();
+		// cout << "--------------------------------------------------Graph " << GraphNo << " \n";
+		// for (std::map<string, vector<bool> >::iterator it=LookupForHidden3D.begin(); it!=LookupForHidden3D.end(); ++it){
+		//   cout << it->first << " -> ";
+		//   for(int i = 0;i< it->second.size();i++){
+		//   	cout<< it->second[i] << " ";      	
+		//   }
+		//   cout<<endl;
+		// }
+         
       long length = listOfPoints.size();
       // TwoDGraph[0] is graph with x = 0 -> Y-Z plane
       // TwoDGraph[1] is graph with y = 0 -> X-Z plane
@@ -1107,7 +1130,8 @@ Vec operator*(const Mat &a, const Vec &x){
           string tempLabel = GetLabel(myPoint, GraphNo);
           
           // If that label is not present already
-          if(TwoDGraph[GraphNo].count(tempLabel) == 0){
+          // if(TwoDGraph[GraphNo].count(tempLabel) == 0){
+            
             // change my label
             myPoint.label = tempLabel;
             myPoint.coordinate[GraphNo] = 0;
@@ -1124,22 +1148,89 @@ Vec operator*(const Mat &a, const Vec &x){
                 tempPoints[j].label = GetLabel(tempPoints[j], GraphNo);
                 // Reduce coordinate to 0
                 tempPoints[j].coordinate[GraphNo] = 0;
-
+            
                 // If that combined label is not present already then add else join edge with pre existing label
                 if(TwoDGraph[GraphNo].count(tempPoints[j].label) == 0){
                   if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
                     TwoDGraph[GraphNo][myPoint.label].push_back(tempPoints[j]);
-                    LookupForHidden2D[GraphNo][myPoint.label].push_back(LookupForHidden3D[originalLabel][j]);
+                    
+                    bool val = true;
+        			vector<string> keys;
+    		        string s = tempPoints[j].label;
+			        string delimiter = "^";
+			        size_t pos = s.find(delimiter);
+			        string token;
+			        // while ((pos = s.find(delimiter)) != std::string::npos) {
+			          token = s.substr(0, pos);
+			          keys.push_back(token);
+			          s.erase(0, pos + delimiter.length());
+			        // }
+			        string a11 = token;
+			        keys.clear();
+
+    		        s = myPoint.label;
+			        pos = s.find(delimiter);
+			        token = "";
+			        // while ((pos = s.find(delimiter)) != std::string::npos) {
+			          token = s.substr(0, pos);
+			          keys.push_back(token);
+			          s.erase(0, pos + delimiter.length());
+			        // }
+			        string a22 = token;
+
+			        for(int z = 0;z<ThreeDGraph[a22].size();z++){
+			        	if(ThreeDGraph[a22][z].label == a11){
+			        		val = LookupForHidden3D[a22][z];
+			        		cout << "Val -> " << val << " GraphNum-> " << GraphNo << " label 1-> " << a22 << " label 2 -> " << a11 << endl;
+			        	}
+			        }
+
+                    LookupForHidden2D[GraphNo][myPoint.label].push_back(val);
+                  	
                   }
                 }else{
                   if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
                     TwoDGraph[GraphNo][myPoint.label].push_back(TwoDGraph[GraphNo][tempPoints[j].label][0]);
-                    LookupForHidden2D[GraphNo][myPoint.label].push_back(LookupForHidden3D[originalLabel][j]);
+                    
+ 					bool val = true;
+        			vector<string> keys;
+    		        string s = tempPoints[j].label;
+			        string delimiter = "^";
+			        size_t pos = s.find(delimiter);
+			        string token;
+			        // while ((pos = s.find(delimiter)) != std::string::npos) {
+			          token = s.substr(0, pos);
+			          keys.push_back(token);
+			          s.erase(0, pos + delimiter.length());
+			        // }
+			        string a11 = token;
+			        keys.clear();
+
+    		        s = myPoint.label;
+			        pos = s.find(delimiter);
+			        token = "";
+			        // while ((pos = s.find(delimiter)) != std::string::npos) {
+			          token = s.substr(0, pos);
+			          keys.push_back(token);
+			          s.erase(0, pos + delimiter.length());
+			        // }
+			        string a22 = token;
+
+			        for(int z = 0;z<ThreeDGraph[a22].size();z++){
+			        	if(ThreeDGraph[a22][z].label == a11){
+			        		val = LookupForHidden3D[a22][z];
+			        		cout << "Val -> " << val << " GraphNum-> " << GraphNo << " label 1-> " << a22 << " label 2 -> " << a11 << endl;
+			        	}
+			        }
+
+                    LookupForHidden2D[GraphNo][myPoint.label].push_back(val);
+
+                    // LookupForHidden2D[GraphNo][myPoint.label].push_back(LookupForHidden3D[originalLabel][j]);
                   }
                 }
               }
             }
-          }
+          // }
         }
       }
     }
@@ -1151,17 +1242,6 @@ Vec operator*(const Mat &a, const Vec &x){
     //   }
     //   cout<<endl;
     // }
-  }
-
-  //! A Member function.
-  /*!
-    returns true if edge = solid line else false
-    \sa HiddenEdgeCheck()
-    \param edge a string argument.
-  */
-  bool ThreeDGraph_class::HiddenEdgeCheck(edge line){
-    /* returns true if edge = solid line else false*/
-    return true;
   }
 
   void ThreeDGraph_class::print(){

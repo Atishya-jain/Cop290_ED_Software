@@ -90,7 +90,7 @@ using namespace std;
     Vec tempLineVectForPlane;
     map<string, bool > NewOrOldvertex; /*!< This is the 3D graph representation of hidden edges*/
     map<string, bool > NewOrOldvertexForOrthographic; /*!< This is the 3D graph representation of hidden edges*/
-
+    vector<char> digit; /*!< To store the coincident labels in a view for a particular vertex*/
 
     //! A Member function.
     /*!

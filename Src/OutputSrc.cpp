@@ -150,7 +150,7 @@ using namespace std;
         }
       }
 
-      p.setPen(QPen(Qt::black, 1, Qt::DashLine, Qt::RoundCap));
+      p.setPen(QPen(Qt::black, 0.75, Qt::DashLine, Qt::RoundCap));
       
       for(int i = 0;i<3;i++){
         for (map<string, vector<point> >::iterator it=TwoDGraphTemp[i].begin(); it!=TwoDGraphTemp[i].end(); ++it){
@@ -166,21 +166,21 @@ using namespace std;
               // true = hidden
               p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
             }else{
-              p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
+              p.setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
               p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
-              p.setPen(QPen(Qt::black, 1, Qt::DashLine, Qt::RoundCap));
+              p.setPen(QPen(Qt::black, 0.75, Qt::DashLine, Qt::RoundCap));
             }
           }
         }
       }
 
-      p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
+      p.setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
       p.drawLine(0,-300,0,300);
       p.drawLine(-300,0,300,0);
       p.setPen(QPen(Qt::black, 1.5, Qt::SolidLine, Qt::RoundCap));
       p.drawLine(0,0,-300,-300);
 
-      p.setPen(QPen(Qt::black, 0.5, Qt::DashLine, Qt::RoundCap));
+      p.setPen(QPen(Qt::black, 0.25, Qt::DashLine, Qt::RoundCap));
 
       for (map<string, vector<point> >::iterator it=TwoDGraphTemp[2].begin(); it!=TwoDGraphTemp[2].end(); ++it){
         long len = it->second.size();
