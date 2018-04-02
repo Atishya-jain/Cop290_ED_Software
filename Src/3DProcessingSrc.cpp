@@ -1033,6 +1033,7 @@ Vec operator*(const Mat &a, const Vec &x){
     \param equationOfPlane this defines the plane on which projection has to be taken.
   */
   map<string, vector<point> > ThreeDGraph_class::PlanarProjection(bool view, plane equationOfPlane){
+    InitialiseLookupForHidden3D(true);
     map<string, vector<point> > tempProj;
     
     long siz = listOfPoints.size();

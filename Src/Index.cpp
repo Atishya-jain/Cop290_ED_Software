@@ -255,6 +255,7 @@ void MainWindow::on_buttonPlane_clicked()
     tmpPlane.C = ui->Cz->toPlainText().toFloat();
     tmpPlane.D = ui->Dd->toPlainText().toFloat();
     map<string, vector<point> > planPro = input_3d.PlanarProjection(true,tmpPlane);
+    O2.LookupForHidden3D = input_3d.LookupForHidden3D;
     O2.PlaneProj = planPro;
     QPicture pi3;
     pi3 = O2.RenderOutput3D(pi3);
