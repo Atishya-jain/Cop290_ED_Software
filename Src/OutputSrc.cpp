@@ -64,12 +64,12 @@ using namespace std;
       for (map<string, vector<point> >::iterator it=PlaneProjTemp.begin(); it!=PlaneProjTemp.end(); ++it){
         long len = it->second.size();
         QString lab = QString::fromStdString(it->first);
-        p.drawText(it->second[0].coordinate[0]+5, it->second[0].coordinate[1]+15, lab);
+        // p.drawText(it->second[0].coordinate[0]+5, it->second[0].coordinate[1]+15, lab);
         point MainPoint = it->second[0];
         for(int j=1;j<len;j++){
           lab = QString::fromStdString(it->second[j].label);
-          p.drawText(it->second[j].coordinate[0]+5, it->second[j].coordinate[1]+15, lab);
           if(!LookupForHidden3D[MainPoint.label][j]){
+            p.drawText(it->second[j].coordinate[0]+5, it->second[j].coordinate[1]+15, lab);
             p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
           }
           // else{
