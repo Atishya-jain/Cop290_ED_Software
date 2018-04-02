@@ -295,8 +295,10 @@ void InteractiveInput::on_draw_clicked()
     Itmp.GraphToList(true);
     // Itmp.MeanNormalisation();
     Itmp.Isometric();
+    Itmp.InitialiseLookupForHidden3D(false);
     Output Otmp;
     Otmp.PlaneProj=Itmp.IsometricGraph;
+    Otmp.LookupForHidden3D = Itmp.LookupForHidden3D;
     QPicture pi;
     pi = Otmp.RenderOutput3D(pi);
     ui->label->setPicture(pi);
@@ -321,8 +323,10 @@ void InteractiveInput::on_erase_clicked()
     Itmp.GraphToList(true);
     // Itmp.MeanNormalisation();
     Itmp.Isometric();
+    Itmp.InitialiseLookupForHidden3D(false);
     Output Otmp;
     Otmp.PlaneProj=Itmp.IsometricGraph;
+    Otmp.LookupForHidden3D = Itmp.LookupForHidden3D;
     QPicture pi;
     pi = Otmp.RenderOutput3D(pi);
     ui->label->setPicture(pi);
@@ -417,14 +421,14 @@ int main(int argc, char *argv[]){
 
   //OUTPUTTING
   //DEBEGGING
-    vector<vector<edge> > polyFaces= input_3d.getPolygons(true);
-    // cout<<polyFaces.size()<<"!@!@!@!@"<<endl;
-    for(int kk=0;kk<polyFaces.size();kk++){
-        vector<edge> E1 = polyFaces[kk];
-        for(int ll=0;ll<E1.size();ll++)
-            cout<<E1[ll].p1.print()<<" <--> "<<E1[ll].p2.print()<<endl;
-        cout<<"------------------"<<kk<<endl;
-    } 
+    // vector<vector<edge> > polyFaces= input_3d.getPolygons(true);
+    // // cout<<polyFaces.size()<<"!@!@!@!@"<<endl;
+    // for(int kk=0;kk<polyFaces.size();kk++){
+    //     vector<edge> E1 = polyFaces[kk];
+    //     for(int ll=0;ll<E1.size();ll++)
+    //         cout<<E1[ll].p1.print()<<" <--> "<<E1[ll].p2.print()<<endl;
+    //     cout<<"------------------"<<kk<<endl;
+    // } 
 
   //DEBEGGING
 
@@ -526,14 +530,21 @@ int main(int argc, char *argv[]){
   cout<<"saving in output.txt ";
   if(isFile3d){
         copy(begin(input_3d.TwoDGraph), end(input_3d.TwoDGraph), begin(O1.TwoDGraph));
+        // copy(begin(input_3d.LookupForHidden2D), end(input_3d.LookupForHidden2D), begin(O1.LookupForHidden2D));
         O1.saveToFile2D("output.txt");
     }
   else{
-    O1.ThreeDGraph = input_3d.ThreeDGraph;
-    O1.saveToFile3D("output.txt");
+        O1.ThreeDGraph = input_3d.ThreeDGraph;
+        O1.saveToFile3D("output.txt");
     }
-    w.ui->buttonUP->click();
-    w.ui->buttonDOWN->click();
+    cout<<"TILL HE"<<endl;
+    if(isInputFile){
+        w.ui->buttonUP->click();
+        w.ui->buttonDOWN->click();
+    }else{
+        w.ui->buttonZplus->click();
+        w.ui->buttonZminus->click();
+    }
     w.show();
       cout<<"Thanks for using our software"<<endl;
       return a.exec();

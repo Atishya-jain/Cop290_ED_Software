@@ -46,7 +46,7 @@ class Interactive_editor
   int color; /*!< This is the color of the line*/
   int height; /*!< This is the height of extrusion*/
   int centre; /*!< This is the height of extrusion WHAT IS THIS? REPETITION3*/
-
+  
 
   Interactive_editor();
     /*!

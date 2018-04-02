@@ -51,8 +51,6 @@ using namespace std;
 
     bool isInside(vector<edge> face, point p, int GraphNum);
 
-    void InitialiseLookupForHidden3D(bool IsoOr3D);
-
     void classifyHiddenEdge(int GraphNum, bool IsoOr3D);
 
     void FaceRecognition(bool ch);
@@ -71,6 +69,7 @@ using namespace std;
     // Access specifier
     public:
     vector<vector<edge> > getPolygons(bool ch);
+    void InitialiseLookupForHidden3D(bool IsoOr3D);
 
     ThreeDGraph_class();
   

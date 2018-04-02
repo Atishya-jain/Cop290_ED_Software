@@ -162,7 +162,8 @@ int main(int argc, char *argv[]){
     input_3d.ThreeDToOrthographic();  
     cout<<"Do you want to do model rotation?(y/n): ";
     char mdlt;
-    cin>>mdlt;
+    cin >> mdlt;
+    cout<<"mdlt is "<<mdlt<<endl;
 
 		edge tmp;
 	  	point tmp2;
@@ -217,6 +218,7 @@ int main(int argc, char *argv[]){
 	input_3d.MeanNormalisation();
     input_3d.ThreeDToOrthographic();
     input_3d.Isometric();
+    O1.LookupForHidden3D = input_3d.LookupForHidden3D;
 	O1.PlaneProj = input_3d.IsometricGraph;
 	std::copy(std::begin(input_3d.TwoDGraph), std::end(input_3d.TwoDGraph), std::begin(O1.TwoDGraph));
     std::copy(std::begin(input_3d.LookupForHidden2D), std::end(input_3d.LookupForHidden2D), std::begin(O1.LookupForHidden2D));
@@ -238,7 +240,7 @@ int main(int argc, char *argv[]){
 		map<string, vector<point> > planPro = input_3d.PlanarProjection(true,tmp);
 		Output O2;
 		O2.PlaneProj = planPro;
-		
+		O2.LookupForHidden3D = input_3d.LookupForHidden3D;
 		pi3 = O2.RenderOutput3D(pi3);
 		l3.setPicture(pi3);
 		l3.show();
