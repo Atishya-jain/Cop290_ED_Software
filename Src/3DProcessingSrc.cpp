@@ -785,7 +785,7 @@ Vec operator*(const Mat &a, const Vec &x){
   //             point p1 = it->second[0];
   //             point p2 = it->second[i];
   //             point p3 = ThreeDGraph[it->second[i].label][j];
-  //             point p4 = ThreeDGraph[ThreeDGraph[it->second[i].label].label][k];
+  //             point p4 = ThreeDGraph[ThreeDGraph[it->second[i].label][j].label][k];
   //             if(checkSamePlane(p1,p2,p3,p4)){
   //               //add to planes 
   //               float a =p1.coordinate[0]-p2.coordinate[0];
@@ -804,7 +804,15 @@ Vec operator*(const Mat &a, const Vec &x){
   //                 if(listOfPlanes[ind]==Pla1) break;
   //               }
   //               if(ind<listOfPlanes.size())
-  //                 toReturn.push_back(p4);
+  //                 toReturn[ind].push_back(p4);
+  //         else{
+    //          vector<point> newPlane;
+              // newPlane.push_back(p1);
+              // newPlane.push_back(p2);
+              // newPlane.push_back(p3);
+              // newPlane.push_back(p4);
+              // toReturn.push_back(newPlane);
+//          } 
   //                 //add stuff here
   //             }
   //           }
