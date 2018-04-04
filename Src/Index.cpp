@@ -391,8 +391,7 @@ int main(int argc, char *argv[]) {
     }
     if (isInputFile) {
         w.ui->buttonUP->click();
-        w.ui->buttonDOWN->click();
-        w.ui->buttonLEFT->click();
+        w.ui->buttonRIGHT->click();
     } else {
         w.ui->buttonZplus->click();
         w.ui->buttonZminus->click();
