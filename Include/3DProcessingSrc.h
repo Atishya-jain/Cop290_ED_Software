@@ -35,8 +35,6 @@ using namespace std;
 
     bool present(vector<point> myList, string myLabel);
 
-    Mat matrixMultiply(vector<vector<float>> mat1, vector<vector<float>> mat2);
-
     Mat createMatrix();
 
     void specificRotation(float angle, int choiceAxis, Vec Aline, bool GraphOrLine, bool ThreeDGraphOrPlaneProj);
@@ -144,7 +142,7 @@ using namespace std;
       \param view to specify the viewing direction wrt origin.
       \param equationOfPlane this defines the plane on which projection has to be taken.
     */
-    map<string, vector<point> > PlanarProjection(bool view, plane equationOfPlane);
+    map<string, vector<point> > PlanarProjection(plane equationOfPlane);
 
     //! A Member function.
     /*!

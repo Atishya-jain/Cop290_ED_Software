@@ -131,15 +131,6 @@ Vec operator*(const Mat &a, const Vec &x){
     return false;
   }
 
-  Mat ThreeDGraph_class::matrixMultiply(vector<vector<float>> mat1, vector<vector<float>> mat2){
-    // long row1,col1,row2,col2;
-    // row1 = mat1.size();
-    // row2 = mat2.size();
-    // col1 = mat1[0].size();
-    // col2 = mat2[0].size();
-    return matrixAns;
-  }
-
   Mat ThreeDGraph_class::createMatrix(){
     Mat tempMatrix;
     for(int i = 0;i<4;i++){
@@ -246,7 +237,6 @@ Vec operator*(const Mat &a, const Vec &x){
   	if(denom >= .00001){
 	  	temp.coordinate[(GraphNum+1)%3] = (c1*b2 - c2*b1)/denom;
 	  	temp.coordinate[(GraphNum+2)%3] = -1.0*((c1*a2 - c2*a1)/denom);
-	  	// cout << "lets See " << temp.coordinate[(GraphNum+1)%3] << " " << temp.coordinate[(GraphNum+2)%3] << endl;
   	}
 	if((((my1.p1.coordinate[(GraphNum+1)%3]) - (temp.coordinate[(GraphNum+1)%3])) <= .00001) && (((my1.p1.coordinate[(GraphNum+2)%3]) - (temp.coordinate[(GraphNum+2)%3])) <= .00001)){
 		temp.label = my1.p1.label;
@@ -407,29 +397,17 @@ Vec operator*(const Mat &a, const Vec &x){
   	float y3 = face[1].p2.coordinate[1];
   	float z3 = face[1].p2.coordinate[2];
 
-  	// float a = y2*z3 - y3*z2;
-  	// float b = z2*x3 - z3*x2;
-  	// float c = x2*y3 - x3*y2;
   	float a = (y2-y1)*(z3-z1) - (z2-z1)*(y3-y1);
   	float b = -1*((x2-x1)*(z3-z1) - (z2-z1)*(x3-x1));
   	float c = (x2-x1)*(y3-y1) - (y2-y1)*(x3-x1);
   	float d = a*x1 + b*y1 + c*z1;
 
-  	// cout << "-----------------------------------------------------------\n";
-  	// cout << "GraphNum " << GraphNum << endl;
-  	// cout << "x1 -> " << x1 << " y1-> " << y1 << " z1-> " << z1 << endl;
-  	// cout << "x2 -> " << x2 << " y2-> " << y2 << " z2-> " << z2 << endl;
-  	// cout << "x3 -> " << x3 << " y3-> " << y3 << " z3-> " << z3 << endl;
   	float ans1 = a*p.coordinate[0] + b*p.coordinate[1] + c*p.coordinate[2] - d;
-  	// cout << "x -> " << p.coordinate[0] << " y-> " << p.coordinate[1] << " z-> " << p.coordinate[2] << endl;
   	p.coordinate[GraphNum] = -1000000;
   	float ans2 = a*p.coordinate[0] + b*p.coordinate[1] + c*p.coordinate[2] - d;
   	float finalAns;
   	if((ans1 >= 5) || (ans1 <= -5)){
   		finalAns = ans2/ans1;
-  		// cout << "a -> " << a << " b-> " << b << " c-> " << c << " d -> " << d << endl;
-  		// cout << "Label here "<< p.label << " " << ans1 << " \n";
-  		// cout << "finalAns " << finalAns << endl;
   	}else{
   		return false;
   	}
@@ -440,7 +418,6 @@ Vec operator*(const Mat &a, const Vec &x){
   	}else if((GraphNum == 2) && ((c <= 0.00001) && (c >= -0.00001))){
   		return false;
   	}else if((finalAns > 0.1)){
-  		// cout << "Yippe I am Here\n";
   		return true;
   	}else{
   		return false;
@@ -450,7 +427,6 @@ Vec operator*(const Mat &a, const Vec &x){
  // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
   void ThreeDGraph_class::classifyHiddenEdge(int GraphNum, bool IsoOr3D){
 	InitialiseLookupForHidden3D(IsoOr3D);
-	// int totalIntersections = 0;
 	long NoOfFaces = FaceGraph.size();
 	for (int i = 0; i < signed(listOfPointsForOrthographic.size()); i++){
 	  	for(int j = 0;j<NoOfFaces;j++){
@@ -462,12 +438,10 @@ Vec operator*(const Mat &a, const Vec &x){
 	  			myPoint = IsometricGraph[listOfPoints[i]][0];	  			
 	  		}
 	  		
-	  		// cout << "FACEBElow " << j << endl;
 	  		/*check whether myPoint is inside or outside*/
 	  		bool inside = isInside(FaceGraph[j], myPoint, GraphNum);
 	  		bool behind = planeBehindOrFront(myPoint, FaceGraph[j], GraphNum);
-	  		// cout << "Face " << j << " GraphNum "  << GraphNum << " -> " << myPoint.coordinate[(GraphNum+1)%3] << " " << myPoint.coordinate[(GraphNum+1)%3] << inside << endl;
-  			vector<point> tempPoints;
+			vector<point> tempPoints;
 	  		if (IsoOr3D){
 	  			tempPoints = ThreeDGraph[myPoint.label];
 	  		}else{
@@ -605,7 +579,6 @@ Vec operator*(const Mat &a, const Vec &x){
 	  	// 	}
 	  	}	
 	}
-	// cout << "totalIntersections " << totalIntersections << endl;	
   }
 
   void ThreeDGraph_class::FaceRecognition(bool ch){
@@ -632,21 +605,6 @@ Vec operator*(const Mat &a, const Vec &x){
     matrixB[2][2] = cos(45*PI/180);
   }
 
-  // Data Members
-  // map<string, vector<point> > ThreeDGraph; /*!< This is the 3D graph representation */
-  // map<string, vector<point> > IsometricGraph; /*!< This is the Isometric graph representation */
-  // map<string, vector<point> > TwoDGraph[3]; /*!< This is orthographic projections */
-  // map<string, vector<point> > PlaneProj; /*!< This is planar projection of 3D graph when requested */
-  // vector<string> listOfPoints;/*!< This is list of points available in 3D graph */
-  // vector<string> listOfPointsForPlane;/*!< This is list of points available in planar Projection */
-  // Mat matrixAns;/*!< This is answer calculated after matrix computations */
-  // Mat matrix[3]; /*!< This is matrix for rotating about specific axis */
-  // Mat matrixA; /*!< This is matrix for rotating about specific axis */
-  // Mat matrixB; /*!< This is matrix for rotating about specific axis */
-  // edge tempLineAns;
-  // Vec tempLineVect;
-  // Vec tempLineVectForPlane;
-
   bool ThreeDGraph_class::checkSamePlane(point p1, point p2, point p3, point p4){
       //returns whether they are in the same plane or not
       bool ne = !(p1==p2) && !(p2==p3) && !(p3==p4) && !(p1==p3) && !(p2==p4); 
@@ -671,19 +629,16 @@ Vec operator*(const Mat &a, const Vec &x){
     }
 
   vector<vector<edge> > ThreeDGraph_class::getPolygons(bool ch){
-      // vector<string> tmpListPoints;
       edge a1;
       vector<plane> listOfPlanes;
       vector<vector<edge> > toReturn;
       map<string, vector<point> > iterateOver;
-      // ch=true;
       if (ch){
         iterateOver = ThreeDGraph;
       }else{
         iterateOver = IsometricGraph;
       }
-      // for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it)
-          // tmpListPoints.push_back(it->first);
+    
       for (std::map<string, vector<point> >::iterator it=iterateOver.begin(); it!=iterateOver.end(); ++it){
         for(int i=1;i<signed(it->second.size());i++){
           for(int j=1;j<signed(iterateOver[it->second[i].label].size());j++){
@@ -692,10 +647,7 @@ Vec operator*(const Mat &a, const Vec &x){
               point p2 = it->second[i];
               point p3 = iterateOver[it->second[i].label][j];
               point p4 = iterateOver[iterateOver[it->second[i].label][j].label][k];
-              // cout<<p1.print()<<" -- "<<p2.print()<<" -- "<<p3.print()<<" -- "<<p4.print()<<endl;
-              // cout<<0<<" -- "<<i<<" -- "<<j<<" -- "<<k<<endl;
-
-              // cout<<"Size: "<<toReturn.size()<<endl;
+    
               if(checkSamePlane(p1,p2,p3,p4)){
                 //add to planes 
                 
@@ -705,8 +657,6 @@ Vec operator*(const Mat &a, const Vec &x){
                   float v2 = listOfPlanes[ind].A*p2.coordinate[0] + listOfPlanes[ind].B*p2.coordinate[1] + listOfPlanes[ind].C*p2.coordinate[2] - listOfPlanes[ind].D;
                   float v3 = listOfPlanes[ind].A*p3.coordinate[0] + listOfPlanes[ind].B*p3.coordinate[1] + listOfPlanes[ind].C*p3.coordinate[2] - listOfPlanes[ind].D;
                   float v4 = listOfPlanes[ind].A*p4.coordinate[0] + listOfPlanes[ind].B*p4.coordinate[1] + listOfPlanes[ind].C*p4.coordinate[2] - listOfPlanes[ind].D;
-                  // cout<<listOfPlanes[ind].A<<"x+"<<listOfPlanes[ind].B<<"y+"<<listOfPlanes[ind].C<<"z="<<listOfPlanes[ind].D<<endl;
-                  // cout <<v1<<", "<<v2<<", "<<v3<<", "<<v4<<endl;
                   if((v1>-5) && (v1<5) && (v2>-5) && (v2<5) && (v3>-5) && (v3<5) && (v4>-5) && (v4<5)) break;
                 }
                 if(ind<signed(listOfPlanes.size())){
@@ -866,6 +816,7 @@ Vec operator*(const Mat &a, const Vec &x){
       specificRotation(angleY,1,tempLineVect,true,true);
 
       specificRotation(angle,2,tempLineVect,true,true);
+    
       // Inverse Transformations
       tempLineVect.clear();
       specificRotation(-1*angleY,1,tempLineVect,true,true);
@@ -974,7 +925,7 @@ Vec operator*(const Mat &a, const Vec &x){
     \param view to specify the viewing direction wrt origin.
     \param equationOfPlane this defines the plane on which projection has to be taken.
   */
-  map<string, vector<point> > ThreeDGraph_class::PlanarProjection(bool view, plane equationOfPlane){
+  map<string, vector<point> > ThreeDGraph_class::PlanarProjection(plane equationOfPlane){
     InitialiseLookupForHidden3D(true);
     map<string, vector<point> > tempProj;
     
@@ -1038,7 +989,6 @@ Vec operator*(const Mat &a, const Vec &x){
     tempLineVectForPlane.push_back(1);
 
     PlaneProj = tempProj;
-    print();
     GraphToList(false);
 
     // calculate angleX
@@ -1074,17 +1024,7 @@ Vec operator*(const Mat &a, const Vec &x){
 	  ThreeDGraphForOrthographic = ThreeDGraph;
 	  listOfPointsForOrthographic = listOfPoints;
 	  classifyHiddenEdge(GraphNo, true); // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
-        
-		// print3D();
-		// cout << "--------------------------------------------------Graph " << GraphNo << " \n";
-		// for (std::map<string, vector<bool> >::iterator it=LookupForHidden3D.begin(); it!=LookupForHidden3D.end(); ++it){
-		//   cout << it->first << " -> ";
-		//   for(int i = 0;i< it->second.size();i++){
-		//   	cout<< it->second[i] << " ";      	
-		//   }
-		//   cout<<endl;
-		// }
-         
+
       long length = listOfPoints.size();
       // TwoDGraph[0] is graph with x = 0 -> Y-Z plane
       // TwoDGraph[1] is graph with y = 0 -> X-Z plane
@@ -1101,9 +1041,6 @@ Vec operator*(const Mat &a, const Vec &x){
           string originalLabel = myPoint.label;
           string tempLabel = GetLabel(myPoint, GraphNo);
           
-          // If that label is not present already
-          // if(TwoDGraph[GraphNo].count(tempLabel) == 0){
-            
             // change my label
             myPoint.label = tempLabel;
             myPoint.coordinate[GraphNo] = 0;
@@ -1132,33 +1069,26 @@ Vec operator*(const Mat &a, const Vec &x){
 			        string delimiter = "^";
 			        size_t pos = s.find(delimiter);
 			        string token;
-			        // while ((pos = s.find(delimiter)) != std::string::npos) {
-			          token = s.substr(0, pos);
-			          keys.push_back(token);
-			          s.erase(0, pos + delimiter.length());
-			        // }
+			        token = s.substr(0, pos);
+			        keys.push_back(token);
+	                s.erase(0, pos + delimiter.length());
 			        string a11 = token;
 			        keys.clear();
 
     		        s = myPoint.label;
 			        pos = s.find(delimiter);
 			        token = "";
-			        // while ((pos = s.find(delimiter)) != std::string::npos) {
-			          token = s.substr(0, pos);
-			          keys.push_back(token);
-			          s.erase(0, pos + delimiter.length());
-			        // }
+		            token = s.substr(0, pos);
+		            keys.push_back(token);
+		            s.erase(0, pos + delimiter.length());
 			        string a22 = token;
 
-			        for(int z = 0;z<ThreeDGraph[a22].size();z++){
+			        for(int z = 0;z<signed(ThreeDGraph[a22].size());z++){
 			        	if(ThreeDGraph[a22][z].label == a11){
 			        		val = LookupForHidden3D[a22][z];
-			        		// cout << "Val -> " << val << " GraphNum-> " << GraphNo << " label 1-> " << a22 << " label 2 -> " << a11 << endl;
 			        	}
 			        }
-
                     LookupForHidden2D[GraphNo][myPoint.label].push_back(val);
-                  	
                   }
                 }else{
                   if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
@@ -1170,50 +1100,33 @@ Vec operator*(const Mat &a, const Vec &x){
 			        string delimiter = "^";
 			        size_t pos = s.find(delimiter);
 			        string token;
-			        // while ((pos = s.find(delimiter)) != std::string::npos) {
-			          token = s.substr(0, pos);
-			          keys.push_back(token);
-			          s.erase(0, pos + delimiter.length());
-			        // }
+		            token = s.substr(0, pos);
+		            keys.push_back(token);
+		            s.erase(0, pos + delimiter.length());
 			        string a11 = token;
 			        keys.clear();
 
     		        s = myPoint.label;
 			        pos = s.find(delimiter);
 			        token = "";
-			        // while ((pos = s.find(delimiter)) != std::string::npos) {
-			          token = s.substr(0, pos);
-			          keys.push_back(token);
-			          s.erase(0, pos + delimiter.length());
-			        // }
-			        string a22 = token;
+		            token = s.substr(0, pos);
+		            keys.push_back(token);
+		            s.erase(0, pos + delimiter.length());
+		            string a22 = token;
 
-			        for(int z = 0;z<ThreeDGraph[a22].size();z++){
+			        for(int z = 0;z<signed(ThreeDGraph[a22].size());z++){
 			        	if(ThreeDGraph[a22][z].label == a11){
 			        		val = LookupForHidden3D[a22][z];
-			        		// cout << "Val -> " << val << " GraphNum-> " << GraphNo << " label 1-> " << a22 << " label 2 -> " << a11 << endl;
 			        	}
 			        }
-
                     LookupForHidden2D[GraphNo][myPoint.label].push_back(val);
-
-                    // LookupForHidden2D[GraphNo][myPoint.label].push_back(LookupForHidden3D[originalLabel][j]);
                   }
                 }
               }
-            }
-          // }
+        	}
         }
       }
     }
-    // cout << "--------------------------------------------------\n";
-    // for (std::map<string, vector<bool> >::iterator it=LookupForHidden2D[0].begin(); it!=LookupForHidden2D[0].end(); ++it){
-    //   cout << it->first << " -> ";
-    //   for(int i = 0;i< it->second.size();i++){
-    //   	cout<< it->second[i] << " ";      	
-    //   }
-    //   cout<<endl;
-    // }
   }
 
   void ThreeDGraph_class::print(){
@@ -1226,7 +1139,7 @@ Vec operator*(const Mat &a, const Vec &x){
   void ThreeDGraph_class::print3D(){
     for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
       cout<<it->first+"->";
-      for(int j=0;j<it->second.size();j++){
+      for(int j=0;j<signed(it->second.size());j++){
         cout<<it->second[j].print();
       }
       cout<<endl;

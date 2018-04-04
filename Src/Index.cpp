@@ -230,7 +230,7 @@ void MainWindow::on_buttonPlane_clicked()
     tmpPlane.B = ui->By->toPlainText().toFloat();
     tmpPlane.C = ui->Cz->toPlainText().toFloat();
     tmpPlane.D = ui->Dd->toPlainText().toFloat();
-    map<string, vector<point> > planPro = input_3d.PlanarProjection(true, tmpPlane);
+    map<string, vector<point> > planPro = input_3d.PlanarProjection(tmpPlane);
     O2.LookupForHidden3D = input_3d.LookupForHidden3D;
     O2.PlaneProj = planPro;
     QPicture pi3;
@@ -389,10 +389,10 @@ int main(int argc, char *argv[]) {
         O1.ThreeDGraph = input_3d.ThreeDGraph;
         O1.saveToFile3D("output.txt");
     }
-    cout << "TILL HE" << endl;
     if (isInputFile) {
         w.ui->buttonUP->click();
         w.ui->buttonDOWN->click();
+        w.ui->buttonLEFT->click();
     } else {
         w.ui->buttonZplus->click();
         w.ui->buttonZminus->click();

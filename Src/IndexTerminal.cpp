@@ -233,7 +233,7 @@ int main(int argc, char *argv[]) {
 		tmp.B = b;
 		tmp.C = c;
 		tmp.D = d;
-		map<string, vector<point> > planPro = input_3d.PlanarProjection(true, tmp);
+		map<string, vector<point> > planPro = input_3d.PlanarProjection(tmp);
 		Output O2;
 		O2.PlaneProj = planPro;
 		O2.LookupForHidden3D = input_3d.LookupForHidden3D;
