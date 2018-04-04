@@ -248,7 +248,6 @@ Vec operator*(const Mat &a, const Vec &x){
 		temp.label = my2.p1.label;
 	}else{
 		temp.label = "Point " + lab;
-		NewOrOldvertexForOrthographic[temp.label] = false;
 	}
   	
   	return temp;
@@ -469,116 +468,8 @@ Vec operator*(const Mat &a, const Vec &x){
 		  			}
 		  		}
 	  		}
-	  		// }else{
-	  		// 	for(int k = 1;k<tempSize;k++){
-		  	// 		long temptempSize = ThreeDGraph[tempPoints[k].label].size();
-	  		// 		vector<point> temptempPoints = ThreeDGraph[tempPoints[k].label];
-		  			
-		  	// 		for(int m = 1;m<temptempSize;m++){
-		  	// 			if((temptempPoints[m].label == myPoint.label) && (LookupForHidden3D[tempPoints[k].label][m])){
-					// 		LookupForHidden3D[myPoint.label][k] = true;
-		  	// 			}		  			
-		  	// 		}
-		  	// 	}
-	  		// }
-	  	// 	for(int k = 1;k<tempSize;k++){
-
-	  	// 		/*Now check whether this line intersects any of face edges or not*/
-				// // make an edge of myPoint and neighbour
-				// // edge temp;
-				// // temp.p1 = myPoint;
-				// // temp.p2 = tempPoints[k];
-				// // long noOfIntersections = 0;
-				// // long NoEdgeslength = FaceGraph[j].size();
-				// // vector< pair< float, point>> newPts;
-				// // for(int l = 0;l<NoEdgeslength;l++){
-				// // 	if(planeBehindOrFront(myPoint, FaceGraph[j], GraphNum)){
-				// // 		if(doIntersect(temp, FaceGraph[j][l], GraphNum) && !(lieOnLine(temp.p1, FaceGraph[j][l], GraphNum) && lieOnLine(temp.p2, FaceGraph[j][l], GraphNum)) && !(lieOnLine(FaceGraph[j][l].p1, temp, GraphNum) && lieOnLine(FaceGraph[j][l].p2, temp, GraphNum) && (distancePts(temp.p1,temp.p2,GraphNum) >= 0.0001) && (distancePts(FaceGraph[j][l].p1,FaceGraph[j][l].p2,GraphNum) >= 0.0001))){
-				// // 			// cout << "YO " << l << endl;
-				// // 			// if(){
-
-				// // 			// }
-		  // // 					cout << "Face " << j << " GraphNum "  << GraphNum << "Edge " << l << " -> " << myPoint.coordinate[(GraphNum+1)%3] << " " << myPoint.coordinate[(GraphNum+2)%3] << "Pt 2 " << temp.p2.coordinate[(GraphNum+1)%3] << " " << temp.p2.coordinate[(GraphNum+2)%3] << inside << endl;
-				// // 			// point that lies on the intersection of these 2 segments
-				// // 			point trickyPoint = getIntersect(temp, FaceGraph[j][l], GraphNum, totalIntersections);
-				// // 			float tempDist = sqrt(pow((myPoint.coordinate[(GraphNum+1)%3] - trickyPoint.coordinate[(GraphNum+1)%3]),2)+pow((myPoint.coordinate[(GraphNum+2)%3] - trickyPoint.coordinate[(GraphNum+2)%3]),2));
-				// // 			cout << "tempDist " << tempDist << endl;
-				// // 			// Now we insert this point in the listOfPointsForOrthographic and also modify ThreeDGraphForOrthographic
-				// // 			if(tempDist >= 0.01){
-				// // 				noOfIntersections++;
-				// // 				totalIntersections++;				
-				// // 				newPts.push_back(make_pair(tempDist ,trickyPoint));
-				// // 			}
-				// // 			// Label will be Point counter
-							
-				// // 			// if(!NewOrOldvertex[trickyPoint.label]){
-				// // 				// listOfPointsForOrthographic.push_back(trickyPoint.label);
-							
-				// // 			// temp	// ThreeDGraphForOrthographic[myPoint.label].push_back(trickyPoint);
-							
-				// // 				// ThreeDGraphForOrthographic[tempPoints[k].label].push_back(trickyPoint);
-							
-				// // 				// TwoDGraph[GraphNum][trickyPoint.]
-				// // 				// ThreeDGraphForOrthographic[trickyPoint.label].push_back(trickyPoint);
-				// // 				// ThreeDGraphForOrthographic[trickyPoint.label].push_back(trickyPoint);
-				// // 			// }	
-				// // 		}
-				// // 	}
-				// // }
-				// // cout << "noOfIntersections " << noOfIntersections << endl;
-				// // if(noOfIntersections > 0){
-				// // 	sort(newPts.begin(), newPts.end(), sortbyfir);
-				// // 	bool startDash;
-				// // 	if(inside){
-				// // 		startDash = true;
-				// // 	}else{
-				// // 		startDash = false;
-				// // 	}
-				// // 	if(!NewOrOldvertexForOrthographic[newPts[0].second.label]){
-				// // 		ThreeDGraphForOrthographic[myPoint.label].push_back(newPts[0].second);
-				// // 		LookupForHidden3D[myPoint.label].push_back(startDash);
-				// // 		TwoDGraph[GraphNum][newPts[0].second.label].push_back(newPts[0].second);
-				// // 		LookupForHidden2D[GraphNum][newPts[0].second.label].push_back(false);
-				// // 	}else{
-				// // 		for(int m = 1;m<ThreeDGraphForOrthographic[myPoint.label].size();m++){
-				// // 			if(ThreeDGraphForOrthographic[myPoint.label][m].label == newPts[0].second.label){
-				// // 				// ThreeDToOrthographic[myPoint.label].push_back(newPts[0].second);
-				// // 				LookupForHidden3D[myPoint.label][m] = startDash;					
-				// // 			}
-				// // 		}	
-				// // 	}
-				// // 	startDash = !startDash;
-				// // 	for(int l = 1;l<newPts.size();l++){
-						
-				// // 		string tempLabel = newPts[l-1].second.label;
-				// // 		// ThreeDToOrthographic[tempLabel].push_back(newPts[l].second);
-				// // 		// LookupForHidden3D[tempLabel].push_back(startDash);
-				// // 		if(!NewOrOldvertexForOrthographic[newPts[l].second.label]){
-				// // 			ThreeDGraphForOrthographic[tempLabel].push_back(newPts[l].second);
-				// // 			LookupForHidden3D[tempLabel].push_back(startDash);
-				// // 			if (!NewOrOldvertexForOrthographic[tempLabel]){
-				// // 				TwoDGraph[GraphNum][tempLabel].push_back(newPts[l].second);
-				// // 				LookupForHidden2D[GraphNum][tempLabel].push_back(startDash);
-				// // 			}
-				// // 			TwoDGraph[GraphNum][newPts[l].second.label].push_back(newPts[l].second);
-				// // 			LookupForHidden2D[GraphNum][newPts[l].second.label].push_back(false);
-				// // 		}else{
-				// // 			for(int m = 1;m<ThreeDGraphForOrthographic[tempLabel].size();m++){
-				// // 				if(ThreeDGraphForOrthographic[tempLabel][m].label == newPts[l].second.label){
-				// // 					if (!NewOrOldvertexForOrthographic[tempLabel]){
-				// // 						TwoDGraph[GraphNum][tempLabel].push_back(newPts[l].second);
-				// // 						LookupForHidden2D[GraphNum][tempLabel].push_back(startDash);
-				// // 					}		// ThreeDToOrthographic[myPoint.label].push_back(newPts[0].second);
-				// // 					LookupForHidden3D[tempLabel][m] = startDash;					
-				// // 				}
-				// // 			}	
-				// // 		}
-				// // 		startDash = !startDash;
-				// // 	}
-				// // }
-	  	// 	}
 	  	}	
-	}
+	  }
   }
 
   void ThreeDGraph_class::FaceRecognition(bool ch){
@@ -714,10 +605,8 @@ Vec operator*(const Mat &a, const Vec &x){
   void ThreeDGraph_class::GraphToList(bool ThreeDGraphOrPlaneProj){
     if(ThreeDGraphOrPlaneProj){
       listOfPoints.clear();
-      NewOrOldvertex.clear();
       for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
         listOfPoints.push_back(it->first);
-        NewOrOldvertex[it->first] = true;
       }
     }else{
       listOfPointsForPlane.clear();
@@ -1011,7 +900,6 @@ Vec operator*(const Mat &a, const Vec &x){
     \param flag3Dfile boolean character to tell the type of file (3D/2D).
   */
   void ThreeDGraph_class::ThreeDToOrthographic(){
-    NewOrOldvertexForOrthographic = NewOrOldvertex;
     LookupForHidden2D[0].clear();
     LookupForHidden2D[1].clear();
     LookupForHidden2D[2].clear();
@@ -1024,7 +912,6 @@ Vec operator*(const Mat &a, const Vec &x){
 	  ThreeDGraphForOrthographic = ThreeDGraph;
 	  listOfPointsForOrthographic = listOfPoints;
 	  classifyHiddenEdge(GraphNo, true); // will make listOfPointsForOrthographic, ThreeDGraphForOrthographic, LookupForHidden3D
-
       long length = listOfPoints.size();
       // TwoDGraph[0] is graph with x = 0 -> Y-Z plane
       // TwoDGraph[1] is graph with y = 0 -> X-Z plane
