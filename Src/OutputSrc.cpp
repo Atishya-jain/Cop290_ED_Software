@@ -44,7 +44,6 @@ using namespace std;
       for (map<string, vector<point> >::iterator it=PlaneProjTemp.begin(); it!=PlaneProjTemp.end(); ++it){
         long len = it->second.size();
         QString lab = QString::fromStdString(it->first);
-        // p.drawText(it->second[0].coordinate[0]+5, it->second[0].coordinate[1]+15, lab);
         point MainPoint = it->second[0];
         for(int j=1;j<len;j++){
           lab = QString::fromStdString(it->second[j].label);
@@ -143,9 +142,7 @@ using namespace std;
           for(int j=1;j<len;j++){
             lab = QString::fromStdString(it->second[j].label);
             p.drawText(it->second[j].coordinate[0]+5, it->second[j].coordinate[1]+15, lab);
-            // cout << "Yippe " << LookupForHidden2D[i][it->first][j] << endl;
             if(LookupForHidden2D[i][it->first][j]){
-              // true = hidden
               p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], it->second[j].coordinate[0], it->second[j].coordinate[1]);
             }else{
               p.setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
@@ -176,19 +173,73 @@ using namespace std;
       }
 
 
-      for (map<string, vector<point> >::iterator it=TwoDGraphTemp[1].begin(); it!=TwoDGraphTemp[1].end(); ++it){
+      for (map<string, vector<point> >::iterator it=TwoDGraphTemp[0].begin(); it!=TwoDGraphTemp[0].end(); ++it){
         point MainPoint = it->second[0];
-        float targetX = TwoDGraphTemp[2][it->first][0].coordinate[0];
-        float targetY = MainPoint.coordinate[1];
-        p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], targetX, targetY);
-      }
 
-
-      for (map<string, vector<point> >::iterator it=TwoDGraphTemp[2].begin(); it!=TwoDGraphTemp[2].end(); ++it){
-        point MainPoint = it->second[0];
-        float targetY = TwoDGraphTemp[1][it->first][0].coordinate[1];
-        float targetX = MainPoint.coordinate[0];
-        p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], targetX, targetY);
+        string key=it->first;
+        vector<string> keys;
+        string s = key;
+        string delimiter = "^";
+        size_t pos = 0;
+        string token;
+        while ((pos = s.find(delimiter)) != std::string::npos) {
+          token = s.substr(0, pos);
+          keys.push_back(token);
+          s.erase(0, pos + delimiter.length());
+        }
+        keys.push_back(s);
+        for(int z = 0;z<keys.size();z++){
+          bool found = false;
+          for(map<string, vector<point> >::iterator it1=TwoDGraphTemp[1].begin(); it1!=TwoDGraphTemp[1].end(); ++it1){
+            string key1=it1->first;
+            vector<string> keys1;
+            string s1 = key1;
+            string delimiter1 = "^";
+            size_t pos1 = 0;
+            string token1;
+            while ((pos1 = s1.find(delimiter1)) != std::string::npos) {
+              token1 = s1.substr(0, pos1);
+              keys1.push_back(token1);
+              s1.erase(0, pos1 + delimiter1.length());
+            }
+            keys1.push_back(s1);
+            for(int x = 0;x<keys1.size();x++){
+              if(keys1[x] == keys[z]){
+                p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], TwoDGraphTemp[1][it1->first][0].coordinate[0],TwoDGraphTemp[1][it1->first][0].coordinate[1]);
+                found = true;
+                break;
+              }
+            }
+            if(found){
+              break;
+            }            
+          }
+          found = false;
+          for(map<string, vector<point> >::iterator it1=TwoDGraphTemp[2].begin(); it1!=TwoDGraphTemp[2].end(); ++it1){
+            string key1=it1->first;
+            vector<string> keys1;
+            string s1 = key1;
+            string delimiter1 = "^";
+            size_t pos1 = 0;
+            string token1;
+            while ((pos1 = s1.find(delimiter1)) != std::string::npos) {
+              token1 = s1.substr(0, pos1);
+              keys1.push_back(token1);
+              s1.erase(0, pos1 + delimiter1.length());
+            }
+            keys1.push_back(s1);
+            for(int x = 0;x<keys1.size();x++){
+              if(keys1[x] == keys[z]){
+                p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], TwoDGraphTemp[2][it1->first][0].coordinate[0],TwoDGraphTemp[2][it1->first][0].coordinate[1]);
+                found = true;
+                break;
+              }
+            }
+            if(found){
+              break;
+            }            
+          }
+        }
       }
       p.end();
       return pi;      

@@ -37,7 +37,6 @@ void TwoDGraph_class::TwoDtoThreeD(){
         string token;
         while ((pos = s.find(delimiter)) != std::string::npos) {
             token = s.substr(0, pos);
-            // cout << token << endl;
             keys.push_back(token);
             s.erase(0, pos + delimiter.length());
         }
@@ -109,15 +108,11 @@ void TwoDGraph_class::TwoDtoThreeD(){
     }
     for(std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
       vector<point> tmp;
-      // for(int j=0;j<it->second.size();j++){
-        // cout<<it->second[j].label<<"*";
-      // }
       for(int i=0;i<signed(it->second.size());i++){
         int ct=0;
         for(int j=i+1;j<signed(it->second.size());j++)
           if (it->second[j]==it->second[i]) ct++;
         if(ct==2){
-          // cout<<it->first<<"*"<<endl;
           tmp.push_back(it->second[i]);
         }
       }
@@ -128,11 +123,8 @@ void TwoDGraph_class::print3D(){
   for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
     cout<<it->first+"->";
     for(int j=0;j<signed(it->second.size());j++){
-      // cout<<it->second[j].label <<" ";
       cout<<it->second[j].print();
     }
     cout<<endl;
   }
 }
-
-// };

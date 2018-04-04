@@ -951,61 +951,60 @@ Vec operator*(const Mat &a, const Vec &x){
                     TwoDGraph[GraphNo][myPoint.label].push_back(tempPoints[j]);
                     
                     bool val = true;
-        			vector<string> keys;
-    		        string s = tempPoints[j].label;
-			        string delimiter = "^";
-			        size_t pos = s.find(delimiter);
-			        string token;
-			        token = s.substr(0, pos);
-			        keys.push_back(token);
-	                s.erase(0, pos + delimiter.length());
-			        string a11 = token;
-			        keys.clear();
+              			vector<string> keys;
+        		        string s = tempPoints[j].label;
+      			        string delimiter = "^";
+      			        size_t pos = s.find(delimiter);
+      			        string token;
+      			        token = s.substr(0, pos);
+      			        keys.push_back(token);
+  	                s.erase(0, pos + delimiter.length());
+      			        string a11 = token;
+      			        keys.clear();
 
-    		        s = myPoint.label;
-			        pos = s.find(delimiter);
-			        token = "";
-		            token = s.substr(0, pos);
-		            keys.push_back(token);
-		            s.erase(0, pos + delimiter.length());
-			        string a22 = token;
+        		        s = myPoint.label;
+      			        pos = s.find(delimiter);
+      			        token = "";
+    		            token = s.substr(0, pos);
+    		            keys.push_back(token);
+    		            s.erase(0, pos + delimiter.length());
+      			        string a22 = token;
 
-			        for(int z = 0;z<signed(ThreeDGraph[a22].size());z++){
-			        	if(ThreeDGraph[a22][z].label == a11){
-			        		val = LookupForHidden3D[a22][z];
-			        	}
-			        }
+      			        for(int z = 0;z<signed(ThreeDGraph[a22].size());z++){
+      			        	if(ThreeDGraph[a22][z].label == a11){
+      			        		val = LookupForHidden3D[a22][z];
+      			        	}
+      			        }
                     LookupForHidden2D[GraphNo][myPoint.label].push_back(val);
                   }
                 }else{
                   if(!present(TwoDGraph[GraphNo][myPoint.label], tempPoints[j].label)){
-                    TwoDGraph[GraphNo][myPoint.label].push_back(TwoDGraph[GraphNo][tempPoints[j].label][0]);
-                    
- 					bool val = true;
-        			vector<string> keys;
-    		        string s = tempPoints[j].label;
-			        string delimiter = "^";
-			        size_t pos = s.find(delimiter);
-			        string token;
-		            token = s.substr(0, pos);
-		            keys.push_back(token);
-		            s.erase(0, pos + delimiter.length());
-			        string a11 = token;
-			        keys.clear();
+                    TwoDGraph[GraphNo][myPoint.label].push_back(TwoDGraph[GraphNo][tempPoints[j].label][0]);             
+           					bool val = true;
+                			vector<string> keys;
+          		        string s = tempPoints[j].label;
+        			        string delimiter = "^";
+        			        size_t pos = s.find(delimiter);
+        			        string token;
+      		            token = s.substr(0, pos);
+      		            keys.push_back(token);
+      		            s.erase(0, pos + delimiter.length());
+        			        string a11 = token;
+        			        keys.clear();
 
-    		        s = myPoint.label;
-			        pos = s.find(delimiter);
-			        token = "";
-		            token = s.substr(0, pos);
-		            keys.push_back(token);
-		            s.erase(0, pos + delimiter.length());
-		            string a22 = token;
+          		        s = myPoint.label;
+        			        pos = s.find(delimiter);
+        			        token = "";
+      		            token = s.substr(0, pos);
+      		            keys.push_back(token);
+      		            s.erase(0, pos + delimiter.length());
+      		            string a22 = token;
 
-			        for(int z = 0;z<signed(ThreeDGraph[a22].size());z++){
-			        	if(ThreeDGraph[a22][z].label == a11){
-			        		val = LookupForHidden3D[a22][z];
-			        	}
-			        }
+        			        for(int z = 0;z<signed(ThreeDGraph[a22].size());z++){
+        			        	if(ThreeDGraph[a22][z].label == a11){
+        			        		val = LookupForHidden3D[a22][z];
+        			        	}
+        			        }
                     LookupForHidden2D[GraphNo][myPoint.label].push_back(val);
                   }
                 }
