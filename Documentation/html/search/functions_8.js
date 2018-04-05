@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['readfile',['ReadFile',['../classInput.html#a9d9395f68b01faa00f962791878723a2',1,'Input']]],
-  ['renderoutput2d',['RenderOutput2D',['../classOutput.html#aabbc20a5012e08ef1d242c2800ba8421',1,'Output']]],
-  ['renderoutput3d',['RenderOutput3D',['../classOutput.html#aac99693b73661bf4af821aa5d32094ea',1,'Output']]]
+  ['savetofile2d',['saveToFile2D',['../classOutput.html#ae97e0cb97e7d7b5a8d2b044319a2f5b9',1,'Output']]],
+  ['savetofile3d',['saveToFile3D',['../classOutput.html#a23f2365e8a4f60a0845de5e637266588',1,'Output']]],
+  ['scaling',['Scaling',['../classThreeDGraph__class.html#afa131e00002ddff96be961a903e2c589',1,'ThreeDGraph_class']]]
 ];

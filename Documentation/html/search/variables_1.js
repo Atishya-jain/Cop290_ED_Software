@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['drawing',['drawing',['../classInteractive__editor.html#ace62b483a0866c64212ee0c641445c7a',1,'Interactive_editor']]]
+  ['erase',['erase',['../classInteractive__editor.html#ac2f2f1dfb6c21585d4ed5ed043e41b25',1,'Interactive_editor']]]
 ];

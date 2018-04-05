@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getfilename',['getFileName',['../classInput.html#a45065353b80f9980111402e827aae0fe',1,'Input']]],
-  ['graphtolist',['GraphToList',['../classThreeDGraph__class.html#a521cb31c72fa3828840a3bf4403e1395',1,'ThreeDGraph_class']]]
+  ['initialiselookupforhidden3d',['InitialiseLookupForHidden3D',['../classThreeDGraph__class.html#a132845f27333d0c2ead3a27bb4398a4d',1,'ThreeDGraph_class']]],
+  ['isometric',['Isometric',['../classThreeDGraph__class.html#aec760645bb97742c87a50fe66aa68efe',1,'ThreeDGraph_class']]]
 ];

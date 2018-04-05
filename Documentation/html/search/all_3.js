@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['displayoptions',['displayOptions',['../classInteractive__editor.html#a8078ec1404bdd80e09320d14d198f628',1,'Interactive_editor']]],
-  ['drawing',['drawing',['../classInteractive__editor.html#ace62b483a0866c64212ee0c641445c7a',1,'Interactive_editor']]],
-  ['drawline',['drawLine',['../classInteractive__editor.html#a5a7723f6affebd15ae935eb48e91359f',1,'Interactive_editor']]]
+  ['edge',['edge',['../structedge.html',1,'']]],
+  ['erase',['erase',['../classInteractive__editor.html#ac2f2f1dfb6c21585d4ed5ed043e41b25',1,'Interactive_editor']]],
+  ['eraseit',['eraseIt',['../classInteractive__editor.html#a678c382483cb0b40d1616c1d28eaf200',1,'Interactive_editor']]]
 ];
