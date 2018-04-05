@@ -9,10 +9,6 @@
 #include "../Include/InputSrc.h"
 #include "../Include/OutputSrc.h"
 #include "../Include/InteractiveSrc.h"
-// #include "Graphs.cpp"
-// #include "InputSrc.cpp"
-// #include "OutputSrc.cpp"
-// #include "InteractiveSrc.cpp"
 using namespace std;
 /*! \fn main()*/
 int main(int argc, char *argv[]) {
@@ -152,7 +148,6 @@ int main(int argc, char *argv[]) {
 
 
 	//MODEL ROTATATION
-	// if(isFile3d){
 	input_3d.GraphToList(true);
 	input_3d.MeanNormalisation();
 	input_3d.ThreeDToOrthographic();
@@ -266,5 +261,3 @@ int main(int argc, char *argv[]) {
 	cout << "Thanks for using our software" << endl;
 	return a.exec();
 }
-
-// Our aim is not to create duplicates of graph everywhere but only to use pointers to point to one graph

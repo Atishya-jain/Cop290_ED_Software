@@ -66,8 +66,6 @@ using namespace std;
 
     // Access specifier
     public:
-    vector<vector<edge> > getPolygons(bool ch);
-    void InitialiseLookupForHidden3D(bool IsoOr3D);
 
     ThreeDGraph_class();
   
@@ -87,22 +85,34 @@ using namespace std;
     Mat matrix[3]; /*!< This is matrix for rotating about specific axis */
     Mat matrixA; /*!< This is matrix for rotating about specific axis */
     Mat matrixB; /*!< This is matrix for rotating about specific axis */
-    edge tempLineAns;
-    Vec tempLineVect;
-    Vec tempLineVectForPlane;
+    edge tempLineAns;/*!< This is an temporary edge*/
+    Vec tempLineVect;/*!< This is a temporary vector*/
+    Vec tempLineVectForPlane;/*!< This is a temporary vector*/
     vector<char> digit; /*!< To store the coincident labels in a view for a particular vertex*/
+
 
     //! A Member function.
     /*!
-      \sa Translation()
+      \param ch a boolean argument to recognize whether we have to recignize faces of our 3D graph/ Isometric graph
+      Function to recognize faces in a graph
+    */
+    vector<vector<edge> > getPolygons(bool ch);
+    //! A Member function.
+    /*!
+      Function to initialise a lookup vector to listOfPoints for 3D graph
+    */
+    void InitialiseLookupForHidden3D(bool IsoOr3D);
+    
+    //! A Member function.
+    /*!
       Function to create listOfPoints for 3D graph
     */
     void GraphToList(bool ThreeDGraphOrPlaneProj);
 
     //! A Member function.
     /*!
-      \sa Scaling()
       \param ScaleFactor to tell the factor of scale.
+      Will scale the graph to the scale factor
     */
     void Scaling(float ScaleFactor);
 
@@ -112,53 +122,54 @@ using namespace std;
       \param x to tell the amount of shift in x coordinate.
       \param y to tell the amount of shift in y coordinate.
       \param z to tell the amount of shift in z coordinate.
-      \param GraphOrLine boolean character to tell whether rotation required is of line or graph.
+      \param line line to translate.
+      \param GraphOrLine boolean character to tell whether translation required is of line or graph.
+      A function to translate the graph to specified position
     */
     void Translation(float x, float y, float z,edge line, bool GraphOrLine);
     //! A Member function.
     /*!
-      \sa ModelRotation()
-      \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
+      \param angle a float argument to tell the angle of rotation.
+      \param exis an edge about which we have to rotate.
+      A function to rotate a graph about an axis by an angle
     */
     void ModelRotation(float angle, edge axis);
 
      //! A Member function.
     /*!
-      \sa MeanNormalisation()
+    A function to scale and translate our object to origin and scale it to look good on canvas
     */
     void MeanNormalisation();
     //! A Member function.
     /*!
-      \sa Isometric()
+    A function to get Isometric graoh from 3D graph
     */
     void Isometric();
 
     //! A Member function.
     /*!
       \sa GraphToList()
-      \param view to specify the viewing direction wrt origin.
       \param equationOfPlane this defines the plane on which projection has to be taken.
+      A function to get a plane projection of a 3D graph on a plane
     */
     map<string, vector<point> > PlanarProjection(plane equationOfPlane);
 
     //! A Member function.
     /*!
-      \sa ThreeDToOrthographic()
-      \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
+    A function to create all 3 orthographic projections from a 3D graph and save them in a 2D graph
     */
     void ThreeDToOrthographic();
+
     //! A Member function.
     /*!
-      returns true if edge = solid line else false
-      \sa HiddenEdgeCheck()
-      \param edge a string argument.
+      Function to print 2D graph of Y-Z plane on terminal for debugging purposes
     */
-    bool HiddenEdgeCheck(edge line);
-
     void print();
 
+    //! A Member function.
+    /*!
+      Function to print 3D graph on terminal for debugging purposes
+    */
     void print3D();
   };
 #endif

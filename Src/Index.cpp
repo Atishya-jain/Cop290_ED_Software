@@ -29,7 +29,15 @@ Output O2;
 bool isFile3d;
 bool isInputFile;
 string filename;
-/*! \fn main()*/
+
+/*!
+\sa ModelRotation()
+\sa ThreeDToOrthographic()
+\sa Isometric()
+\sa RenderOutput3D()
+\sa RenderOutput2D()
+Coordinates the user click response on Up button and rotates the object about x axis
+*/
 void MainWindow::on_buttonUP_clicked()
 {
     //MODEL ROTATION and ISOMETRIC
@@ -62,6 +70,15 @@ void MainWindow::on_buttonUP_clicked()
     ui->orthographic->setPicture(pi4);
     ui->orthographic->show();
 }
+
+/*!
+\sa ModelRotation()
+\sa ThreeDToOrthographic()
+\sa Isometric()
+\sa RenderOutput3D()
+\sa RenderOutput2D()
+Coordinates the user click response on Left button and rotates the object about y axis
+*/
 void MainWindow::on_buttonLEFT_clicked()
 {
     //MODEL ROTATION and ISOMETRIC
@@ -94,6 +111,16 @@ void MainWindow::on_buttonLEFT_clicked()
     ui->orthographic->setPicture(pi4);
     ui->orthographic->show();
 }
+
+
+/*!
+\sa ModelRotation()
+\sa ThreeDToOrthographic()
+\sa Isometric()
+\sa RenderOutput3D()
+\sa RenderOutput2D()
+Coordinates the user click response on Right button and rotates the object about y axis
+*/
 void MainWindow::on_buttonRIGHT_clicked()
 {
     //MODEL ROTATION and ISOMETRIC
@@ -126,6 +153,16 @@ void MainWindow::on_buttonRIGHT_clicked()
     ui->orthographic->setPicture(pi4);
     ui->orthographic->show();
 }
+
+
+/*!
+\sa ModelRotation()
+\sa ThreeDToOrthographic()
+\sa Isometric()
+\sa RenderOutput3D()
+\sa RenderOutput2D()
+Coordinates the user click response on Down button and rotates the object about x axis
+*/
 void MainWindow::on_buttonDOWN_clicked()
 {
     //MODEL ROTATION and ISOMETRIC
@@ -158,6 +195,16 @@ void MainWindow::on_buttonDOWN_clicked()
     ui->orthographic->setPicture(pi4);
     ui->orthographic->show();
 }
+
+
+/*!
+\sa ModelRotation()
+\sa ThreeDToOrthographic()
+\sa Isometric()
+\sa RenderOutput3D()
+\sa RenderOutput2D()
+Coordinates the user click response on Z+ button and rotates the object about z axis
+*/
 void MainWindow::on_buttonZplus_clicked()
 {
     //MODEL ROTATION and ISOMETRIC
@@ -190,6 +237,15 @@ void MainWindow::on_buttonZplus_clicked()
     ui->orthographic->setPicture(pi4);
     ui->orthographic->show();
 }
+
+/*!
+\sa ModelRotation()
+\sa ThreeDToOrthographic()
+\sa Isometric()
+\sa RenderOutput3D()
+\sa RenderOutput2D()
+Coordinates the user click response on Z- button and rotates the object about z axis
+*/
 void MainWindow::on_buttonZminus_clicked()
 {
     //MODEL ROTATION and ISOMETRIC
@@ -222,6 +278,12 @@ void MainWindow::on_buttonZminus_clicked()
     ui->orthographic->setPicture(pi4);
     ui->orthographic->show();
 }
+
+/*!
+\sa PlanarProjection()
+\sa RenderOutput3D()
+Coordinates the user click response on plane button and does the corresponding planar projection
+*/
 void MainWindow::on_buttonPlane_clicked()
 {
     //PLANE PROJECTION
@@ -238,6 +300,10 @@ void MainWindow::on_buttonPlane_clicked()
     ui->planeProj->setPicture(pi3);
     ui->planeProj->show();
 }
+
+/*!
+Coordinates the user click response on radio buttons for 3D/2D and sets the corresponding values
+*/
 void Dialog::on_pushButton_clicked()
 {
     if (ui->rad2_inter->isChecked())
@@ -248,11 +314,16 @@ void Dialog::on_pushButton_clicked()
     cout << isFile3d << endl;
     close();
 }
+
+/*!
+Coordinates the user click response on browse button and browses the file on system.
+*/
 void Dialog::on_browse_clicked()
 {
     QString tmpFileName = QFileDialog::getOpenFileName(this, "Select the file", QDir::currentPath());
     ui->filename->setPlainText(tmpFileName);
 }
+
 void InteractiveInput::on_draw_clicked()
 {
     point p1;
@@ -280,6 +351,14 @@ void InteractiveInput::on_draw_clicked()
     ui->label->show();
 
 }
+
+/*!
+\sa InitialiseLookupForHidden3D()
+\sa GraphToList()
+\sa Isometric()
+\sa RenderOutput3D()
+Coordinates the user click response on erase button and does the corresponding erase action
+*/
 void InteractiveInput::on_erase_clicked()
 {
     point p1;
@@ -307,13 +386,18 @@ void InteractiveInput::on_erase_clicked()
     ui->label->show();
 }
 
+/*!
+Coordinates the user click response on Done button and does the corresponding action to close the interactive Input canvas.
+*/
 void InteractiveInput::on_Done_clicked()
 {
     close();
 }
 
 
-
+/*! \fn main()
+	It is the main control of our program.
+*/
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
     MainWindow w;
@@ -322,9 +406,6 @@ int main(int argc, char *argv[]) {
     isFile3d = true;
     isInputFile = true;
     d.exec();
-
-
-
 
     cout << "------INPUT------" << endl;
     if (isInputFile) {
@@ -382,7 +463,6 @@ int main(int argc, char *argv[]) {
     cout << "saving in output.txt ";
     if (isFile3d) {
         copy(begin(input_3d.TwoDGraph), end(input_3d.TwoDGraph), begin(O1.TwoDGraph));
-        // copy(begin(input_3d.LookupForHidden2D), end(input_3d.LookupForHidden2D), begin(O1.LookupForHidden2D));
         O1.saveToFile2D("output.txt");
     }
     else {

@@ -1,6 +1,5 @@
 /*! \file */
 #include <bits/stdc++.h>
-// #include "structs.cpp"
 #include "../Include/structs.h"
 #include "../Include/InteractiveSrc.h"
 #include "../Include/OutputSrc.h"
@@ -11,7 +10,7 @@ using namespace std;
 /*! \class Interactive_editor
     \brief Editor class.
 
-    This class contains the methods to edit a drawing or to play with a model drawing
+    This class contains the methods to edit a drawing or take the user input to draw on canvas.
 */
 
 
@@ -20,20 +19,11 @@ Interactive_editor::Interactive_editor() {
   erase = false;
 }
 /*!
-   Will set the options/settings user desires
-  \param drawing To check if user wants to draw something or want to edit the current drawing.
-  \param linedraw To check if user wants to draw a line.
-  \param circledraw To check if user wants to draw a cicle.
-  \param erase To check if user wants to erase something.
-  \param extrude To check if user wants to extrude a plane.
-  \param flag3Dfile To check if file is input or an intercative input.
+   Will get the points the user wants to delete or draw.
+   \sa drawLine()
+   \sa eraseIt()
 */
 void Interactive_editor::userInput() {
-  /*
-      Display the options
-      cin >> something
-  */
-
   if (lineDraw) {
     struct point tempPointA, tempPointB;
     float x, y, z;
@@ -80,6 +70,7 @@ void Interactive_editor::userInput() {
 
 /*!
    Will display the options/settings user desires
+   \sa userInput()
 */
 void Interactive_editor::displayOptions() {
   /*Display various options*/
@@ -87,11 +78,9 @@ void Interactive_editor::displayOptions() {
 }
 
 /*!
-   Will set the options/settings user desires
-  \param poin1 To get 1st point of line.
-  \param poin2 To get 2nd point of line.
-  \param thickness To get thickness of line.
-  \param color To get color of the line.
+   Will make a graph to store the user desired line.
+  \param point1 To get 1st point of line.
+  \param point2 To get 2nd point of line.
 */
 void Interactive_editor::drawLine(point p1, point p2) {
   /*draws a line*/
@@ -116,7 +105,9 @@ void Interactive_editor::drawLine(point p1, point p2) {
 }
 
 /*!
-   Will set the options/settings user desires
+   Will erase the line user wishes to erase
+   \param point1 To get the 1st point of line
+   \param point2 To get the 2nd point of line
 */
 void Interactive_editor::eraseIt(point p1, point p2) {
   /*erases a line*/
@@ -146,7 +137,7 @@ void Interactive_editor::eraseIt(point p1, point p2) {
   }
 }
 /*!
- To print the graph
+ To print the graph on terminal
  */
 void Interactive_editor::print() {
   for (std::map<string, vector<point> >::iterator it = MyPlane.begin(); it != MyPlane.end(); ++it) {

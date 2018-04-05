@@ -9,16 +9,13 @@ using namespace std;
 /*! \class Input
     \brief Input class.
 
-    This class contains the methods to input content from a file or drawing etc..
+    This class contains the methods to input content from a file etc..
 */
-// class Input
-// {
 
-  // Access specifier
-  // public:
-   
   /*!
-     Will prompt the user for filename or through GUI
+     Will set the filename and type of file the user desires
+     \param file a string argument containing the filename
+     \param threeD a boolean argument containing the type of file
   */
   void Input::getFileName(string file, bool threeD){
     filename=file;
@@ -26,8 +23,7 @@ using namespace std;
   }
 
   /*!
-    \param filename a string argument.
-    \param ThreeDorTwoD boolean character to tell the type of file (3D/2D).
+  	Will read the file user wants to input and process it to convert it into a graph to store the object
   */
   void Input::ReadFile(){
     string line;
@@ -166,6 +162,10 @@ using namespace std;
       }
     myfile.close();
   }
+
+  /*!
+  	Will print the 2D graph Y-Z projection on the terminal. Used mainly for debugging 
+  */
   void Input::print(){
       for (std::map<string, vector<point> >::iterator it=TwoDGraph[0].begin(); it!=TwoDGraph[0].end(); ++it){
         cout<<it->first+"->";
@@ -175,7 +175,11 @@ using namespace std;
         cout<<endl;
       }
     }
-  void Input::print3D(){
+  
+  /*!
+  	Will print the 3D graph on the terminal. Used mainly for debugging 
+  */
+   void Input::print3D(){
       for (std::map<string, vector<point> >::iterator it=ThreeDGraph.begin(); it!=ThreeDGraph.end(); ++it){
         cout<<it->first+"->";
         for(int j=0;j<signed(it->second.size());j++){
@@ -184,5 +188,3 @@ using namespace std;
         cout<<endl;
       }
     }
-
-// };

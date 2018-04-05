@@ -9,6 +9,10 @@ typedef vector<Vec> Mat;
 #define ERRORMARGIN 0.0000001
 
 using namespace std;
+
+/*!
+Overloads the * operator to allow for a matrix and a vector multiplication
+*/
 Vec operator*(const Mat &a, const Vec &x){
   int i,j;
   int m = a.size();
@@ -31,8 +35,7 @@ Vec operator*(const Mat &a, const Vec &x){
     in the software. It can be rotated, projected along some plane or
     can give its orthographic projections
 */
-// class ThreeDGraph_class{
-  // private:
+
   bool ThreeDGraph_class::sortinrev(const pair<float,string> &a, const pair<float,string> &b){
          return (a.first > b.first);
   }
@@ -476,9 +479,8 @@ Vec operator*(const Mat &a, const Vec &x){
   	FaceGraph.clear();
     FaceGraph = getPolygons(ch);
   }
-  // Access specifier
-  // public:
 
+// Public functions
   ThreeDGraph_class::ThreeDGraph_class(){
     matrix[0] = createMatrix();
     matrix[1] = createMatrix();
@@ -596,11 +598,6 @@ Vec operator*(const Mat &a, const Vec &x){
       }
       return toReturn;
     }
-     //! A Member function.
-  /*!
-    \sa Translation()
-    Function to create listOfPoints for 3D graph
-  */
     
   void ThreeDGraph_class::GraphToList(bool ThreeDGraphOrPlaneProj){
     if(ThreeDGraphOrPlaneProj){
@@ -616,11 +613,6 @@ Vec operator*(const Mat &a, const Vec &x){
     }
   }
 
-  //! A Member function.
-  /*!
-    \sa Scaling()
-    \param ScaleFactor to tell the factor of scale.
-  */
   void ThreeDGraph_class::Scaling(float ScaleFactor){
     long siz = listOfPoints.size();
     for(int i = 0; i<siz; i++){
@@ -635,14 +627,6 @@ Vec operator*(const Mat &a, const Vec &x){
     }
   }
 
-  //! A Member function.
-  /*!
-    \sa Translation()
-    \param x to tell the amount of shift in x coordinate.
-    \param y to tell the amount of shift in y coordinate.
-    \param z to tell the amount of shift in z coordinate.
-    \param GraphOrLine boolean character to tell whether rotation required is of line or graph.
-  */
   void ThreeDGraph_class::Translation(float x, float y, float z,edge line, bool GraphOrLine){
     if (GraphOrLine){ // if true then graph else axis
       long siz = listOfPoints.size();
@@ -667,12 +651,6 @@ Vec operator*(const Mat &a, const Vec &x){
     }
   }
 
-  //! A Member function.
-  /*!
-    \sa ModelRotation()
-    \param filename a string argument.
-    \param flag3Dfile boolean character to tell the type of file (3D/2D).
-  */
   void ThreeDGraph_class::ModelRotation(float angle, edge axis){
     if (angle!=0){
       angle = angle*(PI/180);
@@ -714,10 +692,6 @@ Vec operator*(const Mat &a, const Vec &x){
     }
   }
 
-   //! A Member function.
-  /*!
-    \sa MeanNormalisation()
-  */
   void ThreeDGraph_class::MeanNormalisation(){
     long siz = listOfPoints.size();
     float meanx = 0;
@@ -779,10 +753,6 @@ Vec operator*(const Mat &a, const Vec &x){
     Scaling(factor);
   }
 
-  //! A Member function.
-  /*!
-    \sa Isometric()
-  */
   void ThreeDGraph_class::Isometric(){
     long totalPoints;
     IsometricGraph = ThreeDGraph;
@@ -808,12 +778,6 @@ Vec operator*(const Mat &a, const Vec &x){
     classifyHiddenEdge(2, false);
   }
 
-  //! A Member function.
-  /*!
-    \sa GraphToList()
-    \param view to specify the viewing direction wrt origin.
-    \param equationOfPlane this defines the plane on which projection has to be taken.
-  */
   map<string, vector<point> > ThreeDGraph_class::PlanarProjection(plane equationOfPlane){
     InitialiseLookupForHidden3D(true);
     map<string, vector<point> > tempProj;
@@ -893,12 +857,6 @@ Vec operator*(const Mat &a, const Vec &x){
     return tempProj;
   }
 
-  //! A Member function.
-  /*!
-    \sa ThreeDToOrthographic()
-    \param filename a string argument.
-    \param flag3Dfile boolean character to tell the type of file (3D/2D).
-  */
   void ThreeDGraph_class::ThreeDToOrthographic(){
     LookupForHidden2D[0].clear();
     LookupForHidden2D[1].clear();
@@ -1031,4 +989,3 @@ Vec operator*(const Mat &a, const Vec &x){
       cout<<endl;
     }
   }
-// };

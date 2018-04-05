@@ -20,8 +20,8 @@ using namespace std;
     //! A Member function.
     /*!
       \sa RenderOutput3D()
-      \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
+      \param picture object a QPicture argument.
+      This function is used to render 3D/Isometric graph on a 2D screen of your system.
     */
     QPicture Output::RenderOutput3D(QPicture pi){
       PlaneProjTemp.clear();
@@ -59,11 +59,10 @@ using namespace std;
     }
 
  
-	  //! A Member function.
+    //! A Member function.
     /*!
       \sa RenderOutput2D()
-      \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
+      \param picture object a QPicture argument.
     */
     QPicture Output::RenderOutput2D(QPicture pi){
       TwoDGraphTemp[0].clear();
@@ -188,7 +187,7 @@ using namespace std;
           s.erase(0, pos + delimiter.length());
         }
         keys.push_back(s);
-        for(int z = 0;z<keys.size();z++){
+        for(int z = 0;z<signed(keys.size());z++){
           bool found = false;
           for(map<string, vector<point> >::iterator it1=TwoDGraphTemp[1].begin(); it1!=TwoDGraphTemp[1].end(); ++it1){
             string key1=it1->first;
@@ -203,7 +202,7 @@ using namespace std;
               s1.erase(0, pos1 + delimiter1.length());
             }
             keys1.push_back(s1);
-            for(int x = 0;x<keys1.size();x++){
+            for(int x = 0;x<signed(keys1.size());x++){
               if(keys1[x] == keys[z]){
                 p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], TwoDGraphTemp[1][it1->first][0].coordinate[0],TwoDGraphTemp[1][it1->first][0].coordinate[1]);
                 found = true;
@@ -228,7 +227,7 @@ using namespace std;
               s1.erase(0, pos1 + delimiter1.length());
             }
             keys1.push_back(s1);
-            for(int x = 0;x<keys1.size();x++){
+            for(int x = 0;x<signed(keys1.size());x++){
               if(keys1[x] == keys[z]){
                 p.drawLine(MainPoint.coordinate[0], MainPoint.coordinate[1], TwoDGraphTemp[2][it1->first][0].coordinate[0],TwoDGraphTemp[2][it1->first][0].coordinate[1]);
                 found = true;
@@ -249,7 +248,7 @@ using namespace std;
     /*!
       \sa saveToFile3D()
       \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
+      This function is used to save our 3D object in a file for output.
     */
     void Output::saveToFile3D(string fname){
       ofstream myfile;
@@ -274,7 +273,7 @@ using namespace std;
     /*!
       \sa saveToFile2D()
       \param filename a string argument.
-      \param flag3Dfile boolean character to tell the type of file (3D/2D).
+      This function is used to save our 2D file in a output file.
     */
     void Output::saveToFile2D(string fname){
         cout<<"IN davinf 2d"<<endl;
@@ -297,4 +296,3 @@ using namespace std;
       }
       myfile.close();
     }
-// };
