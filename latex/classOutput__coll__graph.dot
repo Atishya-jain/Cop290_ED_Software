@@ -1,6 +1,0 @@
-digraph "Output"
-{
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{Output\n|+ LookupForHidden2D\l+ LookupForHidden3D\l+ TwoDGraph\l+ ThreeDGraph\l+ PlaneProj\l+ TwoDGraphTemp\l+ PlaneProjTemp\l|+ RenderOutput3D()\l+ RenderOutput2D()\l+ saveToFile3D()\l+ saveToFile2D()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-}

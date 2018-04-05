@@ -243,8 +243,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
-		ui_mainwindow.h \
-		../structs.cpp
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 2DProcessingSrc.o: ../2DProcessingSrc.cpp ../../Include/2DProcessingSrc.h \
